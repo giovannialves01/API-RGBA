@@ -4,14 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.hibernate.query.Query;
-
 
 /**
  * Classe responsável por realizar as ações que interagem com o banco de dados
  * 
  * @author Rafael Furtado
- * @
  */
 public class DBAdmin {
 	
