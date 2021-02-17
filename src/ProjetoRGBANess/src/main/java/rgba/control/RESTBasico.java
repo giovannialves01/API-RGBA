@@ -23,4 +23,3 @@ public class RESTBasico {
 		return "Uma string qualquer";
 	}
 }
- 
