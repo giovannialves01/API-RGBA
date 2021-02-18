@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public class ConnectionFactory {
 
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("WebTeach");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("SkillShare");
 	
 	public EntityManager getConnection() {
 		
