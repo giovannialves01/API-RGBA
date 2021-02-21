@@ -3,14 +3,16 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'war'
+	
 }
 
 group = 'SkillShare'
-version = '0.0.1-SNAPSHOT'
+version = 'JAR'
 sourceCompatibility = '15'
 
 repositories {
 	mavenCentral()
+	
 }
 
 dependencies {
@@ -26,6 +28,15 @@ dependencies {
 	
 }
 
+jar {
+	manifest {
+        attributes(
+			'Main-Class': 'rgba.Application'
+        )
+    }
+}
+
 test {
 	useJUnitPlatform()
+	
 }
