@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <script src="js/ServerRequester.js"></script>
-    <script src="js/script.js"></script>
 </head>
 <body>
     <h1>Página home!</h1>
     <button onclick="window.location.href = 'pagina2.html'">Ir para Página 2</button>
-    <button onclick="console.log(serverRequester.fazerGet('/rest/json'))">Fazer GET (JSON)</button>
-    <button onclick="fazerGetTexto()">Fazer GET(texto)</button>
+    <button onclick="testePost()">Fazer POST</button>
+    <button onclick="testeGet()">Fazer GET</button>
+
+    <script>
+        async function testePost() {
+            let a = await serverRequester.fazerPost('/rest/post', {abc: 1});
+            console.log(a);
+        }
+
+        async function testeGet() {
+            console.log(await serverRequester.fazerGet('/rest/get', {abc: 1}));
+        }
+    </script>
+
 </body>
 </html>
