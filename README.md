@@ -14,4 +14,6 @@
 
 * [Bárbara Bidoia Bidetti](https://www.linkedin.com/in/barbara-bidetti-bb910a1b3/) (*Development Team*)
 
+* [Nicholas Gabriel dos Santos Roque](https://www.linkedin.com/in/nicholas-gabriel-dos-santos-roque-9113511b2/) (*Development Team*)
+
 * [Rafael Furtado Rodrigues dos Santos](https://www.linkedin.com/in/rafael-furtado-613a9712a/) (*Development Team*)
