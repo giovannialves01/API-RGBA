@@ -17,3 +17,5 @@
 * [Nicholas Gabriel dos Santos Roque](https://www.linkedin.com/in/nicholas-gabriel-dos-santos-roque-9113511b2/) (*Development Team*)
 
 * [Rafael Furtado Rodrigues dos Santos](https://www.linkedin.com/in/rafael-furtado-613a9712a/) (*Development Team*)
+
+* [Felipe Silva](https://www.linkedin.com/in/felipe-silva-13b3b61a0/) (*Development Team*)
