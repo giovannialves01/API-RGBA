@@ -1,6 +1,6 @@
 ## SkillShare :brain::computer:	
 
-#### Integrantes da equipe
+#### Integrantes da equipe :girl::boy:
 
 * [Giovanni dos Santos Alves](https://www.linkedin.com/in/giovanni-santos-546412154/) (*Scrum Master*)
 
