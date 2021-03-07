@@ -1,51 +1,184 @@
-.modal{
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+:root{
+    --signUpButtonBgColor: #3fbdda;
+    --signUpButtonHoverColor: #2f8ea3;
+    --signUpButtonActiveColor: #88dbee;
 }
 
-.modal-content {
+
+/* Classe para a div que fica no fundo do Modal */
+.modalBackground{
+    display: none; /* Deixa o modal escondido, inicialmente*/
+    position: fixed; /* Deixa a posição fixa */
+    z-index: 1; /* Faz ficar por cima de tudo na página*/
+    left: 0;
+    top: 0;
+    width: 100%; /* Seta a largura para a tela toda*/
+    height: 100%; /* Seta a altura para a tela toda*/
+    overflow: auto; /* Permite scroll, caso necessário*/
+    background-color: rgba(0,0,0,0.4); /* Cor do fundo escuro, transparente */
+}
+
+/* Classe para o Modal em si */
+.modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    padding: 0;
     border: 1px solid #888;
-    width: 80%;
+    width: 600px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: dropModal;
+    padding: 0px 0px 40px 0px;
+
+
+}
+
+.modalHeader{
+    border-width: 0px 0px 5px 0px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+    padding-left: 20px;
+    padding-right: 00px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+                                    /*  Classes ativadoras das animações */
+
+.showModal{
+    animation-name: animationShowModal;
     animation-duration: 0.4s;
-    padding: 10px;
+    opacity: 1;
+
+    top: 15%;
+
 }
 
-@keyframes dropModal{
-    from {
-        top: -300px;
-        opacity: 0;
-    } to{
-        top: 0px;
-        opacity: 1;
-    }
-}
-
-@keyframes hideModal{
-    from {
-        top: 0px;
-        opacity: 1;
-    } to{
-        top: -300px;
-        opacity: 0;
-    }
-}
-
-.animate{
-    animation-name: hideModal;
+.hideModal{
+    animation-name: animationHideModal;
     animation-duration: 0.4s;
     opacity: 0;
+
+    top: -10%;
+
+}
+
+
+
+                                    /*  Keyframes - Animações  */
+
+@keyframes animationShowModal{
+    from {
+        top: -10%;
+        opacity: 0;
+
+    } to{
+        top: 15%;
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes animationHideModal{
+    from {
+        top: 15%;
+        opacity: 1;
+
+    } to{
+        top: -15%;
+        opacity: 0;
+
+    }
+
+}
+
+
+
+.beautyInputContainer{
+    width: 230px;
+    height: 50px;
+
+    padding: 15px;
+
+}
+
+.beautyInputLabel{
+    position: relative;
+
+    font-size: 20px;
+    bottom: -5px;
+    opacity: 0.5;
+    left: 10px;
+    pointer-events: none;
+    
+    transition: bottom, font-size, 0.5s;
+}
+
+.beautyInput:focus ~ .beautyInputLabel, :not(.beautyInput:placeholder-shown) ~ .beautyInputLabel{
+    bottom: 20px;
+    left: 0px;
+    font-size: 15px;
+}
+
+.beautyInput{
+    position: absolute;
+    border-width: 0px 0px 2px 0px;
+    border-color: lightseagreen;
+
+    background-color: transparent;
+
+    width: 200px;
+    height: 30px;
+}
+
+.beautyInput:focus{
+    outline: none;
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.beautyInput:hover {
+    background-color: rgba(119, 136, 153, 0.1);
+}
+
+.beautyInput:focus:hover{
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+
+
+.beautyButton{
+    padding: 12px 16px 12px 16px;
+
+    width: 80%;
+
+    border-radius: 13px;
+    border: none;
+
+    background-color: var(--signUpButtonBgColor);
+    color: cornsilk;  /* Cor do texto */
+
+    transition: 0.1s;  /* Transição para clicar */
+}
+
+.beautyButton:hover{
+    background-color: var(--signUpButtonHoverColor);
+
+    cursor: pointer;
+}
+
+.beautyButton:focus{
+    outline: none;
+}
+
+.beautyButton:active{
+    background: var(--signUpButtonActiveColor);
+}
+
+.beautySelect{
+    margin: 10px;
+    align-self: flex-start;
 }
