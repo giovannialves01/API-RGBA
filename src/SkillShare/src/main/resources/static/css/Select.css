@@ -1,0 +1,15 @@
+.combobox{
+    width: 200px;
+    height: 30px;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 5px;
+    margin: 10px;
+    border-color: lightseagreen;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.combobox:focus{
+    outline: none;
+}

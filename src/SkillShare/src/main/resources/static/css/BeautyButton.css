@@ -1,0 +1,27 @@
+.beautyButton{
+    padding: 12px 16px 12px 16px;
+
+    width: 80%;
+
+    border-radius: 13px;
+    border: none;
+
+    background-color: var(--signUpButtonBgColor);
+    color: cornsilk;  /* Cor do texto */
+
+    transition: 0.1s;  /* Transição para clicar */
+}
+
+.beautyButton:hover{
+    background-color: var(--signUpButtonHoverColor);
+
+    cursor: pointer;
+}
+
+.beautyButton:focus{
+    outline: none;
+}
+
+.beautyButton:active{
+    background: var(--signUpButtonActiveColor);
+}
