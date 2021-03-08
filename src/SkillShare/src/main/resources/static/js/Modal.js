@@ -60,10 +60,10 @@ class Modal extends HTMLElement{
         let buttonBuilder = new BeautyButton();
 
         // Cria os componentes
-        let nameInput = inputBuilder.buildBeautyInput("text", "Insira seu nome", "Nome");
-        let emailInput = inputBuilder.buildBeautyInput("email", "Insira seu e-mail", "E-mail");
-        let passwordInput = inputBuilder.buildBeautyInput("password", "Insira sua senha", "Senha");
-        let rePasswordInput = inputBuilder.buildBeautyInput("password", "Confirme sua senha", "Confirmar senha");
+        let nameInput = inputBuilder.buildBeautyInput("text", "Insira seu nome", "Nome", true, "user");
+        let emailInput = inputBuilder.buildBeautyInput("email", "Insira seu e-mail", "E-mail", true, "envelope");
+        let passwordInput = inputBuilder.buildBeautyInput("password", "Insira sua senha", "Senha", true, "key");
+        let rePasswordInput = inputBuilder.buildBeautyInput("password", "Confirme sua senha", "Confirmar senha", true, "key");
         let signUpButton = buttonBuilder.buildBeautyButton();
 
         // Cria as divs para organizar os componentes
@@ -71,17 +71,21 @@ class Modal extends HTMLElement{
         nameEmailDiv.classList.add("hBox");
         let passRepassDiv = document.createElement("div");
         passRepassDiv.classList.add("hBox");
+        let div = document.createElement("div");
+        div.classList.add("hBox");
 
         // Adiciona os componentes em suas respectivas divs
         nameEmailDiv.appendChild(nameInput);
         nameEmailDiv.appendChild(emailInput);
         passRepassDiv.appendChild(passwordInput);
         passRepassDiv.appendChild(rePasswordInput);
+        div.appendChild(this.buildBeautySelect("Select", ["Gênero", "Masculino", "Feminino"]));
+        div.appendChild(new UsageTerms().buildUsageTerms());
 
         // Coloca as divs dentro do modal
         modal.appendChild(nameEmailDiv);
         modal.appendChild(passRepassDiv);
-        modal.appendChild(this.buildBeautySelect("Select", ["Gênero", "Masculino", "Feminino"]));
+        modal.appendChild(div);
         modal.appendChild(signUpButton);
 
         // Adiciona o modal por cima do fundo escuro

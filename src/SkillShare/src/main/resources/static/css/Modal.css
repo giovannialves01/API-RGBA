@@ -27,6 +27,23 @@
 
 }
 
+@media (max-width: 610px){
+    .modal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        border: 1px solid #888;
+        width: 320px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        padding: 0px 0px 40px 0px;
+        border-radius: 5px;
+    
+    }
+}
+
 .modalHeader{
     border-width: 0px 0px 5px 0px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);

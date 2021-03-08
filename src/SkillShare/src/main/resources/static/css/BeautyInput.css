@@ -1,9 +1,12 @@
 
 .beautyInputContainer{
+    position: relative;
     width: 230px;
     height: 50px;
 
     padding: 15px;
+
+    left: 13px;
 
 }
 
