@@ -1,3 +1,9 @@
+/**
+ * Classe do Web Component Modal (tag modal-element), englobando todas as suas funcionalidades, métodos
+ * e controles de ações
+ * 
+ * @author Rafael Furtado
+ */
 class Modal extends HTMLElement{
     constructor(){
         super();
@@ -20,8 +26,7 @@ class Modal extends HTMLElement{
      * Constrói o modal de acordo com o "type" específicado dentro da tag
      * 
      * @author Rafael Furtado
-     * @param void
-     * @returns void
+     * @returns undefined
      */
     connectedCallback(){
         let type = this.getAttribute("type");
@@ -46,8 +51,7 @@ class Modal extends HTMLElement{
      * Constrói todos os elementos correspondentes ao modal do tipo "signUp" (Registrar-se)
      * 
      * @author Rafael Furtado
-     * @param void
-     * @returns void
+     * @returns undefined
      */
     buildSignUpModal(){
         // Cria o fundo escuro e o modal em si
@@ -58,34 +62,43 @@ class Modal extends HTMLElement{
         // Instância as classes para fornecer os componentes
         let inputBuilder = new BeautyInput();
         let buttonBuilder = new BeautyButton();
+        let selectBuilder = new BeautySelect();
+        let usageTermsBuilder = new UsageTerms();
 
         // Cria os componentes
         let nameInput = inputBuilder.buildBeautyInput("text", "Insira seu nome", "Nome", true, "user");
         let emailInput = inputBuilder.buildBeautyInput("email", "Insira seu e-mail", "E-mail", true, "envelope");
         let passwordInput = inputBuilder.buildBeautyInput("password", "Insira sua senha", "Senha", true, "key");
         let rePasswordInput = inputBuilder.buildBeautyInput("password", "Confirme sua senha", "Confirmar senha", true, "key");
-        let signUpButton = buttonBuilder.buildBeautyButton();
+        let signUpButton = buttonBuilder.buildBeautyButton("Cadastrar", "Clique aqui para se cadastrar",
+        function () {
+            console.log("Cadastrado!");
+
+        });
+        let select = selectBuilder.buildBeautySelect("Selecione o seu gênero", 
+        ["Gênero", "Masculino", "Feminino", "Não informar"]);
+        let usageTerms = usageTermsBuilder.buildUsageTerms("path/to/my/terms");
 
         // Cria as divs para organizar os componentes
         let nameEmailDiv = document.createElement("div");
         nameEmailDiv.classList.add("hBox");
         let passRepassDiv = document.createElement("div");
         passRepassDiv.classList.add("hBox");
-        let div = document.createElement("div");
-        div.classList.add("hBox");
+        let genTermsDiv = document.createElement("div");
+        genTermsDiv.classList.add("hBox");
 
         // Adiciona os componentes em suas respectivas divs
         nameEmailDiv.appendChild(nameInput);
         nameEmailDiv.appendChild(emailInput);
         passRepassDiv.appendChild(passwordInput);
         passRepassDiv.appendChild(rePasswordInput);
-        div.appendChild(this.buildBeautySelect("Select", ["Gênero", "Masculino", "Feminino"]));
-        div.appendChild(new UsageTerms().buildUsageTerms());
+        genTermsDiv.appendChild(select);
+        genTermsDiv.appendChild(usageTerms);
 
         // Coloca as divs dentro do modal
         modal.appendChild(nameEmailDiv);
         modal.appendChild(passRepassDiv);
-        modal.appendChild(div);
+        modal.appendChild(genTermsDiv);
         modal.appendChild(signUpButton);
 
         // Adiciona o modal por cima do fundo escuro
@@ -131,7 +144,7 @@ class Modal extends HTMLElement{
      * Constrói o fundo escuro sobre o qual o modal ficará por cima
      * 
      * @author Rafael Furtado
-     * @param void
+     * @param undefined
      * @returns O componente que será o fundo escuro
      */
     buildBackground(){
@@ -169,6 +182,8 @@ class Modal extends HTMLElement{
         // Criação dos componentes da head do modal
         let headerTitle = document.createElement("h3");
         headerTitle.textContent = title;
+        headerTitle.classList.add("headerText");
+        
         let headerText = document.createElement("p");
         headerText.textContent = text;
 
@@ -185,7 +200,7 @@ class Modal extends HTMLElement{
     
     buildBeautySelect(title, options){
         let select = document.createElement("select");
-        select.classList.add("combobox");
+        select.classList.add("beautySelect");
         select.title = title;
 
         let option = document.createElement("option");
@@ -210,5 +225,5 @@ class Modal extends HTMLElement{
 
 }
 
-
+// Declara a nova tag para que seja reconhecida na página HTML
 customElements.define("modal-element", Modal);

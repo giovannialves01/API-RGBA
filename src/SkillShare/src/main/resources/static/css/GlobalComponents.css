@@ -1,11 +1,17 @@
 body{
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Poppins;
+
+    margin: 0px;
+
 }
 
 :root{
     --signUpButtonBgColor: #3fbdda;
     --signUpButtonHoverColor: #2f8ea3;
     --signUpButtonActiveColor: #88dbee;
+    --beautyInputBorderColor: #0fcac3;
+    --beautyInputIconColor: var(--beautyInputBorderColor);
+    --headerTextColor: #0aada7;
 }
 
 .justifyLeft{
@@ -20,11 +26,12 @@ body{
     width: 600px;
 
 }
-@media all and (max-width: 610px){
+@media (max-width: 610px){
     .hBox{
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 220px;
 
     }
     .hBox > .usageTermsContainer{
@@ -40,6 +47,16 @@ body{
 
 }
 
+.vBoxBorder{
+    border: solid rgba(0, 0, 0, 0.1);
+    border-width: 2px;
+    height: 100vh;
+    width: 500px;
+    box-shadow: 0px -5px 5px 0px rgba(0, 0, 0, 0.274);
+    justify-content: center;
+
+}
+
 .usageTermsContainer{
     display: flex;
     flex-direction: row;
@@ -48,15 +65,12 @@ body{
     margin-bottom: 20px;
 }
 
-.maxlabel{
+.usageTermsLabel{
     width: 250px;
     margin-left: 5px;
     left: 20px;
-}
 
-.fa-blue{
-    color: turquoise;
-    font-size: 50px;
+    text-decoration: underline;
 }
 
 .fa-beautyInputIcon{
@@ -64,5 +78,9 @@ body{
     left: -10px;
     bottom: 36px;
     font-size: 20px;
-    color:#31a0b9;
+    color:var(--beautyInputIconColor);
+}
+
+.headerText{
+    color: var(--headerTextColor);
 }

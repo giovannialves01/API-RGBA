@@ -1,14 +1,8 @@
-html{
-    height: 100%;
-    margin-top:0px;
-}
-
-
 body{
-    background-color: #f0f0f0;
-    font-family: sans-serif;
-    height: 100%;
-    margin-top:0px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -65,5 +59,17 @@ body{
 .btn button:hover{
     background-image: linear-gradient(to right, #0fcac3, #0b706d);
 
+}
+
+.beautyButton{
+    width: 300px;
+    margin-top: 5px;
+
+}
+
+.link{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
