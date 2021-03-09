@@ -111,31 +111,20 @@ class Modal extends HTMLElement{
 
     buildRecoverModal(){
         let background = this.buildBackground();
-        let modal = this.buildModalContainer();
+        let modal = this.buildModalContainer("Recuperação de senha", 
+        "Insira seu e-mail abaixo, caso exista uma conta vinculada a ele, lhe enviaremos uma e-mail de recuperação");
 
-        let title = document.createElement("h4");
-        title.textContent = "Recuperação de senha";
+        let inputBuilder = new BeautyInput();
+        let buttonBuilder = new BeautyButton();
 
-        let text = document.createElement("span");
-        text.textContent = "Esqueceu sua senha? Preencha o campo abaixo com seu e-mail e, caso o " +
-        "e-mail fornecido tenha uma conta vinculada à ele, lhe enviaremos um e-mail de recuperação";
+        let emailField = inputBuilder.buildBeautyInput("email", "Insira seu e-mail", "E-mail", true, "envelope");
+        let button = buttonBuilder.buildBeautyButton("Enviar e-mail de recuperação", "Clique para enviar um e-mail de recuperação",
+        function () {
+           console.log("email enviado!") ;
+        });
 
-        let emailInput = document.createElement("input");
-        emailInput.title = "E-mail";
-        emailInput.placeholder = "E-mail";
-        emailInput.classList.add("modalInputs");
-
-        let recoverButton = document.createElement("button");
-        recoverButton.textContent = "Recuperar";
-        recoverButton.onclick = function () {
-            console.log("a");
-            
-        }
-
-        modal.appendChild(title);
-        modal.appendChild(text);
-        modal.appendChild(emailInput);
-        modal.appendChild(recoverButton);
+        modal.appendChild(emailField);
+        modal.appendChild(button);
 
         background.appendChild(modal);
 
