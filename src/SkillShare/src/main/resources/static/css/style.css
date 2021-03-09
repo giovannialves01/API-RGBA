@@ -1,0 +1,69 @@
+html{
+    height: 100%;
+    margin-top:0px;
+}
+
+
+body{
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+    height: 100%;
+    margin-top:0px;
+}
+
+
+.formulario-login{
+    width: 400px;
+    margin: auto;
+    height:100%;
+    margin-top:0px;
+    justify-content: center;
+}
+
+.login{
+    box-shadow: 1px 1px px #ccc; 
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    height: 100%;
+    justify-content: center;
+}
+
+.topo{
+    text-align: center;
+}
+
+.title{
+    color:#0fcac3;
+}
+
+.credenciais{
+    margin-bottom: 10px;
+}
+
+
+.credenciais>input{
+    border-radius: 5px;
+    outline: 0;
+    width: 100%;
+    height: 25px;
+    padding: 5px;
+    border-width: 0px 0px 2px 0px;
+    border-color:#0fcac3 ;
+}
+
+.credenciais>button{
+    background-image: linear-gradient(to right, #0fcac3, #119e99);
+    width: 100%;
+    border-radius: 30px;
+    padding: 15px;
+    color: white;
+    border: 0px;
+    outline: 0;
+}
+
+.btn button:hover{
+    background-image: linear-gradient(to right, #0fcac3, #0b706d);
+
+}
+
