@@ -31,6 +31,8 @@ class Modal extends HTMLElement{
     connectedCallback(){
         let type = this.getAttribute("type");
 
+        this.id = type;
+
         let modalElement;
 
         // Verifica se o "type" passado é válido e chama o método construtor adequado
@@ -150,7 +152,7 @@ class Modal extends HTMLElement{
     buildBackground(){
         let modalBackground = document.createElement("div");
 
-        modalBackground.id = "modalMenu";
+        modalBackground.id = "modalMenu-" + this.id;
         modalBackground.classList.add("modalBackground");
 
         return modalBackground;
@@ -165,7 +167,7 @@ class Modal extends HTMLElement{
      */
     buildModalContainer(title, text){
         let modal = document.createElement("form");
-        modal.id = "modalContent";
+        modal.id = "modalContent-" + this.id;
         modal.classList.add("modal");
 
         // Previne que o método nativo "onsubmit" da tag form seja invocado, para

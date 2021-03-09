@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../static/css/BeautyButton.css">
     <link rel="stylesheet" href="../static/css/Login.css">
 
-    <script src="../static/js/script.js"></script>
+    <script src="../static/js/PageController.js"></script>
     <script src="../static/js/BeautyInput.js"></script>
     <script src="../static/js/BeautyButton.js"></script>
     <script src="../static/js/BeautySelect.js"></script>
@@ -25,7 +25,10 @@
 
 </head>
 <body>
+    <modal-element type="recover"></modal-element>
     <modal-element type="signUp"></modal-element>
+
+
 
     <div class="vBox vBoxBorder">
             <div class="topo">
@@ -45,11 +48,11 @@
 
             <div class="vbox">
                 <span>Não possui uma conta?</span>
-                <span>Clique <span tabindex="0" class="link" onclick="showModal()">aqui</span></span>
+                <span>Clique <span tabindex="0" class="link" onclick="pageController.showModal('signUp')">aqui</span></span>
             </div>
 
             <div class="vbox">
-                <span tabindex="9" class="link" onclick="console.log('aa')">Esqueci minha senha</span>
+                <span tabindex="9" class="link" onclick="pageController.showModal('recover')">Esqueci minha senha</span>
             </div>
     </div>
 
