@@ -16,42 +16,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 
-import rgba.SkillShare.model.Usuario;
-import rgba.SkillShare.repository.UsuarioRepository;
+import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.model.Contato;
+
+import rgba.SkillShare.repository.AlunoRepository;
 
 @Controller
-@RequestMapping("/usuario")
-public class UsuarioController {
-    @Autowired 
-    UsuarioRepository uRepository;
+@RequestMapping("/Aluno")
+public class AlunoController {
 
-    /* @PostMapping("/cadastro")
+    @Autowired 
+    AlunoRepository aRepository;
+
+    @PostMapping("/cadastro")
     @ResponseStatus(HttpStatus.CREATED)
-    public String createUsuario(Usuario usuario){
-        uRepository.save(usuario);
+    public String createAluno(Aluno aluno, Contato contato){
+        aluno.getContatos().add(contato);
+        aRepository.save(aluno);
         return "pagina-de-retorno";
     }
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
-    public ModelAndView getUsuario(){
-        List<Usuario> usuarios;
+    public ModelAndView getAluno(){
+        List<Aluno> Alunos;
 
-        usuarios = uRepository.findAll();
+        Alunos = aRepository.findAll();
         ModelAndView mv = new ModelAndView("pagina-de-retorno");
 
-        mv.addObject("usuarios", usuarios);
+        mv.addObject("Alunos", Alunos);
 
         return mv;
     }
 
     @GetMapping("/delete")
     @ResponseStatus(HttpStatus.OK)
-    public ModelAndView deleteUsuarioById(String id){
-        uRepository.deleteById(id);
+    public ModelAndView deleteAlunoById(String id){
+        aRepository.deleteById(id);
         ModelAndView mv = new ModelAndView("pagina-de-retorno");
-        mv.addObject("usuarios", uRepository.findAll());
+        mv.addObject("Alunos", aRepository.findAll());
         return mv;
-    } */
+    } 
 
 }
