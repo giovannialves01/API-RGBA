@@ -45,5 +45,14 @@ public class Contato {
     }
 
 
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", telefone='" + getTelefone() + "'" +
+            "}";
+    }
     
 }

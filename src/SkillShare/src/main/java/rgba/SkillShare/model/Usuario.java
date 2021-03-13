@@ -38,4 +38,13 @@ public abstract class Usuario {
         this.nome = nome;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+            " cpf='" + getCpf() + "'" +
+            ", nome='" + getNome() + "'" +
+            "}";
+    }
+
+
 }
