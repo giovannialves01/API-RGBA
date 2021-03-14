@@ -10,9 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.model.Contato;
-import rgba.SkillShare.model.Usuario;
 import rgba.SkillShare.repository.AlunoRepository;
-import rgba.SkillShare.repository.UsuarioRepository;
 
 @SpringBootApplication
 public class SkillShareApplication implements CommandLineRunner {
