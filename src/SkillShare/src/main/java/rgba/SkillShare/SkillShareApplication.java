@@ -27,8 +27,8 @@ public class SkillShareApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Aluno aluno = new Aluno("50553650807","Nicholas");
-		Contato contato = new Contato("12997424087","nicholas.sroque@gmail.com");
+		Aluno aluno = new Aluno("50553650807","Nicholas","nicholas.sroque@gmail.com");
+		Contato contato = new Contato("12997424087");
 		aluno.getContatos().add(contato);
         aRepository.save(aluno);
 
