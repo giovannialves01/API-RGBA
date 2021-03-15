@@ -29,7 +29,7 @@ public class AdmController {
     /** 
     *  Endpoint para cadastro de administrador
     * @param adm,contato
-    * @return String pagina-de-retorno
+    * @return Retorna para a página definida
     * @author Nicholas Roque
     */
     @PostMapping("/cadastrar")

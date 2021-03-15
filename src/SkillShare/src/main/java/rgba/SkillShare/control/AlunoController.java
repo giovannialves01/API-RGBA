@@ -29,7 +29,7 @@ public class AlunoController {
     /** 
     *  Endpoint para cadastro de aluno
     * @param aluno,contato
-    * @return String pagina-de-retorno
+    * @return Retorna para a página definida
     * @author Nicholas Roque
     */
     @PostMapping("/cadastrar")
