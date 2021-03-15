@@ -1,7 +1,6 @@
 package rgba.SkillShare;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -27,7 +26,7 @@ public class SkillShareApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Aluno aluno = new Aluno("50553650807","Nicholas","nicholas.sroque@gmail.com");
+		Aluno aluno = new Aluno("50553650807","Nicholas","nicholas.sroque@gmail.com","senha123");
 		Contato contato = new Contato("12997424087");
 		aluno.getContatos().add(contato);
         aRepository.save(aluno);

@@ -14,9 +14,6 @@ import javax.persistence.OneToMany;
  */
 @Entity(name="adm")
 public class Adm extends Usuario{
-    /** 
-    * @param contatos
-    */
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name = "id_adm")
     private Set<Contato> contatos = new HashSet<Contato>();
@@ -32,10 +29,11 @@ public class Adm extends Usuario{
     * @param cpf,nome,email
     * @author Nicholas Roque
     */
-    public Adm(String cpf,String nome,String email) { 
+    public Adm(String cpf,String nome,String email,String senha) { 
         this.setNome(nome);
         this.setCpf(cpf);
         this.setEmail(email);
+        this.setSenha(senha);
     }
 
     /** 

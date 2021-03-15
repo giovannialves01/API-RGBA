@@ -13,20 +13,19 @@ import javax.persistence.InheritanceType;
 @Entity(name = "usuarios")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario {
-    /** 
-    * @param cpf
-    */
+
     @Id
+    @Column(nullable = false)
     private String cpf;
-    /** 
-    * @param nome
-    */
+
     @Column(nullable = false)
     private String nome;
-    /** 
-    * @param email
-    */
-   private String email;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String senha;
 
    /** 
     * Construtor padrão da classe Usuario
@@ -84,8 +83,24 @@ public abstract class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+    /** 
+    *  Retorna a senha do usuario
+    * @return usuario.senha
+    * @author Nicholas Roque
+    */
+    public String getSenha() {
+        return this.senha;
+    }
+    /** 
+    *  Define a senha do usuario
+    * @param senha
+    * @author Nicholas Roque
+    */
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
-/** 
+    /** 
     *  Constrói um retorno legível da classe Usuario
     * @return String
     * @author Nicholas Roque
@@ -96,6 +111,7 @@ public abstract class Usuario {
             " cpf='" + getCpf() + "'" +
             ", nome='" + getNome() + "'" +
             ", email='" + getEmail() + "'" +
+            ", senha='" + getSenha() + "'" +
             "}";
     }
 

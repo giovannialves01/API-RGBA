@@ -15,6 +15,10 @@ import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.model.Contato;
 import rgba.SkillShare.repository.AlunoRepository;
 
+/**
+ *  Classe que define os endpoints para aluno
+ *  @author Nicholas Roque
+ */
 @Controller
 @RequestMapping("/aluno")
 public class AlunoController {
@@ -22,7 +26,12 @@ public class AlunoController {
     @Autowired 
     AlunoRepository aRepository;
 
-
+    /** 
+    *  Endpoint para cadastro de aluno
+    * @param aluno,contato
+    * @return String pagina-de-retorno
+    * @author Nicholas Roque
+    */
     @PostMapping("/cadastrar")
     public String createAluno(Aluno aluno, Contato contato){
         aluno.getContatos().add(contato);
@@ -30,11 +39,15 @@ public class AlunoController {
         return "pagina-de-retorno";
     }
 
+    /** 
+    *  Endpoint para listar todos os alunos
+    * @return Retorna um ModelAndView com a lista de alunos
+    * @author Nicholas Roque
+    */
     @GetMapping("/listar")
     public ModelAndView getAluno(){
 
-        List<Aluno> alunos;
-        alunos = aRepository.findAll();
+        List<Aluno> alunos = aRepository.findAll();
 
         ModelAndView mv = new ModelAndView("pagina-de-retorno");
 

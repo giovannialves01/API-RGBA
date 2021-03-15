@@ -12,15 +12,10 @@ import javax.persistence.Id;
 @Entity(name = "contatos")
 public class Contato {
 
-    /** 
-    * @param id
-    */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    /** 
-    * @param telefone
-    */
+
     private String telefone;
 
     /** 

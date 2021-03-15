@@ -15,6 +15,10 @@ import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Contato;
 import rgba.SkillShare.repository.AdmRepository;
 
+/**
+ *  Classe que define os endpoints para adm
+ *  @author Nicholas Roque
+ */
 @Controller
 @RequestMapping("/adm")
 public class AdmController {
@@ -22,20 +26,27 @@ public class AdmController {
     @Autowired 
     AdmRepository admRepository;
 
-
+    /** 
+    *  Endpoint para cadastro de administrador
+    * @param adm,contato
+    * @return String pagina-de-retorno
+    * @author Nicholas Roque
+    */
     @PostMapping("/cadastrar")
     public String createAdm(Adm adm, Contato contato){
         adm.getContatos().add(contato);
         admRepository.save(adm);
         return "pagina-de-retorno";
     }
-
+    /** 
+    *  Endpoint para listar todos os administradores
+    * @return Retorna um ModelAndView com a lista de administradores
+    * @author Nicholas Roque
+    */
     @GetMapping("/listar")
     public ModelAndView getAdm(){
 
-        List<Adm> admList;
-        admList = admRepository.findAll();
-
+        List<Adm> admList = admRepository.findAll();
         ModelAndView mv = new ModelAndView("pagina-de-retorno");
 
         mv.addObject("adm", admList);
