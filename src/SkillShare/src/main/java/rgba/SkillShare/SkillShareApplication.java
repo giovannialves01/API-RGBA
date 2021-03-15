@@ -7,8 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.model.Contato;
+import rgba.SkillShare.repository.AdmRepository;
 import rgba.SkillShare.repository.AlunoRepository;
 
 @SpringBootApplication
@@ -18,6 +20,9 @@ public class SkillShareApplication implements CommandLineRunner {
 	@Autowired 
     AlunoRepository aRepository;
 
+	@Autowired 
+    AdmRepository admRepository;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SkillShareApplication.class, args);
@@ -26,16 +31,22 @@ public class SkillShareApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Aluno aluno = new Aluno("50553650807","Nicholas","nicholas.sroque@gmail.com","senha123");
+		//------------------------------Cadastro teste de aluno--------------------------------------
+		Aluno aluno = new Aluno("12345678910","NicholasAluno","nicholasAluno@gmail.com","senha123");
 		Contato contato = new Contato("12997424087");
 		aluno.getContatos().add(contato);
         aRepository.save(aluno);
 
-		List<Aluno> alunos;
-        alunos = aRepository.findAll();
-
+		List<Aluno> alunos = aRepository.findAll();
 		System.out.println(alunos.toString());
-        
+		//------------------------------Cadastro teste de adm--------------------------------------
+        Adm adm = new Adm("53553650810","NicholasAdm","nicholasAdm@gmail.com","senha123");
+		Contato contatoAdm = new Contato("12997424087");
+		adm.getContatos().add(contatoAdm);
+        admRepository.save(adm);
+
+		List<Adm> admList = admRepository.findAll();
+		System.out.println(admList.toString());
 	}
 
 }
