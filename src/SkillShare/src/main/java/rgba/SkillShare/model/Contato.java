@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 /** 
 *  Classe que define os contatos dos usuários
-* @author @NicholasRoque
+* @author Nicholas Roque
 */
 @Entity(name = "contatos")
 public class Contato {
@@ -25,13 +25,13 @@ public class Contato {
 
     /** 
     *  Construtor padrão da classe Contato
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Contato(){}
     /** 
     *  Cria uma instância da classe Contato
     * @param telefone
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Contato(String telefone) {
         this.telefone = telefone;
@@ -40,7 +40,7 @@ public class Contato {
     /** 
     *  Retorna o Id do contato
     * @return contato.id
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public long getId() {
         return this.id;
@@ -49,7 +49,7 @@ public class Contato {
     /** 
     *  Define o id do contato
     * @param id
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public void setId(long id) {
         this.id = id;
@@ -58,7 +58,7 @@ public class Contato {
     /** 
     *  Retorna o telefone do usuario
     * @return contato.telefone
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public String getTelefone() {
         return this.telefone;
@@ -66,7 +66,7 @@ public class Contato {
     /** 
     *  Define o telefone do usuario
     * @param telefone
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
@@ -74,7 +74,7 @@ public class Contato {
     /** 
     *  Constrói um retorno legível da classe Contato
     * @return String
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     @Override
     public String toString() {

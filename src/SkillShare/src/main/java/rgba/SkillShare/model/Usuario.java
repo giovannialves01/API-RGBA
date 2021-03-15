@@ -8,7 +8,7 @@ import javax.persistence.InheritanceType;
 
 /**
  *  Classe abstrata que define os usuários
- *  @author @NicholasRoque
+ *  @author Nicholas Roque
  */
 @Entity(name = "usuarios")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -30,14 +30,14 @@ public abstract class Usuario {
 
    /** 
     * Construtor padrão da classe Usuario
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Usuario() {}
 
     /** 
     *  Retorna o cpf do usuario
     * @return usuario.cpf
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public String getCpf() {
         return this.cpf;
@@ -46,7 +46,7 @@ public abstract class Usuario {
     /** 
     *  Define o cpf do usuario
     * @param cpf
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public void setCpf(String cpf) {
         this.cpf = cpf;
@@ -54,7 +54,7 @@ public abstract class Usuario {
     /** 
     *  Retorna o nome do usuario
     * @return usuario.nome
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public String getNome() {
         return this.nome;
@@ -62,15 +62,15 @@ public abstract class Usuario {
     /** 
     *  Define o nome do usuario
     * @param nome
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public void setNome(String nome) {
         this.nome = nome;
     }
     /** 
     *  Retorna o email do usuario
-    * @return contato.email
-    * @author @NicholasRoque
+    * @return usuario.email
+    * @author Nicholas Roque
     */
     public String getEmail() {
         return this.email;
@@ -79,7 +79,7 @@ public abstract class Usuario {
     /** 
     *  Define o email do usuario
     * @param email
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public void setEmail(String email) {
         this.email = email;
@@ -88,7 +88,7 @@ public abstract class Usuario {
 /** 
     *  Constrói um retorno legível da classe Usuario
     * @return String
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     @Override
     public String toString() {

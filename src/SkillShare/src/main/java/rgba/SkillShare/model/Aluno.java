@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 
 /**
  *  Classe que define os usuários do tipo aluno
- *  @author @NicholasRoque
+ *  @author Nicholas Roque
  */
 @Entity(name="alunos")
 public class Aluno extends Usuario{
@@ -24,14 +24,14 @@ public class Aluno extends Usuario{
 
     /** 
     * Construtor padrão da classe Aluno
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Aluno(){}
 
     /** 
     *  Cria uma instância da classe Aluno
     * @param cpf,nome,email
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Aluno(String cpf,String nome, String email) {
         this.setNome(nome);
@@ -42,7 +42,7 @@ public class Aluno extends Usuario{
     /** 
     *  Retorna o contato do aluno
     * @return contatos
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Set<Contato> getContatos() {
         return this.contatos;
@@ -51,7 +51,7 @@ public class Aluno extends Usuario{
     /** 
     *  Recebe uma instância da classe Contato para definir o contato do aluno
     * @param contatos
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public void setContatos(Set<Contato> contatos) {
         this.contatos = contatos;

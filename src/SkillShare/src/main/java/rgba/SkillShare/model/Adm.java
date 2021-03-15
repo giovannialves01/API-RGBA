@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 
 /**
  *   Classe que define os usuários do tipo administrador
- *  @author @NicholasRoque
+ *  @author Nicholas Roque
  */
 @Entity(name="adm")
 public class Adm extends Usuario{
@@ -23,14 +23,14 @@ public class Adm extends Usuario{
 
     /** 
     * Construtor padrão da classe Adm
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Adm(){}
 
     /** 
     *  Cria uma instância da classe Adm
     * @param cpf,nome,email
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Adm(String cpf,String nome,String email) { 
         this.setNome(nome);
@@ -41,7 +41,7 @@ public class Adm extends Usuario{
     /** 
     *  Retorna o contato do administrador
     * @return contatos
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public Set<Contato> getContatos() {
         return this.contatos;
@@ -49,7 +49,7 @@ public class Adm extends Usuario{
     /** 
     *  Recebe uma instância da classe Contato para definir o contato do administrador
     * @param contatos
-    * @author @NicholasRoque
+    * @author Nicholas Roque
     */
     public void setContatos(Set<Contato> contatos) {
         this.contatos = contatos;
