@@ -215,6 +215,14 @@ class Modal extends HTMLElement{
         return select;
     }
 
+
+    /**
+     * Exibe um modal específico
+     * 
+     * @author Rafael Furtado
+     * @param {string} modalIdentifier Tipo do modal para exibir
+     * @returns undefined
+     */
     showModal(modalIdentifier) {
         let modal = document.getElementById("modalMenu-" + modalIdentifier);
         let modalContent = document.getElementById("modalContent-" + modalIdentifier);
@@ -231,7 +239,13 @@ class Modal extends HTMLElement{
         
     }
 
-
+    /**
+     * Esconde um modal específico
+     * 
+     * @author Rafael Furtado
+     * @param {string} modalIdentifier Tipo do modal para esconder
+     * @returns undefined
+     */
     hideModal(modalIdentifier) {
         let modal = document.getElementById("modalMenu-" + modalIdentifier);
         let modalContent = document.getElementById("modalContent-" + modalIdentifier);
@@ -246,6 +260,12 @@ class Modal extends HTMLElement{
     
     }
 
+    /**
+     * Adiciona o evento onclick para fechar o modal quando clicar fora dele
+     * 
+     * @author Rafael Furtado
+     * @returns undefined
+     */
     setModalBehaviour(){
         window.onclick = function(event) {
             let modals = document.getElementsByClassName("modalBackground");
