@@ -18,6 +18,7 @@ class Modal extends HTMLElement{
             "recover": this.buildRecoverModal
             };
         
+        this.setModalBehaviour();
     }
 
     /**
@@ -214,7 +215,60 @@ class Modal extends HTMLElement{
         return select;
     }
 
+    showModal(modalIdentifier) {
+        let modal = document.getElementById("modalMenu-" + modalIdentifier);
+        let modalContent = document.getElementById("modalContent-" + modalIdentifier);
+        
+        modal.style.display = "block";
+    
+        modalContent.classList.add("showModal");
+        modalContent.classList.remove("hideModal");
+    
+        modalContent.onanimationend = function() {
+            modal.style.display = "block";
+    
+        }
+        
+    }
+
+
+    hideModal(modalIdentifier) {
+        let modal = document.getElementById("modalMenu-" + modalIdentifier);
+        let modalContent = document.getElementById("modalContent-" + modalIdentifier);
+    
+        modalContent.classList.add("hideModal");
+        modalContent.classList.remove("showModal");
+    
+        modalContent.onanimationend = function() {
+            modal.style.display = "none";
+    
+        }
+    
+    }
+
+    setModalBehaviour(){
+        window.onclick = function(event) {
+            let modals = document.getElementsByClassName("modalBackground");
+        
+            for (let i = 0; i < modals.length; i++) {
+                const modal = modals[i];
+                
+                if (event.target == modal) {
+                    let identifier = modal.id.split("-")[1];
+        
+                    modalsController.hideModal(identifier);
+              
+                  }
+        
+            }
+        
+        }
+
+    }
+
 }
 
 // Declara a nova tag para que seja reconhecida na página HTML
 customElements.define("modal-element", Modal);
+
+var modalsController = new Modal();
