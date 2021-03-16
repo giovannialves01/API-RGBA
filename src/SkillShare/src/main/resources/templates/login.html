@@ -27,7 +27,6 @@
 </head>
 <body>
     <modal-element type="recover"></modal-element>
-    <modal-element type="signUp"></modal-element>
 
     <form class="vBox vBoxBorder" onsubmit="logar(event)">
             <div class="topo">
@@ -36,13 +35,9 @@
             </div>
             <beauty-input type="email" title="Insira seu e-mail" placeholder="E-mail" required="true" icon="envelope"></beauty-input>
             <beauty-input type="password" title="Insira sua senha" placeholder="Senha" required="true" icon="key"></beauty-input>
-            <label><input type="checkbox">Lembrar de mim</label>
+            <label><input id="checkboxLembrarDeMim" type="checkbox">Lembrar de mim</label>
             <div class="hBox">
                 <beauty-button text="Entrar" title="Clique para fazer login"></beauty-button>
-            </div>
-            <div class="vbox">
-                <span>Não possui uma conta?</span>
-                <span>Clique <span tabindex="0" class="link" onclick="modalsController.showModal('signUp')">aqui</span></span>
             </div>
             <div class="vbox">
                 <span tabindex="9" class="link" onclick="modalsController.showModal('recover')">Esqueci minha senha</span>
