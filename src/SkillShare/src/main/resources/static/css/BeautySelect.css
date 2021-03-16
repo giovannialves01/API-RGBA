@@ -1,0 +1,17 @@
+.beautySelect{
+    width: 200px;
+    height: 30px;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 5px;
+    margin: 10px;
+    border-color: lightseagreen;
+    opacity: 0.8;
+    
+}
+
+.beautySelect:focus{
+    outline: none;
+    border-color: rgb(34, 122, 118);
+    box-shadow: 0px 0px 10px rgba(53, 151, 146, 0.568);
+}
