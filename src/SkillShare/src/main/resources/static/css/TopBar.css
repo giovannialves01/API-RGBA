@@ -1,0 +1,29 @@
+.topBarContainer{
+    width: auto;
+    height: 40px;
+    padding: 5px;
+    
+    display: flex;
+    justify-content: space-between;
+
+    box-shadow: 0px 3px 10px -4px rgba(0,0,0,0.75);
+    background: linear-gradient(45deg, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+}
+
+.topBarExitLabel{
+    align-self: center;
+}
+
+.topBarHomeButtonContainer{
+    width: 320px;
+    align-self: center;
+
+}
+
+.topBarHomeButtonLogo{
+    margin: 10px;
+}
+
+.topBarHomeButtonText{
+
+}
