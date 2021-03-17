@@ -8,7 +8,6 @@ target/
 .apt_generated
 .classpath
 .factorypath
-.project
 .settings
 .springBeans
 .sts4-cache
@@ -30,4 +29,6 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-../.vscode/
+**/vscode
+**/javadoc
+
