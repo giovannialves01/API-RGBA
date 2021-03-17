@@ -1,7 +1,7 @@
 package rgba.SkillShare.control;
 
 import rgba.SkillShare.model.Adm;
-
+import rgba.SkillShare.model.Contato;
 import rgba.SkillShare.repository.AdmRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -80,7 +80,7 @@ public class AdmController {
         return admRepository
             .findById(cpf)
             .orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo aluno não encontrado")
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo aluno não encontrado.")
             );
     }
 }

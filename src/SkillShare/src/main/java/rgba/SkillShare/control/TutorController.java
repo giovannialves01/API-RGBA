@@ -1,8 +1,8 @@
 package rgba.SkillShare.control;
 
-import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.model.Tutor;
 
-import rgba.SkillShare.repository.AlunoRepository;
+import rgba.SkillShare.repository.TutorRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,66 +26,61 @@ import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
-
-
-
-
 /**
- *  Classe que define os endpoints para aluno
+ *  Classe que define os endpoints para tutor.
  *  @author Nicholas Roque
  */
 @RestController
 @CrossOrigin
-@RequestMapping("/aluno")
-@Api("API de aluno")
-public class AlunoController {
+@RequestMapping("/tutor")
+@Api("API de tutor")
+public class TutorController {
 
     @Autowired 
-    AlunoRepository aRepository;
+    TutorRepository tRepository;
 
     /** 
-    *  Endpoint para cadastro de aluno.
-    * @param aluno
+    *  Endpoint para cadastro de tutor.
+    * @param tutor
     * @author Nicholas Roque
     */
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
-    @ApiOperation("Cria um usuário do tipo aluno.")
-    public Aluno createAluno(@RequestBody @ApiParam("Informações do aluno") Aluno aluno){
-
-        return aRepository.save(aluno);
+    @ApiOperation("Cria um usuário do tipo tutor.")
+    public Tutor createTutor(@RequestBody @ApiParam("Informações do tutor") Tutor tutor){
+        return tRepository.save(tutor);
     }
 
     /** 
-    *  Endpoint para listar todos os alunos.
-    * @return Retorna uma lista do objeto Aluno com todos os alunos. 
+    *  Endpoint para listar todos os tutores.
+    * @return Retorna uma lista do objeto Tutor com todos os tutores. 
     * @author Nicholas Roque
     */
     @GetMapping("/findAll")
-    @ApiOperation("Retorna uma lista com todos os usuários do tipo aluno.")
+    @ApiOperation("Retorna uma lista com todos os usuários do tipo tutor")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
-    public List<Aluno> getAllAlunos(){
-        return aRepository.findAll();
+    public List<Tutor> getAllTutores(){
+        return tRepository.findAll();
     }
 
     /** 
-    *  Endpoint para retornar os detalhes de um aluno.
-    * @return Retorna objeto do tipo Aluno com os dados do usuário.
+    *  Endpoint para retornar os detalhes de um tutor.
+    * @return Retorna objeto do tipo Tutor com os dados do tutor.
     * @param cpf
-    * @return Aluno
+    * @return Tutor
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
-    @ApiOperation("Retorna os detalhes de um usuário do tipo aluno")
+    @ApiOperation("Retorna os detalhes de um usuário do tipo tutor.")
     @ApiResponses({
-        @ApiResponse(code = 200,message = "Usuário do tipo aluno encontrado com sucesso."),
-        @ApiResponse(code = 404,message = "Usuário do tipo aluno não encontrado para o cpf informado.")
+        @ApiResponse(code = 200,message = "Usuário do tipo tutor encontrado com sucesso."),
+        @ApiResponse(code = 404,message = "Usuário do tipo tutor não encontrado para o cpf informado.")
     })
-    public Aluno getAlunoByCpf(@PathVariable @ApiParam("Cpf do aluno") String cpf) {
-        return aRepository
+    public Tutor getTutorByCpf(@PathVariable @ApiParam("Cpf do tutor") String cpf) {
+        return tRepository
             .findById(cpf)
             .orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo aluno não encontrado.")
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo tutor não encontrado.")
             );
     }
 }

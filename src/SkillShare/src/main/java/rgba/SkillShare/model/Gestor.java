@@ -4,28 +4,30 @@ import javax.persistence.Entity;
 
 
 /**
- *   Classe que define os usuários do tipo administrador
+ *   Classe que define os usuários do tipo gestor.
  *  @author Nicholas Roque
  */
-@Entity(name="adm")
-public class Adm extends Usuario{
+@Entity(name="gestor")
+public class Gestor extends Usuario{
     
 
     /** 
-    * Construtor padrão da classe Adm
+    * Construtor padrão da classe Gestor
     * @author Nicholas Roque
     */
-    public Adm(){}
+    public Gestor(){}
 
     /** 
-    *  Cria uma instância da classe Adm
+    *  Cria uma instância da classe Gestor.
     * @param cpf,nome,email,senha
     * @author Nicholas Roque
     */
-    public Adm(String cpf,String nome,String email,String senha) { 
+    public Gestor(String cpf,String nome,String email,String senha) { 
         this.setNome(nome);
         this.setCpf(cpf);
         this.setEmail(email);
         this.setSenha(senha);
     }
+
+
 }

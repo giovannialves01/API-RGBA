@@ -4,28 +4,30 @@ import javax.persistence.Entity;
 
 
 /**
- *   Classe que define os usuários do tipo administrador
+ *   Classe que define os usuários do tipo tutor.
  *  @author Nicholas Roque
  */
-@Entity(name="adm")
-public class Adm extends Usuario{
+@Entity(name="tutor")
+public class Tutor extends Usuario{
     
 
     /** 
-    * Construtor padrão da classe Adm
+    * Construtor padrão da classe Tutor
     * @author Nicholas Roque
     */
-    public Adm(){}
+    public Tutor(){}
 
     /** 
-    *  Cria uma instância da classe Adm
+    *  Cria uma instância da classe Tutor.
     * @param cpf,nome,email,senha
     * @author Nicholas Roque
     */
-    public Adm(String cpf,String nome,String email,String senha) { 
+    public Tutor(String cpf,String nome,String email,String senha) { 
         this.setNome(nome);
         this.setCpf(cpf);
         this.setEmail(email);
         this.setSenha(senha);
     }
+
+
 }

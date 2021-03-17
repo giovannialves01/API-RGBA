@@ -7,7 +7,7 @@ import javax.persistence.Entity;
  *  Classe que define os usuários do tipo aluno
  *  @author Nicholas Roque
  */
-@Entity(name="alunos")
+@Entity(name="aluno")
 
 public class Aluno extends Usuario{ 
   

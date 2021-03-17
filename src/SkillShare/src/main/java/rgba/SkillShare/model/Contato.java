@@ -9,7 +9,7 @@ import javax.persistence.Id;
  *  Classe que define os contatos dos usuários
  *  @author Nicholas Roque
  */
-@Entity(name = "contatos")
+@Entity(name = "contato")
 public class Contato {
 
     @Id

@@ -1,8 +1,8 @@
 package rgba.SkillShare.control;
 
-import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.model.Gestor;
 
-import rgba.SkillShare.repository.AlunoRepository;
+import rgba.SkillShare.repository.GestorRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,66 +26,61 @@ import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
-
-
-
-
 /**
- *  Classe que define os endpoints para aluno
+ *  Classe que define os endpoints para gestor
  *  @author Nicholas Roque
  */
 @RestController
 @CrossOrigin
-@RequestMapping("/aluno")
-@Api("API de aluno")
-public class AlunoController {
+@RequestMapping("/gestor")
+@Api("API de gestor")
+public class GestorController {
 
     @Autowired 
-    AlunoRepository aRepository;
+    GestorRepository gRepository;
 
     /** 
-    *  Endpoint para cadastro de aluno.
-    * @param aluno
+    *  Endpoint para cadastro de gestor.
+    * @param gestor
     * @author Nicholas Roque
     */
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
-    @ApiOperation("Cria um usuário do tipo aluno.")
-    public Aluno createAluno(@RequestBody @ApiParam("Informações do aluno") Aluno aluno){
-
-        return aRepository.save(aluno);
+    @ApiOperation("Cria um usuário do tipo gestor.")
+    public Gestor createGestor(@RequestBody @ApiParam("Informações do gestor") Gestor gestor){
+        return gRepository.save(gestor);
     }
 
     /** 
-    *  Endpoint para listar todos os alunos.
-    * @return Retorna uma lista do objeto Aluno com todos os alunos. 
+    *  Endpoint para listar todos os gestores.
+    * @return Retorna uma lista do objeto Gestor com todos os gestores. 
     * @author Nicholas Roque
     */
     @GetMapping("/findAll")
-    @ApiOperation("Retorna uma lista com todos os usuários do tipo aluno.")
+    @ApiOperation("Retorna uma lista com todos os usuários do tipo gestor")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
-    public List<Aluno> getAllAlunos(){
-        return aRepository.findAll();
+    public List<Gestor> getAllGestores(){
+        return gRepository.findAll();
     }
 
     /** 
-    *  Endpoint para retornar os detalhes de um aluno.
-    * @return Retorna objeto do tipo Aluno com os dados do usuário.
+    *  Endpoint para retornar os detalhes de um gestor.
+    * @return Retorna objeto do tipo Gestor com os dados do gestor.
     * @param cpf
-    * @return Aluno
+    * @return Gestor
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
-    @ApiOperation("Retorna os detalhes de um usuário do tipo aluno")
+    @ApiOperation("Retorna os detalhes de um usuário do tipo gestor.")
     @ApiResponses({
-        @ApiResponse(code = 200,message = "Usuário do tipo aluno encontrado com sucesso."),
-        @ApiResponse(code = 404,message = "Usuário do tipo aluno não encontrado para o cpf informado.")
+        @ApiResponse(code = 200,message = "Usuário do tipo gestor encontrado com sucesso."),
+        @ApiResponse(code = 404,message = "Usuário do tipo gestor não encontrado para o cpf informado.")
     })
-    public Aluno getAlunoByCpf(@PathVariable @ApiParam("Cpf do aluno") String cpf) {
-        return aRepository
+    public Gestor getGestorByCpf(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
+        return gRepository
             .findById(cpf)
             .orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo aluno não encontrado.")
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo gestor não encontrado.")
             );
     }
 }

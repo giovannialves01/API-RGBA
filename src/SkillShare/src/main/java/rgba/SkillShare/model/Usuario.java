@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
  *  Classe abstrata que define os usuários
  *  @author Nicholas Roque
  */
-@Entity(name = "usuarios")
+@Entity(name = "usuario")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario {
 
@@ -33,7 +33,7 @@ public abstract class Usuario {
     private String senha;
 
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "idUsuario")
     private Set<Contato> contatos = new HashSet<Contato>();
     
     public Usuario() {
