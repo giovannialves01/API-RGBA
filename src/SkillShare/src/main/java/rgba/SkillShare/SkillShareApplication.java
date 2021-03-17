@@ -32,7 +32,7 @@ public class SkillShareApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//------------------------------Cadastro teste de aluno--------------------------------------
-		Aluno aluno = new Aluno("12345678910","NicholasAluno","nicholasAluno@gmail.com","senha123");
+		/* Aluno aluno = new Aluno("12345678910","NicholasAluno","nicholasAluno@gmail.com","senha123");
 		Contato contato = new Contato("12997424087");
 		aluno.getContatos().add(contato);
         aRepository.save(aluno);
@@ -46,7 +46,7 @@ public class SkillShareApplication implements CommandLineRunner {
         admRepository.save(adm);
 
 		List<Adm> admList = admRepository.findAll();
-		System.out.println(admList.toString());
+		System.out.println(admList.toString()); */
 	}
 
 }
