@@ -49,7 +49,7 @@ public class AdmController {
     * @return Retorna um ModelAndView com a lista de administradores
     * @author Nicholas Roque
     */
-    @GetMapping("/listarTodos")
+    @GetMapping("/findAll")
     public List<Adm> getAllAdm(){
         return admRepository.findAll();
     }

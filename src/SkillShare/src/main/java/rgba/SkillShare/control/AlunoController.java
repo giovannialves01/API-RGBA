@@ -55,7 +55,7 @@ public class AlunoController {
     * @return Retorna um ModelAndView com a lista de alunos
     * @author Nicholas Roque
     */
-    @GetMapping("/listarTodos")
+    @GetMapping("/findAll")
     public List<Aluno> getAllAlunos(){
         return aRepository.findAll();
     }
