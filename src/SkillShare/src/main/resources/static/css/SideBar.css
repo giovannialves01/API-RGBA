@@ -1,0 +1,21 @@
+.sideBarContainer{
+    background-color: rgb(192, 192, 192);
+    width: 250px;
+    height: calc(100vh - 50px);
+    box-shadow: -2px 13px 18px 0px rgba(0,0,0,0.75);
+}
+
+.logoContainer{
+    border: 2px solid black;
+    background-color: burlywood;
+    height: 150px;
+}
+
+.optionContainer{
+    border: 1px solid black;
+    background-color: rgb(174, 174, 255);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
