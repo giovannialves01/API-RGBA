@@ -5,21 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 /**
- *  Classe abstrata que define os contatos dos usuários
+ *  Classe que define os contatos dos usuários
  *  @author Nicholas Roque
  */
 @Entity(name = "contatos")
-@Inheritance(strategy = InheritanceType.JOINED)
-@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class Contato {
 
     @Id
@@ -28,5 +18,38 @@ public class Contato {
 
     @Column(nullable = false)
     private String telefone;
+
+
+    public Contato() {  }
+
+    public Contato(long id, String telefone) {
+        this.id = id;
+        this.telefone = telefone;
+    }
+
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTelefone() {
+        return this.telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", telefone='" + getTelefone() + "'" +
+            "}";
+    }
 
 }

@@ -1,12 +1,7 @@
 package rgba.SkillShare.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+
 
 /**
  *   Classe que define os usuários do tipo administrador
@@ -14,9 +9,7 @@ import javax.persistence.OneToMany;
  */
 @Entity(name="adm")
 public class Adm extends Usuario{
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "id_adm")
-    private Set<Contato> contatos = new HashSet<Contato>();
+    
 
     /** 
     * Construtor padrão da classe Adm
@@ -26,7 +19,7 @@ public class Adm extends Usuario{
 
     /** 
     *  Cria uma instância da classe Adm
-    * @param cpf,nome,email
+    * @param cpf,nome,email,senha
     * @author Nicholas Roque
     */
     public Adm(String cpf,String nome,String email,String senha) { 
@@ -41,17 +34,7 @@ public class Adm extends Usuario{
     * @return contatos
     * @author Nicholas Roque
     */
-    public Set<Contato> getContatos() {
-        return this.contatos;
-    }
-    /** 
-    *  Recebe uma instância da classe Contato para definir o contato do administrador
-    * @param contatos
-    * @author Nicholas Roque
-    */
-    public void setContatos(Set<Contato> contatos) {
-        this.contatos = contatos;
-    }
+    
 
     
 

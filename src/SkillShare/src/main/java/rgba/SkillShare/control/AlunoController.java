@@ -1,5 +1,9 @@
 package rgba.SkillShare.control;
 
+import rgba.SkillShare.model.Aluno;
+
+import rgba.SkillShare.repository.AlunoRepository;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,15 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
-import rgba.SkillShare.model.Aluno;
-import rgba.SkillShare.model.Contato;
-import rgba.SkillShare.repository.AlunoRepository;
+import java.util.List;
+
+
+
+
 
 /**
  *  Classe que define os endpoints para aluno
@@ -32,14 +35,14 @@ public class AlunoController {
 
     /** 
     *  Endpoint para cadastro de aluno
-    * @param aluno,contato
+    * @param aluno
     * @return Retorna para a página definida
     * @author Nicholas Roque
     */
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
-    public Aluno createAluno(@RequestBody Aluno aluno, @RequestBody Contato contato){
-        aluno.getContatos().add(contato);
+    public Aluno createAluno(@RequestBody Aluno aluno){
+
         return aRepository.save(aluno);
     }
 

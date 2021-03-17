@@ -1,5 +1,9 @@
 package rgba.SkillShare.control;
 
+import rgba.SkillShare.model.Adm;
+
+import rgba.SkillShare.repository.AdmRepository;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,16 +13,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 
-import rgba.SkillShare.model.Adm;
-import rgba.SkillShare.model.Contato;
-import rgba.SkillShare.repository.AdmRepository;
+
+
+
 
 /**
  *  Classe que define os endpoints para adm
@@ -34,14 +36,14 @@ public class AdmController {
 
     /** 
     *  Endpoint para cadastro de administrador
-    * @param adm,contato
+    * @param adm
     * @return Retorna para a página definida
     * @author Nicholas Roque
     */
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
-    public Adm createAdm(@RequestBody Adm adm, @RequestBody Contato contato){
-        adm.getContatos().add(contato);
+    public Adm createAdm(@RequestBody Adm adm){
+        System.out.println(adm.toString());
         return admRepository.save(adm);
     }
     /** 

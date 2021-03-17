@@ -34,13 +34,13 @@ public class SkillShareApplication implements CommandLineRunner {
 		//------------------------------Cadastro teste de aluno--------------------------------------
 		/* Aluno aluno = new Aluno("12345678910","NicholasAluno","nicholasAluno@gmail.com","senha123");
 		Contato contato = new Contato("12997424087");
-		aluno.getContatos().add(contato);
+		aluno.getContato().add(contato);
         aRepository.save(aluno);
 
 		List<Aluno> alunos = aRepository.findAll();
-		System.out.println(alunos.toString());
+		System.out.println(alunos.toString()); */
 		//------------------------------Cadastro teste de adm--------------------------------------
-        Adm adm = new Adm("53553650810","NicholasAdm","nicholasAdm@gmail.com","senha123");
+        /*Adm adm = new Adm("53553650810","NicholasAdm","nicholasAdm@gmail.com","senha123");
 		Contato contatoAdm = new Contato("12997424087");
 		adm.getContatos().add(contatoAdm);
         admRepository.save(adm);

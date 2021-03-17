@@ -1,16 +1,16 @@
 package rgba.SkillShare.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 /**
  *  Classe abstrata que define os usuários
@@ -18,7 +18,6 @@ import lombok.ToString;
  */
 @Entity(name = "usuarios")
 @Inheritance(strategy = InheritanceType.JOINED)
-@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public abstract class Usuario {
 
     @Id
@@ -33,8 +32,73 @@ public abstract class Usuario {
     @Column(nullable = false)
     private String senha;
 
-    @OneToMany
-    private Contato contato;
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "id_usuario")
+    private Set<Contato> contatos = new HashSet<Contato>();
+    
+    public Usuario() {
+    }
+
+    public Usuario(String cpf, String nome, String email, String senha, Set<Contato> contato) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public String getCpf() {
+        return this.cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return this.senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Set<Contato> getContatos() {
+        return this.contatos;
+    }
+    /** 
+    *  Recebe uma instância da classe Contato para definir o contato do administrador
+    * @param contatos
+    * @author Nicholas Roque
+    */
+    public void setContatos(Set<Contato> contatos) {
+        this.contatos = contatos;
+    }
+    
+    @Override
+    public String toString() {
+        return "{" +
+            " cpf='" + getCpf() + "'" +
+            ", nome='" + getNome() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", senha='" + getSenha() + "'" +
+            "}";
+    }
 
 
 }
