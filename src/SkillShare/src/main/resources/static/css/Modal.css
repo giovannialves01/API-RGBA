@@ -1,0 +1,113 @@
+/* Classe para a div que fica no fundo do Modal */
+.modalBackground{
+    display: none; /* Deixa o modal escondido, inicialmente*/
+    position: fixed; /* Deixa a posição fixa */
+    z-index: 1; /* Faz ficar por cima de tudo na página*/
+    left: 0;
+    top: 0;
+    width: 100%; /* Seta a largura para a tela toda*/
+    height: 100%; /* Seta a altura para a tela toda*/
+    overflow: auto; /* Permite scroll, caso necessário*/
+    background-color: rgba(0,0,0,0.4); /* Cor do fundo escuro, transparente */
+}
+
+/* Classe para o Modal em si */
+.modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 0px 0px 40px 0px;
+    border-radius: 5px;
+
+}
+
+@media (max-width: 610px){
+    .modal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        border: 1px solid #888;
+        width: 320px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        padding: 0px 0px 40px 0px;
+        border-radius: 5px;
+    
+    }
+}
+
+.modalHeader{
+    border-width: 0px 0px 5px 0px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+    padding-left: 20px;
+    padding-right: 00px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+                                    /*  Classes ativadoras das animações */
+
+.showModal{
+    animation-name: animationShowModal;
+    animation-duration: 0.4s;
+    opacity: 1;
+
+    top: 15%;
+
+}
+
+.hideModal{
+    animation-name: animationHideModal;
+    animation-duration: 0.4s;
+    opacity: 0;
+
+    top: -10%;
+
+}
+
+
+
+                                    /*  Keyframes - Animações  */
+
+@keyframes animationShowModal{
+    from {
+        top: -10%;
+        opacity: 0;
+
+    } to{
+        top: 15%;
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes animationHideModal{
+    from {
+        top: 15%;
+        opacity: 1;
+
+    } to{
+        top: -15%;
+        opacity: 0;
+
+    }
+
+}
+
+
+.beautySelect{
+    margin: 10px;
+    align-self: flex-start;
+}
