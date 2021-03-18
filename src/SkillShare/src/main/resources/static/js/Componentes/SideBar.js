@@ -2,8 +2,6 @@ class SideBar extends HTMLElement{
     constructor(){
         super();
 
-
-
     }
 
     connectedCallback(){
@@ -50,13 +48,19 @@ class SideBar extends HTMLElement{
     buildOption(option){
         let optionContainer = document.createElement("div");
         optionContainer.classList.add("optionContainer");
+        optionContainer.tabIndex = option["tabIndex"];
         optionContainer.onclick = function() {
             option["onclick"]();
         }
 
+        let icon = document.createElement("span");
+        icon.className = "fas fa-" + option["icon"] + " fa-optionContainerIcon";
+
         let optionText = document.createElement("label");
         optionText.textContent = option["name"];
+        optionText.classList.add("optionContainerText");
 
+        optionContainer.appendChild(icon);
         optionContainer.appendChild(optionText);
 
         return optionContainer;
