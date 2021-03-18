@@ -45,13 +45,45 @@
 		    <artifactId>json</artifactId>
 		    <version>20201115</version>
 		</dependency>
-		
-		    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
-		
-				
+		<dependency>
+      		<groupId>org.springframework.boot</groupId>
+      		<artifactId>spring-boot-starter-thymeleaf</artifactId>
+    	</dependency>
+    	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+				<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>annotationProcessor</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<scope>annotationProcessor</scope>
+		</dependency>
+		<repositories>
+        	<repository>
+        	  <id>jcenter-snapshots</id>
+        	  <name>jcenter</name>
+        	  <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
+        	</repository>
+    	</repositories>
+		<dependency>
+        	<groupId>io.springfox</groupId>
+        	<artifactId>springfox-boot-starter</artifactId>
+        	<version>3.0.0</version>
+    	</dependency>
 	</dependencies>
 
 	<build>
