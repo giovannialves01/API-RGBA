@@ -48,20 +48,6 @@ class SideBar extends HTMLElement{
     }
 
     buildOption(option){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         let optionContainer = document.createElement("div");
         optionContainer.classList.add("optionContainer");
         optionContainer.onclick = function() {
