@@ -19,7 +19,10 @@ public class Gestor extends Usuario{
 
     /** 
     *  Cria uma instância da classe Gestor.
-    * @param cpf,nome,email,senha
+    * @param cpf -> cpf do gestor
+    * @param nome -> nome do gestor
+    * @param email -> email do gestor
+    * @param senha -> senha do gestor
     * @author Nicholas Roque
     */
     public Gestor(String cpf,String nome,String email,String senha) { 

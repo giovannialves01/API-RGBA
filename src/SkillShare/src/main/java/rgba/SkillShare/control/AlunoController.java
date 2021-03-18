@@ -71,7 +71,7 @@ public class AlunoController {
     /** 
     *  Endpoint para retornar os detalhes de um aluno.
     * @return Retorna objeto do tipo Aluno com os dados do usuário.
-    * @param cpf
+    * @param cpf -> cpf do aluno
     * @return Aluno
     * @author Nicholas Roque
     */

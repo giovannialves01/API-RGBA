@@ -82,7 +82,7 @@ public abstract class Usuario {
         return this.contatos;
     }
     /** 
-    *  Recebe uma instância da classe Contato para definir o contato do administrador
+    *  Recebe uma instância da classe Contato para definir o contato do usuario.
     * @param contatos
     * @author Nicholas Roque
     */

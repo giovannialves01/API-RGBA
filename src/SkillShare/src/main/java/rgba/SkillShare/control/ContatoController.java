@@ -62,7 +62,7 @@ public class ContatoController {
     /** 
     *  Endpoint para retornar os contatos de um usuário específico.
     * @return Retorna objeto do tipo Contato com os dados dos contatos do usuário.
-    * @param cpf
+    * @param cpf -> cpf do usuario
     * @return Contato
     * @author Nicholas Roque
     */

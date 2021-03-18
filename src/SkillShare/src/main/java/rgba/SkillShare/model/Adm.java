@@ -19,7 +19,10 @@ public class Adm extends Usuario{
 
     /** 
     *  Cria uma instância da classe Adm
-    * @param cpf,nome,email,senha
+    * @param cpf -> cpf do administrador
+    * @param nome -> nome do administrador
+    * @param email -> email do administrador
+    * @param senha -> senha do administrador
     * @author Nicholas Roque
     */
     public Adm(String cpf,String nome,String email,String senha) { 

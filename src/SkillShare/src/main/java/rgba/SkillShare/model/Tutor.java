@@ -19,7 +19,10 @@ public class Tutor extends Usuario{
 
     /** 
     *  Cria uma instância da classe Tutor.
-    * @param cpf,nome,email,senha
+    * @param cpf -> cpf do tutor
+    * @param nome -> nome do tutor
+    * @param email -> email do tutor
+    * @param senha -> senha do tutor
     * @author Nicholas Roque
     */
     public Tutor(String cpf,String nome,String email,String senha) { 

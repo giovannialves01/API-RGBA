@@ -66,7 +66,7 @@ public class TutorController {
     /** 
     *  Endpoint para retornar os detalhes de um tutor.
     * @return Retorna objeto do tipo Tutor com os dados do tutor.
-    * @param cpf
+    * @param cpf -> cpf do tutor
     * @return Tutor
     * @author Nicholas Roque
     */

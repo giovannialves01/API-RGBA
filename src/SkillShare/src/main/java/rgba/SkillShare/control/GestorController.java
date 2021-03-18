@@ -66,7 +66,7 @@ public class GestorController {
     /** 
     *  Endpoint para retornar os detalhes de um gestor.
     * @return Retorna objeto do tipo Gestor com os dados do gestor.
-    * @param cpf
+    * @param cpf -> cpf do gestor
     * @return Gestor
     * @author Nicholas Roque
     */

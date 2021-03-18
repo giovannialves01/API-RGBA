@@ -22,6 +22,11 @@ public class Contato {
 
     public Contato() {  }
 
+    /** 
+    *  Cria uma instância da classe Contato.
+    * @param telefone -> telefone do usuario
+    * @author Nicholas Roque
+    */
     public Contato(long id, String telefone) {
         this.id = id;
         this.telefone = telefone;

@@ -66,7 +66,7 @@ public class AdmController {
     /** 
     *  Endpoint para retornar os detalhes de um administrador.
     * @return Retorna objeto do tipo Adm com os dados do usuário.
-    * @param cpf
+    * @param cpf -> cpf do administrador
     * @return Adm
     * @author Nicholas Roque
     */

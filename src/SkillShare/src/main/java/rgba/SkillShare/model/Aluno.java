@@ -19,7 +19,10 @@ public class Aluno extends Usuario{
 
     /** 
     *  Cria uma instância da classe Aluno
-    * @param cpf,nome,email,senha
+    * @param cpf -> cpf do aluno
+    * @param nome -> nome do aluno
+    * @param email -> email do aluno
+    * @param senha -> senha do aluno
     * @author Nicholas Roque
     */
     public Aluno(String cpf,String nome,String email,String senha) { 
