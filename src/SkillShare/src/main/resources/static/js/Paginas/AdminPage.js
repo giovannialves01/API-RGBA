@@ -84,6 +84,28 @@ function getSideBarOptions(){
 }
 
 
+function tableData() {
+    let data = {
+        columns: {
+            coluna1: "Meu nome",
+            coluna2: "Meu cpf"
+        },
+        rows: [
+            {
+                coluna1: "meu nome",
+                coluna2: "meu cpf;"
+            },
+            {
+                coluna1: "meu outro nome",
+                coluna2: "meu outro cpf"
+            }
+        ]
+    };
+
+    return data;
+}
+
+
 /**
  * Esconde qualquer janela que estiver aberta na área de exibição de conteúdo da página
  * 
