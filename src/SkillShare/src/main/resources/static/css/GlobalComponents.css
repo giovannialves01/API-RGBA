@@ -6,7 +6,10 @@ body{
 }
 
 :root{
-    --beautyButtonNormalBgColor: #3fbdda;
+    --beautyInputBorderColor: #0fcac3;
+    --beautyInputIconColor: var(--beautyInputBorderColor);
+
+    --beautyButtonNormalBgColor: var(--beautyInputBorderColor);
     --beautyButtonNormalHoverColor: #2f8ea3;
     --beautyButtonNormalActiveColor: #88dbee;
     --beautyButtonNormalFocusedColor: rgba(53, 151, 146, 0.568);
@@ -16,8 +19,7 @@ body{
     --beautyButtonRedActiveColor: rgb(255, 138, 138);
     --beautyButtonRedFocusedColor: rgb(202, 100, 100);
 
-    --beautyInputBorderColor: #0fcac3;
-    --beautyInputIconColor: var(--beautyInputBorderColor);
+
 
     --headerTextColor: #0aada7;
     --adminToolBarColor: var(--headerTextColor);

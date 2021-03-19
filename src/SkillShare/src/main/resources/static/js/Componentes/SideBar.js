@@ -78,6 +78,7 @@ class SideBar extends HTMLElement{
      */
     buildOption(option){
         let optionContainer = document.createElement("div");
+        optionContainer.setAttribute("role", "button");
         optionContainer.classList.add("optionContainer");
         optionContainer.tabIndex = option["tabIndex"];
         optionContainer.onclick = function() {

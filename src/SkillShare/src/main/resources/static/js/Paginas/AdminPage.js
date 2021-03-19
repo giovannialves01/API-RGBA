@@ -13,6 +13,8 @@ function getSideBarOptions(){
         tabIndex: "2",
         onclick: function() {
             console.log("mostrando cursos");
+
+            hideAllContent();
         }
     }, 
     {
@@ -21,6 +23,8 @@ function getSideBarOptions(){
         tabIndex: "3",
         onclick: function() {
             console.log("mostrando biblioteca");
+
+            hideAllContent();
         }
     },
     {
@@ -29,6 +33,8 @@ function getSideBarOptions(){
         tabIndex: "4",
         onclick: function() {
             console.log("mostrando banco de questões");
+
+            hideAllContent();
         }
     },
     {
@@ -37,6 +43,11 @@ function getSideBarOptions(){
         tabIndex: "5",
         onclick: function() {
             console.log("mostrando usuários");
+
+            hideAllContent();
+
+            showContent("cadastrarUsuario");
+
         }
     },
     {
@@ -45,6 +56,8 @@ function getSideBarOptions(){
         tabIndex: "6",
         onclick: function() {
             console.log("mostrando dashboard");
+
+            hideAllContent();
         }
     },
     {
@@ -53,11 +66,33 @@ function getSideBarOptions(){
         tabIndex: "7",
         onclick: function() {
             console.log("mostrando minha conta");
+
+            hideAllContent();
         }
     }
 ];
 
     return options;
+}
+
+
+function hideAllContent() {
+    let showedContents = document.getElementsByClassName("show");
+
+    for (let i = 0; i < showedContents.length; i++) {
+        const content = showedContents[i];
+        
+        content.classList.remove("show");
+        content.classList.add("hide");
+
+    }
+
+}
+
+function showContent(contentId) {
+    let optionContent = document.getElementById(contentId);
+    optionContent.classList.add("show");
+
 }
 
 // Adiciona um listener global responsável por mudar a cor dos botões da side bar que forem selecionados

@@ -14,6 +14,14 @@
 }
 
 /* Seleciona todos os filhos diretos da div que mostra o conteúdo */
-#optionContentDisplayer > *{
+#optionContentDisplayer > * {
     width: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: flex;
 }
