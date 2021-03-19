@@ -35,6 +35,18 @@ function getSideBarOptions(){
         onclick: function() {
             console.log("mostrando minha conta");
         }
+    }, 
+    {
+        name: "BibliotecaExclusao",
+        onclick: function() {
+            console.log("exclusao do livro em questao");
+        }
+    }, 
+    {
+        name: "BibliotecaEditar",
+        onclick: function() {
+            console.log("Edição de dados do livro");
+        }
     }
 ];
 

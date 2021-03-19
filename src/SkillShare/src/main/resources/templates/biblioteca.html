@@ -1,34 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="../static/css/Biblioteca.css">
+    <script src="../static/js/Paginas/AdminPage.js"></script>
+    <script src="js/ServerRequester.js"></script>
+    <title>Biblioteca</title>
 </head>
 <body>
-    <div style="border: 1px solid black; width: 600px; height: 600px;">
-        <h1>Biblioteca</h1>
-        <div style="border: 1px solid black; border-radius: 5px; min-height: 500px; margin: 15px;">
-            <div style="border: 1px solid gray; height: 50px; width: 90%; margin: 10px; border-radius: 5px;">
-                nome_arquivo.extensao
-            </div>
+    <h1 class="Titulo">Biblioteca</h1>
+    
+    <form method="post" th:object="${biblioteca}">
+        <div class="cadastroNovoLivro">
+            <h3>Cadastrar novo livro</h3>
+            <label for="nome"></label>
+			  <input type="text" class="inputFormulario" placeholder="Insira o nome" maxlength="40" name="nome">
+              <input type="text" class="inputFormulario" placeholder="Insira os gêneros" maxlength="150" name="nome">
+              <input type="text" class="inputFormulario" placeholder="Insira o número de páginas" maxlength="4" name="nome">
+              <input type="text" class="inputFormulario" placeholder="Insira o autor" maxlength="40" name="50">
+              <input type="text" class="inputFormulario" placeholder="Insira a editora" maxlength="40" name="nome">
+              <button type="submit" id="botaoCadastrar">Cadastrar</button>
         </div>
-        <!-- <div>logo</div>
-        <ul>
-            <li>Cursos</li>
-            <ul>
-                <li>Opção 1</li>
-                <li>Opção 2</li>
-                <li>Opção 3</li>
-            </ul>
-            <li>Opção 2</li>
-            <li>Biblioteca</li>
-            <li>Banco de questões</li>
-            <li>Usuários</li>
-            <li>Dashboard</li>
-            <li>Minha conta</li>
-        </ul> -->
+    </form>
+
+    <form method="post" action="listaLivros">
+        <div class="cadastroTable">
+            <h3>Vizualizar livros cadastrados</h3> 
+            <label>Filtros:</label>
+                <select class="filtroLivros" id="filtro" name="filtro">
+                    <option value="first">Ordem alfabética</option>
+                    <option value="second">Gênero</option>
+                    <option value="third">Número de páginas</option>
+                    <option value="fourth">Autor</option>
+                    <option value="fifth">Editora</option>
+                </select>
+    
+                <select class="form-control" id="genero" name="genero">
+                    <option value="first">Crescente</option>
+                    <option value="second">Decrescente</option>
+                </select>
+                <button type="submit" class="botaoFiltrar">Filtrar</button> 
+       
+        </form>
+        <table>
+            <thead>
+        <tr>
+            <th id="tableNome" scope="col">Nome</th>
+            <th id="tableGenero" scope="col">Gêneros</th>
+            <th id="tableNumPagina" scope="col">Numero de páginas</th>
+            <th id="tableAutor" scope="col">Autor</th>
+            <th id="tableEditora" scope="col">Editora</th>
+        </tr>
+        </thead>
+
+        <!---
+            <tr th:each="biblioteca">
+                <th scope="row"><span th:text="${biblioteca.id}"></span></th>
+                <td><span th:text="${biblioteca.nome}"></span></td>
+                <td><span th:text="${biblioteca.generos}"></span> <span th:text="${cliente.telefones[0].numero}"></span></td>
+                <td><span th:text="${biblioteca.numPaginas}"></span></td>
+                <td><span th:text="${biblioteca.autor}"></span></td>
+                <td><span th:text="${biblioteca.editora}"></span></td>
+                <td>
+                    <a th:href="@{EDITAR})}">Editar</a>
+                        
+                    <a th:href="@{EXCLUIR})}">Excluir</a></td>
+                </td>  
+            </tr>
+            --->
+            <tr>
+                    <td>A dança da morte</td>
+                    <td>Romance, Terror, Ficção científica</td>
+                    <td id="paginas">1218</td>
+                    <td>Stephen King</td>
+                    <td>Doubleday</td>  
+                    <td>
+                        <button type="button" onclick="getSideBarOptions()">Editar</button>
+                        <button type="button" onclick="getSideBarOptions()">Excluir</button>
+                    </td>
+            </tr>
+            <tr>
+                <td>A dança da morte</td>
+                <td>Romance, Terror, Ficção científica</td>
+                <td id="paginas">1218</td>
+                <td>Stephen King</td>
+                <td>Doubleday</td>
+                <td>
+                    <button type="button" onclick="getSideBarOptions()">Editar</button>
+                    <button type="button" onclick="getSideBarOptions()">Excluir</button>
+                </td> 
+            </tr>
+        </table>
     </div>
 </body>
 </html>
