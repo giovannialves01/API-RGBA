@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="../static/css/GlobalComponents.css">
     <link rel="stylesheet" href="../static/css/TopBar.css">
     <link rel="stylesheet" href="../static/css/SideBar.css">
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="../static/css/BeautyInput.css">
     <link rel="stylesheet" href="../static/css/BeautySelect.css">
 
+    <!-- JavaScript -->
     <script src="../static/js/Componentes/BeautySelect.js"></script>
     <script src="../static/js/Componentes/BeautyButton.js"></script>
     <script src="../static/js/Componentes/BeautyInput.js"></script>
@@ -29,6 +31,11 @@
 <body>
     <top-bar></top-bar>
     <side-bar></side-bar>
+    <script>
+        function teste(event){
+            event.preventDefault();
+        }
+    </script>
     <div id="optionContentDisplayer">
         <form onsubmit="teste(event)" class="vBox">
             <beauty-input type="text" placeholder="Nome" required="true" icon="user" name="nome" id="nome"></beauty-input>
@@ -37,7 +44,8 @@
             <beauty-input type="email" placeholder="E-mail" required="true" icon="envelope" name="email" id="email"></beauty-input>
             <beauty-input type="password" placeholder="Senha" required="true" icon="key" name="senha" id="senha"></beauty-input>
             <beauty-input type="password" placeholder="Confirme a senha" required="true" icon="key" name="cSenha" id="cSenha"></beauty-input>
-            <beauty-button text="Cadastrar"></beauty-button>
+            <beauty-button onclick="console.log('a')" text="Cadastrar"></beauty-button>
         </form>
+    </div>
 </body>
 </html>
