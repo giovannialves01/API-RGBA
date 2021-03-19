@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../static/css/BeautyButton.css">
     <link rel="stylesheet" href="../static/css/BeautyInput.css">
     <link rel="stylesheet" href="../static/css/BeautySelect.css">
+    <link rel="stylesheet" href="../static/css/Biblioteca.css">
 
     <!-- JavaScript -->
     <script src="../static/js/Componentes/BeautySelect.js"></script>
@@ -34,9 +35,26 @@
     <script>
         function teste(event){
             event.preventDefault();
+            console.log("funfando");
         }
     </script>
+
+    <!-- Onde o conteúdo é mostrado -->
     <div id="optionContentDisplayer">
+
+        <!-- Biblioteca -->
+        <form onsubmit="teste(event)" class="vBox bibliotecaCadastrarContainer hide" id="bibliotecaCadastrar">
+            <h3>Cadastrar novo livro</h3>
+            <label for="nome"></label>
+            <input type="text" class="inputFormulario" placeholder="Insira o nome" maxlength="40" name="nome">
+            <input type="text" class="inputFormulario" placeholder="Insira os gêneros" maxlength="150" name="nome">
+            <input type="text" class="inputFormulario" placeholder="Insira o número de páginas" maxlength="4" name="nome">
+            <input type="text" class="inputFormulario" placeholder="Insira o autor" maxlength="40" name="50">
+            <input type="text" class="inputFormulario" placeholder="Insira a editora" maxlength="40" name="nome">
+            <button type="submit" id="botaoCadastrar">Cadastrar</button>
+        </form>
+
+        <!-- Registrar usuário -->
         <form onsubmit="registerUser(event)" class="vBox hide" id="cadastrarUsuario">
             <h2 class="headerText">Cadastrar novo aluno</h1>
             <beauty-input type="text" placeholder="Nome" required="true" icon="user" name="nome" id="nome"></beauty-input>
@@ -47,6 +65,8 @@
             <beauty-input type="password" placeholder="Confirme a senha" required="true" icon="key" name="cSenha" id="cSenha"></beauty-input>
             <beauty-button text="Cadastrar"></beauty-button>
         </form>
+
     </div>
+
 </body>
 </html>
