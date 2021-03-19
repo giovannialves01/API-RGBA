@@ -12,6 +12,7 @@ body{
     --beautyInputBorderColor: #0fcac3;
     --beautyInputIconColor: var(--beautyInputBorderColor);
     --headerTextColor: #0aada7;
+    --adminToolBarColor: var(--headerTextColor);
 }
 
 .justifyLeft{
