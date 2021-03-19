@@ -4,7 +4,7 @@
  * 
  * Para utilizar diretamente na página HTML, existem 2 atributos que podem ser passados na tag
  * - title - Texto de dica
- * - options - Opções para constar no select, separados por espaço. Ex: "opção1 opção2 opção3 ..."
+ * - options - Opções para constar no select, separados por vírgula. Ex: "opção1,opção2,opção3,..."
  * 
  * @author Rafael Furtado
  */
@@ -23,7 +23,7 @@ class BeautySelect extends HTMLElement{
      */
     connectedCallback(){
         this.title = this.getAttribute("title");
-        this.options = this.getAttribute("options").split(" ");
+        this.options = this.getAttribute("options").split(",");
 
         // Popula a tag com os elementos, caso seja utilizado diretamente na página HTML
         this.appendChild(this.buildBeautySelect(this.title, this.options));
