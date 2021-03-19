@@ -11,6 +11,7 @@ class BeautyTable extends HTMLElement{
         this.data;
         this.columns;
         this.rows;
+        this.extraConfigs;
 
     }
 
@@ -20,10 +21,13 @@ class BeautyTable extends HTMLElement{
         this.data = tableData();
         this.columns = this.data["columns"];
         this.rows = this.data["rows"];
+        this.extraConfigs = this.data["extraConfigs"];
 
         let table = this.buildBeautyTable();
 
         this.appendChild(table);
+
+        this.setTableBehaviour();
     }
 
     buildBeautyTable(){
@@ -46,6 +50,7 @@ class BeautyTable extends HTMLElement{
     buildTableContainer(){
         let div = document.createElement("div");
         div.classList.add("tableContainer");
+        div.id = this.id + "-beautyTable";
 
         return div;
     }
@@ -132,6 +137,9 @@ class BeautyTable extends HTMLElement{
             const row = this.rows[i];
 
             let tr = document.createElement("tr");
+            if(i % 2 != 0){
+                tr.classList.add("evenRow");
+            }
 
             for (let x = 0; x < columnsKeys.length; x++) {
                 const key = columnsKeys[x];
@@ -147,6 +155,27 @@ class BeautyTable extends HTMLElement{
         }
 
         return tbody;
+    }
+
+
+    setTableBehaviour(){
+        let table = document.getElementById(this.id + "-beautyTable");
+
+        table.addEventListener("click", function(event) {
+            if(event.target.tagName == "TD"){
+                let selectedRow = event.target;
+
+                let selectedRows = document.getElementsByClassName("selectedRow");
+                for (let i = 0; i < selectedRows.length; i++) {
+                    const row = selectedRows[i];
+                    
+                    row.classList.remove("selectedRow");
+                }
+
+                selectedRow.parentNode.classList.add("selectedRow");
+            }
+            
+        });
     }
 
 }

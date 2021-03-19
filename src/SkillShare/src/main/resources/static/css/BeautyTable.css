@@ -1,3 +1,11 @@
-.tableContainer{
-    border: 2px solid black;
+.selectedRow{
+    background-color: var(--beautyTableSelectedRow);
+}
+
+.evenRow{
+    background-color: #e6e6e6;
+}
+
+.evenRow.selectedRow{
+    background-color: var(--beautyTableSelectedRow);
 }

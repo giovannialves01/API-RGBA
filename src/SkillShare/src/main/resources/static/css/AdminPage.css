@@ -16,6 +16,7 @@
 /* Seleciona todos os filhos diretos da div que mostra o conteúdo */
 #optionContentDisplayer > * {
     width: 100%;
+    flex-direction: column;
 }
 
 .hide{

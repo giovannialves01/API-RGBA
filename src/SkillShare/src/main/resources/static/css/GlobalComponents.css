@@ -23,6 +23,8 @@ body{
     --adminToolBarColor: var(--headerTextColor);
 
     --headTableColor: #0fcac3;
+
+    --beautyTableSelectedRow: rgb(108, 253, 210);
 }
 
 .justifyLeft{
@@ -94,4 +96,8 @@ body{
 
 .headerText{
     color: var(--headerTextColor);
+}
+
+.maxWidth{
+    width: 100%;
 }

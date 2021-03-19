@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../static/css/BeautyInput.css">
     <link rel="stylesheet" href="../static/css/BeautySelect.css">
     <link rel="stylesheet" href="../static/css/Biblioteca.css">
+    <link rel="stylesheet" href="../static/css/BeautyTable.css">
 
     <!-- JavaScript -->
     <script src="../static/js/Componentes/BeautySelect.js"></script>
@@ -42,19 +43,22 @@
 
     <!-- Onde o conteúdo é mostrado -->
     <div id="optionContentDisplayer">
-        <beauty-table tableTitle="Minha tabelita"></beauty-table>
 
         <!-- Biblioteca -->
-        <form onsubmit="teste(event)" class="vBox bibliotecaCadastrarContainer hide" id="bibliotecaCadastrar">
-            <h3>Cadastrar novo livro</h3>
-            <label for="nome"></label>
-            <input type="text" class="inputFormulario" placeholder="Insira o nome" maxlength="40" name="nome">
-            <input type="text" class="inputFormulario" placeholder="Insira os gêneros" maxlength="150" name="nome">
-            <input type="text" class="inputFormulario" placeholder="Insira o número de páginas" maxlength="4" name="nome">
-            <input type="text" class="inputFormulario" placeholder="Insira o autor" maxlength="40" name="50">
-            <input type="text" class="inputFormulario" placeholder="Insira a editora" maxlength="40" name="nome">
-            <button type="submit" id="botaoCadastrar">Cadastrar</button>
-        </form>
+        <div class="hide" id="biblioteca">
+            <form onsubmit="teste(event)" class="vBox bottomSeparator maxWidth" >
+                <h3>Cadastrar novo livro</h3>
+                <label for="nome"></label>
+                <input type="text" class="inputFormulario" placeholder="Insira o nome" maxlength="40" name="nome">
+                <input type="text" class="inputFormulario" placeholder="Insira os gêneros" maxlength="150" name="nome">
+                <input type="text" class="inputFormulario" placeholder="Insira o número de páginas" maxlength="4" name="nome">
+                <input type="text" class="inputFormulario" placeholder="Insira o autor" maxlength="40" name="50">
+                <input type="text" class="inputFormulario" placeholder="Insira a editora" maxlength="40" name="nome">
+                <button type="submit" id="botaoCadastrar">Cadastrar</button>
+            </form>
+            <beauty-table id="aa" tableTitle="Minha tabelita"></beauty-table>
+        </div>
+
 
         <!-- Registrar usuário -->
         <form onsubmit="registerUser(event)" class="vBox hide" id="cadastrarUsuario">

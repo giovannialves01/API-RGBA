@@ -28,7 +28,7 @@ function getSideBarOptions(){
 
             hideAllContent();
 
-            showContent("bibliotecaCadastrar");
+            showContent("biblioteca");
         }
     },
     {
@@ -93,12 +93,16 @@ function tableData() {
         rows: [
             {
                 coluna1: "meu nome",
-                coluna2: "meu cpf;"
+                coluna2: "meu cpf"
             },
             {
                 coluna1: "meu outro nome",
                 coluna2: "meu outro cpf"
             }
+        ],
+        extraConfigs: [
+            "editRowInfo",
+            "deleteRowInfo"
         ]
     };
 
@@ -136,6 +140,7 @@ function hideAllContent() {
 function showContent(contentId) {
     let optionContent = document.getElementById(contentId);
     optionContent.classList.add("show");
+    optionContent.classList.remove("hide");
 
 }
 
@@ -168,3 +173,9 @@ window.addEventListener("click", function (event) {
 
 });
 */
+
+function seeInfo() {
+    let selectedRow = document.getElementsByClassName("selectedRow")[0];
+
+    console.log(selectedRow);
+}
