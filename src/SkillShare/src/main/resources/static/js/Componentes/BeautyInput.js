@@ -34,6 +34,9 @@ class BeautyInput extends HTMLElement{
     connectedCallback(){
         
         this.title = this.getAttribute("title");
+        if(this.title == "null" || this.title == "undefined"){
+            this.title = "";
+        }
         this.type = this.getAttribute("type");
         this.icon = this.getAttribute("icon");
         this.placeholder = this.getAttribute("placeholder");
@@ -72,7 +75,9 @@ class BeautyInput extends HTMLElement{
         input.classList.add("beautyInput");
         input.type = type;
         input.placeholder = " ";
-        input.title = title;
+        if(title == "null" || title == "undefined"){
+            input.title = "";
+        }
         input.required = required;
         
         // Popula a div criada com os elementos

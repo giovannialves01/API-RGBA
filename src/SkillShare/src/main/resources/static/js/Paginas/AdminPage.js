@@ -11,6 +11,7 @@ function getSideBarOptions(){
         name: "Cursos",
         icon: "chalkboard-teacher",
         tabIndex: "2",
+        title: "Clique aqui para exibir a janela de cursos",
         onclick: function() {
             console.log("mostrando cursos");
 
@@ -21,6 +22,7 @@ function getSideBarOptions(){
         name: "Biblioteca",
         icon: "book",
         tabIndex: "3",
+        title: "Clique aqui para exibir a biblioteca",
         onclick: function() {
             console.log("mostrando biblioteca");
 
@@ -31,6 +33,7 @@ function getSideBarOptions(){
         name: "Banco de Questões",
         icon: "file-alt",
         tabIndex: "4",
+        title: "Clique aqui para exibir o banco de questões",
         onclick: function() {
             console.log("mostrando banco de questões");
 
@@ -41,6 +44,7 @@ function getSideBarOptions(){
         name: "Usuários",
         icon: "users",
         tabIndex: "5",
+        title: "Clique aqui para exibir o cadastro de alunos",
         onclick: function() {
             console.log("mostrando usuários");
 
@@ -54,6 +58,7 @@ function getSideBarOptions(){
         name: "Dashboard",
         icon: "chart-line",
         tabIndex: "6",
+        title: "Clique aqui para exibir o dashboard",
         onclick: function() {
             console.log("mostrando dashboard");
 
@@ -64,6 +69,7 @@ function getSideBarOptions(){
         name: "Minha conta",
         icon: "user-circle",
         tabIndex: "7",
+        title: "Clique aqui para exibir informações da sua conta",
         onclick: function() {
             console.log("mostrando minha conta");
 
@@ -88,6 +94,12 @@ function getSideBarOptions(){
 }
 
 
+/**
+ * Esconde qualquer janela que estiver aberta na área de exibição de conteúdo da página
+ * 
+ * @author Rafael Furtado
+ * @returns undefined
+ */
 function hideAllContent() {
     let showedContents = document.getElementsByClassName("show");
 
@@ -101,10 +113,25 @@ function hideAllContent() {
 
 }
 
+
+/**
+ * Exibe um conteúdo específico na área de exibição de conteúdo da página
+ * 
+ * @author Rafael Furtado
+ * @param {string} contentId ID do elemento que contém o conteúdo a ser exibido
+ * @returns undefined
+ */
 function showContent(contentId) {
     let optionContent = document.getElementById(contentId);
     optionContent.classList.add("show");
 
+}
+
+function registerUser(event) {
+    event.preventDefault();
+
+    console.log(event);
+    console.log(event.target);
 }
 
 // Adiciona um listener global responsável por mudar a cor dos botões da side bar que forem selecionados

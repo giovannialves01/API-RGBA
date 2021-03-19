@@ -19,8 +19,6 @@ body{
     --beautyButtonRedActiveColor: rgb(255, 138, 138);
     --beautyButtonRedFocusedColor: rgb(202, 100, 100);
 
-
-
     --headerTextColor: #0aada7;
     --adminToolBarColor: var(--headerTextColor);
 

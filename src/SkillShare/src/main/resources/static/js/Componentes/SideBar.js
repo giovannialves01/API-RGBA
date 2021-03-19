@@ -81,6 +81,7 @@ class SideBar extends HTMLElement{
         optionContainer.setAttribute("role", "button");
         optionContainer.classList.add("optionContainer");
         optionContainer.tabIndex = option["tabIndex"];
+        optionContainer.title = option["title"];
         optionContainer.onclick = function() {
             option["onclick"]();
         }

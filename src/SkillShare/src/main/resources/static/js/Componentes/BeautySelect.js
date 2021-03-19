@@ -23,6 +23,9 @@ class BeautySelect extends HTMLElement{
      */
     connectedCallback(){
         this.title = this.getAttribute("title");
+        if(this.title == "null" || this.title == "undefined"){
+            this.title = "";
+        }
         this.options = this.getAttribute("options").split(",");
 
         // Popula a tag com os elementos, caso seja utilizado diretamente na página HTML
@@ -41,7 +44,9 @@ class BeautySelect extends HTMLElement{
         // Cria o elemento select
         let select = document.createElement("select");
         select.classList.add("beautySelect");
-        select.title = title;
+        if(title == "null" || title == "undefined"){
+            select.title = "";
+        }
 
         // Cria o elemento option da primeira opção e o marca como desabilitado
         let option = document.createElement("option");

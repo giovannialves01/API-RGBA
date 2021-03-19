@@ -11,14 +11,15 @@ class TopBar extends HTMLElement{
         let exitLabel = document.createElement("label");
         exitLabel.textContent = "Sair";
         exitLabel.classList.add("topBarExitLabel");
+        exitLabel.title = "Desconectar da sua conta";
 
         let topbarHomeButtonContainer = document.createElement("div");
         topbarHomeButtonContainer.classList.add("topBarHomeButtonContainer");
+        topbarHomeButtonContainer.title = "Voltar para a página inicial";
 
         let topbarHomeButtonLogo = document.createElement("span");
         topbarHomeButtonLogo.className = "fas fa-home";
         topbarHomeButtonLogo.classList.add("topBarHomeButtonLogo");
-
 
         let topbarHomeButtonText = document.createElement("label");
         topbarHomeButtonText.classList.add("topBarHomeButtonText");
