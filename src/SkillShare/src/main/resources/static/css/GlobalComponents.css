@@ -22,6 +22,7 @@ body{
     --headerTextColor: #0aada7;
     --adminToolBarColor: var(--headerTextColor);
 
+    --headTableColor: #0fcac3;
 }
 
 .justifyLeft{

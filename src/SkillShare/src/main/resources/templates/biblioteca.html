@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="../static/css/Biblioteca.css">
+    <link rel="stylesheet" href="../static/css/GlobalComponents.css">
     <script src="../static/js/Paginas/AdminPage.js"></script>
     <script src="js/ServerRequester.js"></script>
     <title>Biblioteca</title>
@@ -22,7 +23,7 @@
               <input type="text" class="inputFormulario" placeholder="Insira o número de páginas" maxlength="4" name="nome">
               <input type="text" class="inputFormulario" placeholder="Insira o autor" maxlength="40" name="50">
               <input type="text" class="inputFormulario" placeholder="Insira a editora" maxlength="40" name="nome">
-              <button type="submit" id="botaoCadastrar">Cadastrar</button>
+              <button type="submit" class="botao" id="botaoCadastrar">Cadastrar</button>
         </div>
     </form>
 
@@ -42,35 +43,19 @@
                     <option value="first">Crescente</option>
                     <option value="second">Decrescente</option>
                 </select>
-                <button type="submit" class="botaoFiltrar">Filtrar</button> 
+                <button type="submit" class="botao">Filtrar</button> 
        
         </form>
         <table>
             <thead>
         <tr>
-            <th id="tableNome" scope="col">Nome</th>
-            <th id="tableGenero" scope="col">Gêneros</th>
-            <th id="tableNumPagina" scope="col">Numero de páginas</th>
-            <th id="tableAutor" scope="col">Autor</th>
-            <th id="tableEditora" scope="col">Editora</th>
+            <th class="tableHeader" id="tableNome" scope="col">Nome</th>
+            <th class="tableHeader" id="tableGenero" scope="col">Gêneros</th>
+            <th class="tableHeader" id="tableNumPagina" scope="col">Numero de páginas</th>
+            <th class="tableHeader" id="tableAutor" scope="col">Autor</th>
+            <th class="tableHeader" id="tableEditora" scope="col">Editora</th>
         </tr>
         </thead>
-
-        <!---
-            <tr th:each="biblioteca">
-                <th scope="row"><span th:text="${biblioteca.id}"></span></th>
-                <td><span th:text="${biblioteca.nome}"></span></td>
-                <td><span th:text="${biblioteca.generos}"></span> <span th:text="${cliente.telefones[0].numero}"></span></td>
-                <td><span th:text="${biblioteca.numPaginas}"></span></td>
-                <td><span th:text="${biblioteca.autor}"></span></td>
-                <td><span th:text="${biblioteca.editora}"></span></td>
-                <td>
-                    <a th:href="@{EDITAR})}">Editar</a>
-                        
-                    <a th:href="@{EXCLUIR})}">Excluir</a></td>
-                </td>  
-            </tr>
-            --->
             <tr>
                     <td>A dança da morte</td>
                     <td>Romance, Terror, Ficção científica</td>
@@ -78,8 +63,8 @@
                     <td>Stephen King</td>
                     <td>Doubleday</td>  
                     <td>
-                        <button type="button" onclick="getSideBarOptions()">Editar</button>
-                        <button type="button" onclick="getSideBarOptions()">Excluir</button>
+                        <button type="button" class="botao" onclick="getSideBarOptions()">Editar</button>
+                        <button type="button" class="botao" onclick="getSideBarOptions()">Excluir</button>
                     </td>
             </tr>
             <tr>
@@ -89,8 +74,8 @@
                 <td>Stephen King</td>
                 <td>Doubleday</td>
                 <td>
-                    <button type="button" onclick="getSideBarOptions()">Editar</button>
-                    <button type="button" onclick="getSideBarOptions()">Excluir</button>
+                    <button type="button" class="botao" onclick="getSideBarOptions()">Editar</button>
+                    <button type="button" class="botao" onclick="getSideBarOptions()">Excluir</button>
                 </td> 
             </tr>
         </table>
