@@ -151,6 +151,13 @@ function registerUser(event) {
     console.log(event.target);
 }
 
+function registerBook(event) {
+    event.preventDefault();
+
+    console.log(event);
+    console.log(event.target);
+}
+
 // Adiciona um listener global responsável por mudar a cor dos botões da side bar que forem selecionados
 //ainda não está funcionando como deveria :c
 /*

@@ -46,31 +46,40 @@
 
         <!-- Biblioteca -->
         <div class="hide" id="biblioteca">
-            <form onsubmit="teste(event)" class="vBox bottomSeparator maxWidth" >
+            <form onsubmit="registerBook(event)" class="vBox bottomSeparator maxWidth" >
                 <h3>Cadastrar novo livro</h3>
                 <label for="nome"></label>
-                <input type="text" class="inputFormulario" placeholder="Insira o nome" maxlength="40" name="nome">
-                <input type="text" class="inputFormulario" placeholder="Insira os gêneros" maxlength="150" name="nome">
-                <input type="text" class="inputFormulario" placeholder="Insira o número de páginas" maxlength="4" name="nome">
-                <input type="text" class="inputFormulario" placeholder="Insira o autor" maxlength="40" name="50">
-                <input type="text" class="inputFormulario" placeholder="Insira a editora" maxlength="40" name="nome">
-                <button type="submit" id="botaoCadastrar">Cadastrar</button>
+                <beauty-input apparence="simple" type="text" placeholder="Nome do livro" required="true" id="inputNomeLivro"></beauty-input>
+                <beauty-input apparence="simple" type="text" placeholder="Gêneros do livro" required="true" id="inputGeneroLivro"></beauty-input>
+                <beauty-input apparence="simple" type="text" placeholder="Número de páginas" required="true" id="inputPaginasLivro"></beauty-input>
+                <beauty-input apparence="simple" type="text" placeholder="Nome autor" required="true" id="inputAutorLivro"></beauty-input>
+                <beauty-input apparence="simple" type="text" placeholder="Nome da editora" required="true" id="inputEditoraLivro"></beauty-input>
+                
+                <beauty-button text="Cadastrar"></beauty-button>
             </form>
             <beauty-table id="aa" tableTitle="Minha tabelita"></beauty-table>
         </div>
 
 
         <!-- Registrar usuário -->
-        <form onsubmit="registerUser(event)" class="vBox hide" id="cadastrarUsuario">
-            <h2 class="headerText">Cadastrar novo aluno</h1>
-            <beauty-input type="text" placeholder="Nome" required="true" icon="user" name="nome" id="nome"></beauty-input>
-            <beauty-input type="text" placeholder="CPF" required="true" icon="id-card" name="cpf" id="cpf"></beauty-input>
-            <beauty-select name="genero" id="genero" options="Escolha o gênero,Feminino,Masculino"></beauty-select>
-            <beauty-input type="email" placeholder="E-mail" required="true" icon="envelope" name="email" id="email"></beauty-input>
-            <beauty-input type="password" placeholder="Senha" required="true" icon="key" name="senha" id="senha"></beauty-input>
-            <beauty-input type="password" placeholder="Confirme a senha" required="true" icon="key" name="cSenha" id="cSenha"></beauty-input>
-            <beauty-button text="Cadastrar"></beauty-button>
-        </form>
+        <div id="cadastrarUsuario" class="vBox hide">
+            <form onsubmit="registerUser(event)" class="vBox bottomSeparator">
+                <h2 class="headerText">Cadastrar novo aluno</h1>
+                <div class="hBox">
+                    <div class="vBox">
+                        <beauty-input type="text" placeholder="Nome" required="true" icon="user" name="nome" id="nome"></beauty-input>
+                        <beauty-input type="text" placeholder="CPF" required="true" icon="id-card" name="cpf" id="cpf"></beauty-input>
+                        <beauty-select name="genero" id="genero" options="Escolha o gênero,Feminino,Masculino"></beauty-select>
+                    </div>
+                    <div class="vBox">
+                        <beauty-input type="email" placeholder="E-mail" required="true" icon="envelope" name="email" id="email"></beauty-input>
+                        <beauty-input type="password" placeholder="Senha" required="true" icon="key" name="senha" id="senha"></beauty-input>
+                        <beauty-input type="password" placeholder="Confirme a senha" required="true" icon="key" name="cSenha" id="cSenha"></beauty-input>
+                    </div>
+                </div>
+                <beauty-button text="Cadastrar"></beauty-button>
+            </form>
+        </div>
 
     </div>
 
