@@ -144,11 +144,28 @@ function showContent(contentId) {
 
 }
 
-function registerUser(event) {
+async function registerUser(event) {
     event.preventDefault();
 
-    console.log(event);
-    console.log(event.target);
+    let userName = document.getElementById("nome-beautyInput").value;
+    let userEmail = document.getElementById("email-beautyInput").value;
+    let userCpf = document.getElementById("cpf-beautyInput").value;
+
+    let userPass = document.getElementById("senha-beautyInput").value;
+    let userRePass = document.getElementById("cSenha-beautyInput").value;
+
+    if(userPass == userRePass){
+        let user = {name: userName, email: userEmail, cpf: userCpf, pass: userPass};
+
+        let response = await serverRequester.fazerPost("/cadastrar", user);
+    }else{
+        alert("Senha diferentes!");
+    }
+
+    if(response){
+        alert("Cadastrado com sucesso!");
+    }
+
 }
 
 function registerBook(event) {

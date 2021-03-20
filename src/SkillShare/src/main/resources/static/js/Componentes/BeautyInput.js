@@ -44,7 +44,7 @@ class BeautyInput extends HTMLElement{
         this.apparence = this.getAttribute("apparence");
 
         let beautyInput = this.buildBeautyInput(this.type, this.title, this.placeholder, this.required, this.icon, this.apparence);
-        console.log(beautyInput);
+
         // Popula a tag com os elementos, caso seja utilizado diretamente na página HTML
         this.appendChild(beautyInput);
 
