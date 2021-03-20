@@ -26,3 +26,9 @@
 .show{
     display: flex;
 }
+
+.image{
+    width: 50%;
+    padding-left: 50px;
+    padding-top: 10px;
+}

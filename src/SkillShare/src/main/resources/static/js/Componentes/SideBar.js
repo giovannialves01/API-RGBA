@@ -60,6 +60,8 @@ class SideBar extends HTMLElement{
 
         let logoContainer = document.createElement("span");
         let logo = document.createElement("img");
+        logo.src = "../static/images/logoSkillShare.PNG";
+        logo.classList.add("image");
 
         logoContainer.appendChild(logo);
 
