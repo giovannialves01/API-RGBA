@@ -5,7 +5,7 @@ xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <script src="js/ServerRequester.js"></script>
+    <script src="js/Utils/ServerRequester.js"></script>
 </head>
 <body>
     <h1>Página home!</h1>
@@ -15,7 +15,13 @@ xmlns:th="http://www.thymeleaf.org">
 
     <script>
         async function testePost() {
-            let a = await serverRequester.fazerPost('/post', {abc: 1});
+            let a = await serverRequester.fazerPost('/aluno/cadastrar', 
+            {
+                nome: "Rafael", 
+                email: "rafs.97@hotmail.com", 
+                cpf: "333333333333", 
+                senha: "senhazita"
+            });
             console.log(a);
         }
 

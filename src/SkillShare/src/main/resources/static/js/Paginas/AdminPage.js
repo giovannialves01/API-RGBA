@@ -155,7 +155,7 @@ async function registerUser(event) {
     let userRePass = document.getElementById("cSenha-beautyInput").value;
 
     if(userPass == userRePass){
-        let user = {name: userName, email: userEmail, cpf: userCpf, pass: userPass};
+        let user = {nome: userName, email: userEmail, cpf: userCpf, senha: userPass};
 
         let response = await serverRequester.fazerPost("/cadastrar", user);
     }else{

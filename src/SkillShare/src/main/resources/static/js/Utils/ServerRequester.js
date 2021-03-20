@@ -64,8 +64,11 @@ class ServerRequester{
         let url = this.serverURL + caminhoRest;
         let configsPost = {
                             method: "POST",
-                            body: JSON.stringify(data)
-                          }
+                            body: JSON.stringify(data),
+                            headers: {
+                                "Content-Type": "application/json"   
+                                }
+                        };
 
         // Faz a requisição para a URL construída e obtêm sua resposta como JSON
         return await this.fazerRequisicao(url, configsPost);
@@ -86,6 +89,12 @@ class ServerRequester{
     async fazerRequisicao(url, configs){
         let requisicao = await fetch(url, configs);
         let resposta = await requisicao.json();
+
+        let serverResponses = {}
+        serverResponses["ok"] = requisicao.ok;
+        serverResponses["status"] = requisicao.status;
+
+        resposta["serverResponses"] = serverResponses;
 
         return resposta;
     }
