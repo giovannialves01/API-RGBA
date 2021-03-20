@@ -147,23 +147,30 @@ function showContent(contentId) {
 async function registerUser(event) {
     event.preventDefault();
 
-    let userName = document.getElementById("nome-beautyInput").value;
-    let userEmail = document.getElementById("email-beautyInput").value;
-    let userCpf = document.getElementById("cpf-beautyInput").value;
+    let pass = document.getElementById("senha-beautyInput").value;
+    let rePass = document.getElementById("cSenha-beautyInput").value;
 
-    let userPass = document.getElementById("senha-beautyInput").value;
-    let userRePass = document.getElementById("cSenha-beautyInput").value;
+    if(pass == rePass){
+        let user = new Usuario();
 
-    if(userPass == userRePass){
-        let user = {name: userName, email: userEmail, cpf: userCpf, pass: userPass};
+        user.setNome(document.getElementById("nome-beautyInput").value);
+        user.setEmail(document.getElementById("email-beautyInput").value);
+        user.setCpf(document.getElementById("cpf-beautyInput").value);
+        user.setSenha(pass);
 
-        let response = await serverRequester.fazerPost("/cadastrar", user);
+        let response = await serverRequester.fazerPost("/aluno/cadastrar", user.toData());
+
+        if(response["serverResponses"]["ok"] == true){
+            alert("Cadastrado com sucesso!");
+
+        }else{
+            alert("Ocorreu um erro ao cadastrar o cliente");
+
+        }
+
     }else{
         alert("Senha diferentes!");
-    }
 
-    if(response){
-        alert("Cadastrado com sucesso!");
     }
 
 }
