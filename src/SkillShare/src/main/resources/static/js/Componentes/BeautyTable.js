@@ -6,7 +6,7 @@ class BeautyTable extends HTMLElement{
     constructor(){
         super();
 
-        this.dataSource;
+        this.entityToList;
         this.tableTitle;
         this.data;
         this.columns;
@@ -15,10 +15,10 @@ class BeautyTable extends HTMLElement{
 
     }
 
-    connectedCallback(){
-        this.dataSource = this.getAttribute("dataSource");
+    async connectedCallback(){
+        this.entityToList = this.getAttribute("entityToList");
         this.tableTitle = this.getAttribute("tableTitle")
-        this.data = tableData();
+        this.data = await this.getData(this.entityToList);
         this.columns = this.data["columns"];
         this.rows = this.data["rows"];
         this.extraConfigs = this.data["extraConfigs"];
@@ -176,6 +176,22 @@ class BeautyTable extends HTMLElement{
             }
             
         });
+    }
+
+    getData(entityToList){
+        let data;
+        let user = new Usuario();
+
+        switch (entityToList) {
+            case "Usuario":
+                data = user.toTableData();
+                break;
+        
+            default:
+                break;
+        }
+
+        return data
     }
 
 }
