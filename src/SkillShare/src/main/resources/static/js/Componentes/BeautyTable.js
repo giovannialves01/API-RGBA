@@ -23,22 +23,22 @@ class BeautyTable extends HTMLElement{
         this.rows = this.data["rows"];
         this.extraConfigs = this.data["extraConfigs"];
 
-        let table = this.buildBeautyTable();
-
+        let table = this.buildBeautyTable(this.id, this.tableTitle, this.columns, this.rows, this.extraConfigs);
+        
         this.appendChild(table);
 
-        this.setTableBehaviour();
+        this.setTableBehaviour(this.id);
     }
 
-    buildBeautyTable(){
-        let tableContainer = this.buildTableContainer();
+    buildBeautyTable(id, title, columns, rows, extraConfigs){
+        let tableContainer = this.buildTableContainer(id);
 
         let tableTitle = document.createElement("h3");
-        tableTitle.textContent = this.tableTitle;
+        tableTitle.textContent = title;
 
-        let tableToolbar = this.buildTableToolbar();
+        let tableToolbar = this.buildTableToolbar(columns);
 
-        let table = this.buildTable();
+        let table = this.buildTable(columns, rows);
 
         tableContainer.appendChild(tableTitle);
         tableContainer.appendChild(tableToolbar);
@@ -47,22 +47,22 @@ class BeautyTable extends HTMLElement{
         return tableContainer;
     }
 
-    buildTableContainer(){
+    buildTableContainer(id){
         let div = document.createElement("div");
         div.classList.add("tableContainer");
-        div.id = this.id + "-beautyTable";
+        div.id = id + "-beautyTable";
 
         return div;
     }
 
-    buildTableToolbar(){
+    buildTableToolbar(columns){
         let container = document.createElement("div");
 
         let labelFilter = document.createElement("label");
         labelFilter.textContent = "Filtro: ";
 
         let fieldsToFilter = document.createElement("select");
-        let columnsKeys = Object.keys(this.columns);
+        let columnsKeys = Object.keys(columns);
 
         let firstOption = document.createElement("option");
         firstOption.textContent = "Escolha uma coluna para ordenar";
@@ -72,7 +72,7 @@ class BeautyTable extends HTMLElement{
             const key = columnsKeys[i];
             
             let option = document.createElement("option");
-            option.textContent = this.columns[key];
+            option.textContent = columns[key];
 
             fieldsToFilter.appendChild(option);
         }
@@ -94,13 +94,13 @@ class BeautyTable extends HTMLElement{
         return container;
     }
     
-    buildTable(){
+    buildTable(columns, rows){
         let table = document.createElement("table");
         table.classList.add("beautyTable");
 
-        let tableHead = this.buildTableHead(); 
+        let tableHead = this.buildTableHead(columns); 
 
-        let tableBody = this.buildTableBody();
+        let tableBody = this.buildTableBody(columns, rows);
 
         table.appendChild(tableHead);
         table.appendChild(tableBody);
@@ -108,17 +108,17 @@ class BeautyTable extends HTMLElement{
         return table;
     }
 
-    buildTableHead(){
+    buildTableHead(columns){
         let thead = document.createElement("thead");
         let tr = document.createElement("tr");
 
-        let columnsKeys = Object.keys(this.columns);
+        let columnsKeys = Object.keys(columns);
 
         for (let i = 0; i < columnsKeys.length; i++) {
             const key = columnsKeys[i];
             
             let column = document.createElement("th");
-            column.textContent = this.columns[key];
+            column.textContent = columns[key];
             column.classList.add("tableHeader");
 
             tr.appendChild(column);
@@ -129,12 +129,12 @@ class BeautyTable extends HTMLElement{
         return thead;
     }
 
-    buildTableBody(){
+    buildTableBody(columns, rows){
         let tbody = document.createElement("tbody");
-        let columnsKeys = Object.keys(this.columns);
+        let columnsKeys = Object.keys(columns);
 
-        for (let i = 0; i < this.rows.length; i++) {
-            const row = this.rows[i];
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
 
             let tr = document.createElement("tr");
             if(i % 2 != 0){
@@ -158,8 +158,8 @@ class BeautyTable extends HTMLElement{
     }
 
 
-    setTableBehaviour(){
-        let table = document.getElementById(this.id + "-beautyTable");
+    setTableBehaviour(id){
+        let table = document.getElementById(id + "-beautyTable");
 
         table.addEventListener("click", function(event) {
             if(event.target.tagName == "TD"){
@@ -191,10 +191,22 @@ class BeautyTable extends HTMLElement{
                 break;
         }
 
-        return data
+        return data;
+    }
+
+    refreshTable(id){
+        let beautyTable = document.getElementById(id);
+        let table = document.getElementById(id + "-beautyTable");
+
+        beautyTable.removeChild(table);
+
+        beautyTable.connectedCallback();
+
     }
 
 }
 
 // Declara a nova tag para que seja reconhecida na página HTML
 customElements.define("beauty-table", BeautyTable);
+
+var beautyTable = new BeautyTable();

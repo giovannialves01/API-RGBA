@@ -48,9 +48,9 @@ function getSideBarOptions(){
         tabIndex: "5",
         title: "Clique aqui para exibir o cadastro de alunos",
         onclick: function() {
-            console.log("mostrando usuários");
-
             hideAllContent();
+
+            beautyTable.refreshTable("tabelaAlunos");
 
             showContent("cadastrarUsuario");
 
@@ -172,6 +172,8 @@ async function registerUser(event) {
         alert("Senha diferentes!");
 
     }
+
+    beautyTable.refreshTable("tabelaAlunos");
 
 }
 
