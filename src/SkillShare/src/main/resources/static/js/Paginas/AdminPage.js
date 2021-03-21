@@ -50,7 +50,7 @@ function getSideBarOptions(){
         onclick: function() {
             hideAllContent();
 
-            beautyTable.refreshTable("tabelaAlunos");
+            beautyTable.refreshTable("tabelaUsuarios");
 
             showContent("cadastrarUsuario");
 
@@ -173,7 +173,7 @@ async function registerUser(event) {
 
     }
 
-    beautyTable.refreshTable("tabelaAlunos");
+    beautyTable.refreshTable("tabelaUsuarios");
 
 }
 
