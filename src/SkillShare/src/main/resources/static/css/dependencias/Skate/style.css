@@ -137,7 +137,48 @@ a.active, a:hover {
     font-size:26px; ;
     color: #ffffff;
 }
+.content{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	width: 100%;
+	height: 100%;
+	margin: 1.5% 1.5%;
+	padding: 40px 40px;
+	
 
+}
+.card{
+	flex: 1 1 150px;
+	margin: 5px;
+	background:#0c948f;
+	border-radius:20px ;
+	box-shadow:0px 2px 23px #26395354;
+	width: 400px;
+	border: 2px solid black;
+	margin: 1.5% 1.5%;
+	
+}
+.mediaCard{
+	height:300px;
+	width: 100%;
+}
+.topCard{
+	padding: 20px;
+	padding-top: 0px;
+	text-align: center;
+	color: blanchedalmond;
+}
+.bottomCard{
+	padding: 20px;
+}
+.bottomText{
+	text-align: center;
+	color: blanchedalmond;
+	font-size: 24px;
+}
 footer{
     text-align: center;
     background-color: #0c948f;
