@@ -160,7 +160,7 @@ async function registerUser(event) {
 
         let response = await serverRequester.fazerPost("/aluno/cadastrar", user.toData());
 
-        if(response["serverResponses"]["ok"] == true){
+        if(response["ok"] == true){
             alert("Cadastrado com sucesso!");
 
         }else{

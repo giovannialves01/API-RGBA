@@ -88,13 +88,12 @@ class ServerRequester{
      */
     async fazerRequisicao(url, configs){
         let requisicao = await fetch(url, configs);
-        let resposta = await requisicao.json();
+        let responseJson = await requisicao.json();
 
-        let serverResponses = {}
-        serverResponses["ok"] = requisicao.ok;
-        serverResponses["status"] = requisicao.status;
-
-        resposta["serverResponses"] = serverResponses;
+        let resposta = {}
+        resposta["ok"] = requisicao.ok;
+        resposta["status"] = requisicao.status;
+        resposta["responseJson"] = responseJson;
 
         return resposta;
     }

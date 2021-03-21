@@ -59,4 +59,23 @@ class Usuario{
         return data;
     }
 
+    async toTableData(){
+        let users = await serverRequester.fazerGet("/aluno/findAll", {});
+
+        let tableData = {};
+        tableData["columns"] = {
+            nome: "Nome",
+            cpf: "CPF",
+            email: "E-mail"
+        };
+        tableData["extraConfigs"] = [
+            "editRowInfo",
+            "deleteRowInfo"
+        ];
+
+        tableData["rows"] = users["responseJson"];
+
+        return tableData;
+    }
+
 }
