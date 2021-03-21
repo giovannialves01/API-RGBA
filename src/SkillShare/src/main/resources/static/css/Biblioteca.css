@@ -58,15 +58,6 @@
     text-align: center;
 }
 
-
-.bottomSeparator{
-    height: fit-content;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-}
-
 .bibliotecaListaContainer{
     width: 100%;
     height: fit-content;
