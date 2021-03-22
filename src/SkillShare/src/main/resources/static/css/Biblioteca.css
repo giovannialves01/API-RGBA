@@ -1,0 +1,68 @@
+.beautyTable{
+    width: 100%;   
+}
+.tableHeader{
+    background-color: var(--headTableColor);
+}
+.botao {
+    background-color: var(--beautyButtonNormalActiveColor); /* Green */
+    border: none;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 3px 13px 0 rgba(0,0,0,0.19);
+    outline: transparent;
+    cursor: pointer;
+}
+.inputFormulario {
+    width: 40%;
+    margin-top: 7px;
+    border: none;
+    border-bottom: 2px solid #0fcac3;
+    display: block;
+    outline: transparent;
+  }
+.botao:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: rgba(10, 10, 10, 0.25);
+  }
+.cadastroTable{
+    margin-top: 25px;
+    background-color: #eeeeee;
+}
+.cadastroNovoLivro{
+    background-color: #eeeeee;
+    padding-bottom: 14px;
+}
+#botaoCadastrar{
+    margin-top: 10px;
+}
+#tableNome{
+    width: 170px;
+}
+#tableGenero{
+    width: 450px;
+}
+#tableNumPagina{
+    width: 80px;
+}
+#tableAutor{
+    width: 145px;
+}
+#tableEditora{
+    width: 178px;
+}
+#paginas{
+    text-align: center;
+}
+
+.bibliotecaListaContainer{
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}

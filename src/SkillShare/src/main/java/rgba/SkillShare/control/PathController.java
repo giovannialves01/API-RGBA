@@ -17,6 +17,12 @@ public class PathController {
 		return "pagina2";
 		
 	}
+	
+	@GetMapping(value = "adminPage")
+	public String adminPage() {
+		return "adminHomePage";
+		
+	}
 
 }
  

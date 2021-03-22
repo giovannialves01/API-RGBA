@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillShare - Cadastro de usuários</title>
+    
+    <!-- CDN das depedências externas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+    <!-- Rodar no Eclipse -->
+    <!-- <link rel="stylesheet" href="css/GlobalComponents.css">
+    <link rel="stylesheet" href="css/Modal.css">
+    <link rel="stylesheet" href="css/BeautySelect.css">
+    <link rel="stylesheet" href="css/BeautyInput.css">
+    <link rel="stylesheet" href="css/BeautyButton.css">
+    <link rel="stylesheet" href="css/Login.css">
+
+    <script src="js/Componentes/BeautyInput.js"></script>
+    <script src="js/Componentes/BeautyButton.js"></script>
+    <script src="js/Componentes/BeautySelect.js"></script>
+    <script src="js/Componentes/UsageTerms.js"></script>
+    <script src="js/Componentes/Modal.js"></script>
+
+    <script src="js/Paginas/Login.js"></script> -->
+    
+
+    <!-- Rodar no VSCode  -->
+    <link rel="stylesheet" href="../static/css/GlobalComponents.css">
+    <link rel="stylesheet" href="../static/css/Modal.css">
+    <link rel="stylesheet" href="../static/css/BeautySelect.css">
+    <link rel="stylesheet" href="../static/css/BeautyInput.css">
+    <link rel="stylesheet" href="../static/css/BeautyButton.css">
+    <link rel="stylesheet" href="../static/css/Login.css">
+
+    <script src="../static/js/Componentes/BeautyInput.js"></script>
+    <script src="../static/js/Componentes/BeautyButton.js"></script>
+    <script src="../static/js/Componentes/BeautySelect.js"></script>
+    <script src="../static/js/Componentes/UsageTerms.js"></script>
+    <script src="../static/js/Componentes/Modal.js"></script>
+
+    <script src="../static/js/Paginas/Login.js"></script>
+   
+
+</head>
+<body>
+    <div style="border: 1px solid black; width: 60%">
+        <div class="vBox">
+            <div class="topo">
+                <h2 class="title">Cadastrar novo aluno</h1>
+            </div>
+            <beauty-input type="text" placeholder="Nome" required="true" icon="user" name="nome" id="nome"></beauty-input>
+            <beauty-input type="text" placeholder="CPF" required="true" icon="id-card" name="cpf" id="cpf"></beauty-input>
+            <beauty-select name="genero" id="genero" icon="smile">
+                <option value="" disabled>Gênero</option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+            </beauty-select>
+            <beauty-input type="email" placeholder="E-mail" required="true" icon="envelope" name="email" id="email"></beauty-input>
+            <beauty-input type="password" placeholder="Senha" required="true" icon="key" name="senha" id="senha"></beauty-input>
+            <beauty-input type="password" placeholder="Confirme a senha" required="true" icon="key" name="cSenha" id="cSenha"></beauty-input>
+            <beauty-button text="Cadastrar"></beauty-button>
+        </div>
+    </div>
+    
+</body>
+</html>

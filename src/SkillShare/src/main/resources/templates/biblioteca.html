@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="../static/css/Biblioteca.css">
+    <link rel="stylesheet" href="../static/css/GlobalComponents.css">
+    <script src="../static/js/Paginas/AdminPage.js"></script>
+    <script src="js/ServerRequester.js"></script>
+    <title>Biblioteca</title>
+</head>
+<body>
+    <h1 class="Titulo">Biblioteca</h1>
+    
+    <form method="post" th:object="${biblioteca}">
+        <div class="cadastroNovoLivro">
+            <h3>Cadastrar novo livro</h3>
+            <label for="nome"></label>
+			  <input type="text" class="inputFormulario" placeholder="Insira o nome" maxlength="40" name="nome">
+              <input type="text" class="inputFormulario" placeholder="Insira os gêneros" maxlength="150" name="nome">
+              <input type="text" class="inputFormulario" placeholder="Insira o número de páginas" maxlength="4" name="nome">
+              <input type="text" class="inputFormulario" placeholder="Insira o autor" maxlength="40" name="50">
+              <input type="text" class="inputFormulario" placeholder="Insira a editora" maxlength="40" name="nome">
+              <button type="submit" class="botao" id="botaoCadastrar">Cadastrar</button>
+        </div>
+    </form>
+
+    <form method="post" action="listaLivros">
+        <div class="cadastroTable">
+            <h3>Vizualizar livros cadastrados</h3> 
+            <label>Filtros:</label>
+                <select class="filtroLivros" id="filtro" name="filtro">
+                    <option value="first">Ordem alfabética</option>
+                    <option value="second">Gênero</option>
+                    <option value="third">Número de páginas</option>
+                    <option value="fourth">Autor</option>
+                    <option value="fifth">Editora</option>
+                </select>
+    
+                <select class="form-control" id="genero" name="genero">
+                    <option value="first">Crescente</option>
+                    <option value="second">Decrescente</option>
+                </select>
+                <button type="submit" class="botao">Filtrar</button> 
+       
+        </form>
+        <table>
+            <thead>
+        <tr>
+            <th class="tableHeader" id="tableNome" scope="col">Nome</th>
+            <th class="tableHeader" id="tableGenero" scope="col">Gêneros</th>
+            <th class="tableHeader" id="tableNumPagina" scope="col">Numero de páginas</th>
+            <th class="tableHeader" id="tableAutor" scope="col">Autor</th>
+            <th class="tableHeader" id="tableEditora" scope="col">Editora</th>
+        </tr>
+        </thead>
+            <tr>
+                    <td>A dança da morte</td>
+                    <td>Romance, Terror, Ficção científica</td>
+                    <td id="paginas">1218</td>
+                    <td>Stephen King</td>
+                    <td>Doubleday</td>  
+                    <td>
+                        <button type="button" class="botao" onclick="getSideBarOptions()">Editar</button>
+                        <button type="button" class="botao" onclick="getSideBarOptions()">Excluir</button>
+                    </td>
+            </tr>
+            <tr>
+                <td>A dança da morte</td>
+                <td>Romance, Terror, Ficção científica</td>
+                <td id="paginas">1218</td>
+                <td>Stephen King</td>
+                <td>Doubleday</td>
+                <td>
+                    <button type="button" class="botao" onclick="getSideBarOptions()">Editar</button>
+                    <button type="button" class="botao" onclick="getSideBarOptions()">Excluir</button>
+                </td> 
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

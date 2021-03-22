@@ -22,6 +22,7 @@ class BeautyInput extends HTMLElement{
         this.icon;
         this.placeholder;
         this.required;
+        this.apparence;
         
     }
 
@@ -32,14 +33,17 @@ class BeautyInput extends HTMLElement{
      * @returns undefined
      */
     connectedCallback(){
-        
         this.title = this.getAttribute("title");
+        if(this.title == "null" || this.title == "undefined"){
+            this.title = "";
+        }
         this.type = this.getAttribute("type");
         this.icon = this.getAttribute("icon");
         this.placeholder = this.getAttribute("placeholder");
         this.required = this.getAttribute("required");
+        this.apparence = this.getAttribute("apparence");
 
-        let beautyInput = this.buildBeautyInput(this.type, this.title, this.placeholder, this.required, this.icon);
+        let beautyInput = this.buildBeautyInput(this.type, this.title, this.placeholder, this.required, this.icon, this.apparence);
 
         // Popula a tag com os elementos, caso seja utilizado diretamente na página HTML
         this.appendChild(beautyInput);
@@ -57,7 +61,43 @@ class BeautyInput extends HTMLElement{
      * @param {string} iconClass Nome do ícone FA para aparecer ao lado do input
      * @returns Elemento do input
      */
-    buildBeautyInput(type, title, placeholder, required, iconClass){
+    buildBeautyInput(type, title, placeholder, required, iconClass, apparence){
+        let container;
+
+        switch (apparence) {
+            case "simple":
+                container = this.buildSimpleInput(type, title, placeholder, required);
+                break;
+        
+            case "full":
+                container = this.buildFullInput(type, title, placeholder, required, iconClass);
+                break;
+
+            default:
+                container = this.buildFullInput(type, title, placeholder, required, iconClass);
+                break;
+
+        }
+
+        return container;
+    }
+
+    buildSimpleInput(type, title, placeholder, required){
+        let input = document.createElement("input");
+        input.classList.add("beautyInput-simple");
+        input.type = type;
+        input.placeholder = " ";
+        if(title == "null" || title == "undefined"){
+            input.title = "";
+        }
+        input.required = required;
+        input.id = this.id + "-beautyInput";
+        input.placeholder = placeholder;
+
+        return input;
+    }
+
+    buildFullInput(type, title, placeholder, required, iconClass){
         // Cria a div para conter os elementos
         let container = document.createElement("div");
         container.classList.add("beautyInputContainer");
@@ -72,8 +112,11 @@ class BeautyInput extends HTMLElement{
         input.classList.add("beautyInput");
         input.type = type;
         input.placeholder = " ";
-        input.title = title;
+        if(title == "null" || title == "undefined"){
+            input.title = "";
+        }
         input.required = required;
+        input.id = this.id + "-beautyInput";
         
         // Popula a div criada com os elementos
         container.appendChild(input);

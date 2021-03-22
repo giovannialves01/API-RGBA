@@ -1,0 +1,44 @@
+#optionContentDisplayer{
+    display: flex;
+    position: absolute;
+
+    top: 50px;
+    left: 250px;
+
+    overflow: auto;
+
+    width: calc(100vw - 300px);
+    height: calc(100vh - 100px);
+
+    padding: 25px;
+}
+
+/* Seleciona todos os filhos diretos da div que mostra o conteúdo */
+#optionContentDisplayer > * {
+    width: 100%;
+    flex-direction: column;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: flex;
+}
+
+.image{
+    width: 50%;
+    padding-left: 50px;
+    padding-top: 10px;
+}
+
+.bottomSeparator{
+    height: fit-content;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
+    width: 100%;
+}

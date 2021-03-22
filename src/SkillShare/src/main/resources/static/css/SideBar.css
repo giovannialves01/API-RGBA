@@ -1,0 +1,50 @@
+.sideBarContainer{
+    background-color: var(--adminToolBarColor);
+    width: 250px;
+    height: calc(100vh - 50px);
+    box-shadow: -2px 0px 15px 0px rgba(0,0,0,0.75);
+}
+
+.logoContainer{
+    height: 150px;
+    border-bottom: 1px solid black;
+}
+
+.optionContainer{
+    height: 40px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 20px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.optionContainer:hover{
+    background-color: rgb(54, 123, 150);
+}
+
+.optionContainer:active{
+    background-color: rgb(149, 225, 255);
+}
+
+.optionContainer:focus{
+    background-color: rgb(149, 225, 255);
+    outline: none;
+}
+
+.optionContainerText{
+    color: white;
+    cursor: pointer;
+}
+
+.optionContainer:focus .optionContainerText, .optionContainer:focus .fa-optionContainerIcon{
+    color: black;
+}
+
+.fa-optionContainerIcon{
+    width: 30px;
+    margin-right: 5px;
+    color: white;
+    cursor: pointer;
+}
