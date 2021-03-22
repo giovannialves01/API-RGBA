@@ -12,6 +12,9 @@ class TopBar extends HTMLElement{
         exitLabel.textContent = "Sair";
         exitLabel.classList.add("topBarExitLabel");
         exitLabel.title = "Desconectar da sua conta";
+        exitLabel.onclick = function () {
+        	window.location.href = "/";
+        }
 
         let topbarHomeButtonContainer = document.createElement("div");
         topbarHomeButtonContainer.classList.add("topBarHomeButtonContainer");

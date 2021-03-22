@@ -1,5 +1,17 @@
-function logar(event) {
+async function logar(event) {
     event.preventDefault();
 
-    console.log("logado");
+    let cpf = document.getElementById("cpf-beautyInput").value;
+    let senha = document.getElementById("senha-beautyInput").value;
+    
+    let credenciais = {"cpf": cpf, "senha":senha};
+    
+    let resposta = await serverRequester.fazerPost("/usuario/logar", credenciais);
+    
+    if (resposta["ok"]){
+    	window.location.href = "adminPage";
+    }
+    else {
+    	alert("Dados incorretos");
+    }
 }
