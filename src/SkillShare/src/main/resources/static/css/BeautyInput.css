@@ -51,3 +51,26 @@
 .beautyInput:focus:hover{
     background-color: rgba(119, 136, 153, 0.2);
 }
+
+.beautyInput-simple{
+    border-width: 0px 0px 2px 0px;
+    border-color: var(--beautyInputBorderColor);
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    width: 100%;
+}
+
+.beautyInput-simple:focus{
+    outline: none;
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.beautyInput-simple:hover{
+    background-color: rgba(119, 136, 153, 0.1);
+}
+
+.beautyInput-simple:focus:hover{
+    background-color: rgba(119, 136, 153, 0.2);
+}

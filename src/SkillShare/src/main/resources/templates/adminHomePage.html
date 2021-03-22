@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+
+    <!-- CDN das depedências externas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+
+    <!-- Rodar no Eclipse -->
+    <link rel="stylesheet" href="css/GlobalComponents.css">
+    <link rel="stylesheet" href="css/TopBar.css">
+    <link rel="stylesheet" href="css/SideBar.css">
+    <link rel="stylesheet" href="css/AdminPage.css">
+    <link rel="stylesheet" href="css/BeautyButton.css">
+    <link rel="stylesheet" href="css/BeautyInput.css">
+    <link rel="stylesheet" href="css/BeautySelect.css">
+    <link rel="stylesheet" href="css/Biblioteca.css">
+    <link rel="stylesheet" href="css/BeautyTable.css">
+
+    <script src="js/Componentes/BeautySelect.js"></script>
+    <script src="js/Componentes/BeautyButton.js"></script>
+    <script src="js/Componentes/BeautyInput.js"></script>
+    <script src="js/Componentes/BeautyTable.js"></script>
+    <script src="js/Componentes/TopBar.js"></script>
+    <script src="js/Componentes/SideBar.js"></script>
+    <script src="js/Paginas/AdminPage.js"></script>
+
+    <script src="js/Utils/ServerRequester.js"></script>
+
+    <script src="js/Entidades/Usuario.js"></script>
+    
+    <!-- Rodar no VSCode 
+    <link rel="stylesheet" href="../static/css/GlobalComponents.css">
+    <link rel="stylesheet" href="../static/css/TopBar.css">
+    <link rel="stylesheet" href="../static/css/SideBar.css">
+    <link rel="stylesheet" href="../static/css/AdminPage.css">
+    <link rel="stylesheet" href="../static/css/BeautyButton.css">
+    <link rel="stylesheet" href="../static/css/BeautyInput.css">
+    <link rel="stylesheet" href="../static/css/BeautySelect.css">
+    <link rel="stylesheet" href="../static/css/Biblioteca.css">
+    <link rel="stylesheet" href="../static/css/BeautyTable.css">
+
+    <script src="../static/js/Componentes/BeautySelect.js"></script>
+    <script src="../static/js/Componentes/BeautyButton.js"></script>
+    <script src="../static/js/Componentes/BeautyInput.js"></script>
+    <script src="../static/js/Componentes/BeautyTable.js"></script>
+    <script src="../static/js/Componentes/TopBar.js"></script>
+    <script src="../static/js/Componentes/SideBar.js"></script>
+    <script src="../static/js/Paginas/AdminPage.js"></script>
+    
+    <script src="../static/js/Utils/ServerRequester.js"></script>
+
+    <script src="../static/js/Entidades/Usuario.js"></script>
+    -->
+
+</head>
+<body>
+    <top-bar></top-bar>
+    <side-bar></side-bar>
+    <script>
+        function teste(event){
+            event.preventDefault();
+            console.log("funfando");
+        }
+    </script>
+
+    <!-- Onde o conteúdo é mostrado -->
+    <div id="optionContentDisplayer">
+
+        <!-- Biblioteca -->
+        <div class="hide" id="biblioteca">
+            <form onsubmit="registerBook(event)" class="vBox bottomSeparator maxWidth" >
+                <h3>Cadastrar novo livro</h3>
+                <label for="nome"></label>
+                <beauty-input apparence="simple" type="text" placeholder="Nome do livro" required="true" id="inputNomeLivro"></beauty-input>
+                <beauty-input apparence="simple" type="text" placeholder="Gêneros do livro" required="true" id="inputGeneroLivro"></beauty-input>
+                <beauty-input apparence="simple" type="text" placeholder="Número de páginas" required="true" id="inputPaginasLivro"></beauty-input>
+                <beauty-input apparence="simple" type="text" placeholder="Nome autor" required="true" id="inputAutorLivro"></beauty-input>
+                <beauty-input apparence="simple" type="text" placeholder="Nome da editora" required="true" id="inputEditoraLivro"></beauty-input>
+                
+                <beauty-button text="Cadastrar"></beauty-button>
+            </form>
+        </div>
+
+
+        <!-- Registrar usuário -->
+        <div id="cadastrarUsuario" class="vBox hide">
+            <form onsubmit="registerUser(event)" class="vBox bottomSeparator">
+                <h2 class="headerText">Cadastrar novo aluno</h1>
+                <div class="hBox">
+                    <div class="vBox">
+                        <beauty-input type="text" placeholder="Nome" required="true" icon="user" name="nome" id="nome"></beauty-input>
+                        <beauty-input type="text" placeholder="CPF" required="true" icon="id-card" name="cpf" id="cpf"></beauty-input>
+                    </div>
+                    <div class="vBox">
+                        <beauty-input type="email" placeholder="E-mail" required="true" icon="envelope" name="email" id="email"></beauty-input>
+                        <beauty-input type="password" placeholder="Senha" required="true" icon="key" name="senha" id="senha"></beauty-input>
+                        <beauty-input type="password" placeholder="Confirme a senha" required="true" icon="key" name="cSenha" id="cSenha"></beauty-input>
+                    </div>
+                </div>
+                <beauty-button text="Cadastrar"></beauty-button>
+            </form>
+            <beauty-table id="tabelaUsuarios" entityToList="Usuario" tableTitle="Lista de Usuários"></beauty-table>
+        </div>
+
+    </div>
+
+</body>
+</html>

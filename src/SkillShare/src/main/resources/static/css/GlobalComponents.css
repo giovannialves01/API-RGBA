@@ -6,12 +6,25 @@ body{
 }
 
 :root{
-    --signUpButtonBgColor: #3fbdda;
-    --signUpButtonHoverColor: #2f8ea3;
-    --signUpButtonActiveColor: #88dbee;
     --beautyInputBorderColor: #0fcac3;
     --beautyInputIconColor: var(--beautyInputBorderColor);
+
+    --beautyButtonNormalBgColor: var(--beautyInputBorderColor);
+    --beautyButtonNormalHoverColor: #2f8ea3;
+    --beautyButtonNormalActiveColor: #88dbee;
+    --beautyButtonNormalFocusedColor: rgba(53, 151, 146, 0.568);
+
+    --beautyButtonRedBgColor: rgb(255, 74, 74);
+    --beautyButtonRedHoverColor: rgb(211, 37, 37);
+    --beautyButtonRedActiveColor: rgb(255, 138, 138);
+    --beautyButtonRedFocusedColor: rgb(202, 100, 100);
+
     --headerTextColor: #0aada7;
+    --adminToolBarColor: var(--headerTextColor);
+
+    --headTableColor: #0fcac3;
+
+    --beautyTableSelectedRow: rgb(108, 253, 210);
 }
 
 .justifyLeft{
@@ -83,4 +96,8 @@ body{
 
 .headerText{
     color: var(--headerTextColor);
+}
+
+.maxWidth{
+    width: 100%;
 }

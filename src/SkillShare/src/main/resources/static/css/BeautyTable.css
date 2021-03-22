@@ -1,0 +1,11 @@
+.selectedRow{
+    background-color: var(--beautyTableSelectedRow);
+}
+
+.evenRow{
+    background-color: #e6e6e6;
+}
+
+.evenRow.selectedRow{
+    background-color: var(--beautyTableSelectedRow);
+}
