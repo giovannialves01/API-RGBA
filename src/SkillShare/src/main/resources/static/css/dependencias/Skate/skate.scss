@@ -1,0 +1,278 @@
+@charset "UTF-8";
+/*!
+ * ================================================================================
+ * Skate
+ * ???
+ * --------------------------------------------------------------------------------
+ * Author:      Andrew Hosgood
+ * Version:     1.0.0
+ * Date:        #{datetime()}
+ * ================================================================================
+ */
+
+/* ===================================================== SLIDING BANNERS ===================================================== */
+.banner-slider {
+	margin-bottom: 20px;
+
+	position: relative;
+
+	.banner-slider-inner {
+		position: relative;
+
+		overflow: hidden;
+
+		z-index: 1;
+
+		.banner-slider-contents {
+			width: 100%;
+
+			position: relative;
+
+			overflow: visible;
+
+			white-space: nowrap;
+
+			/*-webkit-transition: -webkit-transform 1200ms ease;
+			-moz-transition: -moz-transform 1200ms ease;
+			-ms-transition: -ms-transform 1200ms ease;
+			-o-transition: -o-transform 1200ms ease;
+			transition: transform 1200ms ease;*/
+
+			> * {
+				max-width: 100% !important;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+
+				display: inline-block;
+
+				position: relative;
+
+				vertical-align: middle;
+
+				img {
+					max-width: 100% !important;
+					width: 100%;
+					margin-bottom: 0; //Just for this site
+				}
+			}
+
+			> img {
+				height: auto;
+			}
+
+			.image-text {
+				background: none;
+			}
+		}
+	}
+
+	.banner-slider-arrows,
+	.banner-slider-blobs {
+		margin: 0;
+		padding: 0;
+
+		position: relative;
+
+		overflow: visible;
+
+		list-style: none;
+
+		border: none;
+
+		z-index: 2;
+
+		li {
+			padding-left: 0; //Just for this site
+
+			display: block;
+
+			border: none; //Just for this site
+
+			cursor: pointer;
+
+			&::before {
+				display: none; //Just for this site
+			}
+		}
+	}
+
+	.banner-slider-arrows {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		.previous,
+		.next {
+			width: 50px;
+			height: 80px;
+			margin-top: -40px;
+
+			position: absolute;
+			top: 50%;
+
+			font-size: 75px;
+			line-height: 80px;
+			text-align: center;
+
+			&:hover {
+			}
+
+			&:active {
+				margin-top: -39px;
+			}
+		}
+
+		.previous {
+			left: 0;
+
+			border-radius: 0 3px 3px 0;
+		}
+
+		.next {
+			right: 0;
+
+			border-radius: 3px 0 0 3px;
+		}
+
+		&.outside {
+			.previous {
+				right: 100%;
+				left: auto;
+
+				border-radius: 3px 0 0 3px;
+			}
+
+			.next {
+				right: auto;
+				left: 100%;
+
+				border-radius: 0 3px 3px 0;
+			}
+		}
+	}
+
+	.banner-slider-blobs {
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+
+		list-style: none;
+
+		border: none;
+
+		li {
+			width: 12px;
+			height: 12px;
+			padding: 0;
+
+			float: left;
+
+			background-color: rgba(255, 255, 255, 0.25);
+			//background-color: $aqua;
+
+			border: 1px #FFF solid;
+			border-radius: 100%;
+
+			box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+
+			&::before {
+				display: none;
+			}
+
+			&:hover {
+				//background-color: $aqua;
+				background-color: rgba(255, 255, 255, 0.35);
+			}
+
+			&.current {
+				background-color: #FFF;
+			}
+
+			+ li {
+				margin-left: 6px;
+			}
+		}
+	}
+}
+
+a.image-text-wrapper,
+.banner-slider .banner-slider-inner .banner-slider-contents > a {
+	&::before,
+	&::after {
+		display: block;
+
+		position: absolute;
+	}
+
+	&::before {
+		width: 0;
+		height: 0;
+		margin-bottom: -70px;
+
+		bottom: 0;
+		left: 0;
+
+		border: 35px transparent solid;
+		border-color: transparent transparent #FFF #FFF;
+
+		content: "";
+
+		z-index: 2;
+
+		-webkit-transition: margin 400ms 400ms ease;
+		-moz-transition: margin 400ms 400ms ease;
+		-ms-transition: margin 400ms 400ms ease;
+		-o-transition: margin 400ms 400ms ease;
+		transition: margin 400ms 400ms ease;
+	}
+
+	&::after {
+		width: 1em;
+		height: 1em;
+
+		bottom: 0.125em;
+		left: 0.125em;
+
+		font-family: FontAwesome;
+		font-size: 2em;
+		text-align: center;
+		line-height: 1;
+
+		content: "\f06e";
+
+		opacity: 0;
+
+		z-index: 3;
+
+		-webkit-transition: opacity 400ms ease;
+		-moz-transition: opacity 400ms ease;
+		-ms-transition: opacity 400ms ease;
+		-o-transition: opacity 400ms ease;
+		transition: opacity 400ms ease;
+	}
+
+	&:hover {
+		&::before {
+			margin-bottom: 0;
+
+			-webkit-transition: margin 200ms ease;
+			-moz-transition: margin 200ms ease;
+			-ms-transition: margin 200ms ease;
+			-o-transition: margin 200ms ease;
+			transition: margin 200ms ease;
+		}
+
+		&::after {
+			opacity: 1;
+
+			-webkit-transition: opacity 200ms ease;
+			-moz-transition: opacity 200ms ease;
+			-ms-transition: opacity 200ms ease;
+			-o-transition: opacity 200ms ease;
+			transition: opacity 200ms ease;
+		}
+	}
+}
