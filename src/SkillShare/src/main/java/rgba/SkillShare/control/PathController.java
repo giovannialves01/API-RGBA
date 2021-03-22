@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PathController {
 
 	@GetMapping(value = "/")
-	public String home() {
-		return "index";
+	public String index() {
+		return "paginahome";
 		
 	}
 	
@@ -18,11 +18,15 @@ public class PathController {
 		
 	}
 	
-	@GetMapping(value = "adminPage")
+	@GetMapping(value = "/adminPage")
 	public String adminPage() {
 		return "adminHomePage";
-		
+	
 	}
-
+	
+	@GetMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
 }
  
