@@ -58,16 +58,16 @@ public class UsuarioController {
 	 */
 	public String verificarNivelAcesso(String cpf) {
 		if (admRepository.findById(cpf).isPresent()) {
-			return "admin";
+			return "adminPage";
 		}
 		else if (gestorRepository.findById(cpf).isPresent()) {
-			return "gestor";
+			return "gestorPage";
 		}
 		else if (tutorRepository.findById(cpf).isPresent()) {
-			return "tutor";
+			return "tutorPage";
 		}
 		else {
-			return "aluno";
+			return "alunoPage";
 		}
 	}
 
