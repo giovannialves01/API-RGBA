@@ -1,5 +1,28 @@
 ## SkillShare :brain::computer:	
 
+
+# Disciplina Focal Point: Engenharia de Software II
+* M2 (Master dos Masters): Prof. Walmir Duque
+* P2 (PO dos PO´s): Prof. Claudio Lima
+
+## Disciplinas Integradas
+
+### Economia e Finanças
+Prof. Cicero Soares da Silva
+
+### Estruturas de Dados
+Prof. Fernando Masanori Ashikaga
+
+### Interação Humano Computador
+Prof. Giuliano Araujo Bertoti
+
+### Programação Orientada a Objeto
+Prof. Gerson da Penha Neto
+
+### Sistemas Operacionais
+Prof. Eduardo Sakaue
+
+
 #### Integrantes da equipe :girl::boy:
 
 * [Giovanni dos Santos Alves](https://www.linkedin.com/in/giovanni-santos-546412154/) (*Scrum Master*)
