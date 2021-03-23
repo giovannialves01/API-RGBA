@@ -1,10 +1,10 @@
 package rgba.SkillShare.control;
 
-import rgba.SkillShare.model.Aluno;
+import java.util.List;
 
-import rgba.SkillShare.repository.AlunoRepository;
-import rgba.SkillShare.utils.EmailService;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,12 +20,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.http.HttpStatus;
-
-import java.util.List;
+import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.repository.AlunoRepository;
+import rgba.SkillShare.utils.EmailService;
 
 
 
@@ -43,6 +40,9 @@ public class AlunoController {
 
     @Autowired 
     AlunoRepository aRepository;
+    
+    @Autowired
+	JavaMailSender javaMailSender;
 
     /** 
     *  Endpoint para cadastro de aluno.
@@ -53,9 +53,10 @@ public class AlunoController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Cria um usuário do tipo aluno.")
     public Aluno createAluno(@RequestBody @ApiParam("Informações do aluno") Aluno aluno){
-
-    	EmailService email = new EmailService();
-    	email.enviarEmail(aluno.getEmail(), "Cadastro SkillShare", "Parab�ns, voc� ja � aluno na SkillShare!"); 
+        
+        EmailService emails = new EmailService();
+    	emails.enviarEmailSimples("Cadastro SkillShare", "Parabéns, você já é aluno na SkillShare!", aluno.getEmail());
+    	
         return aRepository.save(aluno);
     }
 
