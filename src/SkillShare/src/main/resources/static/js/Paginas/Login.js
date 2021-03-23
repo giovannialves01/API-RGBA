@@ -9,7 +9,7 @@ async function logar(event) {
     let resposta = await serverRequester.fazerPost("/usuario/logar", credenciais);
     
     if (resposta["ok"]){
-    	window.location.href = "adminPage";
+    	window.location.href = resposta["responseJson"]["nivel"] + "Page";
     }
     else {
     	alert("Dados incorretos");
