@@ -3,6 +3,7 @@ package rgba.SkillShare.control;
 import rgba.SkillShare.model.Aluno;
 
 import rgba.SkillShare.repository.AlunoRepository;
+import rgba.SkillShare.utils.EmailService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,6 +54,8 @@ public class AlunoController {
     @ApiOperation("Cria um usuário do tipo aluno.")
     public Aluno createAluno(@RequestBody @ApiParam("Informações do aluno") Aluno aluno){
 
+    	EmailService email = new EmailService();
+    	email.enviarEmail(aluno.getEmail(), "Cadastro SkillShare", "Parab�ns, voc� ja � aluno na SkillShare!"); 
         return aRepository.save(aluno);
     }
 
