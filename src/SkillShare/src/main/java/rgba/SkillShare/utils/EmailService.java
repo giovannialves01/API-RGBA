@@ -1,9 +1,9 @@
 package rgba.SkillShare.utils;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Properties;
+
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Service;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 /**
  * 
@@ -13,12 +13,33 @@ import org.springframework.stereotype.Service;
  *
  */
 
-@Service
 public class EmailService {
 	
+	/**
+	 * Implementação da interface do JavaMailSender
+	 * 
+	 * @author Barbara Port
+	 * 
+	 * @return JavaMailSenderImpl -> informações da instância do JavaMailSenderImpl
+	 * 
+	 */
 	
-	@Autowired
-	JavaMailSender javaMailSender;
+	public JavaMailSenderImpl javaMailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        
+        // configurando as mesmas coisas do application.properties (não pode apagar o que tem lá)
+        mailSender.setHost("smtp.gmail.com");
+        mailSender.setPort(587);
+        mailSender.setUsername("rgba.fatec@gmail.com");
+        mailSender.setPassword("nossa senha");
+        
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", true);
+        props.put("mail.smtp.starttls.enable", true);
+        mailSender.setJavaMailProperties(props);
+        
+        return mailSender;
+	}
 	
 	/** 
 	 * 
@@ -26,20 +47,22 @@ public class EmailService {
 	 * 
 	 * @author Barbara Port
 	 * 
-	 * @param destino -> que é o e-mail que vai receber a mensagem
 	 * @param assunto -> assunto do e-mail
 	 * @param texto -> corpo do e-mail, ou seja, a mensagem que voce precisa mandar
+	 * @param destino -> que é o e-mail que vai receber a mensagem
 	 * 
 	 * @return void
 	 * 
 	 */
 	
-    public void enviarEmail(String destino, String assunto, String texto) {
-    	SimpleMailMessage email = new SimpleMailMessage();
-    	email.setFrom("aquele-email");
-    	email.setTo(destino);
-    	email.setSubject(assunto);
-    	email.setText(texto);
-    	javaMailSender.send(email);
+	public void enviarEmailSimples(String titulo, String corpoMensagem, String destinatario) {
+        JavaMailSenderImpl javaMailSender = javaMailSender();
+        SimpleMailMessage email = new SimpleMailMessage();
+        
+        email.setSubject(titulo);
+        email.setText(corpoMensagem);
+        email.setTo(destinatario);
+        email.setFrom("rgba.fatec@gmail.com");
+        javaMailSender.send(email);
     }
 }
