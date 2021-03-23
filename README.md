@@ -56,3 +56,71 @@ Prof. Eduardo Sakaue
 * [Nicholas Gabriel dos Santos Roque](https://www.linkedin.com/in/nicholas-gabriel-dos-santos-roque-9113511b2/) (*Development Team*)
 
 * [Rafael Furtado Rodrigues dos Santos](https://www.linkedin.com/in/rafael-furtado-613a9712a/) (*Development Team*)
+
+
+# O Desafio 
+Nosso cliente é a empresa Ness Health. A demanda é o desenvolvimento de um LMS (Learning Management System) responsivo de estudo gratuito para os alunos matriculados. 
+
+O site deverá oferecer as seguintes opções de cadastros:
+* Cadastro de alunos realizado pelo gestor
+* Cadastro do gestor
+* Cadastro do tutor
+
+Além dos cadastros, também serão disponibilizadas as bibliotecas de cursos para escolher e realizar matrículas nos cursos e dashboards para análises dinâmicas.
+
+Os cursos terão vários tipos de materiais como vídeos e PDFs de forma a abranger as várias formas de aprendizagem para o aluno, o qual, também terá auxílio de um tutor durante seus estudos.
+
+Haverá também um chatbot para sanar dúvidas do site.
+
+# Índice
+•      [O que é a SkillShare?]()
+
+•	[Visão da solução]()
+
+•	[Benefícios]()
+
+•	[Principais deliverables]()
+
+•	[Limites e Restrições da solução]()
+
+•	[User Roles]()
+
+•	[User Stories]()
+
+•	[story Card]()
+
+•	[Artefatos e Tecnologias]()
+
+•	[Cronograma de Entregas]()
+
+
+# SkillShare
+Em uma realidade em que o ensino online tornou-se essencial para a manutenção do conhecimento, a SkillShare tem o intuito de proporcionar treinamentos on-line e gratuitos para funcionários aperfeiçoarem suas habilidades técnicas!
+
+ Atualmente 14,4% da população brasileira encontra-se desempregada. Dessa forma todos nós precisamos de mais qualificação para alcançarmos nossos objetivos profissionais. 
+Apesar de existirem muitas plataformas de ensino online, elas são pagas, removendo assim o direito à educação de todos. 
+
+Nós, da equipe RGBA, apresentamos a SkillShare que, pelo contrário, visa democratizar o ensino online, de forma a distribuir o aprendizado para todos.
+
+Na SkillShare, os instrutores serão capazes de adicionar cursos, atividades e pílulas de conhecimento para que qualquer funcionário de uma empresa possa adquirir habilidades técnicas.
+
+# Visão da Solução
+A SkillShare é um site LMS que oferece cursos gratuitos on-line para aperfeiçoamento e aprendizagem dos colaboradores de uma empresa, ajustando-se as várias formas de aprendizado do usuário, além de permitir o controle e análise pelos gestores de sua staff. 
+
+# Benefícios
+* Gratuito
+* Aprendizagem distribuída: vídeos, PDFs, slides
+* Tutoria para auxílio da aprendizagem
+* Dashboards para análises dinâmicas
+* Chatbot para dúvidas
+* Responsivo: acessível em vários dispositivos
+* Emissão de cerificado
+* Controle coorporativo
+# Principais Deliverables 
+* Interface de login com permissões e visualizações para perfis diferentes 
+* Banco de dados de registro dos cursos 
+* Banco de dados de registro dos alunos
+* Banco de dados de registro dos tutores
+* Banco de dados de registro dos gestores
+
+
