@@ -1,3 +1,17 @@
+
+<head>
+       <p><img src="https://img.shields.io/badge/status%20do%20projeto-em desenvolvimento-blue?style=for-the-badge&logo=appveyor"></p>
+       <p><img src="https://img.shields.io/badge/Sprint%20atual-Projeto%20sprint 1-blue?style=for-the-badge&logo=appveyor"></p>
+       <p>
+       <img src="https://img.shields.io/badge/dependências-JavaFX%3A%2014.0.2.1-blue">
+       <img src="https://img.shields.io/badge/dependências-JDK%3A%2015.0.2-blue">
+       <img src="https://img.shields.io/badge/dependências-Hibernate%3A%205.4.21-blue">
+       <img src="https://img.shields.io/badge/dependências-PostgreSQL%20JDBC%3A%2042.2.16-blue">
+       </p>
+         
+</head>
+
+
 ## SkillShare :brain::computer:	
 
 
