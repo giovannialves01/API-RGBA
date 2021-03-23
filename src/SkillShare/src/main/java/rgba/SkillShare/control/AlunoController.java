@@ -55,7 +55,9 @@ public class AlunoController {
     public Aluno createAluno(@RequestBody @ApiParam("Informações do aluno") Aluno aluno){
         
         EmailService emails = new EmailService();
-    	emails.enviarEmailSimples("Cadastro SkillShare", "Parabéns, você já é aluno na SkillShare!", aluno.getEmail());
+        String corpoMSG = "Parabéns, sua conta na SkillShare foi criada com sucesso! \n "
+        + "Você pode se conectar utlizando seu CPF e a senha: " + aluno.getSenha() + "\n Seja bem vindo!";
+    	emails.enviarEmailSimples("Conta criada na SkillShare", corpoMSG, aluno.getEmail());
     	
         return aRepository.save(aluno);
     }

@@ -30,8 +30,8 @@ public class EmailService {
         // configurando as mesmas coisas do application.properties (não pode apagar o que tem lá)
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("nosso-email");
-        mailSender.setPassword("nossa-senha");
+        mailSender.setUsername("rgba.fatec@gmail.com");
+        mailSender.setPassword("nossa senha");
         
         Properties props = new Properties();
         props.put("mail.smtp.auth", true);
@@ -55,14 +55,14 @@ public class EmailService {
 	 * 
 	 */
 	
-	public void enviarEmailSimples(String assunto, String texto, String destino) {
-        JavaMailSenderImpl javaMailSender = JavaMailSender();
+	public void enviarEmailSimples(String titulo, String corpoMensagem, String destinatario) {
+        JavaMailSenderImpl javaMailSender = javaMailSender();
         SimpleMailMessage email = new SimpleMailMessage();
         
-        email.setSubject(assunto);
-        email.setText(texto);
-        email.setTo(destino);
-        email.setFrom("nosso-email");
+        email.setSubject(titulo);
+        email.setText(corpoMensagem);
+        email.setTo(destinatario);
+        email.setFrom("rgba.fatec@gmail.com");
         javaMailSender.send(email);
     }
 }
