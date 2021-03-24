@@ -24,6 +24,12 @@ public class PathController {
 	
 	}
 	
+	@GetMapping(value = "/gestorPage")
+	public String gestorPage() {
+		return "adminHomePage";
+	
+	}
+	
 	@GetMapping(value = "/login")
 	public String login() {
 		return "login";
