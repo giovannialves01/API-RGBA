@@ -81,17 +81,17 @@ Haverá também um chatbot para sanar dúvidas do site.
 
 •	[Principais deliverables](https://github.com/giovannialves01/API-RGBA/blob/main/README.md#principais-deliverables)
 
-•	[Limites e Restrições da solução]()
+•	[Limites e Restrições da solução](https://github.com/giovannialves01/API-RGBA#limites-e-restri%C3%A7%C3%B5es-da-solu%C3%A7%C3%A3o)
 
-•	[User Roles]()
+•	[User Roles](https://github.com/giovannialves01/API-RGBA#user-roles)
 
-•	[User Stories]()
+•	[User Stories](https://github.com/giovannialves01/API-RGBA#user-stories)
 
-•	[story Card]()
+•	[story Card](https://github.com/giovannialves01/API-RGBA#story-card)
 
 •	[Artefatos e Tecnologias]()
 
-•	[Cronograma de Entregas]()
+•	[Cronograma de Entregas](https://github.com/giovannialves01/API-RGBA#cronograma-de-entregas)
 
 
 # SkillShare
@@ -134,6 +134,8 @@ A SkillShare é um site LMS que oferece cursos gratuitos on-line para aperfeiço
 
 # User Roles 
 Os usuários previstos estão descritos conforme imagem abaixo: 
+
+![user_roles](https://user-images.githubusercontent.com/60778277/112249518-b2c04600-8c36-11eb-870c-dde55c0dee32.jpg)
 
 ### Detalhamento das funções dos perfis: 
 
