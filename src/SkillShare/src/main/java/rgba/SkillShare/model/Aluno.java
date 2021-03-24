@@ -25,6 +25,8 @@ public class Aluno extends Usuario{
     * @param senha -> senha do aluno
     * @author Nicholas Roque
     */
+    
+    //NÃO RETIRAR
     public Aluno(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }

@@ -25,6 +25,8 @@ public class Gestor extends Usuario{
     * @param senha -> senha do gestor
     * @author Nicholas Roque
     */
+
+    //NÃO RETIRAR
     public Gestor(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }

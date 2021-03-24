@@ -32,6 +32,11 @@ public class Contato {
         this.telefone = telefone;
     }
 
+    //NÃO RETIRAR
+    public Contato(String telefone) {
+        this.telefone = telefone;
+    }
+
 
     public long getId() {
         return this.id;

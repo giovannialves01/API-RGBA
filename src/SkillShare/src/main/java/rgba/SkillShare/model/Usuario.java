@@ -38,8 +38,8 @@ public abstract class Usuario {
     
     public Usuario() {
     }
-    
-    //manter esse construtor
+
+    //NÃO RETIRAR
     public Usuario(String cpf, String nome, String email, String senha) {
         this.cpf = cpf;
         this.nome = nome;
@@ -47,6 +47,7 @@ public abstract class Usuario {
         this.senha = senha;
     }
     
+    //NÃO RETIRAR
     public Usuario(String cpf, String senha) {
     	this.cpf = cpf;
     	this.senha = senha;

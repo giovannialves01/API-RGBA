@@ -25,6 +25,8 @@ public class Tutor extends Usuario{
     * @param senha -> senha do tutor
     * @author Nicholas Roque
     */
+
+    //NÃO RETIRAR
     public Tutor(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }
