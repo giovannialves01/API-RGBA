@@ -23,8 +23,6 @@ public class SkillShareApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//coloque algum codigo que precisa ser executado quando o servidor subir aqui
-		
-		
 		if(admRepository.findAll().isEmpty()) {
 			Adm adm = new Adm("0000000000", "Bárbara Port", "barbara.port@skillshare.com", "barbara1234");
 			admRepository.save(adm);
