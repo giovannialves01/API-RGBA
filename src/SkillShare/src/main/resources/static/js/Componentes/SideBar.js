@@ -17,11 +17,12 @@ class SideBar extends HTMLElement{
      * @returns undefined
      */
     connectedCallback(){
+    	let perfil = this.getAttribute("perfil");
         let container = this.buildSideBarContainer();
         let logo = this.buildLogoContainer();
         container.appendChild(logo);
         
-        let optionsConfig = getSideBarOptions();
+        let optionsConfig = getSideBarOptions(perfil);
 
         for (let i = 0; i < optionsConfig.length; i++) {
             const optionConfig = optionsConfig[i];
