@@ -26,10 +26,7 @@ public class Tutor extends Usuario{
     * @author Nicholas Roque
     */
     public Tutor(String cpf,String nome,String email,String senha) { 
-        this.setNome(nome);
-        this.setCpf(cpf);
-        this.setEmail(email);
-        this.setSenha(senha);
+        super(cpf,nome,email,senha);
     }
 
 
