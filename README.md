@@ -73,13 +73,13 @@ Os cursos terão vários tipos de materiais como vídeos e PDFs de forma a abran
 Haverá também um chatbot para sanar dúvidas do site.
 
 # Índice
-•      [O que é a SkillShare?]()
+•      [O que é a SkillShare?](https://github.com/giovannialves01/API-RGBA/blob/main/README.md#skillshare)
 
-•	[Visão da solução]()
+•	[Visão da solução](https://github.com/giovannialves01/API-RGBA/blob/main/README.md#vis%C3%A3o-da-solu%C3%A7%C3%A3o)
 
-•	[Benefícios]()
+•	[Benefícios](https://github.com/giovannialves01/API-RGBA/blob/main/README.md#benef%C3%ADcios)
 
-•	[Principais deliverables]()
+•	[Principais deliverables](https://github.com/giovannialves01/API-RGBA/blob/main/README.md#principais-deliverables)
 
 •	[Limites e Restrições da solução]()
 
@@ -124,3 +124,28 @@ A SkillShare é um site LMS que oferece cursos gratuitos on-line para aperfeiço
 * Banco de dados de registro dos gestores
 
 
+# Limites e restrições da solução 
+
+* O cadastro e o log-in deverá ser mediante CPF, que, apesar de ser um dado sensível, é a forma de certificar que o aluno existe. 
+
+* As informações inseridas no site deverão ter tratamento LGPD. 
+
+* A plataforma será em Java utilizando o Spring e o armazenamento de dados pelo PostgreSQL, conforme decidido pela equipe.
+
+# User Roles 
+Os usuários previstos estão descritos conforme imagem abaixo: 
+
+### Detalhamento das funções dos perfis: 
+
+
+# User Stories
+
+# Story Card
+
+# Cronograma de Entregas
+|Data|Entrega|
+|-----|--------|
+|28/03|[SPRINT 1]()|
+|18/04|[SPRINT 2]()|
+|16/05|[SPRINT 2]()|
+|05/06|[SPRINT 3]()|
