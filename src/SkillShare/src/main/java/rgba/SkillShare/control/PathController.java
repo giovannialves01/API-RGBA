@@ -26,7 +26,7 @@ public class PathController {
 	
 	@GetMapping(value = "/gestorPage")
 	public String gestorPage() {
-		return "adminHomePage";
+		return "gestorHomePage";
 	
 	}
 	
