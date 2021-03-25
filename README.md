@@ -1,17 +1,18 @@
 
 <html>
-       <head>
-              <p><img src="https://img.shields.io/badge/status%20do%20projeto-em desenvolvimento-blue?style=for-the-badge&logo=appveyor"></p>
-              <p><img src="https://img.shields.io/badge/Sprint%20atual-Projeto%20sprint 1-blue?style=for-the-badge&logo=appveyor"></p>
-              <p>
-              <img src="https://img.shields.io/badge/dependências-JavaFX%3A%2014.0.2.1-blue">
-              <img src="https://img.shields.io/badge/dependências-JDK%3A%2015.0.2-blue">
-              <img src="https://img.shields.io/badge/dependências-Hibernate%3A%205.4.21-blue">
-              <img src="https://img.shields.io/badge/dependências-PostgreSQL%20JDBC%3A%2042.2.16-blue">
-              </p>
-       </head>
+       <head></head>
        <body>
               <h1 align="center">SkillShare :brain::computer:</h1>
+              <p align="center">
+                     <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+                     <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
+                     <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white">
+                     <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
+                     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+                     <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
+              </p>
+              <p align="center"><img src="https://img.shields.io/badge/status-em desenvolvimento-blue?style=for-the-badge&logo=appveyor"></p>
+              <p align="center"><img src="https://img.shields.io/badge/Sprint%20atual-Sprint 1-blue?style=for-the-badge&logo=appveyor"></p>
               <h2>:memo::books::dart: Disciplina Focal Point: Engenharia de Software II</h2>
               <ul>
                      <li>M2 (Master dos Masters): Prof. Walmir Duque
