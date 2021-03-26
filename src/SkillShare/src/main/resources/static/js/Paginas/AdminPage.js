@@ -67,7 +67,7 @@ function getSideBarOptionsAdmin(){
         name: "Usuários",
         icon: "users",
         tabIndex: "5",
-        title: "Clique aqui para exibir o cadastro de alunos",
+        title: "Clique aqui para exibir as opções de Usuários",
         subOptions: [
             {
                 textValue: "Cadastrar alunos",
@@ -155,22 +155,14 @@ function getSideBarOptionsGestor(){
         title: "Clique aqui para exibir a janela de cursos",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Nenhuma opção disponível no momento",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
-                }
-            },
-            {
-                textValue: "Opção 2",
-                onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    console.log("Cliquei na opção");
                 }
             }
         ],
         onclick: function() {
             console.log("mostrando cursos");
-
-            hideAllContent();
         }
         
     }, 
@@ -181,24 +173,15 @@ function getSideBarOptionsGestor(){
         title: "Clique aqui para exibir a biblioteca",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Nenhuma opção disponível no momento",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
-                }
-            },
-            {
-                textValue: "Opção 2",
-                onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    console.log("Cliquei na opção");
                 }
             }
         ],
         onclick: function() {
             console.log("mostrando biblioteca");
 
-            hideAllContent();
-
-            showContent("biblioteca");
         }
     },
     {
@@ -208,49 +191,47 @@ function getSideBarOptionsGestor(){
         title: "Clique aqui para exibir o banco de questões",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Nenhuma opção disponível no momento",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
-                }
-            },
-            {
-                textValue: "Opção 2",
-                onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    console.log("Cliquei na opção");
                 }
             }
         ],
         onclick: function() {
             console.log("mostrando banco de questões");
 
-            hideAllContent();
         }
     },
     {
         name: "Alunos",
         icon: "users",
         tabIndex: "5",
-        title: "Clique aqui para exibir o cadastro de alunos",
+        title: "Clique aqui para expandir o menu de alunos",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Cadastrar alunos",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
+                    hideAllContent();
+
+                    beautyTable.refreshTable("tabelaUsuarios");
+        
+                    showContent("cadastrarUsuario");
                 }
             },
             {
-                textValue: "Opção 2",
+                textValue: "Visualizar alunos",
                 onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    hideAllContent();
+
+                    beautyTable.refreshTable("tabelaUsuarios");
+        
+                    showContent("mostrarAlunos");
+
                 }
             }
         ],
         onclick: function() {
-            hideAllContent();
-
-            beautyTable.refreshTable("tabelaUsuarios");
-
-            showContent("cadastrarUsuario");
+            console.log("Cliquei");
 
         }
     },
@@ -261,20 +242,14 @@ function getSideBarOptionsGestor(){
         title: "Clique aqui para exibir o cadastro de eventos",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Nenhuma opção disponível no momento",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
-                }
-            },
-            {
-                textValue: "Opção 2",
-                onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    console.log("Cliquei na opção");
                 }
             }
         ],
         onclick: function() {
-            hideAllContent();
+
 			console.log("eventos!");
 
         }
@@ -286,20 +261,14 @@ function getSideBarOptionsGestor(){
         title: "Clique aqui para exibir o cadastro de destaques",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Nenhuma opção disponível no momento",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
-                }
-            },
-            {
-                textValue: "Opção 2",
-                onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    console.log("Cliquei na opção");
                 }
             }
         ],
         onclick: function() {
-            hideAllContent();
+
 			console.log("destaques!");
 
         }
@@ -311,20 +280,14 @@ function getSideBarOptionsGestor(){
         title: "Clique aqui para exibir o cadastro de pílulas de conhecimento",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Nenhuma opção disponível no momento",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
-                }
-            },
-            {
-                textValue: "Opção 2",
-                onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    console.log("Cliquei na opção");
                 }
             }
         ],
         onclick: function() {
-            hideAllContent();
+
 			console.log("pilulas de conhecimento!");
 
         }
@@ -336,22 +299,15 @@ function getSideBarOptionsGestor(){
         title: "Clique aqui para exibir o dashboard",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Nenhuma opção disponível no momento",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
-                }
-            },
-            {
-                textValue: "Opção 2",
-                onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    console.log("Cliquei na opção");
                 }
             }
         ],
         onclick: function() {
             console.log("mostrando dashboard");
 
-            hideAllContent();
         }
     },
     {
@@ -361,55 +317,21 @@ function getSideBarOptionsGestor(){
         title: "Clique aqui para exibir informações da sua conta",
         subOptions: [
             {
-                textValue: "Opção 1",
+                textValue: "Nenhuma opção disponível no momento",
                 onclick: function() {
-                    console.log("Cliquei na opção 1");
-                }
-            },
-            {
-                textValue: "Opção 2",
-                onclick: function() {
-                    console.log("Cliquei na opção 2");
+                    console.log("Cliquei na opção");
                 }
             }
         ],
         onclick: function() {
             console.log("mostrando minha conta");
 
-            hideAllContent();
         }
     }, 
 ];
 
     return options;
 }
-
-
-function tableData() {
-    let data = {
-        columns: {
-            coluna1: "Meu nome",
-            coluna2: "Meu cpf"
-        },
-        rows: [
-            {
-                coluna1: "meu nome",
-                coluna2: "meu cpf"
-            },
-            {
-                coluna1: "meu outro nome",
-                coluna2: "meu outro cpf"
-            }
-        ],
-        extraConfigs: [
-            "editRowInfo",
-            "deleteRowInfo"
-        ]
-    };
-
-    return data;
-}
-
 
 /**
  * Esconde qualquer janela que estiver aberta na área de exibição de conteúdo da página

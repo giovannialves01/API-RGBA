@@ -3,7 +3,30 @@
     width: 250px;
     height: calc(100vh - 50px);
     box-shadow: -2px 0px 15px 0px rgba(0,0,0,0.75);
+    overflow: auto;
 }
+
+/*  Scroll da sidebar */
+.sideBarContainer::-webkit-scrollbar {
+    width: 10px;
+
+}
+ 
+.sideBarContainer::-webkit-scrollbar-thumb {
+    background: rgba(143, 229, 255, 0.733);
+
+}
+
+.sideBarContainer::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 20px rgba(128, 128, 128, 0.5)
+
+}
+
+.sideBarContainer::-webkit-scrollbar-thumb:hover {
+    background: rgb(143, 229, 255);
+}
+/* ------------- */
+
 
 .logoContainer{
     height: 150px;
