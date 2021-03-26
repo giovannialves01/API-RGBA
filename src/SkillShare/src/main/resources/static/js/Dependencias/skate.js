@@ -22,7 +22,7 @@
 							intSlides = jqoThisSliderContents.children().length,
 							intSlide = 0,
 							intTransition = 800,
-							intDelay = 2000,
+							intDelay = 8000,
 							funSlide = function() {
 								jqoThisSliderBlobs.find( '.current' ).removeClass( 'current' );
 								intSlide++;
