@@ -81,23 +81,84 @@ class SideBar extends HTMLElement{
      */
     buildOption(option){
         let optionContainer = document.createElement("div");
-        optionContainer.setAttribute("role", "button");
-        optionContainer.classList.add("optionContainer");
-        optionContainer.tabIndex = option["tabIndex"];
-        optionContainer.title = option["title"];
-        optionContainer.onclick = function() {
+        let mainOptionContainer = document.createElement("div");
+        let subOptionsContainer = document.createElement("div");
+
+        // Opção principal
+        mainOptionContainer.setAttribute("role", "button");
+        mainOptionContainer.classList.add("mainOptionContainer");
+        mainOptionContainer.tabIndex = option["tabIndex"];
+        mainOptionContainer.title = option["title"];
+        mainOptionContainer.onclick = function() {
             option["onclick"]();
         }
+        mainOptionContainer.addEventListener("click", function(event) {
+            let openedOptions = document.getElementsByClassName("showSubOptions");
+
+            for (let i = 0; i < openedOptions.length; i++) {
+                const option = openedOptions[i];
+                
+                if(option != this.nextElementSibling){
+                    option.classList.remove("showSubOptions");
+                    option.classList.add("hideSubOptions");
+                }
+ 
+            }
+
+            if(this.nextElementSibling.classList.contains("showSubOptions")){
+                this.nextElementSibling.classList.remove("showSubOptions");
+                this.nextElementSibling.classList.add("hideSubOptions");
+            }else{
+                this.nextElementSibling.classList.remove("hideSubOptions");
+                this.nextElementSibling.classList.add("showSubOptions");
+            }
+
+        });
 
         let icon = document.createElement("span");
-        icon.className = "fas fa-" + option["icon"] + " fa-optionContainerIcon";
+        icon.className = "fas fa-" + option["icon"] + " fa-mainOptionContainerIcon";
 
         let optionText = document.createElement("label");
         optionText.textContent = option["name"];
         optionText.classList.add("optionContainerText");
 
-        optionContainer.appendChild(icon);
-        optionContainer.appendChild(optionText);
+        mainOptionContainer.appendChild(icon);
+        mainOptionContainer.appendChild(optionText);
+
+
+
+
+        // Sub opção
+        subOptionsContainer.classList.add("subOptionsContainer")
+        let subOptions = option["subOptions"];
+
+        for (let i = 0; i < subOptions.length; i++) {
+            const subOption = subOptions[i];
+
+            let container = document.createElement("div");
+            container.classList.add("subOption");
+            container.onclick = function() {
+                subOption["onclick"]();
+            }
+            
+            let subOptionLabel = document.createElement("label");
+            subOptionLabel.textContent = subOption["textValue"];
+            subOptionLabel.classList.add("subOptionLabel");
+
+            let subOptionIcon = document.createElement("span");
+            subOptionIcon.className = "fas fa-minus" + " fa-subOptionContainerIcon";
+
+            container.appendChild(subOptionIcon);
+            container.appendChild(subOptionLabel);
+
+            subOptionsContainer.appendChild(container);
+        }
+
+
+
+        optionContainer.appendChild(mainOptionContainer);
+        optionContainer.appendChild(subOptionsContainer);
+
 
         return optionContainer;
     }

@@ -82,6 +82,7 @@
         </div>
 
 
+        <!-- Usuários -->
         <!-- Registrar usuário -->
         <div id="cadastrarUsuario" class="vBox hide">
             <form onsubmit="registerUser(event)" class="vBox bottomSeparator">
@@ -99,7 +100,9 @@
                 </div>
                 <beauty-button text="Cadastrar"></beauty-button>
             </form>
-            <beauty-table id="tabelaUsuarios" entityToList="Usuario" tableTitle="Lista de Usuários"></beauty-table>
+        </div>
+        <div id="mostrarAlunos" class="vBox hide">
+            <beauty-table id="tabelaUsuarios" entityToList="Usuario" tableTitle="Alunos cadastrados no sistema"></beauty-table>
         </div>
 
     </div>
