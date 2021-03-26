@@ -12,6 +12,14 @@ function getSideBarOptionsAdmin(){
         icon: "chalkboard-teacher",
         tabIndex: "2",
         title: "Clique aqui para exibir a janela de cursos",
+        subOptions: [
+            {
+                textValue: "Nenhuma opção disponível no momento",
+                onclick: function() {
+                    console.log("Cliquei na opção");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando cursos");
 
@@ -23,12 +31,17 @@ function getSideBarOptionsAdmin(){
         icon: "book",
         tabIndex: "3",
         title: "Clique aqui para exibir a biblioteca",
+        subOptions: [
+            {
+                textValue: "Nenhuma opção disponível no momento",
+                onclick: function() {
+                    console.log("Cliquei na opção");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando biblioteca");
 
-            hideAllContent();
-
-            showContent("biblioteca");
         }
     },
     {
@@ -36,6 +49,14 @@ function getSideBarOptionsAdmin(){
         icon: "file-alt",
         tabIndex: "4",
         title: "Clique aqui para exibir o banco de questões",
+        subOptions: [
+            {
+                textValue: "Nenhuma opção disponível no momento",
+                onclick: function() {
+                    console.log("Cliquei na opção");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando banco de questões");
 
@@ -47,12 +68,31 @@ function getSideBarOptionsAdmin(){
         icon: "users",
         tabIndex: "5",
         title: "Clique aqui para exibir o cadastro de alunos",
+        subOptions: [
+            {
+                textValue: "Cadastrar alunos",
+                onclick: function() {
+                    hideAllContent();
+
+                    beautyTable.refreshTable("tabelaUsuarios");
+        
+                    showContent("cadastrarUsuario");
+                }
+            },
+            {
+                textValue: "Visualizar alunos",
+                onclick: function() {
+                    hideAllContent();
+
+                    beautyTable.refreshTable("tabelaUsuarios");
+        
+                    showContent("mostrarAlunos");
+
+                }
+            }
+        ],
         onclick: function() {
-            hideAllContent();
-
-            beautyTable.refreshTable("tabelaUsuarios");
-
-            showContent("cadastrarUsuario");
+            console.log("Cliquei ");
 
         }
     },
@@ -61,6 +101,14 @@ function getSideBarOptionsAdmin(){
         icon: "chart-line",
         tabIndex: "6",
         title: "Clique aqui para exibir o dashboard",
+        subOptions: [
+            {
+                textValue: "Nenhuma opção disponível no momento",
+                onclick: function() {
+                    console.log("Cliquei na opção");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando dashboard");
 
@@ -72,12 +120,20 @@ function getSideBarOptionsAdmin(){
         icon: "user-circle",
         tabIndex: "7",
         title: "Clique aqui para exibir informações da sua conta",
+        subOptions: [
+            {
+                textValue: "Nenhuma opção disponível no momento",
+                onclick: function() {
+                    console.log("Cliquei na opção");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando minha conta");
 
             hideAllContent();
         }
-    }, 
+    },
 ];
 
     return options;
@@ -97,17 +153,46 @@ function getSideBarOptionsGestor(){
         icon: "chalkboard-teacher",
         tabIndex: "2",
         title: "Clique aqui para exibir a janela de cursos",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando cursos");
 
             hideAllContent();
         }
+        
     }, 
     {
         name: "Biblioteca",
         icon: "book",
         tabIndex: "3",
         title: "Clique aqui para exibir a biblioteca",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando biblioteca");
 
@@ -121,6 +206,20 @@ function getSideBarOptionsGestor(){
         icon: "file-alt",
         tabIndex: "4",
         title: "Clique aqui para exibir o banco de questões",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando banco de questões");
 
@@ -132,6 +231,20 @@ function getSideBarOptionsGestor(){
         icon: "users",
         tabIndex: "5",
         title: "Clique aqui para exibir o cadastro de alunos",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             hideAllContent();
 
@@ -146,6 +259,20 @@ function getSideBarOptionsGestor(){
         icon: "calendar-day",
         tabIndex: "6",
         title: "Clique aqui para exibir o cadastro de eventos",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             hideAllContent();
 			console.log("eventos!");
@@ -157,6 +284,20 @@ function getSideBarOptionsGestor(){
         icon: "newspaper",
         tabIndex: "7",
         title: "Clique aqui para exibir o cadastro de destaques",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             hideAllContent();
 			console.log("destaques!");
@@ -168,6 +309,20 @@ function getSideBarOptionsGestor(){
         icon: "capsules",
         tabIndex: "8",
         title: "Clique aqui para exibir o cadastro de pílulas de conhecimento",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             hideAllContent();
 			console.log("pilulas de conhecimento!");
@@ -179,6 +334,20 @@ function getSideBarOptionsGestor(){
         icon: "chart-line",
         tabIndex: "9",
         title: "Clique aqui para exibir o dashboard",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando dashboard");
 
@@ -190,6 +359,20 @@ function getSideBarOptionsGestor(){
         icon: "user-circle",
         tabIndex: "10",
         title: "Clique aqui para exibir informações da sua conta",
+        subOptions: [
+            {
+                textValue: "Opção 1",
+                onclick: function() {
+                    console.log("Cliquei na opção 1");
+                }
+            },
+            {
+                textValue: "Opção 2",
+                onclick: function() {
+                    console.log("Cliquei na opção 2");
+                }
+            }
+        ],
         onclick: function() {
             console.log("mostrando minha conta");
 

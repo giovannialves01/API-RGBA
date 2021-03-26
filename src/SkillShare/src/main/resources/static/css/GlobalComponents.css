@@ -25,6 +25,8 @@ body{
     --headTableColor: #0fcac3;
 
     --beautyTableSelectedRow: rgb(108, 253, 210);
+
+    --subOptionOpenedHeight: 150px;
 }
 
 .justifyLeft{
