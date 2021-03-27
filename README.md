@@ -21,14 +21,14 @@
               <ul>
                      <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#o-que-%C3%A9-o-skillshare">O que é o SkillShare?</a>
                      <ul>
-                            <li><a href="https://github.com/giovannialves01/API-RGBAd#benef%C3%ADcios-da-nossa-plataforma">Benefícios da nossa plataforma</a>
+                            <li><a href="https://github.com/giovannialves01/API-RGBA#benef%C3%ADcios-da-nossa-plataforma">Benefícios da nossa plataforma</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#user-roles">User Roles</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#hourglass_flowing_sand-entregas">User Stories</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#cronograma-de-entregas">Cronograma de Entregas</a>
                      </ul>
-                     <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#integrantes-da-equipe-girlboy">Integrantes da equipe</a>
-                     <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#memobooksdart-disciplina-focal-point-engenharia-de-software-ii">Disciplina Focal Point</a>
-                     <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#disciplinas-integradas-memo">Disciplinas Integradas</a>
+                     <li><a href="https://github.com/giovannialves01/API-RGBA#integrantes-da-equipe-girlboy">Integrantes da equipe</a>
+                     <li><a href="https://github.com/giovannialves01/API-RGBA#memobooksdart-disciplina-focal-point-engenharia-de-software-ii">Disciplina Focal Point</a>
+                     <li><a href="https://github.com/giovannialves01/API-RGBA#disciplinas-integradas-memo">Disciplinas Integradas</a>
               </ul>
               <h3>Benefícios da nossa plataforma</h3>
               <p>:white_check_mark: Gratuita</p>
@@ -78,6 +78,7 @@
                             <td><p align="center"><a href="">A definir</p></td>
                      </tr>
               </table>
+              <p>Para visualizar o burndown de todas as sprints, clique <a href="https://fatecspgov-my.sharepoint.com/:x:/g/personal/anna_yamada_fatec_sp_gov_br/EcgCxB5c3bJMsqK93aJKCDwBOej3TZYlw_uJlNaY1icawA?rtime=uyeFkyDx2Eg">aqui</a>
               <h2>Integrantes da equipe :girl::boy:</h2>
               <ul>
                      <li><a href="https://www.linkedin.com/in/giovanni-santos-546412154/">Giovanni dos Santos Alves</a> (<i>Scrum Master</i>)
