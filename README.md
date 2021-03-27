@@ -95,7 +95,7 @@ Os story cards estão com a sua estimativa de esforço a partir da sequência de
 </p>
 
 <p align="center">
-Você pode visualizar todos os wireframes da entrega cliando <a href="https://github.com/giovannialves01/API-RGBA/tree/main/doc/Wireframes"><i>aqui</i></a>
+Você pode visualizar todos os wireframes clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/main/doc/Wireframes"><i>aqui</i></a>
 </p>
 
 <h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados</h2>
