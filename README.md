@@ -17,14 +17,14 @@
 <img src="https://img.shields.io/badge/Sprint%20atual-Sprint 1-blue?style=for-the-badge&logo=appveyor">
 </p>
 
-<h2 align="center">O que é a SkillShare?</h2>
+<h2 align="center">O que é o SkillShare?</h2>
 
-É uma plataforma de ensino a distância (**EAD**) nos padrões **LMS**, que tem como objetivo disponibilizar a funcionários de empresas suporte em seu aprendizado de novas competências, utilizando para tal propósito materiais em vídeos, imagens, arquivos PDFs, slides e quizzes, tudo de forma gratuíta e de fácil acesso, democratizando assim o acesso a uma formação de qualidade em novas habilidades
+<p align="justify">É uma plataforma de ensino a distância (**EAD**) nos padrões **LMS**, que tem como objetivo disponibilizar a funcionários de empresas suporte em seu aprendizado de novas competências, utilizando para tal propósito materiais em vídeos, imagens, arquivos PDFs, slides e quizzes, tudo de forma gratuíta e de fácil acesso, democratizando assim o acesso a uma formação de qualidade em novas habilidades.</p>
 
 <h2 align="center">Nosso desafio</h2>
 
 <p align="justify">
-A <b><i>FATEC</i></b>, juntamente com uma empresa parceira, <b><i>NESS Health</i></b>, propôs aos alunos o seguinte tema para o API <i>(Aprendizagem por Projetos Integrados)</i>, uma plataforma LMS gratuita e de fácil acesso onde empresas possam disponibilizar conteúdos educacionais para o aprimoramento das habilidades de seus colaboradores. O sistema deverá ter diversos níveis de acesso, como alunos, gestores, administradores e outro, fornecer as mais váriadas opções de postagem de conteúdo comumente utilizadas no mercado, ser de fácil acesso para os alunos e proporcionar uma UX de qualidade superior ao se comparar com aplicações no formato Moodle, por exemplo.
+A <b><i>Fatec Prof. Jessen Vidal</i></b>, juntamente com uma empresa parceira, <b><i>NESS Health</i></b>, propôs aos alunos o seguinte tema para o API <i>(Aprendizagem por Projetos Integrados)</i>: o desenvolvimento de uma plataforma LMS gratuita e de fácil acesso onde empresas possam disponibilizar conteúdos educacionais para o aprimoramento das habilidades de seus colaboradores. O sistema deverá ter quatro níveis de acesso. São eles aluno, tutor, gestor e administrador. Devemos fornecer as mais variadas opções de postagem de conteúdo comumente utilizadas no mercado e ser de fácil acesso para os alunos e proporcionar uma UX de qualidade superior ao se comparar com aplicações no formato Moodle, por exemplo.
 </p>
 
 <h2 align="center">Índices</h2>
@@ -50,17 +50,17 @@ Focando em uma entrega de valor ao cliente, nossa aplicação possuí os seguint
 - Uma página de boas vindas
 - Realização de login de contas cadastradas
 - Para contas com a permissão de acesso de Administrador e Gestor, é possível cadastrar novos alunos
-- Ao cadastrar um novo aluno, é enviado um e-mail, automático, para o a caixa de entrada do mesmo, com seus dados de login na plataforma
+- Ao cadastrar um novo aluno, é um e-mail é enviado para o novo usuário, com os seus dados de login na plataforma
 
 ##### Por que entregamos isso?
 <p align="justify">
-Do ponto de vista das empresas que irão utilizar a plataforma, ao disponibilizarmos já uma forma de registrar seus alunos no sistema, damos a oportunidade de formarem um banco de dados consistente e gerir todos os seus colaboradores que irão se aproveitar dos benefícios da nossa plataforma
+Do ponto de vista das empresas que irão utilizar a plataforma, ao disponibilizarmos já uma forma de registrar seus alunos no sistema, damos a oportunidade de formarem um banco de dados consistente e gerir todos os seus colaboradores que irão se aproveitar dos benefícios da nossa plataforma.
 </p>
 
 
 ##### Quais foram as partes mais trabalhosas?
 <p align="justify">
-Para esta entrega, as maiores dificuldades foram organizar toda a equipe para o trabalho em conjunto, realizar o levantamento de requisitos e saber de fato o que a plataforma precisará ter ao final do projeto e se habituar as novas tecnologias necessárias para a conclusão da aplicação
+Para esta entrega, as maiores dificuldades foram organizar toda a equipe para o trabalho em conjunto, realizar o levantamento de requisitos e saber de fato o que a plataforma precisará ter ao final do projeto e se habituar as novas tecnologias necessárias para a conclusão da aplicação.
 </p>
 
 <p align="center">
@@ -74,7 +74,7 @@ gif aqui
 
 <h2 align="center" id="userStories">User stories da entrega</h2>
 <p align="justify">
-Os usuários deverão ser cadastrados por um administrador ou gestor para que tenham acesso à plataforma, recebendo por e-mail os dados da sua conta.
+Os story cards estão com a sua estimativa de esforço a partir da sequência de Fibonacci. A estimativa foi feita através do Planning Poker e também foi utilizada para priorizar o backlog total. Cards com o valor de 0 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. Nessa entrega, os usuários deverão ser cadastrados por um administrador ou gestor para que tenham acesso à plataforma, recebendo por e-mail os dados da sua conta.
 </p>
 <p align="center">
 <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega1.png" width="500px">
@@ -102,4 +102,9 @@ Você pode visualizar todos os wireframes da entrega cliando <a href="https://gi
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Banco%20de%20dados/conceitual2.jpeg" width="700px">
+</p>
+
+<h2 align="center">Burndown da Sprint</h2>
+<p align="center">
+    imagem do burndown aqui
 </p>
