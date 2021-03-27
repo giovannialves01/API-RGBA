@@ -23,7 +23,7 @@
                      <ul>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#benef%C3%ADcios-da-nossa-plataforma">Benefícios da nossa plataforma</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#user-roles">User Roles</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA#hourglass_flowing_sand-entregas">User Stories</a>
+                            <li><a href="https://github.com/giovannialves01/API-RGBA#hourglass_flowing_sand-entregas">Entregas</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#cronograma-de-entregas">Cronograma de Entregas</a>
                      </ul>
                      <li><a href="https://github.com/giovannialves01/API-RGBA#integrantes-da-equipe-girlboy">Integrantes da equipe</a>
@@ -45,6 +45,15 @@
               <h4>Primeira entrega :clock12:</h4>
               <p align="justify">A primeira entrega foi focada no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as páginas iniciais deles, cada uma contendo o que cada um poderá realizar no sistema.</p>
               <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/1.png" width="550px" height="300px">
+              <h4>Segunda entrega :clock4:</h4>
+              <p align="justify">A segunda entrega conta com o início da postagem de conteúdo na plataforma, de forma que ela fique mais atraente e robusta para os estudantes. Estes já poderão visualizar o conteúdo postado. Além disso um chatbot já será integrado ao sistema para auxílio dos usuários.</p>
+              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/2.png" width="550px" height="300px">
+              <h4>Terceira entrega :clock8:</h4>
+              <p align="justify">Na terceira entrega os administradores e gestores já poderão enviar seus cursos à plataforma, inserir estudantes em turmas e poderão, também, montar o banco de questões. Os logs dos usuários já estarão disponíveis ao administrador. Alunos já poderão rastrear alguns dados do seu progresso no curso. E, por fim, os tutores poderão visualizar as turmas existentes nos cursos.</p>
+              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/3.png" width="550px" height="300px">
+              <h4>Quarta entrega :clock12:</h4>
+              <p align="justify">Na quarta entrega os alunos terão controle de suas notas, avaliações e certificados de conclusão. Tutores poderão realizar um feedback das avaliações dos alunos para que seu conhecimento seja potencializado. Os administradores e gestores possuirão dashboards para a análise dos dados da plataforma.</p>
+              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/4.png" width="550px" height="300px">
               <h3>Cronograma de Entregas</h3>
               <table>
                      <thead>
