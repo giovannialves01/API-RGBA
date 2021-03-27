@@ -19,7 +19,7 @@
 
 <h2 align="center">O que é o SkillShare?</h2>
 
-<p align="justify">É uma plataforma de ensino a distância (**EAD**) nos padrões **LMS**, que tem como objetivo disponibilizar a funcionários de empresas suporte em seu aprendizado de novas competências, utilizando para tal propósito materiais em vídeos, imagens, arquivos PDFs, slides e quizzes, tudo de forma gratuíta e de fácil acesso, democratizando assim o acesso a uma formação de qualidade em novas habilidades.</p>
+<p align="justify">É uma plataforma de ensino a distância (<b>EAD</b>) nos padrões <b>LMS</b>, que tem como objetivo disponibilizar a funcionários de empresas suporte em seu aprendizado de novas competências, utilizando para tal propósito materiais em vídeos, imagens, arquivos PDFs, slides e quizzes, tudo de forma gratuíta e de fácil acesso, democratizando assim o acesso a uma formação de qualidade em novas habilidades.</p>
 
 <h2 align="center">Nosso desafio</h2>
 
