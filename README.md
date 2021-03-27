@@ -24,7 +24,7 @@
                      <ul>
                             <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#benef%C3%ADcios-da-nossa-plataforma">Benefícios da nossa plataforma</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#user-roles">User Roles</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#user-stories">User Stories</a>
+                            <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#entregas">User Stories</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#cronograma-de-entregas">Cronograma de Entregas</a>
                      </ul>
                      <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#integrantes-da-equipe-girlboy">Integrantes da equipe</a>
@@ -42,7 +42,10 @@
               <p>:white_check_mark: Controle corporativo
               <h3>User Roles</h3>
               <img src="https://user-images.githubusercontent.com/60778277/112249518-b2c04600-8c36-11eb-870c-dde55c0dee32.jpg" width=600px height=500px>
-              <h3>User Stories</h3>
+              <h3>:hourglass_flowing_sand: Entregas</h3>
+              <h4>Primeira entrega</h4>
+              <p align="justify">A primeira entrega foi focada no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as páginas iniciais dele, cada uma contendo o que cada um poderá realizar no sistema.</p>
+              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/1.png" width="550px" height="300px">
               <h3>Cronograma de Entregas</h3>
               <table>
                      <thead>
@@ -59,7 +62,7 @@
                      </tr>
                      <tr>
                             <td><p align="center">Entrega 2</p></td>
-                            <td><p align="justify">Administradores e Gestores poderão inserir conteúdo na biblioteca, postar pílulas de conhecimento, postar de eventos e, também, destaques. O chatbot já estará disponível.</p></td>
+                            <td><p align="justify">Administradores e Gestores poderão inserir conteúdo na biblioteca, postar pílulas de conhecimento, postar eventos e, também, destaques. O chatbot já estará disponível.</p></td>
                             <td><p align="center">18/04</p></td>
                             <td><p align="center"><a href="">Visualizar</p></td>
                      </tr>
