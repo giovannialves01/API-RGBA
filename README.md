@@ -17,7 +17,7 @@
 <img src="https://img.shields.io/badge/Sprint%20atual-Sprint 1-blue?style=for-the-badge&logo=appveyor">
 </p>
 
-<h2 align="center">O que é o SkillShare?</h2>
+<h2 align="center">O que é o SkillShare? :brain::computer:</h2>
 
 <p align="justify">É uma plataforma de ensino a distância (<b>EAD</b>) nos padrões <b>LMS</b>, que tem como objetivo disponibilizar a funcionários de empresas suporte em seu aprendizado de novas competências, utilizando para tal propósito materiais em vídeos, imagens, arquivos PDFs, slides e quizzes, tudo de forma gratuíta e de fácil acesso, democratizando assim o acesso a uma formação de qualidade em novas habilidades.</p>
 
@@ -38,6 +38,7 @@ Para navegar mais rapidamente e com facilidade, você pode utilizar os links dos
 - <a href="#userStories">User stories da entrega</a>
 - <a href="#wireframes">Wireframes da entrega</a>
 - <a href="#modeloBanco">Modelo conceitual do banco de dados</a>
+- <a href="#burndown">Burndown da Sprint</a>
 
 
 <h2 align="center" id="primeiraEntrega">A primeira entrega</h2>
@@ -104,7 +105,7 @@ Você pode visualizar todos os wireframes clicando <a href="https://github.com/g
 <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Banco%20de%20dados/conceitual2.jpeg" width="700px">
 </p>
 
-<h2 align="center">Burndown da Sprint</h2>
+<h2 align="center" id="burndown">Burndown da Sprint</h2>
 <p align="center">
     imagem do burndown aqui
 </p>
