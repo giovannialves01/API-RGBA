@@ -43,7 +43,7 @@ Para navegar mais rapidamente e com facilidade, você pode utilizar os links dos
 
 <h2 align="center" id="primeiraEntrega">A primeira entrega</h2>
 
-##### O que fizemos?
+#### O que fizemos?
 <p align="justify">
 Focando em uma entrega de valor ao cliente, nossa aplicação possuí os seguintes elementos básicos:
 </p>
@@ -53,13 +53,13 @@ Focando em uma entrega de valor ao cliente, nossa aplicação possuí os seguint
 - Para contas com a permissão de acesso de Administrador e Gestor, é possível cadastrar novos alunos
 - Ao cadastrar um novo aluno, é um e-mail é enviado para o novo usuário, com os seus dados de login na plataforma
 
-##### Por que entregamos isso?
+#### Por que entregamos isso?
 <p align="justify">
 Do ponto de vista das empresas que irão utilizar a plataforma, ao disponibilizarmos já uma forma de registrar seus alunos no sistema, damos a oportunidade de formarem um banco de dados consistente e gerir todos os seus colaboradores que irão se aproveitar dos benefícios da nossa plataforma.
 </p>
 
 
-##### Quais foram as partes mais trabalhosas?
+#### Quais foram as partes mais trabalhosas?
 <p align="justify">
 Para esta entrega, as maiores dificuldades foram organizar toda a equipe para o trabalho em conjunto, realizar o levantamento de requisitos e saber de fato o que a plataforma precisará ter ao final do projeto e se habituar as novas tecnologias necessárias para a conclusão da aplicação.
 </p>
@@ -81,7 +81,7 @@ Os story cards estão com a sua estimativa de esforço a partir da sequência de
 <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega1.png" width="500px">
 </p>
 
-<h2 align="center" id="wireframes">Wireframes da entrega</h2>
+<h2 align="center" id="wireframes">Wireframes da entrega :desktop_computer:</h2>
 <p align="center">
 <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Wireframes/Entrega%201/pagina_inicial.png" width="400px">
 </p>
@@ -99,13 +99,14 @@ Os story cards estão com a sua estimativa de esforço a partir da sequência de
 Você pode visualizar todos os wireframes clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/main/doc/Wireframes"><i>aqui</i></a>
 </p>
 
-<h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados</h2>
+<h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados :card_file_box:</h2>
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Banco%20de%20dados/conceitual2.jpeg" width="700px">
 </p>
 
 <h2 align="center" id="burndown">Burndown da Sprint</h2>
+<p align="justify">No início da nossa Sprint foi um pouco mais corrida devido ao levantamento de requisitos e mais o desenvolvimento, mas, como boa parte das funcionalidades dessa estrega já estavam priorizadas, as partes mais difíceis foram resolvidas primeiro. No final tudo ocorreu bem.</p>
 <p align="center">
-    imagem do burndown aqui
+    <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Burndown/Burndown%20Sprint1.png">
 </p>
