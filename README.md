@@ -1,4 +1,3 @@
-
 <html>
        <head></head>
        <body>
@@ -13,19 +12,19 @@
               </p>
               <p align="center"><img src="https://img.shields.io/badge/status-em desenvolvimento-blue?style=for-the-badge&logo=appveyor"></p>
               <p align="center"><img src="https://img.shields.io/badge/Sprint%20atual-Sprint 1-blue?style=for-the-badge&logo=appveyor"></p>
-              <h2>O que é o SkillShare?</h2>
+              <h2>O que é o SkillShare? :brain::computer:</h2>
               <p align="justify">Em uma realidade em que o ensino on-line tornou-se essencial para a manutenção do conhecimento, o SkillShare tem o intuito de proporcionar treinamentos on-line e gratuitos para funcionários aperfeiçoarem suas habilidades técnicas!</p>
               <p align="justify"><a href="https://g1.globo.com/economia/noticia/2020/10/30/desemprego-no-brasil-sobe-para-144percent-em-agosto-diz-ibge.ghtml">Atualmente 14,4% da população brasileira encontra-se desempregada</a>. Dessa forma todos nós precisamos de mais qualificação para alcançarmos nossos objetivos profissionais. Apesar de existirem muitas plataformas de ensino online, elas são pagas, removendo assim o direito à educação de todos.</p>
-              <p align="justify">Nosso cliente é a empresa Ness Health. A demanda é o desenvolvimento de um LMS (Learning Management System) gratuito para os estudantes matriculados, pois temos o compromisso de democratizar a educação. Vídeos, PDFs, slides e quizzes farão parte dos nossos cursos e o aluno poderá contar, também, com tutores que os darão auxílio no processo de aprendizagem. Ao final do curso o aluno, gratuitamente, recebe um certificado do curso realiza. Qualquer usuário poderá conversar com um chatbot para tirar suas dúvidas. Administradores e gestores, que são membros corporativos, terão dashboards para a análise dinâmica das informações dos seus alunos! Os usuários poderão acessar a plataforma de qualquer dispositivos, pois ela será responsiva.
-              <p align="justify">Nós, da equipe RGBA, apresentamos a SkillShare que, pelo contrário, visa democratizar o ensino on-line, de forma a distribuir o aprendizado para todos. O SkillShare é um LMS que oferece cursos gratuitos on-line para aperfeiçoamento e aprendizagem dos colaboradores de uma empresa, ajustando-se as várias formas de aprendizado do usuário, além de permitir o controle e análise pelos gestores de sua staff. Os instrutores serão capazes de adicionar cursos, atividades e pílulas de conhecimento para que qualquer funcionário de uma empresa possa adquirir habilidades técnicas.</p>
+              <p align="justify">Nosso cliente é a empresa Ness Health. A demanda é o desenvolvimento de um LMS (<i>Learning Management System</i>) gratuito para os funcionários matriculados, pois temos o compromisso de democratizar a educação. Vídeos, PDFs, slides e quizzes farão parte dos nossos cursos e o estudante poderá contar, também, com tutores que os darão auxílio no processo de aprendizagem. Ao final do curso o estudante, gratuitamente, recebe um certificado do curso que realizou. Qualquer usuário poderá conversar com um chatbot para tirar suas dúvidas. Administradores e gestores, que são membros corporativos, terão dashboards para a análise dinâmica das informações dos seus alunos! Os usuários poderão acessar a plataforma de qualquer dispositivos, pois ela será responsiva.
+              <p align="justify">Nós, da equipe RGBA, apresentamos o SkillShare que, pelo contrário, visa democratizar o ensino on-line, de forma a distribuir o aprendizado para todos. O SkillShare é um LMS que oferece cursos gratuitos on-line para aperfeiçoamento e aprendizagem dos colaboradores de uma empresa, ajustando-se às várias formas de aprendizado do usuário, além de permitir o controle e análise pelos gestores de sua staff. Os instrutores serão capazes de adicionar cursos, atividades e pílulas de conhecimento para que qualquer funcionário de uma empresa possa adquirir habilidades técnicas.</p>
               <h3>Índice</h3>
               <ul>
                      <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#o-que-%C3%A9-o-skillshare">O que é o SkillShare?</a>
                      <ul>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#benef%C3%ADcios-da-nossa-plataforma">Benefícios da nossa plataforma</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#user-roles">User Roles</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#entregas">User Stories</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#cronograma-de-entregas">Cronograma de Entregas</a>
+                            <li><a href="https://github.com/giovannialves01/API-RGBAd#benef%C3%ADcios-da-nossa-plataforma">Benefícios da nossa plataforma</a>
+                            <li><a href="https://github.com/giovannialves01/API-RGBA#user-roles">User Roles</a>
+                            <li><a href="https://github.com/giovannialves01/API-RGBA#hourglass_flowing_sand-entregas">User Stories</a>
+                            <li><a href="https://github.com/giovannialves01/API-RGBA#cronograma-de-entregas">Cronograma de Entregas</a>
                      </ul>
                      <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#integrantes-da-equipe-girlboy">Integrantes da equipe</a>
                      <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#memobooksdart-disciplina-focal-point-engenharia-de-software-ii">Disciplina Focal Point</a>
@@ -39,12 +38,12 @@
               <p>:white_check_mark: Chatbot para dúvidas</p>
               <p>:white_check_mark: Responsivo: acessível em vários dispositivos</p>
               <p>:white_check_mark: Emissão de certificado</p>
-              <p>:white_check_mark: Controle corporativo
+              <p>:white_check_mark: Controle corporativo</p>
               <h3>User Roles</h3>
-              <img src="https://user-images.githubusercontent.com/60778277/112249518-b2c04600-8c36-11eb-870c-dde55c0dee32.jpg" width=600px height=500px>
+              <img src="https://user-images.githubusercontent.com/60778277/112249518-b2c04600-8c36-11eb-870c-dde55c0dee32.jpg" width=550px height=500px>
               <h3>:hourglass_flowing_sand: Entregas</h3>
-              <h4>Primeira entrega</h4>
-              <p align="justify">A primeira entrega foi focada no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as páginas iniciais dele, cada uma contendo o que cada um poderá realizar no sistema.</p>
+              <h4>Primeira entrega :clock12:</h4>
+              <p align="justify">A primeira entrega foi focada no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as páginas iniciais deles, cada uma contendo o que cada um poderá realizar no sistema.</p>
               <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/1.png" width="550px" height="300px">
               <h3>Cronograma de Entregas</h3>
               <table>
@@ -70,13 +69,13 @@
                             <td><p align="center">Entrega 3</p></td>
                             <td><p align="justify">A definir.</p></td>
                             <td><p align="center">16/05</p></td>
-                            <td><p align="center"><a href="">Visualizar</p></td>
+                            <td><p align="center"><a href="">A definir</p></td>
                      </tr>
                      <tr>
                             <td><p align="center">Entrega 4</p></td>
                             <td><p align="justify">A definir.</p></td>
                             <td><p align="center">05/06</p></td>
-                            <td><p align="center"><a href="">Visualizar</p></td>
+                            <td><p align="center"><a href="">A definir</p></td>
                      </tr>
               </table>
               <h2>Integrantes da equipe :girl::boy:</h2>
