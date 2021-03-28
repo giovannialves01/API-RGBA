@@ -14,7 +14,7 @@
               <p align="center"><img src="https://img.shields.io/badge/Sprint%20atual-Sprint 1-blue?style=for-the-badge&logo=appveyor"></p>
               <h2>O que é o SkillShare? :brain::computer:</h2>
               <p align="justify">Em uma realidade em que o ensino on-line tornou-se essencial para a manutenção do conhecimento, o SkillShare tem o intuito de proporcionar treinamentos on-line e gratuitos para funcionários aperfeiçoarem suas habilidades técnicas!</p>
-              <p align="justify"><a href="https://g1.globo.com/economia/noticia/2020/10/30/desemprego-no-brasil-sobe-para-144percent-em-agosto-diz-ibge.ghtml">Atualmente 14,4% da população brasileira encontra-se desempregada</a>. Dessa forma todos nós precisamos de mais qualificação para alcançarmos nossos objetivos profissionais. Apesar de existirem muitas plataformas de ensino online, elas são pagas, removendo assim o direito à educação de todos.</p>
+              <p align="justify"><a href="https://g1.globo.com/economia/noticia/2020/10/30/desemprego-no-brasil-sobe-para-144percent-em-agosto-diz-ibge.ghtml">Atualmente 14,4% da população brasileira encontra-se desempregada</a>. Dessa forma todos nós precisamos de mais qualificação para alcançarmos nossos objetivos profissionais. Apesar de existirem muitas plataformas de ensino on-line, elas são pagas, removendo assim o direito à educação de todos.</p>
               <p align="justify">Nosso cliente é a empresa Ness Health. A demanda é o desenvolvimento de um LMS (<i>Learning Management System</i>) gratuito para os funcionários matriculados, pois temos o compromisso de democratizar a educação. Vídeos, PDFs, slides e quizzes farão parte dos nossos cursos e o estudante poderá contar, também, com tutores que os darão auxílio no processo de aprendizagem. Ao final do curso o estudante, gratuitamente, recebe um certificado do curso que realizou. Qualquer usuário poderá conversar com um chatbot para tirar suas dúvidas. Administradores e gestores, que são membros corporativos, terão dashboards para a análise dinâmica das informações dos seus alunos! Os usuários poderão acessar a plataforma de qualquer dispositivos, pois ela será responsiva.
               <p align="justify">Nós, da equipe RGBA, apresentamos o SkillShare que, pelo contrário, visa democratizar o ensino on-line, de forma a distribuir o aprendizado para todos. O SkillShare é um LMS que oferece cursos gratuitos on-line para aperfeiçoamento e aprendizagem dos colaboradores de uma empresa, ajustando-se às várias formas de aprendizado do usuário, além de permitir o controle e análise pelos gestores de sua staff. Os instrutores serão capazes de adicionar cursos, atividades e pílulas de conhecimento para que qualquer funcionário de uma empresa possa adquirir habilidades técnicas.</p>
               <h3>Índice</h3>
@@ -23,7 +23,7 @@
                      <ul>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#benef%C3%ADcios-da-nossa-plataforma">Benefícios da nossa plataforma</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#user-roles">User Roles</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA#hourglass_flowing_sand-entregas">User Stories</a>
+                            <li><a href="https://github.com/giovannialves01/API-RGBA#hourglass_flowing_sand-entregas">Entregas</a>
                             <li><a href="https://github.com/giovannialves01/API-RGBA#cronograma-de-entregas">Cronograma de Entregas</a>
                      </ul>
                      <li><a href="https://github.com/giovannialves01/API-RGBA#integrantes-da-equipe-girlboy">Integrantes da equipe</a>
@@ -36,15 +36,24 @@
               <p>:white_check_mark: Tutoria para auxílio da aprendizagem</p>
               <p>:white_check_mark: Dashboards para análises dinâmicas</p>
               <p>:white_check_mark: Chatbot para dúvidas</p>
-              <p>:white_check_mark: Responsivo: acessível em vários dispositivos</p>
+              <p>:white_check_mark: Responsiva: acessível em vários dispositivos</p>
               <p>:white_check_mark: Emissão de certificado</p>
               <p>:white_check_mark: Controle corporativo</p>
               <h3>User Roles</h3>
               <img src="https://user-images.githubusercontent.com/60778277/112249518-b2c04600-8c36-11eb-870c-dde55c0dee32.jpg" width=550px height=500px>
               <h3>:hourglass_flowing_sand: Entregas</h3>
               <h4>Primeira entrega :clock12:</h4>
-              <p align="justify">A primeira entrega foi focada no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as páginas iniciais deles, cada uma contendo o que cada um poderá realizar no sistema.</p>
+              <p align="justify">A primeira entrega foi foca no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as suas páginas iniciais, cada uma contendo o que cada um poderá realizar no sistema.</p>
               <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/1.png" width="550px" height="300px">
+              <h4>Segunda entrega :clock4:</h4>
+              <p align="justify">A segunda entrega conta com o início da postagem de conteúdo na plataforma, de forma que ela fique mais atraente e robusta para os estudantes. Estes já poderão visualizar o conteúdo postado. Além disso um chatbot já estará integrado ao sistema para auxílio dos usuários.</p>
+              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/2.png" width="550px" height="300px">
+              <h4>Terceira entrega :clock8:</h4>
+              <p align="justify">Na terceira entrega os administradores e gestores já poderão enviar seus cursos à plataforma, inserir estudantes em turmas e poderão, também, montar o banco de questões. Os logs dos usuários já estarão disponíveis ao administrador. Alunos já poderão rastrear alguns dados do seu progresso no curso. E, por fim, os tutores poderão visualizar as turmas existentes nos cursos.</p>
+              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/3.png" width="550px" height="300px">
+              <h4>Quarta entrega :clock12:</h4>
+              <p align="justify">Na quarta entrega os alunos terão controle de suas notas, avaliações e certificados de conclusão. Tutores poderão realizar um feedback das avaliações dos alunos para que seu conhecimento seja potencializado. Os administradores e gestores possuirão dashboards para a análise dos dados da plataforma.</p>
+              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/4.png" width="550px" height="300px">
               <h3>Cronograma de Entregas</h3>
               <table>
                      <thead>
