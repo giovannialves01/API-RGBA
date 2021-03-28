@@ -51,7 +51,7 @@ Focando em uma entrega de valor ao cliente, nossa aplicação possui os seguinte
 - Uma página de boas-vindas
 - Realização de log-in de contas cadastradas
 - Para contas com a permissão de acesso de Administrador e Gestor, é possível cadastrar novos alunos
-- Ao cadastrar um novo aluno, um e-mail é enviado para o novo usuário um e-mail contendo os seus dados de login na plataforma
+- Ao cadastrar um novo aluno, um e-mail é enviado para o novo usuário, contendo os seus dados de login na plataforma
 
 #### Por que entregamos isso?
 <p align="justify">
