@@ -69,7 +69,11 @@ Para esta entrega, as maiores dificuldades foram organizar toda a equipe para o 
 </p>
 
 <h2 align="center" id="funcionamento">Nosso sistema em funcionamento até o momento</h2>
-gif aqui
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Sprint1/GIFS/Home">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Sprint1/GIFS/Administrador">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Sprint1/GIFS/Gestor">
+</p>
 
 
 
