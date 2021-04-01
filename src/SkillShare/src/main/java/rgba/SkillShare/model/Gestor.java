@@ -2,20 +2,19 @@ package rgba.SkillShare.model;
 
 import javax.persistence.Entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 /**
  *   Classe que define os usuários do tipo gestor.
  *  @author Nicholas Roque
  */
 @Entity(name="gestor")
-public class Gestor extends Usuario{
-    
+@NoArgsConstructor @Data
 
-    /** 
-    * Construtor padrão da classe Gestor
-    * @author Nicholas Roque
-    */
-    public Gestor(){}
+public class Gestor extends Usuario{
+
 
     /** 
     *  Cria uma instância da classe Gestor.
@@ -25,11 +24,10 @@ public class Gestor extends Usuario{
     * @param senha -> senha do gestor
     * @author Nicholas Roque
     */
+
+    //NÃO RETIRAR
     public Gestor(String cpf,String nome,String email,String senha) { 
-        this.setNome(nome);
-        this.setCpf(cpf);
-        this.setEmail(email);
-        this.setSenha(senha);
+        super(cpf,nome,email,senha);
     }
 
 

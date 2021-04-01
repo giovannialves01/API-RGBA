@@ -7,10 +7,7 @@ import rgba.SkillShare.repository.ContatoRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -39,14 +36,6 @@ public class ContatoController {
     @Autowired 
     ContatoRepository cRepository;
 
-   /*
-    @PostMapping("/cadastrar")
-    @ResponseStatus(HttpStatus.CREATED)
-    @ApiOperation("Cria um usuário do tipo contato.")
-    public Contato createContato(@RequestBody @ApiParam("Informações do contato") Contato contato){
-        return cRepository.save(contato);
-    } */
-
     /** 
     *  Endpoint para listar todos os contatos.
     * @return Retorna uma lista do objeto Contato com todos os contatos. 
@@ -74,7 +63,10 @@ public class ContatoController {
     })
     public Contato getContatoByCpf(@PathVariable @ApiParam("Cpf do usuário") String cpf) {
         return cRepository
-            .findByCpf(cpf);
+            .findByCpf(cpf)
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo gestor não encontrado.")
+            );
 
     }
 }
