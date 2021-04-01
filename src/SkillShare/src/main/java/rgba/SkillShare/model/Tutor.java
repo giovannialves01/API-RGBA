@@ -2,21 +2,17 @@ package rgba.SkillShare.model;
 
 import javax.persistence.Entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 /**
  *   Classe que define os usuários do tipo tutor.
  *  @author Nicholas Roque
  */
 @Entity(name="tutor")
+@NoArgsConstructor @Data 
 public class Tutor extends Usuario{
-    
-
-    /** 
-    * Construtor padrão da classe Tutor
-    * @author Nicholas Roque
-    */
-    public Tutor(){}
-
     /** 
     *  Cria uma instância da classe Tutor.
     * @param cpf -> cpf do tutor
