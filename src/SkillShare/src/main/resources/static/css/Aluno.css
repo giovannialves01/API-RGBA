@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* nao deixa aumentar o tamanho da caixa*/
+}
+
+.Header{
+    font-size: 22px;
+    display: flex;
+    width: 1366px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+    background: #0AADA7;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-bottom: 55px;
+}
+.body{
+    margin-left: 50px;
+}
+.flex{
+    display: inline-flex;
+}
+.LinksUteis{
+    display: flex;
+    margin-bottom: 50px;
+}
+.ApresentaçãoSkillShare{
+    width: 850px;
+}
+.foot{
+    margin-left: -50px;
+}
+.CursosAndamento{
+    display: block;
+}
+#adecoration{
+    display: flex;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+#algu{
+    margin-bottom: 20px;
+    margin-left: 9px;
+}
+#headermenu{
+    margin-right: 500px;
+}
+#SkillShare{
+    margin-right: 500px;
+}
+#bemvindoaoskillshare{
+    font-size: 42px;
+    margin-bottom: 50px;
+}
+#aquivcpode{
+    margin-bottom: 50px;
+    font-size: 24px;
+}
+#cursosandamento{
+    font-size: 34px;
+    margin-bottom: 25px;  
+}
+
+#algunslinks{
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+#cursosandament{
+    margin-bottom: 50px;
+}
+#flex{
+    box-sizing: content-box;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    columns: auto;
+    margin-bottom: 58px;
+}
+#marginnomecurso{
+    margin-bottom: 35px;
+    
+}
+
+
+#descricaonoticias{
+    display: block;
+    width: 900px;
+}
+#vertodaasnoticias{
+    margin-bottom: 15px;
+}
+#noticias{
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+#marginnoticia{
+    margin-top: 20px;
+}
+#imagenoticia{
+    box-sizing: content-box;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+}
+#margintopnoticia{
+    margin-top: 15px;
+    font-size: 28px;
+    font-style: oblique;
+}
+#leramaisdanoticia{
+    margin-left: 80%;
+    font-size: 15px;
+    color: #535353;
+}
+
+
+#bgfooter{
+    margin-top: 80px;
+    position: absolute;
+}
+#logo{
+    position: relative;
+    height: 200px;
+    margin-top: 210px;
+    margin-left: 20px;
+}
