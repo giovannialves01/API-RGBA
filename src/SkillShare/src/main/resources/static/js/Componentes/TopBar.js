@@ -5,36 +5,82 @@ class TopBar extends HTMLElement{
     }
 
     connectedCallback(){
-        let topbar = document.createElement("div");
-        topbar.classList.add("topBarContainer");
+        let topBar = this.buildTopBar();
 
-        let exitLabel = document.createElement("label");
-        exitLabel.textContent = "Sair";
-        exitLabel.classList.add("topBarExitLabel");
-        exitLabel.title = "Desconectar da sua conta";
-        exitLabel.onclick = function () {
-        	window.location.href = "/";
+        this.appendChild(topBar);
+    }
+
+    buildTopBar(){
+        let container = document.createElement("div");
+        container.classList.add("topBar");
+
+        let menuBox = this.buildMenuBox();
+        let topBarTitle = this.buildTopBarTitle();
+        let topBarOptionsBox = this.buildTopBarOptionsBox();
+
+        container.appendChild(menuBox);
+        container.appendChild(topBarTitle);
+        container.appendChild(topBarOptionsBox);
+
+        return container;
+
+    }
+
+    buildMenuBox(){
+        let div = document.createElement("div");
+        div.classList.add("topBarMenuButton");
+        div.onclick = function(){
+            console.log("abrindo menu");
         }
 
-        let topbarHomeButtonContainer = document.createElement("div");
-        topbarHomeButtonContainer.classList.add("topBarHomeButtonContainer");
-        topbarHomeButtonContainer.title = "Voltar para a página inicial";
+        let span = document.createElement("span");
+        span.className = "fas fa-bars topBarMenuButton-faIcon";
 
-        let topbarHomeButtonLogo = document.createElement("span");
-        topbarHomeButtonLogo.className = "fas fa-home";
-        topbarHomeButtonLogo.classList.add("topBarHomeButtonLogo");
+        let label = document.createElement("label");
+        label.textContent = "Menu";
 
-        let topbarHomeButtonText = document.createElement("label");
-        topbarHomeButtonText.classList.add("topBarHomeButtonText");
-        topbarHomeButtonText.textContent = "Página inicial"
+        div.appendChild(span);
+        div.appendChild(label);
 
-        topbarHomeButtonContainer.appendChild(topbarHomeButtonLogo);
-        topbarHomeButtonContainer.appendChild(topbarHomeButtonText);
+        return div;
+    }
 
-        topbar.appendChild(topbarHomeButtonContainer);
-        topbar.appendChild(exitLabel);
+    buildTopBarTitle(){
+        let label = document.createElement("label");
+        label.classList.add("topBarTitle");
+        
+        let negrito = document.createElement("b");
+        negrito.textContent = "SkillShare";
 
-        this.appendChild(topbar);
+        label.appendChild(negrito);
+
+        return label;
+    }
+
+    buildTopBarOptionsBox(){
+        let div = document.createElement("div");
+        div.classList.add("topBarOptionsDiv");
+
+        let label = document.createElement("label");
+        label.classList.add("topBarOptionLabel");
+
+        let user = JSON.parse(window.sessionStorage.getItem("user"));
+
+        if(user["userStatus"].includes("autenticado")){
+            label.textContent = "Sair"
+            label.onclick = function(){
+                console.log("saindo");
+            }
+        }else{
+            label.textContent = "Entrar"
+            label.onclick = function(){
+                console.log("entrando");
+            }
+        }
+
+        div.appendChild(label);
+
+        return div;
     }
 
 }
