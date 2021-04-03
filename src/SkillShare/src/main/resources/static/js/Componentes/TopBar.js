@@ -30,7 +30,7 @@ class TopBar extends HTMLElement{
         let div = document.createElement("div");
         div.classList.add("topBarMenuButton");
         div.onclick = function(){
-            console.log("abrindo menu");
+            openMenu();
         }
 
         let span = document.createElement("span");

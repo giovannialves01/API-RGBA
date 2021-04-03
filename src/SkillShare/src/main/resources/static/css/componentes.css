@@ -80,3 +80,183 @@
 
     user-select: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.menuBackground{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: hidden; 
+}
+
+.menuBackground.show{
+    display: block;
+}
+
+.menuBackground.hide{
+    display: none;
+}
+
+.menu{
+    width: 250px;
+    height: 0%;
+
+    background-color: #0AADA7;
+
+    box-shadow: 3px 0px 13px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: auto;
+}
+
+.menu.show{
+    animation-name: menuShow;
+    animation-duration: 0.6s;
+
+    height: 100%;
+}
+
+.menu.hide{
+    animation-name: menuHide;
+    animation-duration: 0.6s;
+
+    height: 0%;
+}
+
+@keyframes menuShow{
+    from{
+        height: 0%;
+    }to{
+        height: 100%;
+    }
+}
+
+.logoContainer{
+    width: 100%;
+    height: 250px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+
+    user-select: none;
+}
+
+.optionContainer{
+    width: 100%;
+    height: 40px;
+}
+
+.mainOption{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.mainOption:hover{
+    background-color: #09c5bf;
+}
+
+.mainOption:active{
+    background-color: #0adbd4;
+}
+
+.mainOption:focus{
+    outline: none;
+
+    background-color: #09c5bf;
+}
+
+.subOptions{
+    width: 100%;
+
+    background-color: #0D6461;
+
+    height: 0px;
+
+    overflow: hidden;
+}
+
+.mainOption-fa{
+    margin-left: 15px;
+
+    user-select: none;
+}
+
+.mainOptionLabel{
+    margin-left: 15px;
+
+    user-select: none;
+
+    cursor: pointer;
+}
+
+.subOptions.expanded{
+    animation-name: subOptionsExpand;
+    animation-duration: 0.5s;
+
+    height: 100px;
+}
+
+.subOptions.hiden{
+    animation-name: subOptionsHide;
+    animation-duration: 0.5s;
+
+    height: 0px;
+}
+
+@keyframes subOptionsExpand{
+    from{
+        height: 0px;
+    }to{
+        height: 100px;
+    }
+}
+
+@keyframes subOptionsHide{
+    from{
+        height: 100px;
+    }to{
+        height: 0px;
+    }
+}
+
+.subOption{
+    margin-left: 10px;
+}
+
+.subOption-fa{
+    margin-left: 50px;
+}
