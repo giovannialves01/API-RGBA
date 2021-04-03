@@ -30,7 +30,23 @@ class TopBar extends HTMLElement{
         let div = document.createElement("div");
         div.classList.add("topBarMenuButton");
         div.onclick = function(){
-            openMenu();
+            let menuBackground = document.getElementsByClassName("menuBackground")[0];
+            let menu = document.getElementsByClassName("menu")[0];
+
+            if(menuBackground.classList.contains("show")){
+                menuBackground.classList.remove("show");
+                menuBackground.classList.add("hide");
+
+                menu.classList.remove("show");
+                menu.classList.add("hide");
+            }else{
+                menuBackground.classList.remove("hide");
+                menuBackground.classList.add("show");
+
+                menu.classList.remove("hide");
+                menu.classList.add("show");
+            }
+            
         }
 
         let span = document.createElement("span");

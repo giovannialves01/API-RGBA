@@ -1,99 +1,3 @@
-.topBar{
-    height: 40px;
-    width: 100vw;
-    background-color: #0AADA7;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.topBarMenuButton{
-    height: 100%;
-    width: fit-content;
-
-    margin-left: 25px;
-
-    padding-left: 5px;
-    padding-right: 5px;
-
-    display: flex;
-    align-items: center;
-
-    cursor: pointer;
-
-}
-
-@media (max-width: 600px){
-    .topBarMenuButton{
-        margin-left: 5px;
-
-    }
-}
-
-.topBarMenuButton:hover{
-    background-color:  #0dbeb9;
-}
-
-.topBarMenuButton:active{
-    background-color:  #10dad3
-}
-
-.topBarMenuButton-faIcon{
-    color: white;
-    font-size: 30px;
-
-    user-select: none;
-
-}
-
-.topBarMenuButton label{
-    color:white;
-    margin-left: 10px;
-    cursor: pointer;
-
-    user-select: none;
-}
-
-.topBarTitle{
-    color: white;
-    font-size: 30px;
-    display: flex;
-    align-self: center;
-
-    cursor: pointer;
-
-    user-select: none;
-}
-
-.topBarOptionsDiv{
-    display: flex;
-    margin-right: 10px;
-}
-
-.topBarOptionLabel{
-    color: white;
-    display: flex;
-    align-self: center;
-    cursor: pointer;
-
-    user-select: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .menuBackground{
     width: 100vw;
     height: 100vh;
@@ -157,8 +61,11 @@
 
     display: flex;
 
+    margin-top: 25px;
+
     align-items: center;
     justify-content: center;
+    
 }
 
 .logo{
@@ -170,12 +77,12 @@
 
 .optionContainer{
     width: 100%;
-    height: 40px;
+    height: fit-content;
 }
 
 .mainOption{
     width: 100%;
-    height: 100%;
+    height: 40px;
 
     display: flex;
     flex-direction: row;
@@ -223,11 +130,22 @@
     cursor: pointer;
 }
 
+.subOptionContainer{
+    width: 100%;
+    height: fit-content;
+
+    cursor: pointer;
+}
+
+.subOptionContainer:hover{
+    background-color: #159c98;
+}
+
 .subOptions.expanded{
     animation-name: subOptionsExpand;
     animation-duration: 0.5s;
 
-    height: 100px;
+    height: 150px;
 }
 
 .subOptions.hiden{
@@ -241,13 +159,13 @@
     from{
         height: 0px;
     }to{
-        height: 100px;
+        height: 150px;
     }
 }
 
 @keyframes subOptionsHide{
     from{
-        height: 100px;
+        height: 150px;
     }to{
         height: 0px;
     }
@@ -255,8 +173,30 @@
 
 .subOption{
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .subOption-fa{
     margin-left: 50px;
 }
+
+/*  Scroll da sidebar */
+.menu::-webkit-scrollbar {
+    width: 10px;
+
+}
+ 
+.menu::-webkit-scrollbar-thumb {
+    background: rgba(143, 229, 255, 0.733);
+
+}
+
+.menu::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 20px rgba(128, 128, 128, 0.5)
+
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background: rgb(143, 229, 255);
+}
+/* ------------- */
