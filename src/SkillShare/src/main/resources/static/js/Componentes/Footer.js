@@ -41,10 +41,10 @@ class Footer extends HTMLElement {
 
     buildLogo(){
         let logoContainer = document.createElement("div");
-        logoContainer.classList.add("logo");
+        logoContainer.classList.add("logoFooter");
 
         let logo = document.createElement("img");
-        logo.src = "../static/images/logoSkillShare.PNG";
+        logo.src = "images/logoSkillShare.PNG";
 
         let copyrigth = document.createElement("label");
         copyrigth.textContent = "© 2021 - SkillShare - RGBA";
