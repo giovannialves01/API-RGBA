@@ -27,3 +27,25 @@
     margin-left: 80px;
     margin-right: 80px;
 }
+
+.vantagensSK{
+    width: auto;
+    height: 1250px;
+
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 80px;
+}
+
+.vantagemSK{
+    height: 350px;
+}
+
+.vantagemImg{
+    height: 300px;
+}
+
+.vantagemHBox{
+    display: flex;
+    flex-direction: row;
+}
