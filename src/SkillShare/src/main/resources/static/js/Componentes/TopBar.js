@@ -79,20 +79,7 @@ class TopBar extends HTMLElement{
 
         let label = document.createElement("label");
         label.classList.add("topBarOptionLabel");
-
-        let user = JSON.parse(window.sessionStorage.getItem("user"));
-
-        if(user["userStatus"].includes("autenticado")){
-            label.textContent = "Sair"
-            label.onclick = function(){
-                console.log("saindo");
-            }
-        }else{
-            label.textContent = "Entrar"
-            label.onclick = function(){
-                console.log("entrando");
-            }
-        }
+        label.textContent = "Entrar"
 
         div.appendChild(label);
 
