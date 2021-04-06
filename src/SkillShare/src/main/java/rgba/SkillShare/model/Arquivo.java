@@ -5,17 +5,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  *  Classe que define o arquivo
  *  @author Nicholas Roque
  */
 @Entity(name="arquivo")
-@NoArgsConstructor @AllArgsConstructor @Data
+@NoArgsConstructor @AllArgsConstructor @Data @ToString
 public class Arquivo {
 
     @Id
@@ -25,8 +27,9 @@ public class Arquivo {
     @Column(nullable = false)
     private String nomeArquivo;
 
+    @Lob
     @Column(nullable = false)
-    private Byte arquivo;
+    private byte[] arquivo;
 
     @Column(nullable = false)
     private String tipoArquivo;
@@ -38,9 +41,13 @@ public class Arquivo {
     * @param tipoArquivo -> tipoArquivo
     * @author Nicholas Roque
     */
-    public Arquivo(String nomeArquivo,Byte arquivo,String tipoArquivo){
+    public Arquivo(String nomeArquivo,byte[] arquivo,String tipoArquivo){
         this.nomeArquivo = nomeArquivo;
         this.arquivo = arquivo;
+        this.tipoArquivo = tipoArquivo;
+    }
+    public Arquivo(String nomeArquivo,String tipoArquivo){
+        this.nomeArquivo = nomeArquivo;
         this.tipoArquivo = tipoArquivo;
     }
 }
