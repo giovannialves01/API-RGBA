@@ -34,5 +34,10 @@ public class PathController {
 	public String login() {
 		return "login";
 	}
+	
+	@GetMapping(value = "/menuTopBarTeste")
+	public String menu() {
+		return "menuTopBarTeste";
+	}
 }
  
