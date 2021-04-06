@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste upload arquivo</title>
+</head>
+<body>
+    <form id="form" onsubmit="handleSubmit(event)" enctype="multipart/form-data">
+        <input type="file" name="arquivo" id="arquivo"><br /><br />
+        <button id="submit" type="submit">enviar</button>
+    </form>
+    <img src="" alt="teste" id="img" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function handleSubmit(e){
+            e.preventDefault()
+            let form = $('#form')[0];
+            let formData = new FormData(form);    
+            sendFile(formData)        
+            
+        }
+        
+
+        function sendFile(formData){
+            return axios({
+                    method: "post",
+                    url: `http://localhost:8080/arquivo/upload`,
+                    data: formData,
+                    headers: { "Content-Type": "multipart/form-data"},
+                })
+                .then(function (response) {
+                    console.log("-------------------SUCESSO UPLOAD-------------------");
+                    console.log(response);
+                    document.getElementById("img").setAttribute("src",`data:${response.data.tipoArquivo};base64,${response.data.arquivo}`)
+                })
+                .catch(function (response) {
+                    console.log("-------------------ERRO UPLOAD-------------------");
+                    console.log(response);
+                })
+        }
+
+        
+    </script>
+</body>
+</html>
