@@ -32,7 +32,7 @@ public class SkillShareApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		//coloque algum codigo que precisa ser executado quando o servidor subir aqui
 		if(admRepository.findAll().isEmpty()) {
-			Adm adm = new Adm("0000000000", "Bárbara Port", "barbara.port@skillshare.com", "barbara1234");
+			Adm adm = new Adm("00000000000", "Bárbara Port", "barbara.port@skillshare.com", "barbara1234");
 			admRepository.save(adm);
 		};
 
