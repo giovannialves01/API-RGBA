@@ -34,5 +34,15 @@ public class PathController {
 	public String login() {
 		return "login";
 	}
+
+	@GetMapping(value = "/scorm")
+	public String scorm() {
+		return "testeScorm";
+	}
+
+	@GetMapping(value = "/upload")
+	public String uploadImagem() {
+		return "upload";
+	}
 }
  
