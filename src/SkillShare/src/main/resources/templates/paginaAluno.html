@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="../static/ss/Menu.css">
+    <link rel="stylesheet" href="../static/css/TopBar.css">
+    <link rel="stylesheet" href="../static/css/Footer.css">
     <link rel="stylesheet" href="../static/css/GlobalComponents.css">
     <link rel="stylesheet" href="../static/css/Aluno.css">
+
+    <script src="../static/js/Utils/ServerRequester.js"></script>
+    <script src="../static/js/Componentes/Menu.js"></script>
+    <script src="../static/js/Componentes/TopBar.js"></script>
+    <script src="../static/js/Componentes/Footer.js"></script>
+    
     <title>Pagina do aluno</title>
 </head>
 <body>
     <div class="FullPage">
         <div class="Header">
-            <a href="" id="headermenu"><img src="negociola" alt="sanduiche">Menu</a>
-            <p id="SkillShare">SkillShare</p>
-            <a href="tela de login aquiiii">Entrar</a>
+            <top-bar></top-bar>
+            <menu-rgba></menu-rgba>
         </div>
         <div class="body">
             <div class="flex">
@@ -117,13 +127,7 @@
                 </div>
             </div>
 
-            <div class="foot">
-                <img id="bgfooter" src="../static/images/Footer.png" alt="futi">
-                <div class="logonome">
-                    <img id="logo" src="../static/images/logoSkillShare.PNG" alt="">
-                    <p>copyright</p>
-                </div>
-            </div>
+          <footer-rgba></footer-rgba>
         </div>
     </div>
     
