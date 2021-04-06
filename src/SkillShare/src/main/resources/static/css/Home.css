@@ -1,0 +1,200 @@
+.header{
+    height: 950px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), url(../images/homeHeader.png);
+    background-size: cover;
+    background-position: 50% 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.titleP{
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.slider{
+    width: 100%;
+    height: 450px;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    background-color: bisque;
+}
+
+.headerP{
+    text-align: center;
+
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.vantagensSK{
+    width: auto;
+    height: 1150px;
+
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 80px;
+}
+
+.vantagemSk{
+    height: 350px;
+}
+
+.vantagemImg{
+    height: 300px;
+}
+
+.vantagemHBox{
+    display: flex;
+    flex-direction: row;
+}
+
+.vantagemText{
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.separador{
+    height: 2px;
+    background-color: black;
+    border-radius: 25px;
+
+    width: 90%;
+    margin: 0 auto;
+    opacity: 40%;
+}
+
+.depoimentos{
+    width: auto;
+    height: 950px;
+
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 80px;
+}
+
+.depoimentosTitle{
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.depoimento{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.userImg{
+    width: 150px;
+    border-radius: 75px;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.leftUser{
+    text-align: end;
+}
+
+.materialDeApoio{
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+    height: fit-content;
+
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 80px;
+    margin-bottom: 120px;
+
+    align-items: center;
+}
+
+.materiais{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+@media (max-width: 850px){
+    .materiais{
+        flex-direction: column;
+
+    }
+
+    .material1{
+        margin-right: 0px;
+    }
+
+    .material2{
+        margin-left: 0px;
+    }
+}
+
+.material1{
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 140%), url(../images/bibliotecas.png);
+    background-size: cover;
+    margin-right: 50px;
+    filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.1));
+}
+
+.material2{
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 140%), url(../images/pilulas.jpg);
+    background-size: cover;
+    margin-left: 50px;
+    filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 850px){
+    .material1{
+        margin-right: 0px;
+        margin-bottom: 15px;
+    }
+
+    .material2{
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+}
+
+.material1, .material2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 1200px){
+    .material1, .material2{
+        width: 500px;
+        height: 250px;
+    
+    }
+}
+
+@media (max-width: 1200px){
+    .material1, .material2{
+        width: 350px;
+        height: 250px;
+
+    }
+}

@@ -8,7 +8,7 @@ public class PathController {
 
 	@GetMapping(value = "/")
 	public String index() {
-		return "paginahome";
+		return "home";
 		
 	}
 	
