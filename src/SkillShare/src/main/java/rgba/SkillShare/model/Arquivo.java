@@ -20,7 +20,7 @@ import lombok.ToString;
  */
 @Entity(name="arquivo")
 @NoArgsConstructor @AllArgsConstructor @Data @ToString
-public class Arquivo implements Serializable{
+public class Arquivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +31,7 @@ public class Arquivo implements Serializable{
 
     @Lob
     @Column(nullable = false)
-    private byte[] arquivo;
+    private byte[] conteudo;
 
     @Column(nullable = false)
     private String tipoArquivo;
@@ -39,13 +39,13 @@ public class Arquivo implements Serializable{
     /** 
     *  Cria uma instância da classe Contato.
     * @param nomeArquivo -> nome do arquivo
-    * @param arquivo -> arquivo
+    * @param conteudo -> arquivo
     * @param tipoArquivo -> tipoArquivo
     * @author Nicholas Roque
     */
-    public Arquivo(String nomeArquivo,byte[] arquivo,String tipoArquivo){
+    public Arquivo(String nomeArquivo,byte[] conteudo,String tipoArquivo){
         this.nomeArquivo = nomeArquivo;
-        this.arquivo = arquivo;
+        this.conteudo = conteudo;
         this.tipoArquivo = tipoArquivo;
     }
     public Arquivo(String nomeArquivo,String tipoArquivo){
