@@ -1,5 +1,7 @@
 package rgba.SkillShare.utils;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -14,8 +16,89 @@ public class MenuOptions {
 	 * @return Retorna ao cliente um JSON contendo as informações necessárias para popular o menu do administrador
 	 */
 	@ResponseBody
-	@GetMapping(value = "/getAdminOptions")
-	public String getOptions() {
+	@GetMapping(value = "/getMenuOptions")
+	public String getOptions(HttpSession sessao) {
+		boolean logado = SessionManager.isLogged(sessao);
+		String userType;
+		
+		if(logado) {
+			JSONObject user = (JSONObject) sessao.getAttribute("user");
+			userType = user.getString("type");
+		}else {
+			userType = "guest";
+		}
+
+		
+	
+		switch (userType) {
+		
+		default:
+			JSONArray menu;
+			
+		case "guest":
+			menu = guestMenu();
+			
+			return menu.toString();
+			
+		case "admin":
+			menu = adminMenu();
+			
+			return menu.toString();
+		
+		case "gestor":
+			menu = gestorMenu();
+			
+			return menu.toString();
+		
+		case "tutor":
+			menu = tutorMenu();
+			
+			return menu.toString();
+		
+		case "aluno":
+			menu = alunoMenu();
+			
+			return menu.toString();
+		
+		}
+		
+	}
+	
+	private JSONArray guestMenu() {
+		JSONArray menuOptions = new JSONArray();
+		
+		menuOptions.put(this.guestBiblioteca());
+		menuOptions.put(this.guestPilulas());
+		
+		return menuOptions;
+	}
+	
+	private JSONObject guestBiblioteca() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Acessar a biblioteca", "console.log(\"Acessando a biblioteca\");"));
+		
+		option = this.criarOpcao("Biblioteca", "book", "2", "Clique aqui para ir para a página da biblioteca", subOptions);
+		
+		return option;
+	}
+	
+	private JSONObject guestPilulas() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Acessar as pílulas", "console.log(\"Acessando as pílulas\");"));
+		
+		option = this.criarOpcao("Pílulas de conhecimento", "capsules", "3",
+				"Clique aqui para ir para a página das pílulas de conhecimento", subOptions);
+		
+		return option;
+	}
+	
+	
+	
+	private JSONArray adminMenu() {
 		JSONArray menuOptions = new JSONArray();
 		
 		menuOptions.put(this.optionCurso());
@@ -26,8 +109,51 @@ public class MenuOptions {
 		menuOptions.put(this.optionDashboard());
 		menuOptions.put(this.optionMinhaConta());
 		
-		return menuOptions.toString();
+		return menuOptions;
 	}
+	
+	private JSONArray tutorMenu() {
+		JSONArray menuOptions = new JSONArray();
+		
+		menuOptions.put(this.optionCurso());
+		menuOptions.put(this.optionBiblioteca());
+		menuOptions.put(this.optionBancoDeQuestoes());
+		menuOptions.put(this.optionUsuarios());
+		menuOptions.put(this.optionNoticiasEEventos());
+		menuOptions.put(this.optionDashboard());
+		menuOptions.put(this.optionMinhaConta());
+		
+		return menuOptions;
+	}
+	
+	private JSONArray gestorMenu() {
+		JSONArray menuOptions = new JSONArray();
+		
+		menuOptions.put(this.optionCurso());
+		menuOptions.put(this.optionBiblioteca());
+		menuOptions.put(this.optionBancoDeQuestoes());
+		menuOptions.put(this.optionUsuarios());
+		menuOptions.put(this.optionNoticiasEEventos());
+		menuOptions.put(this.optionDashboard());
+		menuOptions.put(this.optionMinhaConta());
+		
+		return menuOptions;
+	}
+	
+	private JSONArray alunoMenu() {
+		JSONArray menuOptions = new JSONArray();
+		
+		menuOptions.put(this.optionCurso());
+		menuOptions.put(this.optionBiblioteca());
+		menuOptions.put(this.optionBancoDeQuestoes());
+		menuOptions.put(this.optionUsuarios());
+		menuOptions.put(this.optionNoticiasEEventos());
+		menuOptions.put(this.optionDashboard());
+		menuOptions.put(this.optionMinhaConta());
+		
+		return menuOptions;
+	}
+	
 	
 	private JSONObject optionCurso() {
 		JSONObject option;
