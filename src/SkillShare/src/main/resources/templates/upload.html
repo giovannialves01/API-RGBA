@@ -11,22 +11,36 @@
         <input type="file" name="arquivo" id="arquivo"><br /><br />
         <button id="submit" type="submit">enviar</button>
     </form>
+
+    <br />
+    <!-- IMG -->
     <img src="" alt="teste" id="img" />
-   <!--  <canvas id="pdf"></canvas> -->
+
+    <br />
+    <!-- PDF -->
    <div>
     <button id="anterior">Anterior</button>
     <button id="proximo">Proximo</button>
     &nbsp; &nbsp;
     <span>Página: <span id="paginaAtual"></span> / <span id="paginaTotal"></span></span>
   </div>
-  
   <canvas id="pdf"></canvas>
+
+  <br />
+  <!-- AUDIO -->
+  <audio autobuffer id="audio" controls></audio>
+
+  <br />
+  <br />
+  <!-- VIDEO -->
+  <video id="video" width="320" height="240" controls></video>
   <footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
     <script src="js/Utils/renderIMG.js"></script>
     <script src="js/Utils/renderPDF.js"></script>
+    <script src="js/Utils/renderMidia.js"></script>
     <script src="js/Utils/sendFile.js"></script>
     <script>
         function handleSubmit(e){
@@ -39,12 +53,24 @@
             let idPaginaAtual = "paginaAtual"
             let idPaginaTotal = "paginaTotal"
             let idImg = "img"
+            let idVideo = "video"
+            let idAudio = "audio"
+
             let url = 'http://localhost:8080/arquivo/upload'
             sendFile(formData,url).then((a)=>{
                 switch (a.tipoArquivo) {
                     case "application/pdf":
                         renderPDF(a.conteudo,idCanvas,idPaginaAtual,idPaginaTotal,idBtnAnterior,idBtnProximo)
-                        break;                
+                        break;          
+                    case "video/mp4":
+                        renderMidia(a.conteudo,a.tipoArquivo,idVideo)
+                        break;     
+                    case "audio/mpeg":
+                        renderMidia(a.conteudo,a.tipoArquivo,idAudio)
+                        break;
+                    case "audio/ogg":
+                        renderMidia(a.conteudo,a.tipoArquivo,idAudio)
+                        break;
                     default:
                         renderIMG(a.conteudo,a.tipoArquivo,idImg)
                         break;
