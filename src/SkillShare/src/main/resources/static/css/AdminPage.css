@@ -1,16 +1,11 @@
 #optionContentDisplayer{
     display: flex;
-    position: absolute;
-
     top: 50px;
-    left: 250px;
-
     overflow: auto;
-
-    width: calc(100vw - 300px);
-    height: calc(100vh - 100px);
-
-    padding: 25px;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 100px;
+    padding-top: 60px;
 }
 
 /* Seleciona todos os filhos diretos da div que mostra o conteúdo */

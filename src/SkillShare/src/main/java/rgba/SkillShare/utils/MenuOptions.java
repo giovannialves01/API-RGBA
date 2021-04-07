@@ -175,7 +175,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Adicionar conteúdo", "console.log(\"Adicionar conteúdo\");"));
+		subOptions.put(this.criarSubOpcao("Adicionar conteúdo", "hideAllContent();showContent('biblioteca');"));
 		subOptions.put(this.criarSubOpcao("Gerir conteúdo", "console.log(\"Gerir conteúdo\");"));
 		
 		option = this.criarOpcao("Biblioteca", "book", "3", "Clique aqui para exibir a biblioteca", subOptions);
@@ -198,8 +198,8 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Cadastrar usuários", "console.log(\"Cadastrar usuários\");"));
-		subOptions.put(this.criarSubOpcao("Gerir usuários", "console.log(\"Gerir usuários\");"));
+		subOptions.put(this.criarSubOpcao("Cadastrar usuários", "hideAllContent();showContent('cadastrarUsuario');"));
+		subOptions.put(this.criarSubOpcao("Gerir usuários", "hideAllContent();showContent('mostrarAlunos');"));
 		
 		option = this.criarOpcao("Usuários", "users", "5", "Clique aqui para expandir o menu de usuários", subOptions);
 		
