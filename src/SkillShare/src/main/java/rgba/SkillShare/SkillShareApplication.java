@@ -10,7 +10,9 @@ import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.repository.AdmRepository;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.model.Gestor;
+import rgba.SkillShare.model.Tutor;
 import rgba.SkillShare.repository.GestorRepository;
+import rgba.SkillShare.repository.TutorRepository;
 
 
 @SpringBootApplication
@@ -22,6 +24,8 @@ public class SkillShareApplication implements CommandLineRunner {
 	AlunoRepository alunoRepository;
     @Autowired 
     GestorRepository gRepository;
+    @Autowired 
+    TutorRepository tRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SkillShareApplication.class, args);
@@ -41,10 +45,16 @@ public class SkillShareApplication implements CommandLineRunner {
 			gRepository.save(gestor);
 		};
 		
-		// Um aluno de teste, para popular a tabela que lista os alunos, apenas para não iniciar vazia
-		Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
-		alunoRepository.save(rafael);
-
+		if(tRepository.findAll().isEmpty()) {
+			Tutor tutor = new Tutor("22222222222", "Nícolas Rafael Pereira", "nicholas.pereira@skillshare.com", "nicolas123");
+			tRepository.save(tutor);
+		};
 		
+		if(alunoRepository.findAll().isEmpty()) {
+			// Um aluno de teste, para popular a tabela que lista os alunos, apenas para não iniciar vazia
+			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
+			alunoRepository.save(rafael);
+		};
+
 	}
 }

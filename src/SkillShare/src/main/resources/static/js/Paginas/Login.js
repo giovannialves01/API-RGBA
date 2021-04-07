@@ -21,11 +21,11 @@ async function logar(event) {
                 break;
     
             case "tutor":
-                window.location.href = "home";
+                window.location.href = "tutorPage";
                 break;
 
             case "aluno":
-                window.location.href = "alunoHome";
+                window.location.href = "alunoPage";
                 break;
 
         }

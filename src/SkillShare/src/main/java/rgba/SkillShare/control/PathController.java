@@ -40,8 +40,41 @@ public class PathController {
 	}
 	
 	@GetMapping(value = "/gestorPage")
-	public String gestorPage() {
-		return "gestorHomePage";
+	public String gestorPage(HttpSession sessao) {
+		boolean permitido = SessionManager.checkPermission(sessao, "gestor");
+			
+			if(permitido) {
+				return "gestorHomePage";
+			}
+			else {
+				return "redirect:login";
+			}
+	
+	}
+	
+	@GetMapping(value = "/tutorPage")
+	public String tutorPage(HttpSession sessao) {
+		boolean permitido = SessionManager.checkPermission(sessao, "tutor");
+			
+			if(permitido) {
+				return "tutorHomePage";
+			}
+			else {
+				return "redirect:login";
+			}
+	
+	}
+	
+	@GetMapping(value = "/alunoPage")
+	public String alunoPage(HttpSession sessao) {
+		boolean permitido = SessionManager.checkPermission(sessao, "aluno");
+			
+			if(permitido) {
+				return "paginaAluno";
+			}
+			else {
+				return "redirect:login";
+			}
 	
 	}
 	
