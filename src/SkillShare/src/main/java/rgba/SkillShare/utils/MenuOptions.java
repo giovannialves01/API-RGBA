@@ -115,12 +115,8 @@ public class MenuOptions {
 	private JSONArray tutorMenu() {
 		JSONArray menuOptions = new JSONArray();
 		
-		menuOptions.put(this.optionCurso());
-		menuOptions.put(this.optionBiblioteca());
-		menuOptions.put(this.optionBancoDeQuestoes());
-		menuOptions.put(this.optionUsuarios());
-		menuOptions.put(this.optionNoticiasEEventos());
-		menuOptions.put(this.optionDashboard());
+		menuOptions.put(this.optionTutorVerAvaliacoes());
+		menuOptions.put(this.optionTutorVerTurmas());
 		menuOptions.put(this.optionMinhaConta());
 		
 		return menuOptions;
@@ -242,6 +238,33 @@ public class MenuOptions {
 		return option;
 	}
 	
+	//--------------Tutor------------------------
+	
+	private JSONObject optionTutorVerTurmas() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Em breve", "console.log(\"Em breve\");"));
+		
+		option = this.criarOpcao("Turmas", "user-graduate", "14", "Clique aqui para visualizar todas as suas turmas!",
+				subOptions);
+		
+		return option;
+	}
+	
+	private JSONObject optionTutorVerAvaliacoes() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("A responder", "console.log(\"A responder\");"));
+		subOptions.put(this.criarSubOpcao("Respondidas", "console.log(\"Respondidas\");"));
+		
+		option = this.criarOpcao("Avaliações", "book", "15", "Clique aqui para visualizar todas as avaliações!",
+				subOptions);
+		
+		return option;
+	}
+	
 	//-------------------Aluno-------------------
 	private JSONObject optionAlunoBiblioteca() {
 		JSONObject option;
@@ -297,9 +320,6 @@ public class MenuOptions {
 		
 		return option;
 	}
-	
-	//--------------Tutor------------------------
-	// em breve
 	
 	/**
 	 * Cria um JSONObject da caixa de opção principal do menu
