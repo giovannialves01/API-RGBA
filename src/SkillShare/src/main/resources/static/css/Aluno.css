@@ -19,7 +19,7 @@
     position: relative;
     text-decoration: none;
 }
-.ApresentaçãoSkillShare{
+.ApresentacaoSkillShare{
     width: 800px;
 }
 .foot{
@@ -155,7 +155,7 @@
         width: 500px;
         counter-increment: unset;
     }
-    .ApresentaçãoSkillShare{
+    .ApresentacaoSkillShare{
         width: 1000px;
         margin-right: 5%;
     }
@@ -184,7 +184,7 @@
         width: 500px;
         counter-increment: unset;
     }
-    .ApresentaçãoSkillShare{
+    .ApresentacaoSkillShare{
         width: 1000px;
         margin-right: 5%;
     }
