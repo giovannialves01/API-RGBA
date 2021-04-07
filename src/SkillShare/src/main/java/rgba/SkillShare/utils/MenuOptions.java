@@ -143,18 +143,17 @@ public class MenuOptions {
 	private JSONArray alunoMenu() {
 		JSONArray menuOptions = new JSONArray();
 		
-		menuOptions.put(this.optionCurso());
-		menuOptions.put(this.optionBiblioteca());
-		menuOptions.put(this.optionBancoDeQuestoes());
-		menuOptions.put(this.optionUsuarios());
-		menuOptions.put(this.optionNoticiasEEventos());
-		menuOptions.put(this.optionDashboard());
+		menuOptions.put(this.optionAlunoMeusCursos());
+		menuOptions.put(this.optionAlunoMinhasAvaliacoes());
+		menuOptions.put(this.optionAlunoBiblioteca());
+		menuOptions.put(this.optionAlunoPilulas());
+		menuOptions.put(this.optionAlunoNovidades());
 		menuOptions.put(this.optionMinhaConta());
 		
 		return menuOptions;
 	}
 	
-	
+	//---------------------Administrador e gestor---------------------
 	private JSONObject optionCurso() {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
@@ -243,8 +242,64 @@ public class MenuOptions {
 		return option;
 	}
 	
+	//-------------------Aluno-------------------
+	private JSONObject optionAlunoBiblioteca() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Ver acervo", "console.log('Em breve');"));
+		
+		option = this.criarOpcao("Biblioteca", "book", "9", "Clique aqui para acessar o nosso acervo!", subOptions);
+		
+		return option;
+	}
 	
+	private JSONObject optionAlunoMeusCursos() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Visualizar Meus Cursos", "console.log('Em breve');"));
+		
+		option = this.criarOpcao("Meus Cursos", "chalkboard-teacher", "10", "Clique aqui para visualizar seus cursos!", subOptions);
+		
+		return option;
+	}
 	
+	private JSONObject optionAlunoMinhasAvaliacoes() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Minhas notas", "console.log('Em breve');"));
+		
+		option = this.criarOpcao("Avaliações", "book", "11", "Clique aqui para acessar o nosso acervo!", subOptions);
+		
+		return option;
+	}
+	
+	private JSONObject optionAlunoPilulas() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Ver pílulas", "console.log('Em breve');"));
+		
+		option = this.criarOpcao("Pílulas de conhecimento", "capsules", "12", "Clique aqui para visualizar pílulas de conhecimento!", subOptions);
+		
+		return option;
+	}
+	
+	private JSONObject optionAlunoNovidades() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Visualizar notícias e eventos", "console.log('Em breve');"));
+		
+		option = this.criarOpcao("Novidades", "newspaper", "13", "Clique aqui para visualizar novidades da plataforma!", subOptions);
+		
+		return option;
+	}
+	
+	//--------------Tutor------------------------
+	// em breve
 	
 	/**
 	 * Cria um JSONObject da caixa de opção principal do menu
