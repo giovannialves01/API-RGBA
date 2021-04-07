@@ -2,15 +2,20 @@ package rgba.SkillShare.control;
 
 import java.util.NoSuchElementException;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sun.net.httpserver.HttpsConfigurator;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +28,7 @@ import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.repository.GestorRepository;
 import rgba.SkillShare.repository.TutorRepository;
 import rgba.SkillShare.repository.UsuarioRepository;
+import rgba.SkillShare.utils.SessionManager;
 
 /**
  * Classe criada com o fim de realizar o login do usuario
@@ -58,16 +64,16 @@ public class UsuarioController {
 	 */
 	public String verificarNivelAcesso(String cpf) {
 		if (admRepository.findById(cpf).isPresent()) {
-			return "adminPage";
+			return "admin";
 		}
 		else if (gestorRepository.findById(cpf).isPresent()) {
-			return "gestorPage";
+			return "gestor";
 		}
 		else if (tutorRepository.findById(cpf).isPresent()) {
-			return "tutorPage";
+			return "tutor";
 		}
 		else {
-			return "alunoPage";
+			return "aluno";
 		}
 	}
 
@@ -85,7 +91,7 @@ public class UsuarioController {
     @ApiOperation("Efetua o login do usuário.")
     @ResponseStatus(HttpStatus.CREATED)
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "Usuário encontrado."), @ApiResponse(code = 500, message = "Usuário não encontrado.")})
-	public String logar(@RequestBody Login login) {
+	public String logar(@RequestBody Login login, HttpSession sessao) {
 		Usuario usuario = usuarioRepository
 				.findById(login.getCpf())
 				.get();
@@ -94,12 +100,48 @@ public class UsuarioController {
 			String nivelAcesso = verificarNivelAcesso(login.getCpf());
 			
 			JSONObject infos_usuario = new JSONObject();
-			infos_usuario.put("nivel", nivelAcesso);
-			infos_usuario.put("usuario", usuario);
+			infos_usuario.put("type", nivelAcesso);
+			infos_usuario.put("userName", usuario.getNome());
+			
+			sessao.setAttribute("user", infos_usuario);
 			
 			return infos_usuario.toString();
 		}
 		
 		return null;
 	}
+	
+	/**
+	 * Verifica se o cliente que está acessando a página já está logado no sistema
+	 * 
+	 * @author Rafael Furtado
+	 * @param sessao - Sessão do usuário
+	 * @return Retorna true caso o cliente já esteja logado e false caso ele não esteja
+	 */
+	@GetMapping(value = "/isLogged")
+	@ApiOperation("Verifica se o cliente está logado na plataforma")
+	public boolean isLogged(HttpSession sessao) {
+		boolean logged = SessionManager.isLogged(sessao);
+		
+		if(logged) {
+			return true;
+		}else {
+			return false;
+		}
+
+	}
+	
+	/**
+	 * Realiza o logout do usuário no sistema, invalidando sua sessão
+	 * 
+	 * @author Rafael Furtado
+	 * @param sessao - Sessão do usuário
+	 * @return void
+	 */
+	@GetMapping(value = "/logout")
+	@ApiOperation("Realiza o logout do usuário no sistema")
+	public void logout(HttpSession sessao) {
+		sessao.invalidate();
+	}
+	
 }
