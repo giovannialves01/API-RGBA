@@ -161,7 +161,7 @@ class Menu extends HTMLElement{
     }
 
     async getOptions(){
-        let response = await serverRequester.fazerGet("/getAdminOptions");
+        let response = await serverRequester.fazerGet("/getMenuOptions");
 
         let options = response["responseJson"];
 
