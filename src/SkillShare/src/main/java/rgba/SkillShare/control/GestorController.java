@@ -39,6 +39,7 @@ public class GestorController {
     @Autowired 
     GestorRepository gRepository;
 
+
     /** 
     *  Endpoint para cadastro de gestor.
     * @param gestor

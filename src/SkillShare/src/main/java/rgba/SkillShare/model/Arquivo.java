@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,6 +38,10 @@ public class Arquivo {
     @Column(nullable = false)
     private String tipoArquivo;
 
+    @ManyToOne
+    @JoinColumn(name="id_pilula")
+    private Pilula pilula;
+    
     /** 
     *  Cria uma instância da classe Contato.
     * @param nomeArquivo -> nome do arquivo
