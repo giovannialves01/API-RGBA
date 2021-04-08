@@ -27,6 +27,13 @@
     margin-top: 110px;
 }
 
+
+@media (max-width: 600px){
+    .opcoes{
+        flex-direction: column;
+    }
+}
+
 .navegacao {
     display: flex;
     flex-direction: column;
@@ -41,6 +48,7 @@
 .text {
     font-size: 1rem;
     font-family: Poppins;
+    margin-bottom: 0px;
 }
 
 path{
