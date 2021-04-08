@@ -1,14 +1,25 @@
 .header{
-    height: 950px;
+    height: auto;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), url(../images/homeHeader.png);
     background-size: cover;
     background-position: 50% 50%;
-
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.header h1{
+    font-size: xxx-large;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 600px){
+    .header h1{
+        text-align: center;
+    }
 }
 
 .titleP{
@@ -19,12 +30,8 @@
 
 .slider{
     width: 100%;
-    height: 450px;
+    max-height: 450px;
 
-    margin-top: 40px;
-    margin-bottom: 40px;
-
-    background-color: bisque;
 }
 
 .headerP{
@@ -36,24 +43,38 @@
 
 .vantagensSK{
     width: auto;
-    height: 1150px;
+    height: fit-content;
 
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-top: 80px;
+    margin: 80px;
 }
 
 .vantagemSk{
-    height: 350px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 900px){
+    .vantagemSk{
+        flex-direction: column;
+    }
+}
+
+.vantagemSkLeft{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 900px){
+    .vantagemSkLeft{
+        flex-direction: column-reverse;
+    }
 }
 
 .vantagemImg{
-    height: 300px;
-}
-
-.vantagemHBox{
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    max-height: 350px;
 }
 
 .vantagemText{
@@ -74,11 +95,9 @@
 
 .depoimentos{
     width: auto;
-    height: 950px;
+    height: fit-content;
 
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-top: 80px;
+    margin: 80px;
 }
 
 .depoimentosTitle{
@@ -95,8 +114,29 @@
     margin-bottom: 15px;
 }
 
+.depoimentoLeft{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: flex-end;
+}
+
+@media (max-width: 900px){
+    .depoimentoLeft{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .depoimento{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .userImg{
     width: 150px;
+    height: 150px;
     border-radius: 75px;
 }
 
@@ -107,8 +147,30 @@
     margin-right: 20px;
 }
 
+.userInfoLeft{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: flex-end;
+}
+
 .leftUser{
     text-align: end;
+}
+
+@media (max-width: 900px){
+    .userInfo{
+        align-items: center;
+    }
+
+    .userInfoLeft{
+        align-items: center;
+    }
+
+    .leftUser{
+        text-align: center;
+    }
 }
 
 .materialDeApoio{

@@ -17,9 +17,12 @@
     <link rel="stylesheet" href="css/Home.css">
 
     <script src="js/Utils/ServerRequester.js"></script>
+
     <script src="js/Componentes/Menu.js"></script>
     <script src="js/Componentes/TopBar.js"></script>
     <script src="js/Componentes/Footer.js"></script>
+
+    <script defer src="js/Paginas/Home.js"></script>
 
 
 </head>
@@ -31,8 +34,8 @@
         <h1>Bem-vindo a SkillShare!</h1>
         <p class="titleP">A plataforma de ensino a distância gratuita que auxilia no desenvolvimento de novos conhecimentos</p>
 
-        <div class="slider">
-
+        <div>
+            <img id="slider" class="slider" src="images/img-1.png">
         </div>
 
         <p class="headerP">
@@ -45,8 +48,8 @@
 
     <div class="vantagensSK">
         <div class="vantagemSk">
-            <div class="vantagemHBox" vbox>
-                <div class="vBox" hbox>
+
+                <div class="vBox" style="justify-content: center;" hbox>
                     <h2>Gratuito</h2>
                     <p class="vantagemText">
                         Nossa plataforma é livre de custos, dessa forma torna-se mais
@@ -54,14 +57,14 @@
                     </p>
                 </div>
                 <img class="vantagemImg" src="images/vantagem2.png">
-            </div>
+
         </div>
 
-            <div class="vantagemSk">
-                <div class="vantagemHBox" vbox>
+            <div class="vantagemSkLeft">
+
                     <img class="vantagemImg" src="images/vantagem1.png">
 
-                    <div class="vBox" hbox>
+                    <div class="vBox" style="justify-content: center;" hbox>
                         <h2>Online</h2>
                         <p class="vantagemText">
                             Com foco no EAD, todo o nosso conteúdo é disponibilizado de forma 
@@ -69,13 +72,13 @@
                             qualquer hora para que o aluno possa estudar no 
                             momento que lhe for mais oportuno
                         </p>
-                    </div>
+
                 </div>
             </div>
 
             <div class="vantagemSk">
-                <div class="vantagemHBox" vbox>
-                    <div class="vBox" hbox>
+
+                    <div class="vBox" style="justify-content: center;" hbox>
                         <h2>Certificados</h2>
                         <p class="vantagemText">
                             Todos os nossos cursos possuem certificados ao serem concluídos,
@@ -84,7 +87,7 @@
                         </p>
                     </div>
                     <img class="vantagemImg" src="images/vantagem3.png">
-            </div>
+
         </div>
     </div>
 
@@ -106,8 +109,8 @@
             </div>
         </div>
 
-        <div class="depoimento" style="justify-content: flex-end;">
-            <div class="userInfo" style="align-items: flex-end;">
+        <div class="depoimentoLeft">
+            <div class="userInfoLeft">
                 <label><b>Miguel Henrique dos Santos</b></label>
                 <p class="leftUser">
                     <i>Utilizando a plataforma, pude</br>
@@ -130,8 +133,8 @@
             </div>
         </div>
 
-        <div class="depoimento" style="justify-content: flex-end;">
-            <div class="userInfo" style="align-items: flex-end;">
+        <div class="depoimentoLeft">
+            <div class="userInfoLeft">
                 <label><b>Maria Silva</b></label>
                 <p class="leftUser">
                     <i>Mesmo com minha agenda apertada,</br>
