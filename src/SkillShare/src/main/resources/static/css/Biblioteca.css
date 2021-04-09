@@ -1,3 +1,65 @@
 .content {
-    height: 1000px;
+    height: auto;
+}
+
+.header{
+    height: auto;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), url(../images/bibliotecas.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.header h1{
+    font-size: xxx-large;
+    margin-bottom: 0px;
+}
+
+.todasOpcoes {
+	margin: 20px;
+}
+
+.opcoesB {
+	display: flex;
+	align-items: center;
+  	justify-content: space-between;
+}
+
+.opcoesB p {
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.opcoesB .opcao {
+	width: 30%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.titleP{
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.content hr {
+	width: 90%;
+}
+
+@media (max-width: 600px){
+    .header h1{
+        text-align: center;
+    }
+    
+    .opcoesB p {
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 24px;
+	}
 }
