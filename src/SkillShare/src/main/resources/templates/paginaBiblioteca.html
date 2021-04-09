@@ -1,54 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Biblioteca | SkillShare</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca | SkillShare</title>
 
-	<!-- CDN das depedências externas -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<!-- CDN das depedências externas -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Poppins">
 
-	<!-- Rodar no Eclipse -->
-	<link rel="stylesheet" href="css/GlobalComponents.css">
-	<link rel="stylesheet" href="css/Menu.css">
-	<link rel="stylesheet" href="css/TopBar.css">
-	<link rel="stylesheet" href="css/Footer.css">
-	<link rel="stylesheet" href="css/Biblioteca.css">
+<!-- Rodar no Eclipse -->
+<link rel="stylesheet" href="css/GlobalComponents.css">
+<link rel="stylesheet" href="css/Menu.css">
+<link rel="stylesheet" href="css/TopBar.css">
+<link rel="stylesheet" href="css/Footer.css">
+<link rel="stylesheet" href="css/Biblioteca.css">
 
-	<script src="js/Utils/ServerRequester.js"></script>
+<script src="js/Utils/ServerRequester.js"></script>
 
-	<script src="js/Componentes/Menu.js"></script>
-	<script src="js/Componentes/TopBar.js"></script>
-	<script src="js/Componentes/Footer.js"></script>
+<script src="js/Componentes/Menu.js"></script>
+<script src="js/Componentes/TopBar.js"></script>
+<script src="js/Componentes/Footer.js"></script>
 
-	<script src="js/Entidades/Usuario.js"></script>
+<script src="js/Entidades/Usuario.js"></script>
 </head>
 <body>
 	<top-bar></top-bar>
-    <menu-rgba></menu-rgba>
+	<menu-rgba></menu-rgba>
 
 	<div class="content">
-	    <div class="header">
-	        <h1>Biblioteca</h1>
-	        <p class="titleP">A biblioteca da SkillShare é o local onde encontram-se disponíveis materiais didáticos para leitura que os responsáveis pelos cursos postam, para servir de referência e auxiliar na aprendizagem do aluno durante sua trajetória de ensino!</p>
-	    </div>
-	    <div class="todasOpcoes">
-		    <div id="opcoesB" class="opcoesB">
-		    	<div class="opcao" id="1">
-		    		<p>Material específico dos meus cursos</p>
-		    	</div>
-		    	<div class="opcao" id="2">
-		    		<p>Material sem vínculo com cursos</p>
-		    	</div>
-		    	<div class="opcao" id="3">
-		    		<p>Todo o material</p>
-		    	</div>
-		    </div>
-		    <div id="conteudo-opcao">
-		    </div>
-	    </div>
+		<div class="header">
+			<h1>Biblioteca</h1>
+			<p class="titleP">A biblioteca da SkillShare é o local onde
+				encontram-se disponíveis materiais didáticos para leitura que os
+				responsáveis pelos cursos postam, para servir de referência e
+				auxiliar na aprendizagem do aluno durante sua trajetória de ensino!</p>
+		</div>
+		<div class="todasOpcoes">
+			<div id="opcoesB" class="opcoesB">
+				<div class="opcao" id="botao1">
+					<p>Material específico dos meus cursos</p>
+				</div>
+				<div class="opcao" id="botao2">
+					<p>Material sem vínculo com cursos</p>
+				</div>
+				<div class="opcao" id="botao3">
+					<p>Todo o material</p>
+				</div>
+			</div>
+			<div id="conteudo-opcao">
+				<div id="opcao1" class="opcaoDiv">
+					<div class="row-curso">
+						<div class="resumo">
+							<div class="foto">
+								<img
+									src="http://www.colegioagricola.com.br/ad/upload/imagens/paginas/fotos_27_servicos.jpg">
+							</div>
+							<div class="nome">
+								<h2>Segurança do trabalho</h2>
+								<p>Clique aqui para expandir e visualizar todo o conteúdo
+									didático deste curso</p>
+							</div>
+							<div class="expandir">
+								<i class="fas fa-chevron-left"></i>
+							</div>
+						</div>
+						<div class="materiais">
+							<div class="row-material">
+								<div class="icone">
+									<i class="fas fa-book"></i>
+								</div>
+								<div class="infos">
+									<p>Nome do livro</p>
+									<p>Nome do autor</p>
+								</div>
+								<div class="botao">
+									<button>Visualizar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="opcao2" class="opcaoDiv">
+					<div class="materiais">
+						<div class="row-material">
+							<div class="icone">
+								<i class="fas fa-book"></i>
+							</div>
+							<div class="infos">
+								<p>Nome do livro</p>
+								<p>Nome do autor</p>
+							</div>
+							<div class="botao">
+								<button>Visualizar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="opcao3" class="opcaoDiv">
+					<div class="materiais">
+						<div class="row-material">
+							<div class="icone">
+								<i class="fas fa-book"></i>
+							</div>
+							<div class="infos">
+								<p>Nome do livro</p>
+								<p>Nome do autor</p>
+							</div>
+							<div class="botao">
+								<button>Visualizar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	</div>
 
 	<footer-rgba></footer-rgba>

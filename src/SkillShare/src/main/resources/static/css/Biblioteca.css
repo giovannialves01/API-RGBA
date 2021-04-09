@@ -20,6 +20,12 @@
     margin-bottom: 0px;
 }
 
+.titleP{
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .todasOpcoes {
 	margin: 20px;
 }
@@ -42,14 +48,82 @@
 	cursor: pointer;
 }
 
-.titleP{
-    text-align: center;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 .content hr {
 	width: 90%;
+}
+
+.opcaoDiv {
+	display: flex;
+	justify-content: center;
+}
+
+.row-curso {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.row-curso .resumo {
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.row-curso .resumo .foto img {
+	width: 125px;
+	height: 125px;
+	border-radius: 100%;
+}
+
+.row-curso .resumo .nome {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.row-curso .resumo .expandir {
+	display: flex;
+	align-items: center;
+}
+
+.row-curso .resumo .expandir i {
+	font-size: 50px;
+}
+
+.materiais {
+	display: flex;
+	flex-direction: column;
+	width: 55%;
+}
+
+.materiais .row-material{
+	display: flex;
+	justify-content: space-between;
+}
+
+.materiais .row-material .icone {
+	width: 80px;
+	font-size: 52px;
+}
+
+.materiais .row-material .infos {
+	line-height: 10px;
+	width: 78%;
+}
+
+.materiais .row-material .botao {
+	display: flex;
+	align-items: center;
+}
+
+.materiais .row-material .botao button{
+	cursor: pointer;
+	background: #0AADA7;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	font-family: 'Poppins';
+	font-size: 16px;
+	line-height: 36px;
 }
 
 @media (max-width: 600px){
