@@ -77,7 +77,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Acessar a biblioteca", "console.log(\"Acessando a biblioteca\");"));
+		subOptions.put(this.criarSubOpcao("Acessar a biblioteca", "window.location.href='/biblioteca';"));
 		
 		option = this.criarOpcao("Biblioteca", "book", "2", "Clique aqui para ir para a página da biblioteca", subOptions);
 		

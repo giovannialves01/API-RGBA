@@ -85,11 +85,16 @@ public class PathController {
 			
 			user.put("type", "guest");
 			user.put("userName", "guest");
-			
 			sessao.setAttribute("user", user);
 		}
 		
 		return "login";
+	}
+	
+	@GetMapping(value = "/biblioteca")
+	public String paginaBiblioteca(HttpSession sessao) {
+		
+		return "paginaBiblioteca";
 	}
 	
 }
