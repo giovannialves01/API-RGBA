@@ -30,7 +30,7 @@
     <script src="js/Componentes/BeautyInput.js"></script>
     <script src="js/Componentes/BeautyTable.js"></script>
     <script src="js/Componentes/Menu.js"></script>
-    <script src="js/Paginas/AdminPage.js"></script>
+    <script defer src="js/Paginas/AdminPage.js"></script>
     <script src="js/Componentes/TopBar.js"></script>
     <script src="js/Componentes/Footer.js"></script>
 
@@ -129,7 +129,25 @@
         </div>
 
         <div id="mostrarAlunos" class="vBox hide">
-            <beauty-table id="tabelaUsuarios" entityToList="Usuario" tableTitle="Alunos cadastrados no sistema"></beauty-table>
+            <h1>Gerir usuários</h1>
+            <p style="text-align: center;">
+                Escolha um tipo de usuário para visualizar seus dados e gerir aqueles</br>
+                que estão em nosso banco de dados
+            </p>
+
+            <select id="userTypeEdit" onchange="chooseUserToShow()">
+                <option selected disabled>Escolha um perfil de usuário para exibir...</option>
+                <option value="Aluno">Aluno</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Gestor">Gestor</option>
+                <option value="Tutor">Tutor</option>
+            </select>
+
+            <div class="separador"></div>
+
+            <div id="usersToShow">
+
+            </div>
         </div>
 
     </div>

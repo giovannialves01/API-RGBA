@@ -2,6 +2,7 @@ package rgba.SkillShare.control;
 
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -20,6 +21,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.utils.EmailService;
@@ -94,4 +96,41 @@ public class AlunoController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo aluno não encontrado.")
             );
     }
+    
+	@PostMapping(value = "/update")
+	public boolean updateAluno(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		JSONObject admOldData = parsedData.getJSONObject("oldData");
+		JSONObject admNewData = parsedData.getJSONObject("newData");
+		
+		Aluno oldUsuario = new Aluno(admOldData.getString("cpf"), admOldData.getString("nome"), admOldData.getString("email"), admOldData.getString("senha"));
+		Aluno newUsuario = new Aluno(admNewData.getString("cpf"), admNewData.getString("nome"), admNewData.getString("email"), admNewData.getString("senha"));
+		
+		try{
+			aRepository.delete(oldUsuario);
+			aRepository.save(newUsuario);
+			
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+
+	}
+	
+	@PostMapping(value = "/delete")
+	public boolean deleteAluno(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+
+		try {
+			aRepository.deleteById(parsedData.getString("cpf"));
+			
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
 }

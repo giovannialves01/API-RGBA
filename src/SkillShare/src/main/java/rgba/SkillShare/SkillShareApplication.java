@@ -38,6 +38,9 @@ public class SkillShareApplication implements CommandLineRunner {
 		if(admRepository.findAll().isEmpty()) {
 			Adm adm = new Adm("1", "Bárbara Port", "barbara.port@skillshare.com", "1");
 			admRepository.save(adm);
+			
+			Adm adm2 = new Adm("2", "Bárbat", "bara.port@skillshare.com", "2");
+			admRepository.save(adm2);
 		};
 
 		if(gRepository.findAll().isEmpty()) {
