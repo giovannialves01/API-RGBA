@@ -1,7 +1,13 @@
 package rgba.SkillShare.model;
 
-import javax.persistence.Entity;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,10 +31,8 @@ public class Gestor extends Usuario{
     * @author Nicholas Roque
     */
 
-    //NÃO RETIRAR
     public Gestor(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }
-
 
 }

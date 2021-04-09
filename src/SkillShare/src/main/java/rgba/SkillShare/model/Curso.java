@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -32,8 +34,9 @@ public class Curso {
     @Column(nullable = false)
     private String descricao;
 
-    @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
-    private Set<Pilula> pilulas;
+    @ManyToOne
+    @JoinColumn(name="id_gestor")
+    private Gestor gestor;
 
     /** 
     *  Cria uma instância da classe Curso.

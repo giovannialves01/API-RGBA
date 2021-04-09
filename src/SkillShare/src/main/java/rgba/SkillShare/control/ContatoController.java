@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -44,6 +45,7 @@ public class ContatoController {
     @GetMapping("/findAll")
     @ApiOperation("Retorna uma lista com todos os contatos dos usuários")
     @ApiResponse(code = 200,message = "Contatos retornados com sucesso.")
+    @ResponseStatus(HttpStatus.OK)
     public List<Contato> getAllContatos(){
         return cRepository.findAll();
     }
@@ -61,6 +63,7 @@ public class ContatoController {
         @ApiResponse(code = 200,message = "Contatos encontrados com sucesso."),
         @ApiResponse(code = 404,message = "Contatos não encontrado para o cpf informado.")
     })
+    @ResponseStatus(HttpStatus.OK)
     public Contato getContatoByCpf(@PathVariable @ApiParam("Cpf do usuário") String cpf) {
         return cRepository
             .findByCpf(cpf)

@@ -70,6 +70,7 @@ public class AlunoController {
     @GetMapping("/findAll")
     @ApiOperation("Retorna uma lista com todos os usuários do tipo aluno.")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
+    @ResponseStatus(HttpStatus.OK)
     public List<Aluno> getAllAlunos(){
         return aRepository.findAll();
     }
@@ -87,6 +88,7 @@ public class AlunoController {
         @ApiResponse(code = 200,message = "Usuário do tipo aluno encontrado com sucesso."),
         @ApiResponse(code = 404,message = "Usuário do tipo aluno não encontrado para o cpf informado.")
     })
+    @ResponseStatus(HttpStatus.OK)
     public Aluno getAlunoByCpf(@PathVariable @ApiParam("Cpf do aluno") String cpf) {
         return aRepository
             .findById(cpf)

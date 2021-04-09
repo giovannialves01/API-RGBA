@@ -1,7 +1,6 @@
 package rgba.SkillShare.control;
 
 import rgba.SkillShare.model.Adm;
-import rgba.SkillShare.model.Contato;
 import rgba.SkillShare.repository.AdmRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -59,6 +58,7 @@ public class AdmController {
     @GetMapping("/findAll")
     @ApiOperation("Retorna uma lista com todos os usuários do tipo administrador.")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
+    @ResponseStatus(HttpStatus.OK)
     public List<Adm> getAllAdm(){
         return admRepository.findAll();
     }
@@ -76,6 +76,7 @@ public class AdmController {
         @ApiResponse(code = 200,message = "Usuário do tipo aluno encontrado com sucesso."),
         @ApiResponse(code = 404,message = "Usuário do tipo aluno não encontrado para o cpf informado.")
     })
+    @ResponseStatus(HttpStatus.OK)
     public Adm getAdmByCpf(@PathVariable @ApiParam("Cpf do administrador.") String cpf) {
         return admRepository
             .findById(cpf)

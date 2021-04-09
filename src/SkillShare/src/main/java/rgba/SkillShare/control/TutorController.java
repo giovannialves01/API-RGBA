@@ -57,6 +57,7 @@ public class TutorController {
     * @author Nicholas Roque
     */
     @GetMapping("/findAll")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna uma lista com todos os usuários do tipo tutor")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
     public List<Tutor> getAllTutores(){
@@ -71,6 +72,7 @@ public class TutorController {
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna os detalhes de um usuário do tipo tutor.")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Usuário do tipo tutor encontrado com sucesso."),

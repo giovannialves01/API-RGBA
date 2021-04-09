@@ -1,10 +1,10 @@
 package rgba.SkillShare.control;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,11 +20,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.model.Curso;
-import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.repository.CursoRepository;
-import rgba.SkillShare.utils.EmailService;
+import rgba.SkillShare.repository.GestorRepository;
 
 
 
@@ -32,16 +30,20 @@ import rgba.SkillShare.utils.EmailService;
 
 /**
  *  Classe que define os endpoints para curso
+ *  NAO UTILIZAR ESTE CONTROLER
  *  @author Nicholas Roque
  */
 @RestController
 @CrossOrigin
-@RequestMapping("/curso")
+@RequestMapping("/cursos")
 @Api("API de curso")
 public class CursoController {
 
     @Autowired 
     CursoRepository cursoRepository;
+
+    @Autowired 
+    GestorRepository gestorRepository;
 
 
     /** 
@@ -51,8 +53,10 @@ public class CursoController {
     */
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiResponse(code = 201,message = "Curso criado com sucesso.")
     @ApiOperation("Cria um curso.")
-    public Curso createCurso(@RequestBody @ApiParam("Informações do curso") Curso curso){
+    public Curso createCurso(@RequestBody @ApiParam("Informações do curso") Curso curso, @RequestBody @ApiParam("CPF do gestor")String cpf){
+        
         return cursoRepository.save(curso);
     }
 
@@ -61,9 +65,10 @@ public class CursoController {
     * @return Retorna uma lista do objeto Curso com todos os cursos. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
     @ApiOperation("Retorna uma lista com todos os cursos.")
     @ApiResponse(code = 200,message = "Cursos retornados com sucesso.")
+    @ResponseStatus(HttpStatus.OK)
     public List<Curso> getAllCursos(){
         return cursoRepository.findAll();
     }
@@ -72,7 +77,6 @@ public class CursoController {
     *  Endpoint para retornar os detalhes de um curso.
     * @return Retorna objeto do tipo Curso com os dados do curso especificado.
     * @param id -> id do curso
-    * @return Curso
     * @author Nicholas Roque
     */
     @GetMapping("{id}")
@@ -81,7 +85,8 @@ public class CursoController {
         @ApiResponse(code = 200,message = "Curso encontrado com sucesso."),
         @ApiResponse(code = 404,message = "Curso não encontrado para o id informado.")
     })
-    public Curso getAlunoByCpf(@PathVariable @ApiParam("Id do curso") Long id) {
+    @ResponseStatus(HttpStatus.OK)
+    public Curso getCursoById(@PathVariable @ApiParam("Id do curso") Long id) {
         return cursoRepository
             .findById(id)
             .orElseThrow(()->
@@ -90,21 +95,21 @@ public class CursoController {
     }
 
     /** 
-    *  Endpoint para retornar os detalhes de um curso.
-    * @return Retorna objeto do tipo Curso com os dados do curso especificado.
-    * @param id -> id do curso
-    * @return Curso
+    *  Endpoint para retornar os cursos com um determinado gestor.
+    * @return Retorna uma lista de objetos do tipo Curso.
+    * @param cpf -> cpf do gestor
     * @author Nicholas Roque
     */
-   @GetMapping("{id}")
-   @ApiOperation("Retorna os detalhes de um curso.")
+   @GetMapping("/gestor/{cpf}")
+   @ApiOperation("Retorna os cursos com um determinado gestor.")
    @ApiResponses({
-       @ApiResponse(code = 200,message = "Curso encontrado com sucesso."),
-       @ApiResponse(code = 404,message = "Curso não encontrado para o id informado.")
+       @ApiResponse(code = 200,message = "Cursos encontrados com sucesso para o cpf informado."),
+       @ApiResponse(code = 404,message = "Cursos não encontrados para o cpf informado.")
    })
-   public List<Curso> getCursosByTutor(@PathVariable @ApiParam("Cpf do instrutor") String cpf) {
+   @ResponseStatus(HttpStatus.OK)
+   public Set<Curso> getCursosByGestor(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
        return cursoRepository
-           .findByCpf(cpf)
+           .findByGestorCpf(cpf)
            .orElseThrow(()->
                new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum curso encontrado.")
            );

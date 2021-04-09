@@ -83,7 +83,7 @@ public class UsuarioController {
 	 */
 	@PostMapping("/logar")
     @ApiOperation("Efetua o login do usuário.")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "Usuário encontrado."), @ApiResponse(code = 500, message = "Usuário não encontrado.")})
 	public String logar(@RequestBody Login login) {
 		Usuario usuario = usuarioRepository

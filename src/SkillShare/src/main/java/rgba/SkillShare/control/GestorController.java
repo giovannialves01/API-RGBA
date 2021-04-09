@@ -60,6 +60,7 @@ public class GestorController {
     @GetMapping("/findAll")
     @ApiOperation("Retorna uma lista com todos os usuários do tipo gestor")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
+    @ResponseStatus(HttpStatus.OK)
     public List<Gestor> getAllGestores(){
         return gRepository.findAll();
     }
@@ -77,6 +78,7 @@ public class GestorController {
         @ApiResponse(code = 200,message = "Usuário do tipo gestor encontrado com sucesso."),
         @ApiResponse(code = 404,message = "Usuário do tipo gestor não encontrado para o cpf informado.")
     })
+    @ResponseStatus(HttpStatus.OK)
     public Gestor getGestorByCpf(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
         return gRepository
             .findById(cpf)
