@@ -370,33 +370,67 @@ function showContent(contentId) {
 async function registerUser(event) {
     event.preventDefault();
 
-    let pass = document.getElementById("senha-beautyInput").value;
-    let rePass = document.getElementById("cSenha-beautyInput").value;
+    let select = document.getElementById("selectUserType");
 
-    if(pass == rePass){
-        let user = new Usuario();
+    let option = select.value.toLowerCase();
 
-        user.setNome(document.getElementById("nome-beautyInput").value);
-        user.setEmail(document.getElementById("email-beautyInput").value);
-        user.setCpf(document.getElementById("cpf-beautyInput").value);
-        user.setSenha(pass);
+    let allowRegister = false;
+    let registerPath = "";
 
-        let response = await serverRequester.fazerPost("/aluno/cadastrar", user.toData());
+    switch (option) {
+        case "aluno":
+            allowRegister = true;
+            registerPath = "/aluno/cadastrar";
+            break;
 
-        if(response["ok"] == true){
-            alert("Cadastrado com sucesso!");
+        case "administrador":
+            allowRegister = true;
+            registerPath = "/adm/cadastrar";
+            break;
+            
+        case "gestor":
+            allowRegister = true;
+            registerPath = "/gestor/cadastrar";
+            break;
 
-        }else{
-            alert("Ocorreu um erro ao cadastrar o cliente");
-
-        }
-
-    }else{
-        alert("Senha diferentes!");
-
+        case "tutor":
+            allowRegister = true;
+            registerPath = "/tutor/cadastrar";
+            break;
+    
+        default:
+            alert("Escolha um tipo de usuário para cadastrar!");
+            break;
     }
 
-    beautyTable.refreshTable("tabelaUsuarios");
+    if(allowRegister){
+        let pass = document.getElementById("senhaCadastro").value;
+        let rePass = document.getElementById("confirmarSenhaCadastro").value;
+    
+        if(pass == rePass){
+            let user = new Usuario();
+    
+            user.setNome(document.getElementById("nomeCadastro").value);
+            user.setEmail(document.getElementById("emailCadastro").value);
+            user.setCpf(document.getElementById("cpfCadastro").value);
+            user.setSenha(pass);
+    
+            let response = await serverRequester.fazerPost(registerPath, user.toData());
+    
+            if(response["ok"] == true){
+                alert("Cadastrado com sucesso!");
+    
+            }else{
+                alert("Ocorreu um erro ao cadastrar o cliente");
+    
+            }
+    
+        }else{
+            alert("Senha diferentes!");
+    
+        }
+
+    }
 
 }
 
@@ -443,4 +477,8 @@ function getSideBarOptions(perfil) {
 		case "admin":
 			return getSideBarOptionsAdmin();
 	}
+}
+
+function register() {
+
 }

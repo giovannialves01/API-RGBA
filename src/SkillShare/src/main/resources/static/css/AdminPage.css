@@ -4,6 +4,7 @@
     overflow: auto;
     width: 100%;
     height: fit-content;
+    min-height: 500px;
     margin-bottom: 100px;
     padding-top: 60px;
 }
@@ -36,4 +37,112 @@
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 
     width: 100%;
+}
+
+.defaultContent{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cadastrarUsuario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.camposCadastro{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.camposCadastro > div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.camposCadastro > div > div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.camposCadastro > div > div > input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+}
+
+.camposCadastro > div > div > input:focus{
+    outline: none;
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.camposCadastro ~ div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.greenButton{
+    padding: 8px;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    background-color: #83CC4A;
+    font-family: 'Poppins';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.greenButton:focus{
+    outline: none;
+}
+
+.greenButton:hover{
+    background-color: #71c433;
+}
+
+.greenButton:active{
+    background-color: #8cf03f;
+    outline: none;
+}
+
+.redButton{
+    padding: 8px;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    background-color: #FF7070;
+    font-family: 'Poppins';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.redButton:focus{
+    outline: none;
+}
+
+.redButton:hover{
+    background-color: #ff4f4f;
+}
+
+.redButton:active{
+    background-color: #fd7979;;
+    outline: none;
+}
+
+select{
+    padding: 5px;
+    border-radius: 0px;
 }
