@@ -35,6 +35,7 @@
     <script src="js/Componentes/Footer.js"></script>
 
     <script src="js/Entidades/Usuario.js"></script>
+    <script src="js/Entidades/Biblioteca.js"></script>
 
 </head>
 <body>
@@ -55,17 +56,59 @@
 
         <!-- Biblioteca -->
         <div class="hide" id="biblioteca">
-            <form onsubmit="registerBook(event)" class="vBox bottomSeparator maxWidth" >
-                <h3>Cadastrar novo livro</h3>
-                <label for="nome"></label>
-                <beauty-input apparence="simple" type="text" placeholder="Nome do livro" required="true" id="inputNomeLivro"></beauty-input>
-                <beauty-input apparence="simple" type="text" placeholder="Gêneros do livro" required="true" id="inputGeneroLivro"></beauty-input>
-                <beauty-input apparence="simple" type="text" placeholder="Número de páginas" required="true" id="inputPaginasLivro"></beauty-input>
-                <beauty-input apparence="simple" type="text" placeholder="Nome autor" required="true" id="inputAutorLivro"></beauty-input>
-                <beauty-input apparence="simple" type="text" placeholder="Nome da editora" required="true" id="inputEditoraLivro"></beauty-input>
-                
-                <beauty-button text="Cadastrar"></beauty-button>
-            </form>
+            <div class="adicionarConteudoBiblioteca">
+                <h1>Adicionar novo conteúdo à biblioteca</h1>
+                <p>
+                    A biblioteca da SkillShare é um local onde ficam postados arquivos PDFs no qual os alunos tem acesso a este</br>
+                    material, dessa forma podem incrementar ainda mais seus conhecimentos
+                </p>
+    
+                <div class="separador"></div>
+            </div>
+            <div class="bibliotecaForm">
+                <div>
+                    <label style="width: 145px;">Nome do livro:</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label>Autor:</label>
+                    <input type="text">
+                </div>
+
+                <select id="selectCursoParaLivro">
+                    <option selected disabled>Escolha um curso do tema do livro...</option>
+                    <option value="nenhum">Não específico</option>
+                </select>
+
+                <label>Caso o tema do livro não seja específico de um curso, escolha “Não específico”</label>
+
+                <div class="inputFile">
+                    <label for="inputUploadLivro" class="inputUploadButton">Escolher arquivo...</label>
+                    <input type="file" id="inputUploadLivro" onchange="setInputLabelName(event)">
+                    <label id="labelFileName">Selecione um arquivo</label>
+                </div>
+
+
+                <div class="buttonContainer">
+                    <button class="greenButton">Adicionar</button>
+                    <button class="redButton">Limpar campos</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hide" id="gerirBiblioteca">
+            <div>
+                <h1>Gerir biblioteca</h1>
+                <p>
+                    Escolha um material para editar suas informações, visualizar o conteúdo ou excluir
+                </p>
+    
+                <div class="separador"></div>
+
+                <div id="booksToShow">
+
+                </div>
+            </div>
         </div>
 
 
@@ -128,6 +171,7 @@
             </form>
         </div>
 
+        <!-- Gerir usuários -->
         <div id="mostrarAlunos" class="vBox hide">
             <h1>Gerir usuários</h1>
             <p style="text-align: center;">

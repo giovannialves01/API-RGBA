@@ -186,7 +186,7 @@ select{
     outline: none;
 }
 
-.userData{
+.contentData{
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -208,7 +208,7 @@ select{
     flex-direction: row;
 }
 
-.userControlButtons{
+.controlButtons{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -250,4 +250,116 @@ select{
 .userDataFieldEnabled:focus{
     outline: none;
     background-color: rgba(119, 136, 153, 0.2);
+}
+
+.adicionarConteudoBiblioteca{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adicionarConteudoBiblioteca > p, .adicionarConteudoBiblioteca > h1{
+    text-align: center;
+}
+
+.bibliotecaForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    place-self: center;
+}
+
+.bibliotecaForm > div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.bibliotecaForm > select{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bibliotecaForm > div > input{
+    width: 100%;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+}
+
+.bibliotecaForm > div > input:focus{
+    outline: none;
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+#inputUploadLivro{
+    display: none;
+}
+
+.inputUploadButton{
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-color: #27e0d9;
+    font-size: 14px;
+    width: fit-content;
+}
+
+.inputFile{
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+}
+
+#gerirBiblioteca > div > p, #gerirBiblioteca > div > h1{
+    text-align: center;
+}
+
+.bookData{
+    display: flex;
+    flex-direction: row;
+}
+
+.bookData > div ~ div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bookData > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.visualizeMaterial{
+    border-radius: 5px;
+    border: none;
+    background-color: #27e0d9;
+    padding: 6px 20px;
+    font-weight: bold;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
+
+.visualizeMaterial:hover{
+    background-color: #1dc0bb;
+}
+
+.visualizeMaterial:focus{
+    outline: none;
+}
+
+.visualizeMaterial:active{
+    background-color: #3ae2dd;
 }

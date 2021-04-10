@@ -6,14 +6,15 @@ class Usuario{
             this.cpf;
             this.senha;
             this.contatos;
+
         }else{
             this.nome = userData["nome"];
             this.email = userData["email"];
             this.cpf = userData["cpf"];
             this.senha = userData["senha"];
             this.contatos = userData["contatos"];
-        }
 
+        }
 
     }
 
@@ -62,28 +63,9 @@ class Usuario{
             cpf: this.cpf,
             senha: this.senha,
             contatos: this.contatos
-        }
+        };
 
         return data;
-    }
-
-    async toTableData(){
-        let users = await serverRequester.fazerGet("/aluno/findAll", {});
-
-        let tableData = {};
-        tableData["columns"] = {
-            nome: "Nome",
-            cpf: "CPF",
-            email: "E-mail"
-        };
-        tableData["extraConfigs"] = [
-            "editRowInfo",
-            "deleteRowInfo"
-        ];
-
-        tableData["rows"] = users["responseJson"];
-
-        return tableData;
     }
 
 }

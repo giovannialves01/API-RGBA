@@ -171,7 +171,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Adicionar conteúdo", "hideAllContent();showContent('biblioteca');"));
-		subOptions.put(this.criarSubOpcao("Gerir conteúdo", "console.log(\"Gerir conteúdo\");"));
+		subOptions.put(this.criarSubOpcao("Gerir conteúdo", "hideAllContent();showContent('gerirBiblioteca');loadBooksToShow();"));
 		
 		option = this.criarOpcao("Biblioteca", "book", "3", "Clique aqui para exibir a biblioteca", subOptions);
 		
