@@ -186,7 +186,7 @@ select{
     outline: none;
 }
 
-.userData{
+.contentData{
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -208,7 +208,7 @@ select{
     flex-direction: row;
 }
 
-.userControlButtons{
+.controlButtons{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -319,4 +319,47 @@ select{
     display: flex;
     flex-direction: column !important;
     align-items: center;
+}
+
+#gerirBiblioteca > div > p, #gerirBiblioteca > div > h1{
+    text-align: center;
+}
+
+.bookData{
+    display: flex;
+    flex-direction: row;
+}
+
+.bookData > div ~ div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bookData > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.visualizeMaterial{
+    border-radius: 5px;
+    border: none;
+    background-color: #27e0d9;
+    padding: 6px 20px;
+    font-weight: bold;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
+
+.visualizeMaterial:hover{
+    background-color: #1dc0bb;
+}
+
+.visualizeMaterial:focus{
+    outline: none;
+}
+
+.visualizeMaterial:active{
+    background-color: #3ae2dd;
 }

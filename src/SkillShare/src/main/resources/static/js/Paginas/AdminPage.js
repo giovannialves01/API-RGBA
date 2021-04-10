@@ -179,7 +179,7 @@ async function loadUserToShow(perfil) {
         let userIdentifier = "user" + (i + 1);
 
         let userDataDiv = document.createElement("div");
-        userDataDiv.classList.add("userData");
+        userDataDiv.classList.add("contentData");
         userDataDiv.id = userIdentifier;
 
         let dataDiv = document.createElement("div");
@@ -222,12 +222,77 @@ async function loadUserToShow(perfil) {
 
 }
 
+async function loadBooksToShow() {
+    let response = await serverRequester.fazerGet("/biblioteca/findAll");
+
+    let books = response["responseJson"];
+
+    let booksToShow = document.getElementById("booksToShow");
+
+    for (let i = 0; i < books.length; i++) {
+        const bookData = books[i];
+        let book = new Biblioteca(bookData);
+        let bookIdentifier = "book" + (i + 1);
+        
+        let bookDiv = document.createElement("div");
+        bookDiv.classList.add("contentData");
+        bookDiv.id = bookIdentifier;
+        let dataDiv = document.createElement("div");
+        dataDiv.classList.add("bookData");
+
+
+        let bookDataDiv = document.createElement("div");
+
+        let bookNameDiv = createFieldBox("Nome do livro:", book.getNome(), "nomeDoLivro");
+        let bookAuthorDiv = createFieldBox("Autor:", book.getAutor(), "autor");
+
+        bookDataDiv.appendChild(bookNameDiv);
+        bookDataDiv.appendChild(bookAuthorDiv);
+
+        let bookMiscDiv = document.createElement("div");
+
+        let bookCursoDiv = await createSelectFieldBox("Curso de tema:", book.getCurso(), "cursoDeTema");
+        let showContentButton = document.createElement("button");
+        showContentButton.textContent = "Visualizar material";
+        showContentButton.classList.add("visualizeMaterial");
+
+        bookMiscDiv.appendChild(bookCursoDiv);
+        bookMiscDiv.appendChild(showContentButton);
+
+        let manageButtonsDiv = createManageButtons(bookIdentifier, book);
+
+        dataDiv.appendChild(bookDataDiv);
+        dataDiv.appendChild(bookMiscDiv);
+
+        bookDiv.appendChild(dataDiv);
+        bookDiv.appendChild(manageButtonsDiv);
+
+        booksToShow.appendChild(bookDiv);
+
+        if(i < books.length - 1){
+            let separador = document.createElement("div");
+            separador.classList.add("separador");
+
+            booksToShow.appendChild(separador);
+        }
+
+    }
+
+}
+
+
+
+
+
+
+
+
 async function enableEdit(userIdentifier, user) {
     let editableUser = document.getElementById(userIdentifier);
 
     let fields = editableUser.getElementsByTagName("input");
 
-    let buttons = editableUser.getElementsByTagName("button");
+    let buttons = editableUser.getElementsByClassName("controlButtons")[0].getElementsByTagName("button");
 
     for (let i = 0; i < buttons.length; i++) {
         let button = buttons[i];
@@ -263,7 +328,7 @@ async function disableEdit(userIdentifier, user) {
 
     let fields = editableUser.getElementsByTagName("input");
 
-    let buttons = editableUser.getElementsByTagName("button");
+    let buttons = editableUser.getElementsByClassName("controlButtons")[0].getElementsByTagName("button");
 
     for (let i = 0; i < buttons.length; i++) {
         let button = buttons[i];
@@ -457,6 +522,7 @@ function createFieldBox(title, value, name) {
     let titleLabel = document.createElement("label");
     titleLabel.textContent = title;
     titleLabel.classList.add("titleLabel");
+
     let dataLabel = document.createElement("input");
     dataLabel.classList.add("userDataFieldDisabled");
     dataLabel.value = value;
@@ -471,7 +537,7 @@ function createFieldBox(title, value, name) {
 
 function createManageButtons(entityIdentifier, entity) {
     let manageButtonsDiv = document.createElement("div");
-    manageButtonsDiv.classList.add("userControlButtons");
+    manageButtonsDiv.classList.add("controlButtons");
 
     let buttonEditar = document.createElement("button");
     buttonEditar.classList.add("yellowButton");
@@ -491,4 +557,43 @@ function createManageButtons(entityIdentifier, entity) {
     manageButtonsDiv.appendChild(buttonExcluir);
 
     return manageButtonsDiv;
+}
+
+async function createSelectFieldBox(title, value, name, pathToPopulate, dataToList) {
+    /*let response = await serverRequester.fazerGet(pathToPopulate);
+    let entitys = response["responseJson"];
+    let entityDataToList = [];
+
+    for (let i = 0; i < entitys.length; i++) {
+        const entity = entitys[i];
+        
+        entityDataToList.push(entity[dataToList]);
+    }*/
+
+
+    let container = document.createElement("div");
+
+    let titleLabel = document.createElement("label");
+    titleLabel.textContent = title;
+    titleLabel.classList.add("titleLabel");
+
+    let dataSelect = document.createElement("select");
+    /*for (let i = 0; i < entityDataToList.length; i++) {
+        const data = entityDataToList[i];
+        
+        let option = document.createElement("option");
+        option.value = data;
+        option.textContent = data;
+
+        dataSelect.appendChild(option);
+    }*/
+    dataSelect.classList.add("userDataFieldDisabled");
+    dataSelect.value = value;
+    dataSelect.disabled = true;
+    dataSelect.name = name;
+
+    container.appendChild(titleLabel);
+    container.appendChild(dataSelect);
+
+    return container;
 }
