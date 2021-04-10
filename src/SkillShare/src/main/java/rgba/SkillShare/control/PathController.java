@@ -91,6 +91,10 @@ public class PathController {
 		
 		return "login";
 	}
-	
+
+	@GetMapping(value = "/upload")
+	public String uploadImagem() {
+		return "upload";
+	}
 }
  

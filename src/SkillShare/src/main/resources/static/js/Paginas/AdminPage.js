@@ -381,7 +381,7 @@ async function registerUser(event) {
         user.setCpf(document.getElementById("cpf-beautyInput").value);
         user.setSenha(pass);
 
-        let response = await serverRequester.fazerPost("/aluno/cadastrar", user.toData());
+        let response = await serverRequester.fazerPost("/alunos/cadastrar", user.toData());
 
         if(response["ok"] == true){
             alert("Cadastrado com sucesso!");
