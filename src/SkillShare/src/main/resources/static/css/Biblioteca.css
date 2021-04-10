@@ -2,6 +2,19 @@
     height: auto;
 }
 
+.separador{
+    height: 2px;
+    background-color: black;
+    border-radius: 25px;
+
+    width: 70%;
+    margin: 0 auto;
+    opacity: 40%;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .header{
     height: auto;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), url(../images/bibliotecas.png);
@@ -95,28 +108,27 @@
 	width: 55%;
 }
 
-.materiais .row-material{
+.row-material{
 	display: flex;
 	justify-content: space-between;
 }
 
-.materiais .row-material .icone {
+.icone {
 	width: 80px;
 	font-size: 52px;
 }
 
-.materiais .row-material .infos {
+.infos {
 	line-height: 10px;
 	width: 78%;
 }
 
-.materiais .row-material .botao {
+.botao {
 	display: flex;
 	align-items: center;
 }
 
-.materiais .row-material .botao button{
-	cursor: pointer;
+.botao button{
 	background: #0AADA7;
 	color: white;
 	border: none;
@@ -124,6 +136,21 @@
 	font-family: 'Poppins';
 	font-size: 16px;
 	line-height: 36px;
+	cursor: pointer;
+}
+
+#conteudo-opcao {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divConteudo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    justify-content: space-evenly;
 }
 
 @media (max-width: 600px){

@@ -26,6 +26,8 @@
 <script src="js/Componentes/Menu.js"></script>
 <script src="js/Componentes/TopBar.js"></script>
 <script src="js/Componentes/Footer.js"></script>
+<script src="js/Entidades/Biblioteca.js"></script>
+<script src="js/Paginas/PaginaBiblioteca.js" defer></script>
 
 <script src="js/Entidades/Usuario.js"></script>
 </head>
@@ -49,76 +51,11 @@
 				<div class="opcao" id="botao2">
 					<p>Material sem vínculo com cursos</p>
 				</div>
-				<div class="opcao" id="botao3">
+				<div class="opcao" id="botao3" onclick="carregarOpcao3()">
 					<p>Todo o material</p>
 				</div>
 			</div>
-			<div id="conteudo-opcao">
-				<div id="opcao1" class="opcaoDiv">
-					<div class="row-curso">
-						<div class="resumo">
-							<div class="foto">
-								<img
-									src="http://www.colegioagricola.com.br/ad/upload/imagens/paginas/fotos_27_servicos.jpg">
-							</div>
-							<div class="nome">
-								<h2>Segurança do trabalho</h2>
-								<p>Clique aqui para expandir e visualizar todo o conteúdo
-									didático deste curso</p>
-							</div>
-							<div class="expandir">
-								<i class="fas fa-chevron-left"></i>
-							</div>
-						</div>
-						<div class="materiais">
-							<div class="row-material">
-								<div class="icone">
-									<i class="fas fa-book"></i>
-								</div>
-								<div class="infos">
-									<p>Nome do livro</p>
-									<p>Nome do autor</p>
-								</div>
-								<div class="botao">
-									<button>Visualizar</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="opcao2" class="opcaoDiv">
-					<div class="materiais">
-						<div class="row-material">
-							<div class="icone">
-								<i class="fas fa-book"></i>
-							</div>
-							<div class="infos">
-								<p>Nome do livro</p>
-								<p>Nome do autor</p>
-							</div>
-							<div class="botao">
-								<button>Visualizar</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="opcao3" class="opcaoDiv">
-					<div class="materiais">
-						<div class="row-material">
-							<div class="icone">
-								<i class="fas fa-book"></i>
-							</div>
-							<div class="infos">
-								<p>Nome do livro</p>
-								<p>Nome do autor</p>
-							</div>
-							<div class="botao">
-								<button>Visualizar</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<div id="conteudo-opcao"></div>
 		</div>
 	</div>
 	</div>
