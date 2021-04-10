@@ -36,15 +36,18 @@ public class SkillShareApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		//coloque algum codigo que precisa ser executado quando o servidor subir aqui
 		if(admRepository.findAll().isEmpty()) {
-			Adm adm = new Adm("00000000000", "Bárbara Port", "barbara.port@skillshare.com", "barbara1234");
+			Adm adm = new Adm("1", "Bárbara Port", "barbara.port@skillshare.com", "1");
 			admRepository.save(adm);
+			
+			Adm adm2 = new Adm("2", "Bárbat", "bara.port@skillshare.com", "2");
+			admRepository.save(adm2);
 		};
 
 		if(gRepository.findAll().isEmpty()) {
 			Gestor gestor = new Gestor("11111111111", "Henrique dos Santos", "henrique.santos@skillshare.com", "henrique123");
 			gRepository.save(gestor);
 		};
-		
+
 		if(tRepository.findAll().isEmpty()) {
 			Tutor tutor = new Tutor("22222222222", "Nícolas Rafael Pereira", "nicholas.pereira@skillshare.com", "nicolas123");
 			tRepository.save(tutor);

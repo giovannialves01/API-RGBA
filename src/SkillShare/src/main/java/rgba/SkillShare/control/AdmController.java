@@ -2,6 +2,7 @@ package rgba.SkillShare.control;
 
 import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Contato;
+import rgba.SkillShare.model.Usuario;
 import rgba.SkillShare.repository.AdmRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,9 +22,11 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import org.springframework.http.HttpStatus;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  *  Classe que define os endpoints para adm
@@ -83,4 +86,41 @@ public class AdmController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo aluno não encontrado.")
             );
     }
+    
+	@PostMapping(value = "/update")
+	public boolean updateAdm(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		JSONObject admOldData = parsedData.getJSONObject("oldData");
+		JSONObject admNewData = parsedData.getJSONObject("newData");
+		
+		Adm oldUsuario = new Adm(admOldData.getString("cpf"), admOldData.getString("nome"), admOldData.getString("email"), admOldData.getString("senha"));
+		Adm newUsuario = new Adm(admNewData.getString("cpf"), admNewData.getString("nome"), admNewData.getString("email"), admNewData.getString("senha"));
+		
+		try{
+			admRepository.delete(oldUsuario);
+			admRepository.save(newUsuario);
+			
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+
+	}
+	
+	@PostMapping(value = "/delete")
+	public boolean deleteAdm(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+
+		try {
+			admRepository.deleteById(parsedData.getString("cpf"));
+			
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
 }
