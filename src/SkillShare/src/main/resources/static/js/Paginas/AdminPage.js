@@ -185,37 +185,10 @@ async function loadUserToShow(perfil) {
         let dataDiv = document.createElement("div");
         dataDiv.classList.add("data");
 
-        let userControlButtonsDiv = document.createElement("div");
-        userControlButtonsDiv.classList.add("userControlButtons");
-
-        let buttonEditar = document.createElement("button");
-        buttonEditar.classList.add("yellowButton");
-        buttonEditar.textContent = "Editar";
-        buttonEditar.onclick = async function (){
-            await enableEdit(userIdentifier, user);
-        }
-
-        let buttonExcluir = document.createElement("button");
-        buttonExcluir.classList.add("redButton");
-        buttonExcluir.textContent = "Excluir";
-        buttonExcluir.onclick = async function (){
-            await deleteUser(userIdentifier, user);
-        }
+        let userControlButtonsDiv = createManageButtons(userIdentifier, user);
 
         let nomeDiv = document.createElement("div");
-        let nomeDivContent = document.createElement("div");
-
-        let nomeTitleLabel = document.createElement("label");
-        nomeTitleLabel.textContent = "Nome";
-        nomeTitleLabel.classList.add("titleLabel");
-        let userNomeLabel = document.createElement("input");
-        userNomeLabel.classList.add("userDataFieldDisabled");
-        userNomeLabel.value = user.getNome();
-        userNomeLabel.disabled = true;
-        userNomeLabel.name = "nome";
-
-        nomeDivContent.appendChild(nomeTitleLabel);
-        nomeDivContent.appendChild(userNomeLabel);
+        let nomeDivContent = createFieldBox("Nome", user.getNome(), "nome");
 
         nomeDiv.appendChild(nomeDivContent);
 
@@ -223,52 +196,15 @@ async function loadUserToShow(perfil) {
 
         let restoDiv = document.createElement("div");
 
-        let cpfDivContent = document.createElement("div");
-        let cpfTitleLabel = document.createElement("label");
-        cpfTitleLabel.textContent = "CPF";
-        cpfTitleLabel.classList.add("titleLabel");
-        let userCpfLabel = document.createElement("input");
-        userCpfLabel.classList.add("userDataFieldDisabled");
-        userCpfLabel.value = user.getCpf();
-        userCpfLabel.disabled = true;
-        userCpfLabel.name = "cpf";
-
-        let emailDivContent = document.createElement("div");
-        let emailTitleLabel = document.createElement("label");
-        emailTitleLabel.textContent = "E-mail";
-        emailTitleLabel.classList.add("titleLabel");
-        let userEmailLabel = document.createElement("input");
-        userEmailLabel.classList.add("userDataFieldDisabled");
-        userEmailLabel.value = user.getEmail();
-        userEmailLabel.disabled = true;
-        userEmailLabel.name = "email";
-
-        let perfilDivContent = document.createElement("div");
-        let perfilTitleLabel = document.createElement("label");
-        perfilTitleLabel.textContent = "Perfil";
-        perfilTitleLabel.classList.add("titleLabel");
-        let userPerfilLabel = document.createElement("input");
-        userPerfilLabel.classList.add("userDataFieldDisabled");
-        userPerfilLabel.value = perfil;
-        userPerfilLabel.disabled = true;
-
-        cpfDivContent.appendChild(cpfTitleLabel);
-        cpfDivContent.appendChild(userCpfLabel);
-
-        emailDivContent.appendChild(emailTitleLabel);
-        emailDivContent.appendChild(userEmailLabel);
-
-        perfilDivContent.appendChild(perfilTitleLabel);
-        perfilDivContent.appendChild(userPerfilLabel);
+        let cpfDivContent = createFieldBox("CPF", user.getCpf(), "cpf");
+        let emailDivContent = createFieldBox("E-mail", user.getEmail(), "email");
+        let perfilDivContent = createFieldBox("Perfil", perfil, "");
 
         restoDiv.appendChild(cpfDivContent);
         restoDiv.appendChild(emailDivContent);
         restoDiv.appendChild(perfilDivContent);
 
         dataDiv.appendChild(restoDiv);
-
-        userControlButtonsDiv.appendChild(buttonEditar);
-        userControlButtonsDiv.appendChild(buttonExcluir);
 
         userDataDiv.appendChild(dataDiv);
         userDataDiv.appendChild(userControlButtonsDiv);
@@ -281,7 +217,9 @@ async function loadUserToShow(perfil) {
 
             usersToShowDiv.appendChild(separador);
         }
+
     }
+
 }
 
 async function enableEdit(userIdentifier, user) {
@@ -511,4 +449,46 @@ function setInputLabelName(event) {
     let label = document.getElementById("labelFileName");
     label.textContent = event.target.files.item(0).name;
     
+}
+
+function createFieldBox(title, value, name) {
+    let container = document.createElement("div");
+
+    let titleLabel = document.createElement("label");
+    titleLabel.textContent = title;
+    titleLabel.classList.add("titleLabel");
+    let dataLabel = document.createElement("input");
+    dataLabel.classList.add("userDataFieldDisabled");
+    dataLabel.value = value;
+    dataLabel.disabled = true;
+    dataLabel.name = name;
+
+    container.appendChild(titleLabel);
+    container.appendChild(dataLabel);
+
+    return container;
+}
+
+function createManageButtons(entityIdentifier, entity) {
+    let manageButtonsDiv = document.createElement("div");
+    manageButtonsDiv.classList.add("userControlButtons");
+
+    let buttonEditar = document.createElement("button");
+    buttonEditar.classList.add("yellowButton");
+    buttonEditar.textContent = "Editar";
+    buttonEditar.onclick = async function (){
+        await enableEdit(entityIdentifier, entity);
+    }
+
+    let buttonExcluir = document.createElement("button");
+    buttonExcluir.classList.add("redButton");
+    buttonExcluir.textContent = "Excluir";
+    buttonExcluir.onclick = async function (){
+        await deleteUser(entityIdentifier, entity);
+    }
+
+    manageButtonsDiv.appendChild(buttonEditar);
+    manageButtonsDiv.appendChild(buttonExcluir);
+
+    return manageButtonsDiv;
 }
