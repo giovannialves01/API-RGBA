@@ -506,3 +506,9 @@ async function saveChanges(userIdentifier, user) {
 
     disableEdit(userIdentifier, newUser);
 }
+
+function setInputLabelName(event) {
+    let label = document.getElementById("labelFileName");
+    label.textContent = event.target.files.item(0).name;
+    
+}
