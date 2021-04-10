@@ -25,10 +25,6 @@ import rgba.SkillShare.model.Pilula;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.PilulaRepository;
 
-
-
-
-
 /**
  *  Classe que define os endpoints para curso
  *  @author Nicholas Roque
@@ -52,9 +48,9 @@ public class PilulaController {
     * @throws IOException
     */
     @PostMapping("/cadastrar")
+    @ApiOperation("Cria uma pílula.")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiResponse(code = 201,message = "Pílula criada com sucesso.")
-    @ApiOperation("Cria uma pílula.")
     public Pilula createPilula(@RequestParam MultipartFile arqu, Pilula pilula,Long idCurso) throws IOException {
         Arquivo arq = new Arquivo(arqu.getOriginalFilename(),arqu.getBytes(),arqu.getContentType());
 		return cursoRepository.findById(idCurso)
@@ -76,12 +72,12 @@ public class PilulaController {
     * @author Nicholas Roque
     */
     @GetMapping("/curso/{id}")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna as pílulas de um determinado curso.")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Pílulas encontradas com sucesso para o id informado."),
         @ApiResponse(code = 404,message = "Pílulas não encontradas para o id informado.")
     })
-    @ResponseStatus(HttpStatus.OK)
     public Set<Pilula> getPilulasByCurso(@ApiParam("Id do curso") Long id) {
         return cursoRepository
             .findById(id).map(curso->{

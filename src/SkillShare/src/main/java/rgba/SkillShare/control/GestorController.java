@@ -30,10 +30,11 @@ import java.util.List;
  *  Classe que define os endpoints para gestor
  *  @author Nicholas Roque
  */
-@RestController
 @CrossOrigin
-@RequestMapping("/gestor")
+@RestController
 @Api("API de gestor")
+@RequestMapping("/gestor")
+
 public class GestorController {
 
     @Autowired 
@@ -58,9 +59,9 @@ public class GestorController {
     * @author Nicholas Roque
     */
     @GetMapping
-    @ApiOperation("Retorna uma lista com todos os usuários do tipo gestor")
-    @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
     @ResponseStatus(HttpStatus.OK)
+    @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
+    @ApiOperation("Retorna uma lista com todos os usuários do tipo gestor")
     public List<Gestor> getAllGestores(){
         return gRepository.findAll();
     }
@@ -73,12 +74,12 @@ public class GestorController {
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna os detalhes de um usuário do tipo gestor.")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Usuário do tipo gestor encontrado com sucesso."),
         @ApiResponse(code = 404,message = "Usuário do tipo gestor não encontrado para o cpf informado.")
     })
-    @ResponseStatus(HttpStatus.OK)
     public Gestor getGestorByCpf(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
         return gRepository
             .findById(cpf)
