@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -56,11 +55,11 @@ public class PilulaController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiResponse(code = 201,message = "Pílula criada com sucesso.")
     @ApiOperation("Cria uma pílula.")
-    public Pilula createPilula(@RequestParam MultipartFile arquivo, Pilula pilula,Long idCurso) throws IOException {
-        Arquivo arq = new Arquivo(arquivo.getOriginalFilename(),arquivo.getBytes(),arquivo.getContentType());
+    public Pilula createPilula(@RequestParam MultipartFile arqu, Pilula pilula,Long idCurso) throws IOException {
+        Arquivo arq = new Arquivo(arqu.getOriginalFilename(),arqu.getBytes(),arqu.getContentType());
 		return cursoRepository.findById(idCurso)
             .map(curso->{
-		        pilula.setArquivos(Set.of(arq));
+		        pilula.setArquivo(arq);
                 pilula.setCurso(curso);
                 pilulaRepository.save(pilula);
 		        return pilula;
@@ -84,8 +83,10 @@ public class PilulaController {
     })
     @ResponseStatus(HttpStatus.OK)
     public Set<Pilula> getPilulasByCurso(@ApiParam("Id do curso") Long id) {
-        return pilulaRepository
-            .findByIdCurso(id)
+        return cursoRepository
+            .findById(id).map(curso->{
+                return curso.getPilulas();
+            })
             .orElseThrow(()->
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum curso encontrado.")
             );

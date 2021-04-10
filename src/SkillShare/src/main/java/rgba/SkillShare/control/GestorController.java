@@ -57,7 +57,7 @@ public class GestorController {
     * @return Retorna uma lista do objeto Gestor com todos os gestores. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
     @ApiOperation("Retorna uma lista com todos os usuários do tipo gestor")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
     @ResponseStatus(HttpStatus.OK)

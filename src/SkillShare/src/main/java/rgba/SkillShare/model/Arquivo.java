@@ -5,9 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +25,7 @@ public class Arquivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idArquivo;
+    private long id;
 
     @Column(nullable = false)
     private String nomeArquivo;
@@ -36,8 +37,8 @@ public class Arquivo {
     @Column(nullable = false)
     private String tipoArquivo;
 
-    @ManyToOne
-    @JoinColumn(name="id_pilula")
+    @OneToOne(mappedBy = "arquivo")
+    @JsonIgnore
     private Pilula pilula;
     
     /** 
@@ -52,8 +53,5 @@ public class Arquivo {
         this.conteudo = conteudo;
         this.tipoArquivo = tipoArquivo;
     }
-    public Arquivo(String nomeArquivo,String tipoArquivo){
-        this.nomeArquivo = nomeArquivo;
-        this.tipoArquivo = tipoArquivo;
-    }
+
 }

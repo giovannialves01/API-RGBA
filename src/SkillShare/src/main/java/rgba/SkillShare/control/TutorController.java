@@ -56,7 +56,7 @@ public class TutorController {
     * @return Retorna uma lista do objeto Tutor com todos os tutores. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna uma lista com todos os usuários do tipo tutor")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")

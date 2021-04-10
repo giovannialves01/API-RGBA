@@ -1,7 +1,6 @@
 package rgba.SkillShare.control;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -107,9 +106,11 @@ public class CursoController {
        @ApiResponse(code = 404,message = "Cursos não encontrados para o cpf informado.")
    })
    @ResponseStatus(HttpStatus.OK)
-   public Set<Curso> getCursosByGestor(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
-       return cursoRepository
-           .findByGestorCpf(cpf)
+   public List<Curso> getCursosByGestor(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
+       return gestorRepository
+           .findById(cpf).map(gestor->{
+                return gestor.getCursos();
+           })
            .orElseThrow(()->
                new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum curso encontrado.")
            );

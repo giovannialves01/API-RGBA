@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,8 +36,12 @@ public class Curso {
     @Column(nullable = false)
     private String descricao;
 
+    @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
+    private Set<Pilula> pilulas;
+
     @ManyToOne
     @JoinColumn(name="id_gestor")
+    @JsonIgnore //ignora o gestor no retorno do json
     private Gestor gestor;
 
     /** 

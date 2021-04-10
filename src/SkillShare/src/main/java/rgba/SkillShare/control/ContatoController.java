@@ -42,7 +42,7 @@ public class ContatoController {
     * @return Retorna uma lista do objeto Contato com todos os contatos. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
     @ApiOperation("Retorna uma lista com todos os contatos dos usuários")
     @ApiResponse(code = 200,message = "Contatos retornados com sucesso.")
     @ResponseStatus(HttpStatus.OK)

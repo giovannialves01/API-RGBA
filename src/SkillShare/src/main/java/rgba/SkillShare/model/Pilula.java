@@ -1,7 +1,5 @@
 package rgba.SkillShare.model;
 
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,11 +35,13 @@ public class Pilula {
     @Column(nullable = false)
     private String descricao;
 
-    @OneToMany(mappedBy = "pilula",cascade = CascadeType.ALL)
-    private Set<Arquivo> arquivos;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_arquivo",referencedColumnName = "id")
+    private Arquivo arquivo;
 
     @ManyToOne
     @JoinColumn(name="id_curso")
+    @JsonIgnore
     private Curso curso;
 
     /** 

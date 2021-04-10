@@ -55,7 +55,7 @@ public class AdmController {
     * @return Retorna uma lista do objeto Adm com todos os administradores.
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
     @ApiOperation("Retorna uma lista com todos os usuários do tipo administrador.")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
     @ResponseStatus(HttpStatus.OK)

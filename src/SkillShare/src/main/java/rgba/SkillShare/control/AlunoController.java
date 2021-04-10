@@ -67,7 +67,7 @@ public class AlunoController {
     * @return Retorna uma lista do objeto Aluno com todos os alunos. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
     @ApiOperation("Retorna uma lista com todos os usuários do tipo aluno.")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
     @ResponseStatus(HttpStatus.OK)
