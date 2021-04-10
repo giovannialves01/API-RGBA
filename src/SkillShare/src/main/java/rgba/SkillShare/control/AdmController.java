@@ -1,7 +1,6 @@
 package rgba.SkillShare.control;
 
 import rgba.SkillShare.model.Adm;
-import rgba.SkillShare.model.Contato;
 import rgba.SkillShare.repository.AdmRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
