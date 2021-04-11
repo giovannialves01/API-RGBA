@@ -1,8 +1,20 @@
 .beautyTable{
-    width: 100%;   
+    width: auto;   
 }
 .tableHeader{
     background-color: var(--headTableColor);
+}
+.separador{
+    height: 2px;
+    background-color: black;
+    border-radius: 25px;
+
+    width: 70%;
+    margin: 0 auto;
+    opacity: 40%;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .botao {
     background-color: var(--beautyButtonNormalActiveColor); /* Green */
@@ -66,3 +78,153 @@
 
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
+
+.header{
+    height: auto;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), url(../images/bibliotecas.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.header h1{
+    font-size: xxx-large;
+    margin-bottom: 0px;
+}
+
+.titleP{
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.todasOpcoes {
+	margin: 20px;
+}
+
+.opcoesB {
+	display: flex;
+	align-items: center;
+  	justify-content: space-between;
+}
+
+.opcoesB p {
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.opcoesB .opcao {
+	width: 30%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content hr {
+	width: 90%;
+}
+
+.opcaoDiv {
+	display: flex;
+	justify-content: center;
+}
+
+.row-curso {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.row-curso .resumo {
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.row-curso .resumo .foto img {
+	width: 125px;
+	height: 125px;
+	border-radius: 100%;
+}
+
+.row-curso .resumo .nome {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.row-curso .resumo .expandir {
+	display: flex;
+	align-items: center;
+}
+
+.row-curso .resumo .expandir i {
+	font-size: 50px;
+}
+
+.materiais {
+	display: flex;
+	flex-direction: column;
+	width: 55%;
+}
+
+.row-material{
+	display: flex;
+	justify-content: space-between;
+}
+
+.icone {
+	width: 80px;
+	font-size: 52px;
+}
+
+.infos {
+	line-height: 10px;
+	width: 78%;
+}
+
+.botao {
+	display: flex;
+	align-items: center;
+}
+
+.botao button{
+	background: #0AADA7;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	font-family: 'Poppins';
+	font-size: 16px;
+	line-height: 36px;
+	cursor: pointer;
+}
+
+#conteudo-opcao {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divConteudo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 600px){
+    .header h1{
+        text-align: center;
+    }
+
+    .opcoesB p {
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 24px;
+	}
+} 

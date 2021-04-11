@@ -96,5 +96,11 @@ public class PathController {
 	public String uploadImagem() {
 		return "upload";
 	}
+
+	@GetMapping(value = "/bibliotecaPage")
+	public String paginaBiblioteca(HttpSession sessao) {
+
+		return "paginaBiblioteca";
+	}
 }
  
