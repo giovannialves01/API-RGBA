@@ -511,7 +511,7 @@ async function saveChanges(userIdentifier, user) {
 }
 
 function setInputLabelName(event) {
-    let label = document.getElementById("labelFileName");
+    let label = event.target.nextElementSibling;
     label.textContent = event.target.files.item(0).name;
     
 }
@@ -578,6 +578,17 @@ async function createSelectFieldBox(title, value, name, pathToPopulate, dataToLi
     titleLabel.classList.add("titleLabel");
 
     let dataSelect = document.createElement("select");
+    let option0 = document.createElement("option");
+    option0.value = "0";
+    option0.textContent = "Escolha um curso...";
+    option0.disabled = true;
+    dataSelect.appendChild(option0);
+
+    let option1 = document.createElement("option");
+    option1.value = "Não específico";
+    option1.textContent = "Não específico";
+    dataSelect.appendChild(option1);
+
     /*for (let i = 0; i < entityDataToList.length; i++) {
         const data = entityDataToList[i];
         

@@ -194,6 +194,52 @@
             </div>
         </div>
 
+        <!-- Pílulas -->
+        <!-- Adicionar pílula-->
+        <div class="hide" id="adicionarPilula">
+            <div class="adicionarConteudoBiblioteca">
+                <h1>Criar nova pílula de conhecimento</h1>
+                <p>
+                    A biblioteca da SkillShare é um local onde ficam postados arquivos PDFs no qual os alunos tem acesso a este</br>
+                    material, dessa forma podem incrementar ainda mais seus conhecimentos
+                </p>
+    
+                <div class="separador"></div>
+            </div>
+
+            <div class="pilulaForm">
+                <select id="selectCursoParaPilula">
+                    <option selected disabled>Escolha um curso do tema do livro...</option>
+                    <option value="nenhum">Não específico</option>
+                </select>
+
+                <div>
+                    <div>
+                        <label style="width: 145px;">Título:</label>
+                        <input type="text">
+                    </div>
+    
+                    <div class="inputFilePilula">
+                        <label for="inputUploadPilula" class="inputUploadButton">Escolher arquivo...</label>
+                        <input type="file" id="inputUploadPilula" onchange="setInputLabelName(event)">
+                        <label id="labelFileName">Selecione um arquivo</label>
+                    </div>
+    
+                    <div class="textField">
+                        <label>Texto do corpo</label>
+                        <textarea id="textAreaCriarPilula" cols="30" rows="10"></textarea>
+                    </div>
+
+    
+                    <div class="buttonContainer">
+                        <button class="greenButton">Adicionar</button>
+                        <button class="redButton">Limpar campos</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
     
     <footer-rgba></footer-rgba>

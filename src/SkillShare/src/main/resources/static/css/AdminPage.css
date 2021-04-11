@@ -145,6 +145,7 @@
 select{
     padding: 5px;
     border-radius: 0px;
+    width: fit-content;
 }
 
 .separador{
@@ -302,6 +303,10 @@ select{
     display: none;
 }
 
+#inputUploadPilula{
+    display: none;
+}
+
 .inputUploadButton{
     border-radius: 5px;
     display: inline-block;
@@ -317,7 +322,7 @@ select{
 
 .inputFile{
     display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -362,4 +367,55 @@ select{
 
 .visualizeMaterial:active{
     background-color: #3ae2dd;
+}
+
+.pilulaForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.pilulaForm > div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    place-items: flex-start;
+    margin-top: 50px;
+}
+
+.textField{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputFilePilula{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inputFilePilula > #labelFileName{
+    margin-left: 50px;
+}
+
+.buttonContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    place-content: space-between;
+    margin-top: 50px;
+}
+
+input[type = text]{
+    margin-left: 10px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+    outline: none;
+}
+
+input[type = text]:focus{
+    background-color: rgba(119, 136, 153, 0.2);
 }
