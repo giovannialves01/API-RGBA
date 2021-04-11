@@ -9,6 +9,7 @@
     <!-- CDN das depedências externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
@@ -67,17 +68,17 @@
     
                 <div class="separador"></div>
             </div>
-            <form onsubmit="registerBook(event)" class="bibliotecaForm" id="bibliotecaRegistrar">
+            <form onsubmit="registerBook(event)" class="bibliotecaForm" id="bibliotecaRegistrar" enctype="multipart/form-data">
                 <div class="dataField">
                     <label>Nome:</label>
-                    <input type="text" id="nomeLivro">
+                    <input type="text" name="titulo" id="nomeLivro">
                 </div>
                 <div class="dataField">
                     <label>Autor:</label>
-                    <input type="text" id="nomeAutor">
+                    <input type="text" name="autor" id="nomeAutor">
                 </div>
 
-                <select id="selectCursoParaLivro">
+                <select name="idCurso" id="selectCursoParaLivro">
                     <option selected disabled>Escolha um curso do tema do livro...</option>
                     <option value="0">Não específico</option>
                 </select>
@@ -86,7 +87,7 @@
 
                 <div class="inputFile">
                     <label for="inputUploadLivro" class="inputUploadButton">Escolher arquivo...</label>
-                    <input type="file" id="inputUploadLivro" onchange="setInputLabelName(event)">
+                    <input type="file" id="inputUploadLivro" name="material" onchange="setInputLabelName(event)">
                     <label id="labelFileName">Selecione um arquivo</label>
                 </div>
 

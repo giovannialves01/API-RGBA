@@ -85,7 +85,7 @@ public class SkillShareApplication implements CommandLineRunner {
 			alunoRepository.save(rafael);
 		}
 		
-		String filePath = "static\\files\\propostaApi.pdf";
+/* 		String filePath = "static\\files\\propostaApi.pdf";
 		Resource resource = new ClassPathResource(filePath);
 		
 		byte[] bytes = Files.readAllBytes(Paths.get(resource.getURI()));
@@ -93,7 +93,7 @@ public class SkillShareApplication implements CommandLineRunner {
 		Arquivo livro = new Arquivo("Proposta API", bytes, ".pdf");
 		
 		Biblioteca biblioteca = new Biblioteca("Nome do livro 1", "Nome do autor 1", "Curso 1", livro);
-		bibliotecaRepository.save(biblioteca);
+		bibliotecaRepository.save(biblioteca); */
 		
 	}
 	

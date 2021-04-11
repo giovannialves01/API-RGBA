@@ -13,14 +13,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
-
+import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.model.ArquivoCurso;
 import rgba.SkillShare.model.Biblioteca;
-
+import rgba.SkillShare.repository.CursoRepository;
+import rgba.SkillShare.repository.ArquivoCursoRepository;
 import rgba.SkillShare.repository.BibliotecaRepository;
+import rgba.SkillShare.repository.CursoRepository;
 
 
 /**
@@ -35,6 +39,13 @@ public class BibliotecaController {
 
     @Autowired 
     BibliotecaRepository bibliotecaRepository;
+
+    @Autowired 
+    CursoRepository cursoRepository;
+
+    @Autowired 
+    ArquivoCursoRepository acRepository;
+
     /** 
     *  Endpoint para cadastro de material na biblioteca.
     * @author Nicholas Roque
@@ -49,6 +60,34 @@ public class BibliotecaController {
         Biblioteca b = new Biblioteca(material.getOriginalFilename(),material.getBytes(),material.getContentType());
 		return bibliotecaRepository.save(b);
 	}
+
+    /** 
+    *  Endpoint para cadastro de material na biblioteca.
+    * @author Nicholas Roque
+    * @param Biblioteca
+    * @throws IOException
+    */
+    @PostMapping("/cadastrar/curso")
+    @ApiOperation("Faz upload de um material para a biblioteca de um curso especifico.")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ApiResponses({
+        @ApiResponse(code = 201,message = "Material postado com sucesso na biblioteca."),
+        @ApiResponse(code = 404,message = "Curso não encontrado para o id informado.")
+    })
+    public ArquivoCurso createArquivoCurso(@RequestParam MultipartFile material,Long idCurso) throws IOException {
+        ArquivoCurso ac = new ArquivoCurso();
+        Biblioteca b = new Biblioteca(material.getOriginalFilename(),material.getBytes(),material.getContentType());
+        cursoRepository.findById(idCurso).ifPresentOrElse((c)->{
+            ac.setBiblioteca(b);
+            ac.setCurso(c);
+        }, ()->{
+            new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrado.");
+        });
+
+        return acRepository.save(ac);
+
+        
+   }
 
     /** 
     *  Endpoint para retornar todos os materiais presentes na biblioteca.

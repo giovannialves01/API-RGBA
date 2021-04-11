@@ -608,40 +608,26 @@ async function loadAllCursos(){
 
     let response = await serverRequester.fazerGet("/cursos");
     let entitys = response["responseJson"];
-    let entityDataToList = [];
-    dataToList = "titulo";
-
-    for (let i = 0; i < entitys.length; i++) {
-        const entity = entitys[i];
-        
-        entityDataToList.push(entity[dataToList]);
-    }
-
-    for (let i = 0; i < entityDataToList.length; i++) {
-        const data = entityDataToList[i];
-        
+    entitys.forEach(curso => {
         let option = document.createElement("option");
-        option.value = data;
-        option.textContent = data;
-
+        option.value = curso.id;
+        option.textContent = curso.titulo;
         select.appendChild(option);
-    }
-
+    });
 }
 
 async function registerBook(event) {
     event.preventDefault();
-
-    let fileInput = document.getElementById("inputUploadLivro");
-    let inputNome = document.getElementById("nomeLivro");
-    let inpuAutor = document.getElementById("nomeAutor");
-    let select = document.getElementById("selectCursoParaLivro");
-
-    let cursoId = select.value;
-    let file = fileInput.files[0];
-
-    console.log(file);
-
+    let form = $('#bibliotecaRegistrar')[0];
+    let formData = new FormData(form);   
+    let url
+    if($('#selectCursoParaLivro').value==0){
+        url="http://localhost:8080/biblioteca/cadastrar"
+    }
+    else{
+        url="http://localhost:8080/biblioteca/cadastrar/curso"
+    }
+    sendFile(formData,url)
     alert("Chamando função para cadastrar livro");
 }
 
