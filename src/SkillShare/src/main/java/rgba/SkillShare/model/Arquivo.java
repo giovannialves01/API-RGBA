@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
@@ -21,7 +23,8 @@ import lombok.ToString;
  */
 @Entity(name="arquivo")
 @NoArgsConstructor @AllArgsConstructor @Data @ToString
-public class Arquivo {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Arquivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,12 +40,8 @@ public class Arquivo {
     @Column(nullable = false)
     private String tipoArquivo;
 
-    @OneToOne(mappedBy = "arquivo")
-    @JsonIgnore
-    private Pilula pilula;
-
     /** 
-    *  Cria uma instância da classe Contato.
+    *  Cria uma instância da classe Arquivo.
     * @param nomeArquivo -> nome do arquivo
     * @param conteudo -> arquivo
     * @param tipoArquivo -> tipoArquivo

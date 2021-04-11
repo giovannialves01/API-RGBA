@@ -24,7 +24,6 @@ public class Adm extends Usuario{
     * @author Nicholas Roque
     */
 
-    //NÃO RETIRAR
     public Adm(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }

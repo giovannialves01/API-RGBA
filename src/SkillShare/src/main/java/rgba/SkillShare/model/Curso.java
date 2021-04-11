@@ -44,6 +44,7 @@ public class Curso {
     @JsonIgnore //ignora o gestor no retorno do json
     private Gestor gestor;
 
+
     /** 
     *  Cria uma instância da classe Curso.
     * @param titulo -> Título do curso.
