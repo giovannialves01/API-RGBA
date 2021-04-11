@@ -1,6 +1,5 @@
 package rgba.SkillShare.control;
 
-import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Gestor;
 
 import rgba.SkillShare.repository.GestorRepository;

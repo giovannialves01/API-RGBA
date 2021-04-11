@@ -24,7 +24,6 @@ import rgba.SkillShare.model.Biblioteca;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.ArquivoCursoRepository;
 import rgba.SkillShare.repository.BibliotecaRepository;
-import rgba.SkillShare.repository.CursoRepository;
 
 
 /**

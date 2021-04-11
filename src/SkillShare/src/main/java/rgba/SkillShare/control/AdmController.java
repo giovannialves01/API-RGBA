@@ -1,8 +1,6 @@
 package rgba.SkillShare.control;
 
 import rgba.SkillShare.model.Adm;
-import rgba.SkillShare.model.Contato;
-import rgba.SkillShare.model.Usuario;
 import rgba.SkillShare.repository.AdmRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +24,6 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  *  Classe que define os endpoints para adm

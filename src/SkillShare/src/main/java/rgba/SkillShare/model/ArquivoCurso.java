@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +26,7 @@ public class ArquivoCurso {
     private long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_arquivo",referencedColumnName = "id")
+    @JoinColumn(name = "id_biblioteca",referencedColumnName = "id")
     private Biblioteca biblioteca;
 
     @OneToOne(cascade = CascadeType.ALL)

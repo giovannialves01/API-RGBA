@@ -21,7 +21,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.utils.EmailService;
