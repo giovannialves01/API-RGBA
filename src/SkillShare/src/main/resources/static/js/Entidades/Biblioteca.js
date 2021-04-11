@@ -52,10 +52,9 @@ class Biblioteca{
     toData(){
         let data = {
             nome: this.nome,
-            email: this.email,
-            cpf: this.cpf,
-            senha: this.senha,
-            contatos: this.contatos
+            autor: this.autor,
+            curso: this.curso,
+            arquivo: this.arquivo,
         };
 
         return data;

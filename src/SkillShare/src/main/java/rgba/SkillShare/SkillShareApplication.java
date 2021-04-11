@@ -1,12 +1,18 @@
 package rgba.SkillShare;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.model.Arquivo;
 import rgba.SkillShare.model.Biblioteca;
 import rgba.SkillShare.repository.AdmRepository;
 import rgba.SkillShare.repository.AlunoRepository;
@@ -34,7 +40,6 @@ public class SkillShareApplication implements CommandLineRunner {
     TutorRepository tRepository;
 	@Autowired
 	BibliotecaRepository bibliotecaRepository;
-
 	@Autowired 
     CursoRepository cursoRepository;
 	
@@ -60,13 +65,13 @@ public class SkillShareApplication implements CommandLineRunner {
 		}
 
 
-			Gestor nicholasGestor = new Gestor("012345678910", "Nicholas Gabriel dos Santos Roque", "nicholas.roque@skillshare.com", "nicholas1234");
-			gRepository.save(nicholasGestor);
+		Gestor nicholasGestor = new Gestor("012345678910", "Nicholas Gabriel dos Santos Roque", "nicholas.roque@skillshare.com", "nicholas1234");
+		gRepository.save(nicholasGestor);
 
-			Curso curso = new Curso("Curso de Informática Básica","Neste curso, serão apresentados os fundamentos da informática, além de como utilizar o pacote Office e como o computador funciona.");
-			curso.setGestor(nicholasGestor);
+		Curso curso = new Curso("Curso de Informática Básica","Neste curso, serão apresentados os fundamentos da informática, além de como utilizar o pacote Office e como o computador funciona.");
+		curso.setGestor(nicholasGestor);
 
-			cursoRepository.save(curso);
+		cursoRepository.save(curso);
 		
 		
 		if(tRepository.findAll().isEmpty()) {
@@ -80,11 +85,15 @@ public class SkillShareApplication implements CommandLineRunner {
 			alunoRepository.save(rafael);
 		}
 		
-		Biblioteca biblioteca = new Biblioteca("Nome do livro 1", "Nome do autor 1", "Curso 1", "arquivo.pdf");
-		bibliotecaRepository.save(biblioteca);
+		String filePath = "static\\files\\propostaApi.pdf";
+		Resource resource = new ClassPathResource(filePath);
 		
-		Biblioteca biblioteca2 = new Biblioteca("Nome do livro 2", "Nome do autor 2", "Sem curso definido", "arquivo2.pdf");
-		bibliotecaRepository.save(biblioteca2);
+		byte[] bytes = Files.readAllBytes(Paths.get(resource.getURI()));
+		
+		Arquivo livro = new Arquivo("Proposta API", bytes, ".pdf");
+		
+		Biblioteca biblioteca = new Biblioteca("Nome do livro 1", "Nome do autor 1", "Curso 1", livro);
+		bibliotecaRepository.save(biblioteca);
 		
 	}
 	

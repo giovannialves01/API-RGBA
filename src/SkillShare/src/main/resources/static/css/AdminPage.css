@@ -286,19 +286,6 @@ select{
     margin-bottom: 10px;
 }
 
-.bibliotecaForm > div > input{
-    width: 100%;
-    margin-left: 10px;
-    border: none;
-    border-bottom: 2px solid #0aada7;
-    font-size: 17px;
-}
-
-.bibliotecaForm > div > input:focus{
-    outline: none;
-    background-color: rgba(119, 136, 153, 0.2);
-}
-
 #inputUploadLivro{
     display: none;
 }
@@ -417,5 +404,18 @@ input[type = text]{
 }
 
 input[type = text]:focus{
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.dataField > input{
+    width: 100%;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+}
+
+.dataField >input:focus{
+    outline: none;
     background-color: rgba(119, 136, 153, 0.2);
 }

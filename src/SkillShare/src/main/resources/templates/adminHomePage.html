@@ -9,6 +9,7 @@
     <!-- CDN das depedências externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
     <!-- Rodar no Eclipse -->
@@ -24,6 +25,7 @@
     <link rel="stylesheet" href="css/Footer.css">
 
     <script src="js/Utils/ServerRequester.js"></script>
+    <script src="js/Utils/sendFile.js"></script>
 
     <script src="js/Componentes/BeautySelect.js"></script>
     <script src="js/Componentes/BeautyButton.js"></script>
@@ -65,19 +67,19 @@
     
                 <div class="separador"></div>
             </div>
-            <div class="bibliotecaForm">
-                <div>
-                    <label style="width: 145px;">Nome do livro:</label>
-                    <input type="text">
+            <form onsubmit="registerBook(event)" class="bibliotecaForm" id="bibliotecaRegistrar">
+                <div class="dataField">
+                    <label style="width: 145px;">Nome:</label>
+                    <input type="text" id="nomeLivro">
                 </div>
-                <div>
+                <div class="dataField">
                     <label>Autor:</label>
-                    <input type="text">
+                    <input type="text" id="nomeAutor">
                 </div>
 
                 <select id="selectCursoParaLivro">
                     <option selected disabled>Escolha um curso do tema do livro...</option>
-                    <option value="nenhum">Não específico</option>
+                    <option value="0">Não específico</option>
                 </select>
 
                 <label>Caso o tema do livro não seja específico de um curso, escolha “Não específico”</label>
@@ -90,10 +92,10 @@
 
 
                 <div class="buttonContainer">
-                    <button class="greenButton">Adicionar</button>
-                    <button class="redButton">Limpar campos</button>
+                    <input type="submit" class="greenButton" value="Adicionar">
+                    <input type="reset" class="redButton" value="Limpar campos">
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="hide" id="gerirBiblioteca">

@@ -99,13 +99,6 @@ async function registerUser(event) {
 
 }
 
-function registerBook(event) {
-    event.preventDefault();
-
-    console.log(event);
-    console.log(event.target);
-}
-
 function seeInfo() {
     let selectedRow = document.getElementsByClassName("selectedRow")[0];
 
@@ -147,19 +140,19 @@ async function loadUserToShow(perfil) {
 
     switch (perfil) {
         case "Aluno":
-            findAllPath = "/aluno/findAll";
+            findAllPath = "/alunos";
             break;
 
         case "Administrador":
-            findAllPath = "/adm/findAll";
+            findAllPath = "/adm";
             break;
             
         case "Gestor":
-            findAllPath = "/gestor/findAll";
+            findAllPath = "/gestor";
             break;
 
         case "Tutor":
-            findAllPath = "/tutor/findAll";
+            findAllPath = "/tutor";
             break;
     
         default:
@@ -395,12 +388,10 @@ async function deleteUser(userIdentifier, user) {
     let select = document.getElementById("userTypeEdit");
 
     let option = select.value;
-    
-    let response = await serverRequester.fazerPost("/alunos/cadastrar", user.toData());
 
     switch (option) {
         case "Aluno":
-            pathToDelete = "/aluno/delete";
+            pathToDelete = "/alunos/delete";
             break;
 
         case "Administrador":
@@ -562,15 +553,16 @@ function createManageButtons(entityIdentifier, entity) {
 }
 
 async function createSelectFieldBox(title, value, name, pathToPopulate, dataToList) {
-    /*let response = await serverRequester.fazerGet(pathToPopulate);
+    let response = await serverRequester.fazerGet("/cursos");
     let entitys = response["responseJson"];
     let entityDataToList = [];
+    dataToList = "titulo";
 
     for (let i = 0; i < entitys.length; i++) {
         const entity = entitys[i];
         
         entityDataToList.push(entity[dataToList]);
-    }*/
+    }
 
 
     let container = document.createElement("div");
@@ -591,7 +583,7 @@ async function createSelectFieldBox(title, value, name, pathToPopulate, dataToLi
     option1.textContent = "Não específico";
     dataSelect.appendChild(option1);
 
-    /*for (let i = 0; i < entityDataToList.length; i++) {
+    for (let i = 0; i < entityDataToList.length; i++) {
         const data = entityDataToList[i];
         
         let option = document.createElement("option");
@@ -599,7 +591,7 @@ async function createSelectFieldBox(title, value, name, pathToPopulate, dataToLi
         option.textContent = data;
 
         dataSelect.appendChild(option);
-    }*/
+    }
     dataSelect.classList.add("userDataFieldDisabled");
     dataSelect.value = value;
     dataSelect.disabled = true;
@@ -610,3 +602,47 @@ async function createSelectFieldBox(title, value, name, pathToPopulate, dataToLi
 
     return container;
 }
+
+async function loadAllCursos(){
+    let select = document.getElementById("selectCursoParaLivro");
+
+    let response = await serverRequester.fazerGet("/cursos");
+    let entitys = response["responseJson"];
+    let entityDataToList = [];
+    dataToList = "titulo";
+
+    for (let i = 0; i < entitys.length; i++) {
+        const entity = entitys[i];
+        
+        entityDataToList.push(entity[dataToList]);
+    }
+
+    for (let i = 0; i < entityDataToList.length; i++) {
+        const data = entityDataToList[i];
+        
+        let option = document.createElement("option");
+        option.value = data;
+        option.textContent = data;
+
+        select.appendChild(option);
+    }
+
+}
+
+async function registerBook(event) {
+    event.preventDefault();
+
+    let fileInput = document.getElementById("inputUploadLivro");
+    let inputNome = document.getElementById("nomeLivro");
+    let inpuAutor = document.getElementById("nomeAutor");
+    let select = document.getElementById("selectCursoParaLivro");
+
+    let cursoId = select.value;
+    let file = fileInput.files[0];
+
+    console.log(file);
+
+    alert("Chamando função para cadastrar livro");
+}
+
+loadAllCursos();
