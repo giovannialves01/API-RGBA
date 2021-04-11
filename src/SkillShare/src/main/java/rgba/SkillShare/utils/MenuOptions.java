@@ -205,7 +205,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Postar nova notícia/evento", "console.log(\"Postar nova notícia/evento\");"));
+		subOptions.put(this.criarSubOpcao("Postar nova notícia/evento", "hideAllContent();showContent('adicionarNoticiaEvento');"));
 		subOptions.put(this.criarSubOpcao("Gerir notícias/eventos", "console.log(\"Gerir notícias/eventos\");"));
 		
 		option = this.criarOpcao("Notícias e eventos", "calendar-day", "6", "Clique aqui para exibir o cadastro de eventos",
