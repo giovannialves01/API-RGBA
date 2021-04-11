@@ -63,6 +63,19 @@ class Usuario{
             cpf: this.cpf,
             senha: this.senha,
             contatos: this.contatos
+        }
+
+        return data;
+    }
+
+    async toTableData(){
+        let users = await serverRequester.fazerGet("/alunos", {});
+
+        let tableData = {};
+        tableData["columns"] = {
+            nome: "Nome",
+            cpf: "CPF",
+            email: "E-mail"
         };
 
         return data;

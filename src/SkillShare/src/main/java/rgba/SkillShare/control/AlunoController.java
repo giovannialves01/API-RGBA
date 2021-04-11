@@ -36,7 +36,7 @@ import rgba.SkillShare.utils.EmailService;
  */
 @RestController
 @CrossOrigin
-@RequestMapping("/aluno")
+@RequestMapping("/alunos")
 @Api("API de aluno")
 public class AlunoController {
 
@@ -69,7 +69,8 @@ public class AlunoController {
     * @return Retorna uma lista do objeto Aluno com todos os alunos. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna uma lista com todos os usuários do tipo aluno.")
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
     public List<Aluno> getAllAlunos(){
@@ -84,6 +85,7 @@ public class AlunoController {
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna os detalhes de um usuário do tipo aluno")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Usuário do tipo aluno encontrado com sucesso."),

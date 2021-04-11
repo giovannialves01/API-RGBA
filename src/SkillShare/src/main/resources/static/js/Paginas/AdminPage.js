@@ -395,6 +395,8 @@ async function deleteUser(userIdentifier, user) {
     let select = document.getElementById("userTypeEdit");
 
     let option = select.value;
+    
+    let response = await serverRequester.fazerPost("/alunos/cadastrar", user.toData());
 
     switch (option) {
         case "Aluno":

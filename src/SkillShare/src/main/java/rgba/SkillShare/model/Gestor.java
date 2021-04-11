@@ -1,6 +1,9 @@
 package rgba.SkillShare.model;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,10 +28,12 @@ public class Gestor extends Usuario{
     * @author Nicholas Roque
     */
 
-    //NÃO RETIRAR
     public Gestor(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }
+
+    @OneToMany(mappedBy = "gestor",cascade = CascadeType.ALL)
+    private List<Curso> cursos;
 
 
 }
