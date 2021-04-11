@@ -60,7 +60,7 @@ class Usuario{
     }
 
     async toTableData(){
-        let users = await serverRequester.fazerGet("/aluno/findAll", {});
+        let users = await serverRequester.fazerGet("/alunos", {});
 
         let tableData = {};
         tableData["columns"] = {

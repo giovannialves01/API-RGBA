@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sun.net.httpserver.HttpsConfigurator;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -89,7 +87,7 @@ public class UsuarioController {
 	 */
 	@PostMapping("/logar")
     @ApiOperation("Efetua o login do usuário.")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
 	@ApiResponses(value = {@ApiResponse(code = 200, message = "Usuário encontrado."), @ApiResponse(code = 500, message = "Usuário não encontrado.")})
 	public String logar(@RequestBody Login login, HttpSession sessao) {
 		Usuario usuario = usuarioRepository
