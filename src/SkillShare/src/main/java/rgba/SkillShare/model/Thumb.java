@@ -29,6 +29,10 @@ public class Thumb extends Arquivo{
     @JsonIgnore
     private Pilula pilula;
 
+    @OneToOne(mappedBy = "thumb")
+    @JsonIgnore
+    private Destaque destaque;
+
     /** 
     *  Cria uma instância da classe Thumb.
     * @param nomeArquivo -> nome do arquivo

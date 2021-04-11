@@ -3,11 +3,14 @@ package rgba.SkillShare.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,6 +40,9 @@ public class Destaque {
     @Column(nullable = false)
     private LocalDateTime data;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_thumb",referencedColumnName = "id")
+    private Thumb thumb;
 
     /** 
     *  Cria uma instância da classe Destaque.

@@ -20,14 +20,13 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import rgba.SkillShare.model.Arquivo;
 import rgba.SkillShare.model.Pilula;
 import rgba.SkillShare.model.Thumb;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.PilulaRepository;
 
 /**
- *  Classe que define os endpoints para curso
+ *  Classe que define os endpoints para pílula
  *  @author Nicholas Roque
  */
 @RestController
