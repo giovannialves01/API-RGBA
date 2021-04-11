@@ -39,8 +39,10 @@ public class Destaque {
 
 
     /** 
-    *  Cria uma instância da classe Contato.
-    * @param telefone -> telefone do usuario
+    *  Cria uma instância da classe Destaque.
+    * @param titulo -> titulo do destaque
+    * @param sinopse -> sinopse do destaque
+    * @param conteudo -> conteudo do destaque
     * @author Nicholas Roque
     */
 

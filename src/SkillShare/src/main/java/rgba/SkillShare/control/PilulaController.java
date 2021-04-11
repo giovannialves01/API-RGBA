@@ -22,6 +22,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.model.Arquivo;
 import rgba.SkillShare.model.Pilula;
+import rgba.SkillShare.model.Thumb;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.PilulaRepository;
 
@@ -51,11 +52,11 @@ public class PilulaController {
     @ApiOperation("Cria uma pílula.")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiResponse(code = 201,message = "Pílula criada com sucesso.")
-    public Pilula createPilula(@RequestParam MultipartFile arqu, Pilula pilula,Long idCurso) throws IOException {
-        Arquivo arq = new Arquivo(arqu.getOriginalFilename(),arqu.getBytes(),arqu.getContentType());
+    public Pilula createPilula(@RequestParam MultipartFile th, Pilula pilula,Long idCurso) throws IOException {
+        Thumb t = new Thumb(th.getOriginalFilename(),th.getBytes(),th.getContentType());
 		return cursoRepository.findById(idCurso)
             .map(curso->{
-		        pilula.setArquivo(arq);
+		        pilula.setThumb(t);
                 pilula.setCurso(curso);
                 pilulaRepository.save(pilula);
 		        return pilula;

@@ -1,13 +1,11 @@
 package rgba.SkillShare.model;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Lob;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,39 +16,30 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- *  Classe que define o arquivo
+ *  Classe que define o arquivo do tipo biblioteca 
  *  @author Nicholas Roque
  */
-@Entity(name="arquivo")
+@Entity(name="biblioteca")
 @NoArgsConstructor @AllArgsConstructor @Data @ToString
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Arquivo {
+public class Biblioteca extends Arquivo{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(nullable = false)
-    private String nomeArquivo;
-
-    @Lob
-    @Column(nullable = false)
-    private byte[] conteudo;
-
-    @Column(nullable = false)
-    private String tipoArquivo;
+    @OneToOne(mappedBy = "biblioteca")
+    @JsonIgnore
+    private ArquivoCurso arquivoCurso;
 
     /** 
-    *  Cria uma instância da classe Arquivo.
+    *  Cria uma instância da classe Biblioteca.
     * @param nomeArquivo -> nome do arquivo
     * @param conteudo -> arquivo
     * @param tipoArquivo -> tipoArquivo
     * @author Nicholas Roque
     */
-    public Arquivo(String nomeArquivo,byte[] conteudo,String tipoArquivo){
-        this.nomeArquivo = nomeArquivo;
-        this.conteudo = conteudo;
-        this.tipoArquivo = tipoArquivo;
+    public Biblioteca(String nomeArquivo,byte[] conteudo,String tipoArquivo){
+        super(nomeArquivo,conteudo,tipoArquivo);
     }
 
 }
