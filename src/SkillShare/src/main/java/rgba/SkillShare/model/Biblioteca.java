@@ -1,11 +1,10 @@
 package rgba.SkillShare.model;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,6 +26,12 @@ public class Biblioteca extends Arquivo{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(nullable = false)
+    private String titulo;
+
+    @Column
+    private String autor;
+    
     @OneToOne(mappedBy = "biblioteca")
     @JsonIgnore
     private ArquivoCurso arquivoCurso;
@@ -38,8 +43,13 @@ public class Biblioteca extends Arquivo{
     * @param tipoArquivo -> tipoArquivo
     * @author Nicholas Roque
     */
-    public Biblioteca(String nomeArquivo,byte[] conteudo,String tipoArquivo){
+    public Biblioteca(String nomeArquivo,byte[] conteudo,String tipoArquivo,String autor, String titulo){
         super(nomeArquivo,conteudo,tipoArquivo);
+        this.titulo = titulo;
+        this.autor = autor;
     }
-
+    public Biblioteca(String nomeArquivo,byte[] conteudo,String tipoArquivo, String titulo){
+        super(nomeArquivo,conteudo,tipoArquivo);
+        this.titulo = titulo;
+    }
 }

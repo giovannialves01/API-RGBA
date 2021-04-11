@@ -45,9 +45,11 @@ public class BibliotecaController {
     @ApiOperation("Faz upload de um material para a biblioteca.")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiResponse(code = 201,message = "Material postado com sucesso na biblioteca.")
-    public Biblioteca createBiblioteca(@RequestParam MultipartFile material) throws IOException {
-        Biblioteca b = new Biblioteca(material.getOriginalFilename(),material.getBytes(),material.getContentType());
-		return bibliotecaRepository.save(b);
+    public Biblioteca createBiblioteca(@RequestParam MultipartFile material,Biblioteca biblioteca) throws IOException {
+        biblioteca.setNomeArquivo(material.getOriginalFilename());
+        biblioteca.setTipoArquivo(material.getContentType());
+        biblioteca.setConteudo(material.getBytes());
+		return bibliotecaRepository.save(biblioteca);
 	}
 
     /** 

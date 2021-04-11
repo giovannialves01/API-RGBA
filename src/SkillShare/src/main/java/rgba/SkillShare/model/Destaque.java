@@ -37,8 +37,8 @@ public class Destaque {
     @Column(nullable = false)
     private String conteudo;
 
-    @Column(nullable = false)
-    private LocalDateTime data;
+    @Column
+    private LocalDateTime data = LocalDateTime.now();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_thumb",referencedColumnName = "id")
@@ -56,7 +56,6 @@ public class Destaque {
         this.titulo = titulo;
         this.sinopse = sinopse;
         this.conteudo = conteudo;
-        this.data = LocalDateTime.now();
     }
 
 }
