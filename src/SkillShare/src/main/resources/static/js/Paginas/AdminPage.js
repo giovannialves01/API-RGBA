@@ -503,8 +503,8 @@ async function saveChanges(userIdentifier, user) {
     disableEdit(userIdentifier, newUser);
 }
 
-function setInputLabelName(event) {
-    let label = event.target.nextElementSibling;
+function setInputLabelName(event, labelName) {
+    let label = document.getElementById(labelName);
     label.textContent = event.target.files.item(0).name;
     
 }
@@ -603,8 +603,8 @@ async function createSelectFieldBox(title, value, name, pathToPopulate, dataToLi
     return container;
 }
 
-async function loadAllCursos(){
-    let select = document.getElementById("selectCursoParaLivro");
+async function loadAllCursos(selectId){
+    let select = document.getElementById(selectId);
 
     let response = await serverRequester.fazerGet("/cursos");
     let entitys = response["responseJson"];
@@ -631,4 +631,92 @@ async function registerBook(event) {
     alert("Chamando função para cadastrar livro");
 }
 
-loadAllCursos();
+async function registerPilula(event) {
+    event.preventDefault();
+
+    let fileInput = document.getElementById("inputUploadPilula");
+    let inputTitulo = document.getElementById("tituloPilula");
+    let textFieldCorpo = document.getElementById("textAreaCriarPilula");
+    let select = document.getElementById("selectCursoParaPilula");
+
+    let cursoId = select.value;
+    let file = fileInput.files[0];
+
+    console.log(file);
+
+    alert("Chamando função para cadastrar pílulas");
+}
+
+async function registerNoticia(event){
+    event.preventDefault();
+
+    let fileInput = document.getElementById("inputUploadNoticia");
+    let inputTituloNoticia = document.getElementById("tituloNoticia");
+    let inputFonteNoticia = document.getElementById("fonteNoticia");
+    let textFieldSubtitulo = document.getElementById("textAreaSubtituloNoticia");
+    let textFieldCorpo = document.getElementById("textAreaCorpoNoticia");
+
+    let file = fileInput.files[0];
+
+    console.log(file);
+
+    alert("Chamando função para cadastrar noticia");
+}
+
+
+async function registerEvento(event){
+    event.preventDefault();
+
+    let inputTituloEvento = document.getElementById("tituloEvento");
+    let textFieldSubtitulo = document.getElementById("textAreaSubtituloEvento");
+    let textFieldCorpo = document.getElementById("textAreaCorpoEvento");
+
+    alert("Chamando função para cadastrar evento");
+}
+
+function showEvento() {
+    let formNoticia = document.getElementById("formNoticia");
+    let formEvento = document.getElementById("formEvento");
+    let chooserNoticia = document.getElementById("chooseBarNoticia");
+    let chooserEvento = document.getElementById("chooseBarEvento");
+
+    formNoticia.classList.remove("showChoose");
+    formEvento.classList.remove("hideChoose");
+
+    formNoticia.classList.add("hideChoose");
+    formEvento.classList.add("showChoose");
+
+    chooserNoticia.classList.remove("choosed");
+    chooserEvento.classList.remove("notChoosed");
+
+    chooserNoticia.classList.add("notChoosed");
+    chooserEvento.classList.add("choosed");
+
+}
+
+function showNoticia() {
+    let formNoticia = document.getElementById("formNoticia");
+    let formEvento = document.getElementById("formEvento");
+    let chooserNoticia = document.getElementById("chooseBarNoticia");
+    let chooserEvento = document.getElementById("chooseBarEvento");
+
+    formNoticia.classList.remove("hideChoose");
+    formEvento.classList.remove("showChoose");
+
+    formNoticia.classList.add("showChoose");
+    formEvento.classList.add("hideChoose");
+
+    chooserNoticia.classList.remove("notChoosed");
+    chooserEvento.classList.remove("choosed");
+
+    chooserNoticia.classList.add("choosed");
+    chooserEvento.classList.add("notChoosed");
+}
+
+function clearFileLabel(event, labelName){
+    let label = document.getElementById(labelName);
+    label.textContent = "Nada escolhido";
+}
+
+loadAllCursos("selectCursoParaLivro");
+loadAllCursos("selectCursoParaPilula");

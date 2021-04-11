@@ -194,10 +194,6 @@ select{
     width: 90%;
 }
 
-.data{
-    
-}
-
 .data > div > div{
     display: flex;
     flex-direction: column;
@@ -313,6 +309,10 @@ select{
     align-items: center;
 }
 
+.inputFile > input{
+    display: none;
+}
+
 #gerirBiblioteca > div > p, #gerirBiblioteca > div > h1{
     text-align: center;
 }
@@ -401,6 +401,7 @@ input[type = text]{
     border-bottom: 2px solid #0aada7;
     font-size: 17px;
     outline: none;
+    width: 100%;
 }
 
 input[type = text]:focus{
@@ -418,4 +419,81 @@ input[type = text]:focus{
 .dataField >input:focus{
     outline: none;
     background-color: rgba(119, 136, 153, 0.2);
+}
+
+.noticiaForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.inputUploadNoticia{
+    display: none;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header > p, .header > h1{
+    text-align: center;
+}
+
+.chooserEventoNoticia{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#noticia{
+    width: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#noticia > label{
+    cursor: pointer;
+}
+
+#evento{
+    width: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.281);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#evento > label{
+    cursor: pointer;
+}
+
+.choosed{
+    background-color: #0aada7;
+    width: 100%;
+    height: 10px;
+}
+
+.notChoosed{
+    background-color: transparent;
+    width: 100%;
+    height: 10px;
+}
+
+.hideChoose{
+    display: none;
+}
+
+.showChoose{
+    display: block;
+}
+
+.eventoForm{
+    margin-top: 50px;
 }
