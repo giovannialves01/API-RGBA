@@ -625,7 +625,7 @@ async function registerBook(event) {
         url="http://localhost:8080/biblioteca/cadastrar"
     }
     else{
-        url="http://localhost:8080/biblioteca/cadastrar/curso"
+        url="http://localhost:8080/cursos/biblioteca/cadastrar"
     }
     sendFile(formData,url)
     alert("Chamando função para cadastrar livro");
