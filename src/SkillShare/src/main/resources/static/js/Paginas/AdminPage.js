@@ -654,7 +654,8 @@ async function registerBook(event) {
     let form = $('#bibliotecaRegistrar')[0];
     let formData = new FormData(form);   
     let url
-    if($('#selectCursoParaLivro').val()==0){
+    let opt = $('#selectCursoParaLivro').val()
+    if((opt==0)||(opt==undefined)||(opt==null)){
         url=`${serverRequester.serverURL}/biblioteca/cadastrar`
     }
     else{
