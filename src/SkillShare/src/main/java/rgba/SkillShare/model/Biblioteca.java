@@ -1,5 +1,6 @@
 package rgba.SkillShare.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,15 +23,28 @@ public class Biblioteca extends Arquivo{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column
+    private String autor;
+
+    @Column(nullable = false)
+    private String titulo;
+
     /** 
     *  Cria uma instância da classe Biblioteca.
-    * @param nomeArquivo -> nome do arquivo
+    * @param tituloArquivo -> titulo do arquivo
     * @param conteudo -> arquivo
     * @param tipoArquivo -> tipoArquivo
     * @author Nicholas Roque
     */
-    public Biblioteca(String nomeArquivo,byte[] conteudo,String tipoArquivo){
-        super(nomeArquivo,conteudo,tipoArquivo);
+    public Biblioteca(String tituloArquivo,byte[] conteudo,String tipoArquivo,String titulo){
+        super(tituloArquivo,conteudo,tipoArquivo);
+        this.titulo = titulo;
+    }
+
+    public Biblioteca(String tituloArquivo,byte[] conteudo,String tipoArquivo,String titulo,String autor){
+        super(tituloArquivo,conteudo,tipoArquivo);
+        this.titulo = titulo;
+        this.autor = autor;
     }
 
 }

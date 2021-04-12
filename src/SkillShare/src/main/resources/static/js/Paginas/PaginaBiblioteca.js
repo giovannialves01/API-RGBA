@@ -4,11 +4,12 @@ window.onload = async function carregarConteudo () {
     conteudoOpcao.innerHTML = "";
 
     let resposta = await serverRequester.fazerGet("/biblioteca");
+
     let livros = resposta.responseJson;
 
     for (let i = 0; i < livros.length; i++) {
         const livro = livros[i];
-        
+
         let biblioteca = new Biblioteca(livro);
 
         let row_material = document.createElement("div");

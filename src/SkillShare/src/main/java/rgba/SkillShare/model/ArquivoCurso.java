@@ -32,16 +32,4 @@ public class ArquivoCurso {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_curso",referencedColumnName = "id")
     private Curso curso;
-
-    /** 
-    *  Cria uma instância da classe ArquivoCurso.
-    * @param nomeArquivo -> nome do arquivo
-    * @param conteudo -> arquivo
-    * @param tipoArquivo -> tipoArquivo
-    * @author Nicholas Roque
-    */
-    public ArquivoCurso(String nomeArquivo,byte[] conteudo,String tipoArquivo){
-    
-    }
-
 }

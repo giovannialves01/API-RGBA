@@ -621,11 +621,12 @@ async function registerBook(event) {
     let form = $('#bibliotecaRegistrar')[0];
     let formData = new FormData(form);   
     let url
-    if($('#selectCursoParaLivro').val()==0){
-        url="http://localhost:8080/biblioteca/cadastrar"
+    let opt = $('#selectCursoParaLivro').val()
+    if((opt==0)||(opt==undefined)||(opt==null)){
+        url=`${serverRequester.serverURL}/biblioteca/cadastrar`
     }
     else{
-        url="http://localhost:8080/biblioteca/cadastrar/curso"
+        url=`${serverRequester.serverURL}/cursos/biblioteca/cadastrar`
     }
     sendFile(formData,url)
     alert("Chamando função para cadastrar livro");
