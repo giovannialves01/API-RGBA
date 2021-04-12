@@ -718,5 +718,4 @@ function clearFileLabel(event, labelName){
     label.textContent = "Nada escolhido";
 }
 
-loadAllCursos("selectCursoParaLivro");
 loadAllCursos("selectCursoParaPilula");
