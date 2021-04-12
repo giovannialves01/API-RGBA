@@ -1,9 +1,9 @@
-async function carregarOpcao3 () {
+window.onload = async function carregarConteudo () {
 
     let conteudoOpcao = document.getElementById("conteudo-opcao");
     conteudoOpcao.innerHTML = "";
 
-    let resposta = await serverRequester.fazerGet("/biblioteca/findAll");
+    let resposta = await serverRequester.fazerGet("/biblioteca");
     let livros = resposta.responseJson;
 
     for (let i = 0; i < livros.length; i++) {

@@ -91,7 +91,7 @@ public class PathController {
 		return "login";
 	}
 	
-	@GetMapping(value = "/biblioteca")
+	@GetMapping(value = "/acervo")
 	public String paginaBiblioteca(HttpSession sessao) {
 		
 		return "paginaBiblioteca";
