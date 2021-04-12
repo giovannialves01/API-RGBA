@@ -7,16 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.model.Biblioteca;
 import rgba.SkillShare.repository.BibliotecaRepository;
 
@@ -62,4 +65,25 @@ public class BibliotecaController {
     public List<Biblioteca> getBiblioteca() {
         return bibliotecaRepository.findAll();
     }
+
+    /** 
+    *  Endpoint para retornar todos os materiais presentes nas bibliotecas.
+    * @return Retorna uma lista de objetos do tipo Biblioteca.
+    * @author Nicholas Roque
+    */
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna o material com o id especificado.")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Material encontrado com sucesso para o id informado."),
+        @ApiResponse(code = 404,message = "Material não encontrado para o id informado.")
+   })
+    public Biblioteca getBibliotecaById(@PathVariable Long id) {
+        return bibliotecaRepository.findById(id)
+            .orElseThrow(()->
+               new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrado.")
+            );
+    }
+
+    
 }
