@@ -46,7 +46,7 @@ public class DestaqueController {
     @ApiOperation("Cria um destaque.")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiResponse(code = 201,message = "Destaque criada com sucesso.")
-    public Destaque createPilula(@RequestParam MultipartFile th, Destaque destaque) throws IOException {
+    public Destaque createDestaque(@RequestParam MultipartFile th, Destaque destaque) throws IOException {
         Thumb t = new Thumb(th.getOriginalFilename(),th.getBytes(),th.getContentType());
         destaque.setThumb(t);
 		return destaqueRepository.save(destaque);
@@ -62,7 +62,7 @@ public class DestaqueController {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna todos os destaques.")
     @ApiResponse(code = 200,message = "Destaques encontrados com sucesso..")
-    public List<Destaque> getPilulasByCurso() {
+    public List<Destaque> getDestaques() {
         return destaqueRepository.findAll();
     }
 }
