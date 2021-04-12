@@ -216,7 +216,7 @@ async function loadUserToShow(perfil) {
 }
 
 async function loadBooksToShow() {
-    let response = await serverRequester.fazerGet("/biblioteca/findAll");
+    let response = await serverRequester.fazerGet("/biblioteca");
 
     let books = response["responseJson"];
 
@@ -233,7 +233,6 @@ async function loadBooksToShow() {
         let dataDiv = document.createElement("div");
         dataDiv.classList.add("bookData");
 
-
         let bookDataDiv = document.createElement("div");
 
         let bookNameDiv = createFieldBox("Nome do livro:", book.getNome(), "nomeDoLivro");
@@ -244,12 +243,10 @@ async function loadBooksToShow() {
 
         let bookMiscDiv = document.createElement("div");
 
-        let bookCursoDiv = await createSelectFieldBox("Curso de tema:", book.getCurso(), "cursoDeTema");
         let showContentButton = document.createElement("button");
         showContentButton.textContent = "Visualizar material";
         showContentButton.classList.add("visualizeMaterial");
 
-        bookMiscDiv.appendChild(bookCursoDiv);
         bookMiscDiv.appendChild(showContentButton);
 
         let manageButtonsDiv = createManageButtons(bookIdentifier, book);
@@ -307,11 +304,15 @@ async function enableEdit(userIdentifier, user) {
         }
     }
 
-    for (let i = 0; i < fields.length - 1; i++) {
+    for (let i = 0; i < fields.length; i++) {
         const field = fields[i];
         
-        field.className = "userDataFieldEnabled";
-        field.disabled = false;
+        if(field.className == ("userDataFieldDisabled")){
+            field.className = "userDataFieldEnabled";
+            field.disabled = false;
+            
+        }
+
     }
 
 }
@@ -343,39 +344,68 @@ async function disableEdit(userIdentifier, user) {
         }
     }
 
-    for (let i = 0; i < fields.length - 1; i++) {
+    for (let i = 0; i < fields.length; i++) {
         const field = fields[i];
         
-        field.className = "userDataFieldDisabled";
-        field.disabled = true;
+        if(field.classList.contains("userDataFieldEnabled")){
+            field.className = "userDataFieldDisabled";
+            field.disabled = true;
+
+        }
+
     }
+
 }
 
-function undoChanges(userIdentifier, user){
-    let editableUser = document.getElementById(userIdentifier);
+function undoChanges(entityIdentifier, entity){
+    let editableUser = document.getElementById(entityIdentifier);
 
     let fields = editableUser.getElementsByTagName("input");
 
-    for (let i = 0; i < fields.length - 1; i++) {
-        const field = fields[i];
+    let entityType = entity.constructor.name;
 
-        switch (field.name){
-            case "nome":
-                field.value = user.getNome();
-                break;
-
-            case "cpf":
-                field.value = user.getCpf();
-                break;
-
-            case "email":
-                field.value = user.getEmail();
-                break; 
+    if(entityType == "Usuario"){
+        for (let i = 0; i < fields.length - 1; i++) {
+            const field = fields[i];
+    
+            switch (field.name){
+                case "nome":
+                    field.value = entity.getNome();
+                    break;
+    
+                case "cpf":
+                    field.value = entity.getCpf();
+                    break;
+    
+                case "email":
+                    field.value = entity.getEmail();
+                    break; 
+    
+            }
+            
         }
-        
+
+    }else if(entityType == "Biblioteca"){
+        for (let i = 0; i < fields.length - 1; i++) {
+            const field = fields[i];
+    
+            switch (field.name){
+                case "autor":
+                    field.value = entity.getAutor();
+                    break;
+    
+                case "nomeDoLivro":
+                    field.value = entity.getNome();
+                    break;
+    
+            }
+            
+        }
+
     }
 
-    disableEdit(userIdentifier, user);
+
+    disableEdit(entityIdentifier, entity);
 }
 
 async function deleteUser(userIdentifier, user) {
@@ -518,6 +548,9 @@ function createFieldBox(title, value, name) {
 
     let dataLabel = document.createElement("input");
     dataLabel.classList.add("userDataFieldDisabled");
+    if(title == "Perfil"){
+        dataLabel.classList.add("notEditable");
+    }
     dataLabel.value = value;
     dataLabel.disabled = true;
     dataLabel.name = name;
@@ -622,13 +655,13 @@ async function registerBook(event) {
     let formData = new FormData(form);   
     let url
     if($('#selectCursoParaLivro').val()==0){
-        url="http://localhost:8080/biblioteca/cadastrar"
+        url=`${serverRequester.serverURL}/biblioteca/cadastrar`
     }
     else{
-        url="http://localhost:8080/cursos/biblioteca/cadastrar"
+        url=`${serverRequester.serverURL}/cursos/biblioteca/cadastrar`
     }
-    sendFile(formData,url)
     alert("Chamando função para cadastrar livro");
+    sendFile(formData,url);
 }
 
 async function registerPilula(event) {
@@ -718,5 +751,4 @@ function clearFileLabel(event, labelName){
     label.textContent = "Nada escolhido";
 }
 
-loadAllCursos("selectCursoParaLivro");
 loadAllCursos("selectCursoParaPilula");

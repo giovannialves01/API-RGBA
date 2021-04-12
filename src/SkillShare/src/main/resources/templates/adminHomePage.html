@@ -78,19 +78,11 @@
                     <input type="text" name="autor" id="nomeAutor">
                 </div>
 
-                <select name="idCurso" required id="selectCursoParaLivro">
-                    <option selected value="" disabled >Escolha um curso do tema do livro...</option>
-                    <option value="0">Não específico</option>
-                </select>
-
-                <label>Caso o tema do livro não seja específico de um curso, escolha “Não específico”</label>
-
                 <div class="inputFile">
                     <label for="inputUploadLivro" class="inputUploadButton">Escolher arquivo...</label>
                     <input type="file" required id="inputUploadLivro" name="material" onchange="setInputLabelName(event, 'labelFileNameLivro')">
                     <label id="labelFileNameLivro">Selecione um arquivo</label>
                 </div>
-
 
                 <div class="buttonContainer">
                     <input type="submit" class="greenButton" value="Adicionar">
@@ -270,7 +262,7 @@
             </div>
 
 
-            <form class="noticiaForm hideChoose" id="formNoticia" onsubmit="registerNoticia(event)" onreset="clearFileLabel(event, 'labelFileNameNoticia')">
+            <form class="noticiaForm showChoose" id="formNoticia" onsubmit="registerNoticia(event)" onreset="clearFileLabel(event, 'labelFileNameNoticia')">
                 <div style="width: 90%; margin: 0 auto;">
                     <div style="width: 100%; display: flex; margin-bottom: 20px;">
                         <label>Título:</label>
@@ -285,7 +277,7 @@
                     <div class="inputFile">
                         <label for="inputUploadNoticia" class="inputUploadButton">Escolher imagem...</label>
                         <input type="file" id="inputUploadNoticia" onchange="setInputLabelName(event, 'labelFileNameNoticia')">
-                        <label id="labelFileNameNoticia">Selecione uma imagem</label>
+                        <label id="labelFileNameNoticia">Selecione uma imagem de thumbnail</label>
                     </div>
 
                     <div class="textField">

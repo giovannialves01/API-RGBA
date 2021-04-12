@@ -64,6 +64,9 @@ class TopBar extends HTMLElement{
     buildTopBarTitle(){
         let label = document.createElement("label");
         label.classList.add("topBarTitle");
+        label.onclick = function () {
+            window.location.href = "/";
+        }
         
         let negrito = document.createElement("b");
         negrito.textContent = "SkillShare";
