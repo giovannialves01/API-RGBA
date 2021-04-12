@@ -145,6 +145,7 @@
 select{
     padding: 5px;
     border-radius: 0px;
+    width: fit-content;
 }
 
 .separador{
@@ -191,10 +192,6 @@ select{
     justify-content: space-between;
     margin: 0 auto;
     width: 90%;
-}
-
-.data{
-    
 }
 
 .data > div > div{
@@ -285,20 +282,11 @@ select{
     margin-bottom: 10px;
 }
 
-.bibliotecaForm > div > input{
-    width: 100%;
-    margin-left: 10px;
-    border: none;
-    border-bottom: 2px solid #0aada7;
-    font-size: 17px;
-}
-
-.bibliotecaForm > div > input:focus{
-    outline: none;
-    background-color: rgba(119, 136, 153, 0.2);
-}
-
 #inputUploadLivro{
+    display: none;
+}
+
+#inputUploadPilula{
     display: none;
 }
 
@@ -317,8 +305,12 @@ select{
 
 .inputFile{
     display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
     align-items: center;
+}
+
+.inputFile > input{
+    display: none;
 }
 
 #gerirBiblioteca > div > p, #gerirBiblioteca > div > h1{
@@ -362,4 +354,146 @@ select{
 
 .visualizeMaterial:active{
     background-color: #3ae2dd;
+}
+
+.pilulaForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.pilulaForm > div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    place-items: flex-start;
+    margin-top: 50px;
+}
+
+.textField{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputFilePilula{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inputFilePilula > #labelFileName{
+    margin-left: 50px;
+}
+
+.buttonContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    place-content: space-between;
+    margin-top: 50px;
+}
+
+input[type = text]{
+    margin-left: 10px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+    outline: none;
+    width: 100%;
+}
+
+input[type = text]:focus{
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.dataField > input{
+    width: 100%;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+}
+
+.dataField >input:focus{
+    outline: none;
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.noticiaForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.inputUploadNoticia{
+    display: none;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header > p, .header > h1{
+    text-align: center;
+}
+
+.chooserEventoNoticia{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#noticia{
+    width: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#noticia > label{
+    cursor: pointer;
+}
+
+#evento{
+    width: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.281);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#evento > label{
+    cursor: pointer;
+}
+
+.choosed{
+    background-color: #0aada7;
+    width: 100%;
+    height: 10px;
+}
+
+.notChoosed{
+    background-color: transparent;
+    width: 100%;
+    height: 10px;
+}
+
+.hideChoose{
+    display: none;
+}
+
+.showChoose{
+    display: block;
+}
+
+.eventoForm{
+    margin-top: 50px;
 }

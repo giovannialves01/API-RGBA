@@ -9,6 +9,8 @@
     <!-- CDN das depedências externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
     <!-- Rodar no Eclipse -->
@@ -24,6 +26,7 @@
     <link rel="stylesheet" href="css/Footer.css">
 
     <script src="js/Utils/ServerRequester.js"></script>
+    <script src="js/Utils/sendFile.js"></script>
 
     <script src="js/Componentes/BeautySelect.js"></script>
     <script src="js/Componentes/BeautyButton.js"></script>
@@ -65,35 +68,35 @@
     
                 <div class="separador"></div>
             </div>
-            <div class="bibliotecaForm">
-                <div>
-                    <label style="width: 145px;">Nome do livro:</label>
-                    <input type="text">
+            <form onsubmit="registerBook(event)" class="bibliotecaForm" id="bibliotecaRegistrar" enctype="multipart/form-data" onreset="clearFileLabel(event, 'labelFileNameLivro')">
+                <div class="dataField">
+                    <label>Nome:</label>
+                    <input type="text" required name="titulo" id="nomeLivro">
                 </div>
-                <div>
+                <div class="dataField">
                     <label>Autor:</label>
-                    <input type="text">
+                    <input type="text" name="autor" id="nomeAutor">
                 </div>
 
-                <select id="selectCursoParaLivro">
-                    <option selected disabled>Escolha um curso do tema do livro...</option>
-                    <option value="nenhum">Não específico</option>
+                <select name="idCurso" required id="selectCursoParaLivro">
+                    <option selected value="" disabled >Escolha um curso do tema do livro...</option>
+                    <option value="0">Não específico</option>
                 </select>
 
                 <label>Caso o tema do livro não seja específico de um curso, escolha “Não específico”</label>
 
                 <div class="inputFile">
                     <label for="inputUploadLivro" class="inputUploadButton">Escolher arquivo...</label>
-                    <input type="file" id="inputUploadLivro" onchange="setInputLabelName(event)">
-                    <label id="labelFileName">Selecione um arquivo</label>
+                    <input type="file" required id="inputUploadLivro" name="material" onchange="setInputLabelName(event, 'labelFileNameLivro')">
+                    <label id="labelFileNameLivro">Selecione um arquivo</label>
                 </div>
 
 
                 <div class="buttonContainer">
-                    <button class="greenButton">Adicionar</button>
-                    <button class="redButton">Limpar campos</button>
+                    <input type="submit" class="greenButton" value="Adicionar">
+                    <input type="reset" class="redButton" value="Limpar campos">
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="hide" id="gerirBiblioteca">
@@ -192,6 +195,139 @@
             <div id="usersToShow">
 
             </div>
+        </div>
+
+        <!-- Pílulas -->
+        <!-- Adicionar pílula-->
+        <div class="hide" id="adicionarPilula">
+            <div class="adicionarConteudoBiblioteca">
+                <h1>Criar nova pílula de conhecimento</h1>
+                <p>
+                    A biblioteca da SkillShare é um local onde ficam postados arquivos PDFs no qual os alunos tem acesso a este</br>
+                    material, dessa forma podem incrementar ainda mais seus conhecimentos
+                </p>
+    
+                <div class="separador"></div>
+            </div>
+
+            <form class="pilulaForm" onsubmit="registerPilula(event)" onreset="clearFileLabel(event, 'labelFileNamePilula')">
+                <select id="selectCursoParaPilula">
+                    <option selected disabled>Escolha um curso do tema do livro...</option>
+                    <option value="0">Não específico</option>
+                </select>
+
+                <div>
+                    <div style="width: 100%; display: flex;">
+                        <label>Título:</label>
+                        <input type="text" id="tituloPilula">
+                    </div>
+    
+                    <div class="inputFilePilula">
+                        <label for="inputUploadPilula" class="inputUploadButton">Escolher arquivo...</label>
+                        <input type="file" id="inputUploadPilula" onchange="setInputLabelName(event, 'labelFileNamePilula')">
+                        <label id="labelFileNamePilula">Selecione um arquivo</label>
+                    </div>
+    
+                    <div class="textField">
+                        <label>Texto do corpo</label>
+                        <textarea id="textAreaCriarPilula" cols="30" rows="10"></textarea>
+                    </div>
+
+    
+                    <div class="buttonContainer">
+                        <input type="submit" class="greenButton" value="Adicionar">
+                        <input type="reset" class="redButton" value="Limpar campos">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <!-- Notícias/Eventos -->
+        <!-- Adicionar -->
+        <div class="hide" id="adicionarNoticiaEvento">
+            <div class="header">
+                <h1>Inserir nova notícia/evento</h1>
+                <p>
+                    Notícias e eventos são conteúdos que ficam disponíveis aos alunos em suas páginas principais,</br>
+                    com o intuíto de que os gestores e administradores possam fornecer conhecimentos diversos que não se</br>
+                    relacionam necessariamente com uma disciplina e mante-los atualizados com os acontecimentos do mundo
+                </p>
+    
+                <div class="separador"></div>
+            </div>
+
+            <div class="chooserEventoNoticia">
+                <div id="noticia" onclick="showNoticia()">
+                    <label>Notícia</label>
+                    <div id="chooseBarNoticia" class="choosed"></div>
+                </div>
+                <div id="evento" onclick="showEvento()">
+                    <label>Evento</label>
+                    <div id="chooseBarEvento" class="notChoosed"></div>
+                </div>
+            </div>
+
+
+            <form class="noticiaForm hideChoose" id="formNoticia" onsubmit="registerNoticia(event)" onreset="clearFileLabel(event, 'labelFileNameNoticia')">
+                <div style="width: 90%; margin: 0 auto;">
+                    <div style="width: 100%; display: flex; margin-bottom: 20px;">
+                        <label>Título:</label>
+                        <input type="text" id="tituloNoticia">
+                    </div>
+
+                    <div style="width: 100%; display: flex;">
+                        <label>Fonte:</label>
+                        <input type="text" id="fonteNoticia">
+                    </div>
+                    
+                    <div class="inputFile">
+                        <label for="inputUploadNoticia" class="inputUploadButton">Escolher imagem...</label>
+                        <input type="file" id="inputUploadNoticia" onchange="setInputLabelName(event, 'labelFileNameNoticia')">
+                        <label id="labelFileNameNoticia">Selecione uma imagem</label>
+                    </div>
+
+                    <div class="textField">
+                        <label>Subtitulo</label>
+                        <textarea id="textAreaSubtituloNoticia" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <div class="textField">
+                        <label>Texto do corpo</label>
+                        <textarea id="textAreaCorpoNoticia" cols="30" rows="10"></textarea>
+                    </div>
+    
+                    <div class="buttonContainer">
+                        <input type="submit" class="greenButton" value="Adicionar">
+                        <input type="reset" class="redButton" value="Limpar campos">
+                    </div>
+                </div>
+            </form>
+
+            <form class="eventoForm hideChoose" id="formEvento" onsubmit="registerEvento(event)">
+                <div style="width: 90%; margin: 0 auto;">
+                    <div style="width: 100%; display: flex; margin-bottom: 20px;">
+                        <label>Título:</label>
+                        <input type="text" id="tituloEvento">
+                    </div>
+
+                    <div class="textField">
+                        <label>Subtitulo</label>
+                        <textarea id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <div class="textField">
+                        <label>Texto do corpo</label>
+                        <textarea id="textAreaCorpoEvento" cols="30" rows="10"></textarea>
+                    </div>
+    
+                    <div class="buttonContainer">
+                        <input type="submit" class="greenButton" value="Adicionar">
+                        <input type="reset" class="redButton" value="Limpar campos">
+                    </div>
+                </div>
+            </form>
         </div>
 
     </div>

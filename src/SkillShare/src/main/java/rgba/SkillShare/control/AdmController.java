@@ -1,8 +1,6 @@
 package rgba.SkillShare.control;
 
 import rgba.SkillShare.model.Adm;
-import rgba.SkillShare.model.Contato;
-import rgba.SkillShare.model.Usuario;
 import rgba.SkillShare.repository.AdmRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +24,6 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  *  Classe que define os endpoints para adm
@@ -47,8 +44,8 @@ public class AdmController {
     * @author Nicholas Roque
     */
     @PostMapping("/cadastrar")
-    @ApiOperation("Cria um usuário do tipo administrador.")
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Cria um usuário do tipo administrador.")
     @ApiResponse(code = 201,message = "Usuário criado com sucesso.")
     public Adm createAdm(@RequestBody @ApiParam("Informações do administrador.") Adm adm){
         System.out.println(adm.toString());
@@ -59,9 +56,10 @@ public class AdmController {
     * @return Retorna uma lista do objeto Adm com todos os administradores.
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
-    @ApiOperation("Retorna uma lista com todos os usuários do tipo administrador.")
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
+    @ApiOperation("Retorna uma lista com todos os usuários do tipo administrador.")
     public List<Adm> getAllAdm(){
         return admRepository.findAll();
     }
@@ -74,6 +72,7 @@ public class AdmController {
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna os detalhes de um usuário do tipo administrador.")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Usuário do tipo aluno encontrado com sucesso."),

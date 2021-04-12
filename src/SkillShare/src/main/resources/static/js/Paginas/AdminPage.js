@@ -99,13 +99,6 @@ async function registerUser(event) {
 
 }
 
-function registerBook(event) {
-    event.preventDefault();
-
-    console.log(event);
-    console.log(event.target);
-}
-
 function seeInfo() {
     let selectedRow = document.getElementsByClassName("selectedRow")[0];
 
@@ -147,19 +140,19 @@ async function loadUserToShow(perfil) {
 
     switch (perfil) {
         case "Aluno":
-            findAllPath = "/aluno/findAll";
+            findAllPath = "/alunos";
             break;
 
         case "Administrador":
-            findAllPath = "/adm/findAll";
+            findAllPath = "/adm";
             break;
             
         case "Gestor":
-            findAllPath = "/gestor/findAll";
+            findAllPath = "/gestor";
             break;
 
         case "Tutor":
-            findAllPath = "/tutor/findAll";
+            findAllPath = "/tutor";
             break;
     
         default:
@@ -398,7 +391,7 @@ async function deleteUser(userIdentifier, user) {
 
     switch (option) {
         case "Aluno":
-            pathToDelete = "/aluno/delete";
+            pathToDelete = "/alunos/delete";
             break;
 
         case "Administrador":
@@ -510,8 +503,8 @@ async function saveChanges(userIdentifier, user) {
     disableEdit(userIdentifier, newUser);
 }
 
-function setInputLabelName(event) {
-    let label = document.getElementById("labelFileName");
+function setInputLabelName(event, labelName) {
+    let label = document.getElementById(labelName);
     label.textContent = event.target.files.item(0).name;
     
 }
@@ -560,15 +553,16 @@ function createManageButtons(entityIdentifier, entity) {
 }
 
 async function createSelectFieldBox(title, value, name, pathToPopulate, dataToList) {
-    /*let response = await serverRequester.fazerGet(pathToPopulate);
+    let response = await serverRequester.fazerGet("/cursos");
     let entitys = response["responseJson"];
     let entityDataToList = [];
+    dataToList = "titulo";
 
     for (let i = 0; i < entitys.length; i++) {
         const entity = entitys[i];
         
         entityDataToList.push(entity[dataToList]);
-    }*/
+    }
 
 
     let container = document.createElement("div");
@@ -578,7 +572,18 @@ async function createSelectFieldBox(title, value, name, pathToPopulate, dataToLi
     titleLabel.classList.add("titleLabel");
 
     let dataSelect = document.createElement("select");
-    /*for (let i = 0; i < entityDataToList.length; i++) {
+    let option0 = document.createElement("option");
+    option0.value = "0";
+    option0.textContent = "Escolha um curso...";
+    option0.disabled = true;
+    dataSelect.appendChild(option0);
+
+    let option1 = document.createElement("option");
+    option1.value = "Não específico";
+    option1.textContent = "Não específico";
+    dataSelect.appendChild(option1);
+
+    for (let i = 0; i < entityDataToList.length; i++) {
         const data = entityDataToList[i];
         
         let option = document.createElement("option");
@@ -586,7 +591,7 @@ async function createSelectFieldBox(title, value, name, pathToPopulate, dataToLi
         option.textContent = data;
 
         dataSelect.appendChild(option);
-    }*/
+    }
     dataSelect.classList.add("userDataFieldDisabled");
     dataSelect.value = value;
     dataSelect.disabled = true;
@@ -597,3 +602,121 @@ async function createSelectFieldBox(title, value, name, pathToPopulate, dataToLi
 
     return container;
 }
+
+async function loadAllCursos(selectId){
+    let select = document.getElementById(selectId);
+
+    let response = await serverRequester.fazerGet("/cursos");
+    let entitys = response["responseJson"];
+    entitys.forEach(curso => {
+        let option = document.createElement("option");
+        option.value = curso.id;
+        option.textContent = curso.titulo;
+        select.appendChild(option);
+    });
+}
+
+async function registerBook(event) {
+    event.preventDefault();
+    let form = $('#bibliotecaRegistrar')[0];
+    let formData = new FormData(form);   
+    let url
+    if($('#selectCursoParaLivro').val()==0){
+        url="http://localhost:8080/biblioteca/cadastrar"
+    }
+    else{
+        url="http://localhost:8080/biblioteca/cadastrar/curso"
+    }
+    sendFile(formData,url)
+    alert("Chamando função para cadastrar livro");
+}
+
+async function registerPilula(event) {
+    event.preventDefault();
+
+    let fileInput = document.getElementById("inputUploadPilula");
+    let inputTitulo = document.getElementById("tituloPilula");
+    let textFieldCorpo = document.getElementById("textAreaCriarPilula");
+    let select = document.getElementById("selectCursoParaPilula");
+
+    let cursoId = select.value;
+    let file = fileInput.files[0];
+
+    console.log(file);
+
+    alert("Chamando função para cadastrar pílulas");
+}
+
+async function registerNoticia(event){
+    event.preventDefault();
+
+    let fileInput = document.getElementById("inputUploadNoticia");
+    let inputTituloNoticia = document.getElementById("tituloNoticia");
+    let inputFonteNoticia = document.getElementById("fonteNoticia");
+    let textFieldSubtitulo = document.getElementById("textAreaSubtituloNoticia");
+    let textFieldCorpo = document.getElementById("textAreaCorpoNoticia");
+
+    let file = fileInput.files[0];
+
+    console.log(file);
+
+    alert("Chamando função para cadastrar noticia");
+}
+
+
+async function registerEvento(event){
+    event.preventDefault();
+
+    let inputTituloEvento = document.getElementById("tituloEvento");
+    let textFieldSubtitulo = document.getElementById("textAreaSubtituloEvento");
+    let textFieldCorpo = document.getElementById("textAreaCorpoEvento");
+
+    alert("Chamando função para cadastrar evento");
+}
+
+function showEvento() {
+    let formNoticia = document.getElementById("formNoticia");
+    let formEvento = document.getElementById("formEvento");
+    let chooserNoticia = document.getElementById("chooseBarNoticia");
+    let chooserEvento = document.getElementById("chooseBarEvento");
+
+    formNoticia.classList.remove("showChoose");
+    formEvento.classList.remove("hideChoose");
+
+    formNoticia.classList.add("hideChoose");
+    formEvento.classList.add("showChoose");
+
+    chooserNoticia.classList.remove("choosed");
+    chooserEvento.classList.remove("notChoosed");
+
+    chooserNoticia.classList.add("notChoosed");
+    chooserEvento.classList.add("choosed");
+
+}
+
+function showNoticia() {
+    let formNoticia = document.getElementById("formNoticia");
+    let formEvento = document.getElementById("formEvento");
+    let chooserNoticia = document.getElementById("chooseBarNoticia");
+    let chooserEvento = document.getElementById("chooseBarEvento");
+
+    formNoticia.classList.remove("hideChoose");
+    formEvento.classList.remove("showChoose");
+
+    formNoticia.classList.add("showChoose");
+    formEvento.classList.add("hideChoose");
+
+    chooserNoticia.classList.remove("notChoosed");
+    chooserEvento.classList.remove("choosed");
+
+    chooserNoticia.classList.add("choosed");
+    chooserEvento.classList.add("notChoosed");
+}
+
+function clearFileLabel(event, labelName){
+    let label = document.getElementById(labelName);
+    label.textContent = "Nada escolhido";
+}
+
+loadAllCursos("selectCursoParaLivro");
+loadAllCursos("selectCursoParaPilula");

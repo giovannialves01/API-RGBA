@@ -97,5 +97,11 @@ public class PathController {
 		return "paginaBiblioteca";
 	}
 	
+
+	@GetMapping(value = "/upload")
+	public String uploadImagem() {
+		return "upload";
+	}
+	
 }
  

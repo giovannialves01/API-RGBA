@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -41,7 +42,8 @@ public class ContatoController {
     * @return Retorna uma lista do objeto Contato com todos os contatos. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna uma lista com todos os contatos dos usuários")
     @ApiResponse(code = 200,message = "Contatos retornados com sucesso.")
     public List<Contato> getAllContatos(){
@@ -56,6 +58,7 @@ public class ContatoController {
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna os detalhes de contato de um usuário específico.")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Contatos encontrados com sucesso."),
