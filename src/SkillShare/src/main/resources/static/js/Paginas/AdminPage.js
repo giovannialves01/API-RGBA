@@ -216,7 +216,7 @@ async function loadUserToShow(perfil) {
 }
 
 async function loadBooksToShow() {
-    let response = await serverRequester.fazerGet("/biblioteca/findAll");
+    let response = await serverRequester.fazerGet("/biblioteca");
 
     let books = response["responseJson"];
 
@@ -620,15 +620,9 @@ async function registerBook(event) {
     event.preventDefault();
     let form = $('#bibliotecaRegistrar')[0];
     let formData = new FormData(form);   
-    let url
-    if($('#selectCursoParaLivro').val()==0){
-        url="http://localhost:8080/biblioteca/cadastrar"
-    }
-    else{
-        url="http://localhost:8080/biblioteca/cadastrar/curso"
-    }
-    sendFile(formData,url)
-    alert("Chamando função para cadastrar livro");
+    let url = serverRequester.serverURL + "/biblioteca/cadastrar";
+
+    sendFile(formData,url);
 }
 
 async function registerPilula(event) {
