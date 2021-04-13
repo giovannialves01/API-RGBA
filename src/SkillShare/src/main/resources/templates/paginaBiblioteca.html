@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca | SkillShare</title>
+
+<!-- CDN das depedências externas -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Poppins">
+
+<!-- Rodar no Eclipse -->
+<link rel="stylesheet" href="css/GlobalComponents.css">
+<link rel="stylesheet" href="css/Menu.css">
+<link rel="stylesheet" href="css/TopBar.css">
+<link rel="stylesheet" href="css/Footer.css">
+<link rel="stylesheet" href="css/Biblioteca.css">
+
+<script src="js/Utils/ServerRequester.js"></script>
+
+<script src="js/Componentes/Menu.js"></script>
+<script src="js/Componentes/TopBar.js"></script>
+<script src="js/Componentes/Footer.js"></script>
+<script src="js/Entidades/Biblioteca.js"></script>
+<script src="js/Paginas/PaginaBiblioteca.js" defer></script>
+
+<script src="js/Entidades/Usuario.js"></script>
+</head>
+<body>
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
+
+	<div class="content">
+		<div class="header">
+			<h1>Biblioteca</h1>
+			<p class="titleP">A biblioteca da SkillShare é o local onde
+				encontram-se disponíveis materiais didáticos para leitura que os
+				responsáveis pelos cursos postam, para servir de referência e
+				auxiliar na aprendizagem do aluno durante sua trajetória de ensino!</p>
+		</div>
+		<div class="todasOpcoes">
+			<div id="conteudo-opcao"></div>
+		</div>
+	</div>
+
+	<footer-rgba></footer-rgba>
+</body>
+</html>

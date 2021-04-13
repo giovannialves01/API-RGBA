@@ -85,16 +85,27 @@ public class PathController {
 			
 			user.put("type", "guest");
 			user.put("userName", "guest");
-			
 			sessao.setAttribute("user", user);
 		}
 		
 		return "login";
 	}
+	
+	@GetMapping(value = "/acervo")
+	public String paginaBiblioteca(HttpSession sessao) {
+		return "paginaBiblioteca";
+	}
+	
+	@GetMapping(value = "/materialAcervo")
+	public String materialDoAcervo() {
+		return "materialAcervo";
+	}
+	
 
 	@GetMapping(value = "/upload")
 	public String uploadImagem() {
 		return "upload";
 	}
+	
 }
  
