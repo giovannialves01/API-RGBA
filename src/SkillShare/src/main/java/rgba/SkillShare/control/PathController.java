@@ -93,8 +93,12 @@ public class PathController {
 	
 	@GetMapping(value = "/acervo")
 	public String paginaBiblioteca(HttpSession sessao) {
-		
 		return "paginaBiblioteca";
+	}
+	
+	@GetMapping(value = "/materialAcervo")
+	public String materialDoAcervo() {
+		return "materialAcervo";
 	}
 	
 

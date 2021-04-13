@@ -35,7 +35,7 @@ window.onload = async function carregarConteudo () {
         botao.classList.add("botao");
         botaoVdd.textContent = "Visualizar"
         botaoVdd.onclick = function () {
-            console.log("Mostrando livro");
+            window.location.href = "/materialAcervo?id=" + biblioteca.getId();
         }
         botao.appendChild(botaoVdd);
 

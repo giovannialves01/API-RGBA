@@ -5,12 +5,14 @@ class Biblioteca{
             this.autor;
             this.curso;
             this.arquivo;
+            this.id;
             
         }else{
             this.nome = bookData["nome"];
             this.autor = bookData["autor"];
             this.curso = bookData["curso"];
             this.arquivo = bookData["arquivo"];
+            this.id = bookData["id"];
 
         }
 
@@ -41,6 +43,9 @@ class Biblioteca{
     getArquivo(){
         return this.arquivo;
     }
+    getId(){
+        return this.id;
+    }
 
 
     /**
@@ -55,6 +60,7 @@ class Biblioteca{
             autor: this.autor,
             curso: this.curso,
             arquivo: this.arquivo,
+            id: this.id
         };
 
         return data;
