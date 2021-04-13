@@ -36,7 +36,10 @@ public class Destaque {
 
     @Column(nullable = false)
     private String conteudo;
-
+    
+    @Column
+    private String fonte;
+    
     @Column
     private LocalDateTime data = LocalDateTime.now();
 

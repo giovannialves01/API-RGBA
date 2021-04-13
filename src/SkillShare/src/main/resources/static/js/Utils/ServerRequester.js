@@ -60,13 +60,13 @@ class ServerRequester{
      * @param {Object} data - JSON com parâmetros para a requisição, no formato chave:valor
      * @returns JSON - Retorna um objeto JSON contendo a resposta do servidor para o serviço solicitado
      */
-    async fazerPost(caminhoRest, data = {}){
+    async fazerPost(caminhoRest, data = {}, contentType = "application/json"){
         let url = this.serverURL + caminhoRest;
         let configsPost = {
                             method: "POST",
                             body: JSON.stringify(data),
                             headers: {
-                                "Content-Type": "application/json"   
+                                "Content-Type": contentType   
                                 }
                         };
 

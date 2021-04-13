@@ -731,28 +731,40 @@ async function registerPilula(event) {
 async function registerNoticia(event){
     event.preventDefault();
 
-    let fileInput = document.getElementById("inputUploadNoticia");
-    let inputTituloNoticia = document.getElementById("tituloNoticia");
-    let inputFonteNoticia = document.getElementById("fonteNoticia");
-    let textFieldSubtitulo = document.getElementById("textAreaSubtituloNoticia");
-    let textFieldCorpo = document.getElementById("textAreaCorpoNoticia");
+    let form = document.getElementById("formNoticia");
 
-    let file = fileInput.files[0];
+    let response = await fetch("/destaques/cadastrar/noticia", {
+        method: 'POST',
+        body: new FormData(form)
+      });
 
-    console.log(file);
+    console.log(response);
 
-    alert("Chamando função para cadastrar noticia");
 }
 
 
 async function registerEvento(event){
     event.preventDefault();
 
-    let inputTituloEvento = document.getElementById("tituloEvento");
-    let textFieldSubtitulo = document.getElementById("textAreaSubtituloEvento");
-    let textFieldCorpo = document.getElementById("textAreaCorpoEvento");
+    let form = document.getElementById("formEvento");
+    let titulo = document.getElementById("tituloEvento").value;
+    let sinopse = document.getElementById("textAreaSubtituloEvento").value;
+    let conteudo = document.getElementById("textAreaCorpoEvento").value;
 
-    alert("Chamando função para cadastrar evento");
+    let formData = new FormData();
+    formData.append("titulo", titulo);
+    formData.append("sinopse", sinopse);
+    formData.append("conteudo", conteudo);
+
+    let data = {
+        titulo: titulo,
+        sinopse: sinopse,
+        conteudo, conteudo
+    };
+
+    let response = await serverRequester.fazerPost("/destaques/cadastrar/evento", data);
+
+    console.log(response);
 }
 
 function showEvento() {

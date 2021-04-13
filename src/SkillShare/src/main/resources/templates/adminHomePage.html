@@ -39,6 +39,7 @@
 
     <script src="js/Entidades/Usuario.js"></script>
     <script src="js/Entidades/Biblioteca.js"></script>
+    <script src="js/Entidades/Noticia.js"></script>
 
 </head>
 <body>
@@ -266,28 +267,28 @@
                 <div style="width: 90%; margin: 0 auto;">
                     <div style="width: 100%; display: flex; margin-bottom: 20px;">
                         <label>Título:</label>
-                        <input type="text" id="tituloNoticia">
+                        <input type="text" id="tituloNoticia" name="titulo">
                     </div>
 
                     <div style="width: 100%; display: flex;">
                         <label>Fonte:</label>
-                        <input type="text" id="fonteNoticia">
+                        <input type="text" id="fonteNoticia" name="fonte">
                     </div>
                     
                     <div class="inputFile">
                         <label for="inputUploadNoticia" class="inputUploadButton">Escolher imagem...</label>
-                        <input type="file" id="inputUploadNoticia" onchange="setInputLabelName(event, 'labelFileNameNoticia')">
+                        <input name="th" type="file" id="inputUploadNoticia" onchange="setInputLabelName(event, 'labelFileNameNoticia')">
                         <label id="labelFileNameNoticia">Selecione uma imagem de thumbnail</label>
                     </div>
 
                     <div class="textField">
                         <label>Subtitulo</label>
-                        <textarea id="textAreaSubtituloNoticia" cols="30" rows="10"></textarea>
+                        <textarea name="sinopse" id="textAreaSubtituloNoticia" cols="30" rows="10"></textarea>
                     </div>
 
                     <div class="textField">
                         <label>Texto do corpo</label>
-                        <textarea id="textAreaCorpoNoticia" cols="30" rows="10"></textarea>
+                        <textarea name="conteudo" id="textAreaCorpoNoticia" cols="30" rows="10"></textarea>
                     </div>
     
                     <div class="buttonContainer">
@@ -301,17 +302,17 @@
                 <div style="width: 90%; margin: 0 auto;">
                     <div style="width: 100%; display: flex; margin-bottom: 20px;">
                         <label>Título:</label>
-                        <input type="text" id="tituloEvento">
+                        <input name="titulo" type="text" id="tituloEvento">
                     </div>
 
                     <div class="textField">
                         <label>Subtitulo</label>
-                        <textarea id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
+                        <textarea name="sinopse" id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
                     </div>
 
                     <div class="textField">
                         <label>Texto do corpo</label>
-                        <textarea id="textAreaCorpoEvento" cols="30" rows="10"></textarea>
+                        <textarea name="conteudo" id="textAreaCorpoEvento" cols="30" rows="10"></textarea>
                     </div>
     
                     <div class="buttonContainer">
