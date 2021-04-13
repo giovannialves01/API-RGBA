@@ -120,11 +120,9 @@ public class AlunoController {
 	}
 	
 	@PostMapping(value = "/delete")
-	public boolean deleteAluno(@RequestBody String data) {
-		JSONObject parsedData = new JSONObject(data);
-
+	public boolean deleteAluno(@RequestBody Aluno aluno) {
 		try {
-			aRepository.deleteById(parsedData.getString("cpf"));
+			aRepository.deleteById(aluno.getCpf());
 			
 			return true;
 		}catch (Exception e) {

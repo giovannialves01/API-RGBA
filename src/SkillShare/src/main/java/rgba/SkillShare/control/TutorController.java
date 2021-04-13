@@ -109,11 +109,9 @@ public class TutorController {
 	}
 	
 	@PostMapping(value = "/delete")
-	public boolean deleteTutor(@RequestBody String data) {
-		JSONObject parsedData = new JSONObject(data);
-
+	public boolean deleteTutor(@RequestBody Tutor tutor) {
 		try {
-			tRepository.deleteById(parsedData.getString("cpf"));
+			tRepository.deleteById(tutor.getCpf());
 			
 			return true;
 		}catch (Exception e) {

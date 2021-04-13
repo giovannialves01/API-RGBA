@@ -235,7 +235,7 @@ async function loadBooksToShow() {
 
         let bookDataDiv = document.createElement("div");
 
-        let bookNameDiv = createFieldBox("Nome do livro:", book.getNome(), "nomeDoLivro");
+        let bookNameDiv = createFieldBox("Nome do livro:", book.getTitulo(), "nomeDoLivro");
         let bookAuthorDiv = createFieldBox("Autor:", book.getAutor(), "autor");
 
         bookDataDiv.appendChild(bookNameDiv);
@@ -246,6 +246,14 @@ async function loadBooksToShow() {
         let showContentButton = document.createElement("button");
         showContentButton.textContent = "Visualizar material";
         showContentButton.classList.add("visualizeMaterial");
+        showContentButton.onclick = function (){
+            let file = book.getArquivo()["conteudo"];
+
+            let pdfWindow = window.open("");
+
+            pdfWindow.document.write("<iframe width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(file) + "'></iframe>");
+
+        }
 
         bookMiscDiv.appendChild(showContentButton);
 
@@ -339,7 +347,7 @@ async function disableEdit(userIdentifier, user) {
             button.textContent = "Excluir";
 
             button.onclick = async function(){
-                await deleteUser(userIdentifier, user);
+                await deleteEntity(userIdentifier, user);
             }
         }
     }
@@ -395,7 +403,7 @@ function undoChanges(entityIdentifier, entity){
                     break;
     
                 case "nomeDoLivro":
-                    field.value = entity.getNome();
+                    field.value = entity.getTitulo();
                     break;
     
             }
@@ -408,10 +416,8 @@ function undoChanges(entityIdentifier, entity){
     disableEdit(entityIdentifier, entity);
 }
 
-async function deleteUser(userIdentifier, user) {
-    let editableUser = document.getElementById(userIdentifier);
-
-    let userToDelete = {cpf: user.getCpf()};
+async function deleteEntity(entityIdentifier, entity) {
+    let editableEntity = document.getElementById(entityIdentifier);
 
     let pathToDelete = "";
 
@@ -419,37 +425,45 @@ async function deleteUser(userIdentifier, user) {
 
     let option = select.value;
 
-    switch (option) {
-        case "Aluno":
-            pathToDelete = "/alunos/delete";
-            break;
+    let entityType = entity.constructor.name;
 
-        case "Administrador":
-            pathToDelete = "/adm/delete";
-            break;
-            
-        case "Gestor":
-            pathToDelete = "/gestor/delete";
-            break;
-
-        case "Tutor":
-            pathToDelete = "/tutor/delete";
-            break;
+    if(entityType == "Usuario"){
+        switch (option) {
+            case "Aluno":
+                pathToDelete = "/alunos/delete";
+                break;
     
-        default:
-            break;
+            case "Administrador":
+                pathToDelete = "/adm/delete";
+                break;
+                
+            case "Gestor":
+                pathToDelete = "/gestor/delete";
+                break;
+    
+            case "Tutor":
+                pathToDelete = "/tutor/delete";
+                break;
+        
+            default:
+                break;
+        }
+
+    }else if(entityType == "Biblioteca"){
+        pathToDelete = "/biblioteca/delete";
+
     }
 
-    let response = await serverRequester.fazerPost(pathToDelete, userToDelete);
+    let response = await serverRequester.fazerPost(pathToDelete, entity.toData());
 
     if(response["responseJson"]){
         alert("deletado");
 
-        if(editableUser.nextSibling != null){
-            editableUser.nextSibling.remove();
+        if(editableEntity.nextSibling != null){
+            editableEntity.nextSibling.remove();
         }
 
-        editableUser.remove();
+        editableEntity.remove();
 
     }else{
         alert("não deletado");
@@ -576,7 +590,7 @@ function createManageButtons(entityIdentifier, entity) {
     buttonExcluir.classList.add("redButton");
     buttonExcluir.textContent = "Excluir";
     buttonExcluir.onclick = async function (){
-        await deleteUser(entityIdentifier, entity);
+        await deleteEntity(entityIdentifier, entity);
     }
 
     manageButtonsDiv.appendChild(buttonEditar);
