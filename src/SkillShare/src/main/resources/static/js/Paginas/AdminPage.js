@@ -516,7 +516,7 @@ async function saveChanges(entityIdentifier, entity) {
 
         switch (option) {
             case "Aluno":
-                pathToUpdate = "/aluno/update";
+                pathToUpdate = "/alunos/update";
                 break;
     
             case "Administrador":
