@@ -8,9 +8,8 @@ window.onload = async function carregarConteudo () {
     let livros = resposta.responseJson;
 
     for (let i = 0; i < livros.length; i++) {
+    
         const livro = livros[i];
-
-        let biblioteca = new Biblioteca(livro);
 
         let row_material = document.createElement("div");
         row_material.classList.add("divConteudo");
@@ -25,8 +24,8 @@ window.onload = async function carregarConteudo () {
         infos.classList.add("infos");
         let p1 = document.createElement("p");
         let p2 = document.createElement("p");
-        p1.textContent = biblioteca.getNome();
-        p2.textContent = biblioteca.getAutor();
+        p1.textContent = livro.titulo;
+        p2.textContent = livro.autor;
         infos.appendChild(p1);
         infos.appendChild(p2);
 
@@ -35,7 +34,7 @@ window.onload = async function carregarConteudo () {
         botao.classList.add("botao");
         botaoVdd.textContent = "Visualizar"
         botaoVdd.onclick = function () {
-            window.location.href = "/materialAcervo?id=" + biblioteca.getId();
+            window.location.href = "/materialAcervo?id=" + livro.id;
         }
         botao.appendChild(botaoVdd);
 

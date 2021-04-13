@@ -58,7 +58,7 @@ window.onload = async function carregarConteudo() {
 
 	var download = document.getElementById("download");
 	download.onclick = function() {
-		downloadFile(material.conteudo, material.tipo_arquivo, material.nome_arquivo);
+		downloadFile(material.conteudo, material.tipoArquivo, material.nomeArquivo);
 	}
 
 }
