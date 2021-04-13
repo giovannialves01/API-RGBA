@@ -51,6 +51,7 @@ public class DestaqueController {
     public Destaque createDestaqueNoticia(@RequestParam MultipartFile th, Destaque destaque) throws IOException {
         Thumb t = new Thumb(th.getOriginalFilename(),th.getBytes(),th.getContentType());
         destaque.setThumb(t);
+        destaque.setTipo("Noticia");
 		return destaqueRepository.save(destaque);
 
 	}
@@ -59,7 +60,7 @@ public class DestaqueController {
     public Destaque createDestaqueEvento(@RequestBody String data) {
 		JSONObject parsedData = new JSONObject(data);
 		
-		Destaque destaque = new Destaque(parsedData.getString("titulo"), parsedData.getString("sinopse"), parsedData.getString("conteudo"));
+		Destaque destaque = new Destaque(parsedData.getString("titulo"), parsedData.getString("sinopse"), parsedData.getString("conteudo"), "Evento");
 		
 		return destaqueRepository.save(destaque);
 
