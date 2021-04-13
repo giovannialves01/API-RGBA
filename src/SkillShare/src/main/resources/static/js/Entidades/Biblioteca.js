@@ -1,44 +1,43 @@
 class Biblioteca{
     constructor(bookData = {}) {
         if(bookData == {}){
-            this.nome;
+            this.titulo;
             this.autor;
-            this.curso;
-            this.arquivo;
+            this.arquivo = {conteudo: "", nomeArquivo: "", tipoArquivo: ""};
             this.id;
             
         }else{
-            this.nome = bookData["nome"];
+            this.titulo = bookData["titulo"];
             this.autor = bookData["autor"];
-            this.curso = bookData["curso"];
-            this.arquivo = bookData["arquivo"];
             this.id = bookData["id"];
 
+            this.arquivo = {};
+
+            this.arquivo["conteudo"] = bookData["conteudo"];
+            this.arquivo["nomeArquivo"] = bookData["nomeArquivo"];
+            this.arquivo["tipoArquivo"] = bookData["tipoArquivo"];
         }
 
     }
 
-    setNome(nome){
-        this.nome = nome;
+    setTitulo(nome){
+        this.titulo = nome;
     }
     setAutor(autor){
         this.autor = autor;
     }
-    setCurso(curso){
-        this.curso = curso;
-    }
     setArquivo(arquivo){
         this.arquivo = arquivo;
     }
+    setId(id){
+        this.id = id;
+    }
 
-    getNome(){
-        return this.nome;
+    getTitulo(){
+        return this.titulo;
     }
     getAutor(){
         return this.autor;
-    }
-    getCurso(){
-        return this.curso;
     }
     getArquivo(){
         return this.arquivo;
@@ -56,9 +55,8 @@ class Biblioteca{
      */
     toData(){
         let data = {
-            nome: this.nome,
+            nome: this.titulo,
             autor: this.autor,
-            curso: this.curso,
             arquivo: this.arquivo,
             id: this.id
         };

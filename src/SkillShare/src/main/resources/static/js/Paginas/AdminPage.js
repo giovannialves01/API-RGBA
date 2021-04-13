@@ -45,7 +45,7 @@ async function registerUser(event) {
     switch (option) {
         case "aluno":
             allowRegister = true;
-            registerPath = "/aluno/cadastrar";
+            registerPath = "/alunos/cadastrar";
             break;
 
         case "administrador":
@@ -216,7 +216,7 @@ async function loadUserToShow(perfil) {
 }
 
 async function loadBooksToShow() {
-    let response = await serverRequester.fazerGet("/biblioteca/findAll");
+    let response = await serverRequester.fazerGet("/biblioteca");
 
     let books = response["responseJson"];
 
@@ -233,10 +233,9 @@ async function loadBooksToShow() {
         let dataDiv = document.createElement("div");
         dataDiv.classList.add("bookData");
 
-
         let bookDataDiv = document.createElement("div");
 
-        let bookNameDiv = createFieldBox("Nome do livro:", book.getNome(), "nomeDoLivro");
+        let bookNameDiv = createFieldBox("Nome do livro:", book.getTitulo(), "nomeDoLivro");
         let bookAuthorDiv = createFieldBox("Autor:", book.getAutor(), "autor");
 
         bookDataDiv.appendChild(bookNameDiv);
@@ -244,12 +243,18 @@ async function loadBooksToShow() {
 
         let bookMiscDiv = document.createElement("div");
 
-        let bookCursoDiv = await createSelectFieldBox("Curso de tema:", book.getCurso(), "cursoDeTema");
         let showContentButton = document.createElement("button");
         showContentButton.textContent = "Visualizar material";
         showContentButton.classList.add("visualizeMaterial");
+        showContentButton.onclick = function (){
+            let file = book.getArquivo()["conteudo"];
 
-        bookMiscDiv.appendChild(bookCursoDiv);
+            let pdfWindow = window.open("");
+
+            pdfWindow.document.write("<iframe width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(file) + "'></iframe>");
+
+        }
+
         bookMiscDiv.appendChild(showContentButton);
 
         let manageButtonsDiv = createManageButtons(bookIdentifier, book);
@@ -307,11 +312,15 @@ async function enableEdit(userIdentifier, user) {
         }
     }
 
-    for (let i = 0; i < fields.length - 1; i++) {
+    for (let i = 0; i < fields.length; i++) {
         const field = fields[i];
         
-        field.className = "userDataFieldEnabled";
-        field.disabled = false;
+        if(field.className == ("userDataFieldDisabled")){
+            field.className = "userDataFieldEnabled";
+            field.disabled = false;
+            
+        }
+
     }
 
 }
@@ -338,50 +347,77 @@ async function disableEdit(userIdentifier, user) {
             button.textContent = "Excluir";
 
             button.onclick = async function(){
-                await deleteUser(userIdentifier, user);
+                await deleteEntity(userIdentifier, user);
             }
         }
     }
 
-    for (let i = 0; i < fields.length - 1; i++) {
+    for (let i = 0; i < fields.length; i++) {
         const field = fields[i];
         
-        field.className = "userDataFieldDisabled";
-        field.disabled = true;
+        if(field.classList.contains("userDataFieldEnabled")){
+            field.className = "userDataFieldDisabled";
+            field.disabled = true;
+
+        }
+
     }
+
 }
 
-function undoChanges(userIdentifier, user){
-    let editableUser = document.getElementById(userIdentifier);
+function undoChanges(entityIdentifier, entity){
+    let editableUser = document.getElementById(entityIdentifier);
 
     let fields = editableUser.getElementsByTagName("input");
 
-    for (let i = 0; i < fields.length - 1; i++) {
-        const field = fields[i];
+    let entityType = entity.constructor.name;
 
-        switch (field.name){
-            case "nome":
-                field.value = user.getNome();
-                break;
-
-            case "cpf":
-                field.value = user.getCpf();
-                break;
-
-            case "email":
-                field.value = user.getEmail();
-                break; 
+    if(entityType == "Usuario"){
+        for (let i = 0; i < fields.length - 1; i++) {
+            const field = fields[i];
+    
+            switch (field.name){
+                case "nome":
+                    field.value = entity.getNome();
+                    break;
+    
+                case "cpf":
+                    field.value = entity.getCpf();
+                    break;
+    
+                case "email":
+                    field.value = entity.getEmail();
+                    break; 
+    
+            }
+            
         }
-        
+
+    }else if(entityType == "Biblioteca"){
+        for (let i = 0; i < fields.length - 1; i++) {
+            const field = fields[i];
+    
+            switch (field.name){
+                case "autor":
+                    field.value = entity.getAutor();
+                    break;
+    
+                case "nomeDoLivro":
+                    field.value = entity.getTitulo();
+                    break;
+    
+            }
+            
+        }
+
     }
 
-    disableEdit(userIdentifier, user);
+
+    disableEdit(entityIdentifier, entity);
 }
 
-async function deleteUser(userIdentifier, user) {
-    let editableUser = document.getElementById(userIdentifier);
-
-    let userToDelete = {cpf: user.getCpf()};
+async function deleteEntity(entityIdentifier, entity) {
+    let editableEntity = document.getElementById(entityIdentifier);
 
     let pathToDelete = "";
 
@@ -389,37 +425,45 @@ async function deleteUser(userIdentifier, user) {
 
     let option = select.value;
 
-    switch (option) {
-        case "Aluno":
-            pathToDelete = "/alunos/delete";
-            break;
+    let entityType = entity.constructor.name;
 
-        case "Administrador":
-            pathToDelete = "/adm/delete";
-            break;
-            
-        case "Gestor":
-            pathToDelete = "/gestor/delete";
-            break;
-
-        case "Tutor":
-            pathToDelete = "/tutor/delete";
-            break;
+    if(entityType == "Usuario"){
+        switch (option) {
+            case "Aluno":
+                pathToDelete = "/alunos/delete";
+                break;
     
-        default:
-            break;
+            case "Administrador":
+                pathToDelete = "/adm/delete";
+                break;
+                
+            case "Gestor":
+                pathToDelete = "/gestor/delete";
+                break;
+    
+            case "Tutor":
+                pathToDelete = "/tutor/delete";
+                break;
+        
+            default:
+                break;
+        }
+
+    }else if(entityType == "Biblioteca"){
+        pathToDelete = "/biblioteca/delete";
+
     }
 
-    let response = await serverRequester.fazerPost(pathToDelete, userToDelete);
+    let response = await serverRequester.fazerPost(pathToDelete, entity.toData());
 
     if(response["responseJson"]){
         alert("deletado");
 
-        if(editableUser.nextSibling != null){
-            editableUser.nextSibling.remove();
+        if(editableEntity.nextSibling != null){
+            editableEntity.nextSibling.remove();
         }
 
-        editableUser.remove();
+        editableEntity.remove();
 
     }else{
         alert("não deletado");
@@ -427,67 +471,102 @@ async function deleteUser(userIdentifier, user) {
 
 }
 
-async function saveChanges(userIdentifier, user) {
-    let editableUser = document.getElementById(userIdentifier);
+async function saveChanges(entityIdentifier, entity) {
+    let editableUser = document.getElementById(entityIdentifier);
 
     let fields = editableUser.getElementsByTagName("input");
 
     let pathToUpdate = "";
 
-    let select = document.getElementById("userTypeEdit");
+    let data = {newData: {}, oldData: {}};
+    let newEntity;
 
-    let option = select.value;
-
-    switch (option) {
-        case "Aluno":
-            pathToUpdate = "/aluno/update";
-            break;
-
-        case "Administrador":
-            pathToUpdate = "/adm/update";
-            break;
+    if(entity.constructor.name == "Biblioteca"){
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
             
-        case "Gestor":
-            pathToUpdate = "/gestor/update";
-            break;
-
-        case "Tutor":
-            pathToUpdate = "/tutor/update";
-            break;
+            switch (field.name){
+                case "nomeDoLivro":
+                    data["newData"]["titulo"] = field.value;
+                    break;
     
-        default:
-            break;
-    }
+                case "autor":
+                    data["newData"]["autor"] = field.value;
+                    break;
 
-    let data = {
-        oldData: {
-            nome: user.getNome(),
-            email: user.getEmail(),
-            cpf: user.getCpf(),
-            senha: user.getSenha()
-        }, 
-        newData: {
-            senha: user.getSenha()
+            }
+    
         }
-    };
-
-    for (let i = 0; i < fields.length; i++) {
-        const field = fields[i];
         
-        switch (field.name){
-            case "nome":
-                data["newData"]["nome"] = field.value;
-                break;
+        data["oldData"]["id"] = entity.getId();
 
-            case "cpf":
-                data["newData"]["cpf"] = field.value;
-                break;
+        pathToUpdate = "/biblioteca/update";
 
-            case "email":
-                data["newData"]["email"] = field.value;
-                break; 
+        newEntity = new Biblioteca();
+
+        newEntity.setArquivo(entity.getArquivo());
+        newEntity.setAutor(data["newData"]["autor"]);
+        newEntity.setTitulo(data["newData"]["titulo"]);
+        newEntity.setId(entity.getId());
+    
+    }else if(entity.constructor.name == "Usuario"){
+        let select = document.getElementById("userTypeEdit");
+
+        let option = select.value;
+
+        switch (option) {
+            case "Aluno":
+                pathToUpdate = "/alunos/update";
+                break;
+    
+            case "Administrador":
+                pathToUpdate = "/adm/update";
+                break;
+                
+            case "Gestor":
+                pathToUpdate = "/gestor/update";
+                break;
+    
+            case "Tutor":
+                pathToUpdate = "/tutor/update";
+                break;
+        
+            default:
+                break;
+        }
+    
+        data = {
+            oldData: {
+                nome: entity.getNome(),
+                email: entity.getEmail(),
+                cpf: entity.getCpf(),
+                senha: entity.getSenha()
+            }, 
+            newData: {
+                senha: entity.getSenha()
+            }
+        };
+    
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
+            
+            switch (field.name){
+                case "nome":
+                    data["newData"]["nome"] = field.value;
+                    break;
+    
+                case "cpf":
+                    data["newData"]["cpf"] = field.value;
+                    break;
+    
+                case "email":
+                    data["newData"]["email"] = field.value;
+                    break; 
+            }
+    
         }
 
+        newEntity = new Usuario(data["newData"]);
     }
 
     let response = await serverRequester.fazerPost(pathToUpdate, data);
@@ -498,9 +577,7 @@ async function saveChanges(userIdentifier, user) {
         alert("Não alterado");
     }
 
-    let newUser = new Usuario(data["newData"]);
-
-    disableEdit(userIdentifier, newUser);
+    disableEdit(entityIdentifier, newEntity);
 }
 
 function setInputLabelName(event, labelName) {
@@ -518,6 +595,9 @@ function createFieldBox(title, value, name) {
 
     let dataLabel = document.createElement("input");
     dataLabel.classList.add("userDataFieldDisabled");
+    if(title == "Perfil"){
+        dataLabel.classList.add("notEditable");
+    }
     dataLabel.value = value;
     dataLabel.disabled = true;
     dataLabel.name = name;
@@ -543,7 +623,7 @@ function createManageButtons(entityIdentifier, entity) {
     buttonExcluir.classList.add("redButton");
     buttonExcluir.textContent = "Excluir";
     buttonExcluir.onclick = async function (){
-        await deleteUser(entityIdentifier, entity);
+        await deleteEntity(entityIdentifier, entity);
     }
 
     manageButtonsDiv.appendChild(buttonEditar);
@@ -628,8 +708,8 @@ async function registerBook(event) {
     else{
         url=`${serverRequester.serverURL}/cursos/biblioteca/cadastrar`
     }
-    sendFile(formData,url)
     alert("Chamando função para cadastrar livro");
+    sendFile(formData,url);
 }
 
 async function registerPilula(event) {
@@ -651,28 +731,40 @@ async function registerPilula(event) {
 async function registerNoticia(event){
     event.preventDefault();
 
-    let fileInput = document.getElementById("inputUploadNoticia");
-    let inputTituloNoticia = document.getElementById("tituloNoticia");
-    let inputFonteNoticia = document.getElementById("fonteNoticia");
-    let textFieldSubtitulo = document.getElementById("textAreaSubtituloNoticia");
-    let textFieldCorpo = document.getElementById("textAreaCorpoNoticia");
+    let form = document.getElementById("formNoticia");
 
-    let file = fileInput.files[0];
+    let response = await fetch("/destaques/cadastrar/noticia", {
+        method: 'POST',
+        body: new FormData(form)
+      });
 
-    console.log(file);
+    console.log(response);
 
-    alert("Chamando função para cadastrar noticia");
 }
 
 
 async function registerEvento(event){
     event.preventDefault();
 
-    let inputTituloEvento = document.getElementById("tituloEvento");
-    let textFieldSubtitulo = document.getElementById("textAreaSubtituloEvento");
-    let textFieldCorpo = document.getElementById("textAreaCorpoEvento");
+    let form = document.getElementById("formEvento");
+    let titulo = document.getElementById("tituloEvento").value;
+    let sinopse = document.getElementById("textAreaSubtituloEvento").value;
+    let conteudo = document.getElementById("textAreaCorpoEvento").value;
 
-    alert("Chamando função para cadastrar evento");
+    let formData = new FormData();
+    formData.append("titulo", titulo);
+    formData.append("sinopse", sinopse);
+    formData.append("conteudo", conteudo);
+
+    let data = {
+        titulo: titulo,
+        sinopse: sinopse,
+        conteudo, conteudo
+    };
+
+    let response = await serverRequester.fazerPost("/destaques/cadastrar/evento", data);
+
+    console.log(response);
 }
 
 function showEvento() {
@@ -719,5 +811,4 @@ function clearFileLabel(event, labelName){
     label.textContent = "Nada escolhido";
 }
 
-loadAllCursos("selectCursoParaLivro");
 loadAllCursos("selectCursoParaPilula");

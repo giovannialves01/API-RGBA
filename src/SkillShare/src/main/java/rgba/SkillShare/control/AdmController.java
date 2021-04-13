@@ -114,7 +114,7 @@ public class AdmController {
             );
     }
 
-	/* @PostMapping(value = "/update")
+	@PostMapping(value = "/update")
 	public boolean updateAdm(@RequestBody String data) {
 		JSONObject parsedData = new JSONObject(data);
 		
@@ -133,14 +133,12 @@ public class AdmController {
 			return false;
 		}
 
-	} */
+	}
 	
 	@PostMapping(value = "/delete")
-	public boolean deleteAdm(@RequestBody String data) {
-		JSONObject parsedData = new JSONObject(data);
-
+	public boolean deleteAdm(@RequestBody Adm administrador) {
 		try {
-			admRepository.deleteById(parsedData.getString("cpf"));
+			admRepository.deleteById(administrador.getCpf());
 			
 			return true;
 		}catch (Exception e) {

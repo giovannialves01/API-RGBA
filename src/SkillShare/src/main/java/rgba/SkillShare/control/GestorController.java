@@ -109,11 +109,9 @@ public class GestorController {
 	}
 	
 	@PostMapping(value = "/delete")
-	public boolean deleteGestor(@RequestBody String data) {
-		JSONObject parsedData = new JSONObject(data);
-
+	public boolean deleteGestor(@RequestBody Gestor gestor) {
 		try {
-			gRepository.deleteById(parsedData.getString("cpf"));
+			gRepository.deleteById(gestor.getCpf());
 			
 			return true;
 		}catch (Exception e) {

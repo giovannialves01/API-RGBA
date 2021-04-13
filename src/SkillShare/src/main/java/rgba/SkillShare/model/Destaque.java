@@ -36,7 +36,13 @@ public class Destaque {
 
     @Column(nullable = false)
     private String conteudo;
-
+    
+    @Column(nullable = false)
+    private String tipo;
+    
+    @Column
+    private String fonte;
+    
     @Column
     private LocalDateTime data = LocalDateTime.now();
 
@@ -52,10 +58,11 @@ public class Destaque {
     * @author Nicholas Roque
     */
 
-    public Destaque(String titulo,String sinopse,String conteudo) {
+    public Destaque(String titulo,String sinopse,String conteudo, String tipo) {
         this.titulo = titulo;
         this.sinopse = sinopse;
         this.conteudo = conteudo;
+        this.tipo = tipo;
     }
 
 }

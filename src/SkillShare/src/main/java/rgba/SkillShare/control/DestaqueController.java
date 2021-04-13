@@ -4,11 +4,13 @@ package rgba.SkillShare.control;
 import java.io.IOException;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -42,13 +44,24 @@ public class DestaqueController {
     * @param curso
     * @throws IOException
     */
-    @PostMapping("/cadastrar")
+    @PostMapping("/cadastrar/noticia")
     @ApiOperation("Cria um destaque.")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiResponse(code = 201,message = "Destaque criada com sucesso.")
-    public Destaque createDestaque(@RequestParam MultipartFile th, Destaque destaque) throws IOException {
+    public Destaque createDestaqueNoticia(@RequestParam MultipartFile th, Destaque destaque) throws IOException {
         Thumb t = new Thumb(th.getOriginalFilename(),th.getBytes(),th.getContentType());
         destaque.setThumb(t);
+        destaque.setTipo("Noticia");
+		return destaqueRepository.save(destaque);
+
+	}
+    
+    @PostMapping("/cadastrar/evento")
+    public Destaque createDestaqueEvento(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		Destaque destaque = new Destaque(parsedData.getString("titulo"), parsedData.getString("sinopse"), parsedData.getString("conteudo"), "Evento");
+		
 		return destaqueRepository.save(destaque);
 
 	}

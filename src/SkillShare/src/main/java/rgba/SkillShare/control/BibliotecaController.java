@@ -3,12 +3,14 @@ package rgba.SkillShare.control;
 import java.io.IOException;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -20,6 +22,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Biblioteca;
 import rgba.SkillShare.repository.BibliotecaRepository;
 
@@ -84,6 +87,42 @@ public class BibliotecaController {
                new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrado.")
             );
     }
+    
+	@PostMapping(value = "/delete")
+	public boolean deleteBiblioteca(@RequestBody Biblioteca data) {
+		try {
+			bibliotecaRepository.deleteById(data.getId());
+			
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+		
+	}
+	
+	@PostMapping(value = "/update")
+	public boolean updateBiblioteca(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		JSONObject oldData = parsedData.getJSONObject("oldData");
+		JSONObject newData = parsedData.getJSONObject("newData");
+		
+		Biblioteca biblioteca = bibliotecaRepository.findById(oldData.getLong("id")).get();
+		
+		biblioteca.setAutor(newData.getString("autor"));
+		biblioteca.setTitulo(newData.getString("titulo"));
+
+		try{
+			bibliotecaRepository.save(biblioteca);
+			
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+
+	}
 
     
 }
