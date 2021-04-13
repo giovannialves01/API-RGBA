@@ -45,7 +45,7 @@ async function registerUser(event) {
     switch (option) {
         case "aluno":
             allowRegister = true;
-            registerPath = "/aluno/cadastrar";
+            registerPath = "/alunos/cadastrar";
             break;
 
         case "administrador":
