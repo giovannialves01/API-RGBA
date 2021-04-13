@@ -77,7 +77,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Acessar a biblioteca", "console.log(\"Acessando a biblioteca\");"));
+		subOptions.put(this.criarSubOpcao("Acessar a biblioteca", "window.location.href='/acervo';"));
 		
 		option = this.criarOpcao("Biblioteca", "book", "2", "Clique aqui para ir para a página da biblioteca", subOptions);
 		
@@ -156,7 +156,7 @@ public class MenuOptions {
 		
 		subOptions.put(this.criarSubOpcao("Criar novo curso", "console.log(\"Criar novo curso\");"));
 		subOptions.put(this.criarSubOpcao("Gerir cursos", "console.log(\"Gerir cursos\");"));
-		subOptions.put(this.criarSubOpcao("Criar nova pílula", "console.log(\"Criar nova pílula\");"));
+		subOptions.put(this.criarSubOpcao("Criar nova pílula", "hideAllContent();showContent('adicionarPilula');"));
 		subOptions.put(this.criarSubOpcao("Gerir pílulas", "console.log(\"Gerir pílulas\");"));
 		subOptions.put(this.criarSubOpcao("Criar nova turma", "console.log(\"Criar nova turma\");"));
 		subOptions.put(this.criarSubOpcao("Gerir turmas", "console.log(\"Gerir turmas\");"));
@@ -171,7 +171,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Adicionar conteúdo", "hideAllContent();showContent('biblioteca');"));
-		subOptions.put(this.criarSubOpcao("Gerir conteúdo", "console.log(\"Gerir conteúdo\");"));
+		subOptions.put(this.criarSubOpcao("Gerir conteúdo", "hideAllContent();showContent('gerirBiblioteca');loadBooksToShow();"));
 		
 		option = this.criarOpcao("Biblioteca", "book", "3", "Clique aqui para exibir a biblioteca", subOptions);
 		
@@ -205,7 +205,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Postar nova notícia/evento", "console.log(\"Postar nova notícia/evento\");"));
+		subOptions.put(this.criarSubOpcao("Postar nova notícia/evento", "hideAllContent();showContent('adicionarNoticiaEvento');"));
 		subOptions.put(this.criarSubOpcao("Gerir notícias/eventos", "console.log(\"Gerir notícias/eventos\");"));
 		
 		option = this.criarOpcao("Notícias e eventos", "calendar-day", "6", "Clique aqui para exibir o cadastro de eventos",

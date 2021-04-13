@@ -20,6 +20,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -85,4 +86,41 @@ public class TutorController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo tutor não encontrado.")
             );
     }
+    
+	@PostMapping(value = "/update")
+	public boolean updateTutor(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		JSONObject admOldData = parsedData.getJSONObject("oldData");
+		JSONObject admNewData = parsedData.getJSONObject("newData");
+		
+		Tutor oldUsuario = new Tutor(admOldData.getString("cpf"), admOldData.getString("nome"), admOldData.getString("email"), admOldData.getString("senha"));
+		Tutor newUsuario = new Tutor(admNewData.getString("cpf"), admNewData.getString("nome"), admNewData.getString("email"), admNewData.getString("senha"));
+		
+		try{
+			tRepository.delete(oldUsuario);
+			tRepository.save(newUsuario);
+			
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+
+	}
+	
+	@PostMapping(value = "/delete")
+	public boolean deleteTutor(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+
+		try {
+			tRepository.deleteById(parsedData.getString("cpf"));
+			
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
 }

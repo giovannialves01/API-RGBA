@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -20,6 +21,8 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -74,14 +77,77 @@ public class AdmController {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna os detalhes de um usuário do tipo administrador.")
     @ApiResponses({
-        @ApiResponse(code = 200,message = "Usuário do tipo aluno encontrado com sucesso."),
-        @ApiResponse(code = 404,message = "Usuário do tipo aluno não encontrado para o cpf informado.")
+        @ApiResponse(code = 200,message = "Usuário do tipo adm encontrado com sucesso."),
+        @ApiResponse(code = 404,message = "Usuário do tipo adm não encontrado para o cpf informado.")
     })
     public Adm getAdmByCpf(@PathVariable @ApiParam("Cpf do administrador.") String cpf) {
         return admRepository
             .findById(cpf)
             .orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo aluno não encontrado.")
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo adm não encontrado.")
             );
     }
+    
+    /** 
+    *  Endpoint para retornar os detalhes de um administrador.
+    * @return Retorna objeto do tipo Adm com os dados do usuário.
+    * @param cpf -> cpf do administrador
+    * @param adm -> todos os dados do administrador
+    * @author Nicholas Roque
+    */
+    @PutMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Atualiza as informações de um usuário do tipo administrador.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Usuário do tipo adm atualizado com sucesso."),
+        @ApiResponse(code = 404,message = "Usuário do tipo adm não encontrado para o cpf informado.")
+    })
+    public void updateAdm(@PathVariable @ApiParam("Cpf do administrador.") String cpf,@RequestBody Adm adm) {
+        admRepository
+            .findById(cpf)
+            .map(a->{
+                admRepository.save(adm);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo adm não encontrado para o cpf especificado.")
+            );
+    }
+
+	/* @PostMapping(value = "/update")
+	public boolean updateAdm(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		JSONObject admOldData = parsedData.getJSONObject("oldData");
+		JSONObject admNewData = parsedData.getJSONObject("newData");
+		
+		Adm oldUsuario = new Adm(admOldData.getString("cpf"), admOldData.getString("nome"), admOldData.getString("email"), admOldData.getString("senha"));
+		Adm newUsuario = new Adm(admNewData.getString("cpf"), admNewData.getString("nome"), admNewData.getString("email"), admNewData.getString("senha"));
+		
+		try{
+			admRepository.delete(oldUsuario);
+			admRepository.save(newUsuario);
+			
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+
+	} */
+	
+	@PostMapping(value = "/delete")
+	public boolean deleteAdm(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+
+		try {
+			admRepository.deleteById(parsedData.getString("cpf"));
+			
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
 }

@@ -1,4 +1,7 @@
+
 package rgba.SkillShare.model;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -7,23 +10,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 /**
- *  Classe que define a pílula
+ *  Classe que define as postagens de destaques.
  *  @author Nicholas Roque
  */
-@Entity(name="pilula")
-@NoArgsConstructor @AllArgsConstructor @Data @ToString
-public class Pilula {
+@Entity(name = "destaque")
+@NoArgsConstructor @Data @AllArgsConstructor @ToString
+public class Destaque {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,26 +32,30 @@ public class Pilula {
     private String titulo;
 
     @Column(nullable = false)
-    private String descricao;
+    private String sinopse;
+
+    @Column(nullable = false)
+    private String conteudo;
+
+    @Column
+    private LocalDateTime data = LocalDateTime.now();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_thumb",referencedColumnName = "id")
     private Thumb thumb;
 
-    @ManyToOne
-    @JoinColumn(name="id_curso")
-    @JsonIgnore
-    private Curso curso;
-
     /** 
-    *  Cria uma instância da classe Pilula.
-    * @param titulo -> Título da pílula
-    * @param descricao -> Descrição da pílula
+    *  Cria uma instância da classe Destaque.
+    * @param titulo -> titulo do destaque
+    * @param sinopse -> sinopse do destaque
+    * @param conteudo -> conteudo do destaque
     * @author Nicholas Roque
     */
-    public Pilula(String titulo,String descricao){
+
+    public Destaque(String titulo,String sinopse,String conteudo) {
         this.titulo = titulo;
-        this.descricao = descricao;
+        this.sinopse = sinopse;
+        this.conteudo = conteudo;
     }
 
 }
