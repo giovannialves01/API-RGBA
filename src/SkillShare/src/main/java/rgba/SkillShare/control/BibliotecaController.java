@@ -22,6 +22,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Biblioteca;
 import rgba.SkillShare.repository.BibliotecaRepository;
 
@@ -99,6 +100,28 @@ public class BibliotecaController {
 			return false;
 		}
 		
+	}
+	
+	@PostMapping(value = "/update")
+	public boolean updateBiblioteca(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		JSONObject oldData = parsedData.getJSONObject("oldData");
+		JSONObject newData = parsedData.getJSONObject("newData");
+		
+		Biblioteca biblioteca = bibliotecaRepository.findById(oldData.getLong("id")).get();
+		
+		biblioteca.setAutor(newData.getString("autor"));
+		biblioteca.setTitulo(newData.getString("titulo"));
+
+		try{
+			bibliotecaRepository.save(biblioteca);
+			
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+
 	}
 
     

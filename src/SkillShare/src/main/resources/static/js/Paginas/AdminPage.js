@@ -471,67 +471,102 @@ async function deleteEntity(entityIdentifier, entity) {
 
 }
 
-async function saveChanges(userIdentifier, user) {
-    let editableUser = document.getElementById(userIdentifier);
+async function saveChanges(entityIdentifier, entity) {
+    let editableUser = document.getElementById(entityIdentifier);
 
     let fields = editableUser.getElementsByTagName("input");
 
     let pathToUpdate = "";
 
-    let select = document.getElementById("userTypeEdit");
+    let data = {newData: {}, oldData: {}};
+    let newEntity;
 
-    let option = select.value;
-
-    switch (option) {
-        case "Aluno":
-            pathToUpdate = "/aluno/update";
-            break;
-
-        case "Administrador":
-            pathToUpdate = "/adm/update";
-            break;
+    if(entity.constructor.name == "Biblioteca"){
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
             
-        case "Gestor":
-            pathToUpdate = "/gestor/update";
-            break;
-
-        case "Tutor":
-            pathToUpdate = "/tutor/update";
-            break;
+            switch (field.name){
+                case "nomeDoLivro":
+                    data["newData"]["titulo"] = field.value;
+                    break;
     
-        default:
-            break;
-    }
+                case "autor":
+                    data["newData"]["autor"] = field.value;
+                    break;
 
-    let data = {
-        oldData: {
-            nome: user.getNome(),
-            email: user.getEmail(),
-            cpf: user.getCpf(),
-            senha: user.getSenha()
-        }, 
-        newData: {
-            senha: user.getSenha()
+            }
+    
         }
-    };
-
-    for (let i = 0; i < fields.length; i++) {
-        const field = fields[i];
         
-        switch (field.name){
-            case "nome":
-                data["newData"]["nome"] = field.value;
-                break;
+        data["oldData"]["id"] = entity.getId();
 
-            case "cpf":
-                data["newData"]["cpf"] = field.value;
-                break;
+        pathToUpdate = "/biblioteca/update";
 
-            case "email":
-                data["newData"]["email"] = field.value;
-                break; 
+        newEntity = new Biblioteca();
+
+        newEntity.setArquivo(entity.getArquivo());
+        newEntity.setAutor(data["newData"]["autor"]);
+        newEntity.setTitulo(data["newData"]["titulo"]);
+        newEntity.setId(entity.getId());
+    
+    }else if(entity.constructor.name == "Usuario"){
+        let select = document.getElementById("userTypeEdit");
+
+        let option = select.value;
+
+        switch (option) {
+            case "Aluno":
+                pathToUpdate = "/aluno/update";
+                break;
+    
+            case "Administrador":
+                pathToUpdate = "/adm/update";
+                break;
+                
+            case "Gestor":
+                pathToUpdate = "/gestor/update";
+                break;
+    
+            case "Tutor":
+                pathToUpdate = "/tutor/update";
+                break;
+        
+            default:
+                break;
+        }
+    
+        data = {
+            oldData: {
+                nome: entity.getNome(),
+                email: entity.getEmail(),
+                cpf: entity.getCpf(),
+                senha: entity.getSenha()
+            }, 
+            newData: {
+                senha: entity.getSenha()
+            }
+        };
+    
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
+            
+            switch (field.name){
+                case "nome":
+                    data["newData"]["nome"] = field.value;
+                    break;
+    
+                case "cpf":
+                    data["newData"]["cpf"] = field.value;
+                    break;
+    
+                case "email":
+                    data["newData"]["email"] = field.value;
+                    break; 
+            }
+    
         }
 
+        newEntity = new Usuario(data["newData"]);
     }
 
     let response = await serverRequester.fazerPost(pathToUpdate, data);
@@ -542,9 +577,7 @@ async function saveChanges(userIdentifier, user) {
         alert("Não alterado");
     }
 
-    let newUser = new Usuario(data["newData"]);
-
-    disableEdit(userIdentifier, newUser);
+    disableEdit(entityIdentifier, newEntity);
 }
 
 function setInputLabelName(event, labelName) {

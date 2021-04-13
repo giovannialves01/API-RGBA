@@ -29,6 +29,9 @@ class Biblioteca{
     setArquivo(arquivo){
         this.arquivo = arquivo;
     }
+    setId(id){
+        this.id = id;
+    }
 
     getTitulo(){
         return this.titulo;
