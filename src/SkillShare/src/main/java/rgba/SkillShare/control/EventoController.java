@@ -22,70 +22,70 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import rgba.SkillShare.model.Destaque;
+import rgba.SkillShare.model.Evento;
 import rgba.SkillShare.model.Thumb;
-import rgba.SkillShare.repository.DestaqueRepository;
+import rgba.SkillShare.repository.EventoRepository;
 
 /**
- *  Classe que define os endpoints para pílula
+ *  Classe que define os endpoints para evento
  *  @author Nicholas Roque
  */
 @RestController
 @CrossOrigin
-@RequestMapping("/destaques")
-@Api("API de destaques")
-public class DestaqueController {
+@RequestMapping("/eventos")
+@Api("API de eventos")
+public class EventoController {
 
     @Autowired 
-    DestaqueRepository destaqueRepository;
+    EventoRepository eventoRepository;
 
 
     /** 
-    *  Endpoint para cadastro de destaque.
+    *  Endpoint para cadastro de um evento.
     * @author Nicholas Roque
-    * @param curso
+    * @param evento
     * @throws IOException
     */
     @PostMapping("/cadastrar")
-    @ApiOperation("Cria um destaque.")
+    @ApiOperation("Cria um evento.")
     @ResponseStatus(HttpStatus.CREATED)
-    @ApiResponse(code = 201,message = "Destaque criada com sucesso.")
-    public Destaque createDestaqueNoticia(@RequestParam MultipartFile th, Destaque destaque) throws IOException {
+    @ApiResponse(code = 201,message = "Evento criado com sucesso.")
+    public Evento createEvento(@RequestParam MultipartFile th, Evento evento) throws IOException {
         Thumb t = new Thumb(th.getOriginalFilename(),th.getBytes(),th.getContentType());
-        destaque.setThumb(t);
-		return destaqueRepository.save(destaque);
+        evento.setThumb(t);
+		return eventoRepository.save(evento);
 	}
 
     /** 
-    *  Endpoint para retornar todos os destaques.
-    * @return Retorna uma lista de objetos do tipo Destque.
+    *  Endpoint para retornar todos os eventos.
+    * @return Retorna uma lista de objetos do tipo Evento.
     * @author Nicholas Roque
     */
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation("Retorna todos os destaques.")
-    @ApiResponse(code = 200,message = "Destaques encontrados com sucesso..")
-    public List<Destaque> getDestaques() {
-        return destaqueRepository.findAll();
+    @ApiOperation("Retorna todos os eventos.")
+    @ApiResponse(code = 200,message = "Eventos encontrados com sucesso.")
+    public List<Evento> getEventos() {
+        return eventoRepository.findAll();
     }
 
     /** 
-    *  Endpoint para retornar um destaque especificado pelo id.
-    * @return Retorna um objeto do tipo Destaque.
+    *  Endpoint para retornar um evento especificado pelo id.
+    * @return Retorna um objeto do tipo Evento.
     * @author Nicholas Roque
     */
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation("Retorna o destaque especificado pelo id.")
+    @ApiOperation("Retorna o evento especificado pelo id.")
     @ApiResponses({
-        @ApiResponse(code = 200,message = "Destaque encontrado com sucesso para o id informado."),
-        @ApiResponse(code = 404,message = "Destaque não encontrado para o id informado.")
+        @ApiResponse(code = 200,message = "Evento encontrado com sucesso para o id informado."),
+        @ApiResponse(code = 404,message = "Evento não encontrado para o id informado.")
     })
-    public Destaque getDestaqueById(@PathVariable @ApiParam("Id do destaque") Long id) {
-        return destaqueRepository
+    public Evento getEventoById(@PathVariable @ApiParam("Id do evento") Long id) {
+        return eventoRepository
             .findById(id)
             .orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Destaque não encontrado.")         
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Evento não encontrado.")         
             );
     }
 }

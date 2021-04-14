@@ -17,12 +17,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 /**
- *  Classe que define as postagens de destaques.
+ *  Classe que define as postagens de eventos.
  *  @author Nicholas Roque
  */
-@Entity(name = "destaque")
+@Entity(name = "evento")
 @NoArgsConstructor @Data @AllArgsConstructor @ToString
-public class Destaque {
+public class Evento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,10 +36,7 @@ public class Destaque {
 
     @Column(nullable = false)
     private String conteudo;
-    
-    @Column
-    private String fonte;
-    
+
     @Column
     private LocalDateTime data = LocalDateTime.now();
 
@@ -48,14 +45,14 @@ public class Destaque {
     private Thumb thumb;
 
     /** 
-    *  Cria uma instância da classe Destaque.
-    * @param titulo -> titulo do destaque
-    * @param sinopse -> sinopse do destaque
-    * @param conteudo -> conteudo do destaque
+    *  Cria uma instância da classe Evento.
+    * @param titulo -> titulo do evento.
+    * @param sinopse -> sinopse do evento.
+    * @param conteudo -> conteudo do evento.
     * @author Nicholas Roque
     */
 
-    public Destaque(String titulo,String sinopse,String conteudo) {
+    public Evento(String titulo,String sinopse,String conteudo) {
         this.titulo = titulo;
         this.sinopse = sinopse;
         this.conteudo = conteudo;

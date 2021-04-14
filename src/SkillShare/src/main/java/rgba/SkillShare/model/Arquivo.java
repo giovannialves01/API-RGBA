@@ -1,6 +1,5 @@
 package rgba.SkillShare.model;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +22,7 @@ import lombok.ToString;
 @Entity(name="arquivo")
 @NoArgsConstructor @AllArgsConstructor @Data @ToString
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Arquivo implements Serializable{
+public abstract class Arquivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

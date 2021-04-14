@@ -730,41 +730,23 @@ async function registerPilula(event) {
 
 async function registerNoticia(event){
     event.preventDefault();
+    
+    let form = $('#formNoticia')[0];
+    let formData = new FormData(form);   
+    let url=`${serverRequester.serverURL}/destaques/cadastrar`
+    alert("Chamando função para cadastrar notícia.");
 
-    let form = document.getElementById("formNoticia");
-
-    let response = await fetch("/destaques/cadastrar/noticia", {
-        method: 'POST',
-        body: new FormData(form)
-      });
-
-    console.log(response);
-
+    sendFile(formData,url);
 }
 
 
 async function registerEvento(event){
     event.preventDefault();
-
-    let form = document.getElementById("formEvento");
-    let titulo = document.getElementById("tituloEvento").value;
-    let sinopse = document.getElementById("textAreaSubtituloEvento").value;
-    let conteudo = document.getElementById("textAreaCorpoEvento").value;
-
-    let formData = new FormData();
-    formData.append("titulo", titulo);
-    formData.append("sinopse", sinopse);
-    formData.append("conteudo", conteudo);
-
-    let data = {
-        titulo: titulo,
-        sinopse: sinopse,
-        conteudo, conteudo
-    };
-
-    let response = await serverRequester.fazerPost("/destaques/cadastrar/evento", data);
-
-    console.log(response);
+    let form = $('#formEvento')[0];
+    let formData = new FormData(form);   
+    let url=`${serverRequester.serverURL}/eventos/cadastrar`
+    alert("Chamando função para cadastrar evento.");
+    sendFile(formData,url);
 }
 
 function showEvento() {
