@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste upload arquivo</title>
+</head>
+<body>
+    <form id="form" onsubmit="handleSubmit(event)" enctype="multipart/form-data">
+        <input type="file" name="arquivo" id="arquivo"><br /><br />
+        <button id="submit" type="submit">enviar</button>
+    </form>
+
+    <br />
+    <!-- IMG -->
+    <img src="" alt="teste" id="img" />
+
+    <br />
+    <!-- PDF -->
+   <div>
+    <button id="anterior">Anterior</button>
+    <button id="proximo">Proximo</button>
+    &nbsp; &nbsp;
+    <span>Página: <span id="paginaAtual"></span> / <span id="paginaTotal"></span></span>
+  </div>
+  <canvas id="pdf"></canvas>
+
+  <br />
+  <!-- AUDIO -->
+  <audio autobuffer id="audio" controls></audio>
+
+  <br />
+  <br />
+  <!-- VIDEO -->
+  <video id="video" width="320" height="240" controls></video>
+  <br />
+  <br />
+      <button onclick="download()">Baixar arquivo</button>
+  <footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="js/Utils/renderIMG.js"></script>
+    <script src="js/Utils/renderPDF.js"></script>
+    <script src="js/Utils/renderMidia.js"></script>
+    <script src="js/Utils/sendFile.js"></script>
+    <script src="js/Utils/downloadFile.js"></script>
+
+    <script>
+        function handleSubmit(e){
+            e.preventDefault()
+            let form = $('#form')[0];
+            let formData = new FormData(form);    
+            let idCanvas = "pdf"
+            let idBtnProximo = "proximo"
+            let idBtnAnterior = "anterior"
+            let idPaginaAtual = "paginaAtual"
+            let idPaginaTotal = "paginaTotal"
+            let idImg = "img"
+            let idVideo = "video"
+            let idAudio = "audio"
+
+            let url = 'http://localhost:8080/arquivo/upload'
+            sendFile(formData,url).then((a)=>{
+                switch (a.tipoArquivo) {
+                    case "application/pdf":
+                        renderPDF(a.conteudo,idCanvas,idPaginaAtual,idPaginaTotal,idBtnAnterior,idBtnProximo)
+                        break;          
+                    case "video/mp4":
+                        renderMidia(a.conteudo,a.tipoArquivo,idVideo)
+                        break;     
+                    case "audio/mpeg":
+                        renderMidia(a.conteudo,a.tipoArquivo,idAudio)
+                        break;
+                    case "audio/ogg":
+                        renderMidia(a.conteudo,a.tipoArquivo,idAudio)
+                        break;
+                    default:
+                        renderIMG(a.conteudo,a.tipoArquivo,idImg)
+                        break;
+                }
+            })
+
+        }
+        function download(){
+            downloadFile(conteudo,tipoArquivo,nomeArquivo)
+        }
+    </script>
+  </footer>
+</body>
+</html> 

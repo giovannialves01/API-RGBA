@@ -20,6 +20,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -30,10 +31,10 @@ import java.util.List;
  *  Classe que define os endpoints para gestor
  *  @author Nicholas Roque
  */
-@RestController
 @CrossOrigin
-@RequestMapping("/gestor")
+@RestController
 @Api("API de gestor")
+@RequestMapping("/gestor")
 public class GestorController {
 
     @Autowired 
@@ -56,9 +57,10 @@ public class GestorController {
     * @return Retorna uma lista do objeto Gestor com todos os gestores. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
-    @ApiOperation("Retorna uma lista com todos os usuários do tipo gestor")
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     @ApiResponse(code = 200,message = "Usuários retornados com sucesso.")
+    @ApiOperation("Retorna uma lista com todos os usuários do tipo gestor")
     public List<Gestor> getAllGestores(){
         return gRepository.findAll();
     }
@@ -71,6 +73,7 @@ public class GestorController {
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna os detalhes de um usuário do tipo gestor.")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Usuário do tipo gestor encontrado com sucesso."),
@@ -83,4 +86,39 @@ public class GestorController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo gestor não encontrado.")
             );
     }
+    
+	@PostMapping(value = "/update")
+	public boolean updateGestor(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		JSONObject admOldData = parsedData.getJSONObject("oldData");
+		JSONObject admNewData = parsedData.getJSONObject("newData");
+		
+		Gestor oldUsuario = new Gestor(admOldData.getString("cpf"), admOldData.getString("nome"), admOldData.getString("email"), admOldData.getString("senha"));
+		Gestor newUsuario = new Gestor(admNewData.getString("cpf"), admNewData.getString("nome"), admNewData.getString("email"), admNewData.getString("senha"));
+		
+		try{
+			gRepository.delete(oldUsuario);
+			gRepository.save(newUsuario);
+			
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+
+	}
+	
+	@PostMapping(value = "/delete")
+	public boolean deleteGestor(@RequestBody Gestor gestor) {
+		try {
+			gRepository.deleteById(gestor.getCpf());
+			
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
 }

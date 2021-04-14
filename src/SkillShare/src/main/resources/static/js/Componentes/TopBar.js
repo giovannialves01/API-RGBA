@@ -4,37 +4,106 @@ class TopBar extends HTMLElement{
 
     }
 
-    connectedCallback(){
-        let topbar = document.createElement("div");
-        topbar.classList.add("topBarContainer");
+    async connectedCallback(){
+        let topBar = await this.buildTopBar();
 
-        let exitLabel = document.createElement("label");
-        exitLabel.textContent = "Sair";
-        exitLabel.classList.add("topBarExitLabel");
-        exitLabel.title = "Desconectar da sua conta";
-        exitLabel.onclick = function () {
-        	window.location.href = "/";
+        this.appendChild(topBar);
+    }
+
+    async buildTopBar(){
+        let container = document.createElement("div");
+        container.classList.add("topBar");
+
+        let menuBox = this.buildMenuBox();
+        let topBarTitle = this.buildTopBarTitle();
+        let topBarOptionsBox = await this.buildTopBarOptionsBox();
+
+        container.appendChild(menuBox);
+        container.appendChild(topBarTitle);
+        container.appendChild(topBarOptionsBox);
+
+        return container;
+
+    }
+
+    buildMenuBox(){
+        let div = document.createElement("div");
+        div.classList.add("topBarMenuButton");
+        div.onclick = function(){
+            let menuBackground = document.getElementsByClassName("menuBackground")[0];
+            let menu = document.getElementsByClassName("menu")[0];
+
+            if(menuBackground.classList.contains("show")){
+                menuBackground.classList.remove("show");
+                menuBackground.classList.add("hide");
+
+                menu.classList.remove("show");
+                menu.classList.add("hide");
+            }else{
+                menuBackground.classList.remove("hide");
+                menuBackground.classList.add("show");
+
+                menu.classList.remove("hide");
+                menu.classList.add("show");
+            }
+            
         }
 
-        let topbarHomeButtonContainer = document.createElement("div");
-        topbarHomeButtonContainer.classList.add("topBarHomeButtonContainer");
-        topbarHomeButtonContainer.title = "Voltar para a página inicial";
+        let span = document.createElement("span");
+        span.className = "fas fa-bars topBarMenuButton-faIcon";
 
-        let topbarHomeButtonLogo = document.createElement("span");
-        topbarHomeButtonLogo.className = "fas fa-home";
-        topbarHomeButtonLogo.classList.add("topBarHomeButtonLogo");
+        let label = document.createElement("label");
+        label.textContent = "Menu";
 
-        let topbarHomeButtonText = document.createElement("label");
-        topbarHomeButtonText.classList.add("topBarHomeButtonText");
-        topbarHomeButtonText.textContent = "Página inicial"
+        div.appendChild(span);
+        div.appendChild(label);
 
-        topbarHomeButtonContainer.appendChild(topbarHomeButtonLogo);
-        topbarHomeButtonContainer.appendChild(topbarHomeButtonText);
+        return div;
+    }
 
-        topbar.appendChild(topbarHomeButtonContainer);
-        topbar.appendChild(exitLabel);
+    buildTopBarTitle(){
+        let label = document.createElement("label");
+        label.classList.add("topBarTitle");
+        label.onclick = function () {
+            window.location.href = "/";
+        }
+        
+        let negrito = document.createElement("b");
+        negrito.textContent = "SkillShare";
 
-        this.appendChild(topbar);
+        label.appendChild(negrito);
+
+        return label;
+    }
+
+    async buildTopBarOptionsBox(){
+        let response = await serverRequester.fazerGet("/usuario/isLogged");
+
+        let div = document.createElement("div");
+        div.classList.add("topBarOptionsDiv");
+
+        let label = document.createElement("label");
+        label.classList.add("topBarOptionLabel");
+        if(response["responseJson"] == false){
+            label.textContent = "Entrar";
+            label.onclick = function(){
+                window.location.href = "login";
+
+            }
+
+        }else{
+            label.textContent = "Sair";
+            label.onclick = function(){
+                serverRequester.fazerGet("/usuario/logout");
+                window.location.href = "/";
+
+            }
+
+        }
+
+        div.appendChild(label);
+
+        return div;
     }
 
 }

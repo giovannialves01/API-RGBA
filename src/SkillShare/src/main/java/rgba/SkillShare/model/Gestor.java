@@ -1,6 +1,12 @@
 package rgba.SkillShare.model;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 /**
@@ -8,14 +14,10 @@ import javax.persistence.Entity;
  *  @author Nicholas Roque
  */
 @Entity(name="gestor")
-public class Gestor extends Usuario{
-    
+@NoArgsConstructor @Data
 
-    /** 
-    * Construtor padrão da classe Gestor
-    * @author Nicholas Roque
-    */
-    public Gestor(){}
+public class Gestor extends Usuario{
+
 
     /** 
     *  Cria uma instância da classe Gestor.
@@ -25,12 +27,13 @@ public class Gestor extends Usuario{
     * @param senha -> senha do gestor
     * @author Nicholas Roque
     */
+
     public Gestor(String cpf,String nome,String email,String senha) { 
-        this.setNome(nome);
-        this.setCpf(cpf);
-        this.setEmail(email);
-        this.setSenha(senha);
+        super(cpf,nome,email,senha);
     }
+
+    @OneToMany(mappedBy = "gestor",cascade = CascadeType.ALL)
+    private List<Curso> cursos;
 
 
 }
