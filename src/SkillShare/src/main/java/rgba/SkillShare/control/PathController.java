@@ -76,7 +76,7 @@ public class PathController {
 				return "redirect:login";
 			}
 	
-	}
+	}//
 	
 	@GetMapping(value = "/login")
 	public String login(HttpSession sessao) {
