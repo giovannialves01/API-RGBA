@@ -55,9 +55,7 @@ public class DestaqueController {
     public Destaque createDestaqueNoticia(@RequestParam MultipartFile th, Destaque destaque) throws IOException {
         Thumb t = new Thumb(th.getOriginalFilename(),th.getBytes(),th.getContentType());
         destaque.setThumb(t);
-        destaque.setTipo("Noticia");
 		return destaqueRepository.save(destaque);
-
 	}
 
     /** 

@@ -263,7 +263,7 @@
             </div>
 
 
-            <form class="noticiaForm showChoose" id="formNoticia" onsubmit="registerNoticia(event)" onreset="clearFileLabel(event, 'labelFileNameNoticia')">
+            <form class="noticiaForm showChoose" enctype="multipart/form-data"  id="formNoticia" onsubmit="registerNoticia(event)" onreset="clearFileLabel(event, 'labelFileNameNoticia')">
                 <div style="width: 90%; margin: 0 auto;">
                     <div style="width: 100%; display: flex; margin-bottom: 20px;">
                         <label>Título:</label>
@@ -304,7 +304,11 @@
                         <label>Título:</label>
                         <input name="titulo" type="text" id="tituloEvento">
                     </div>
-
+                    <div class="inputFile">
+                        <label for="inputUploadEvento" class="inputUploadButton">Escolher imagem...</label>
+                        <input name="th" type="file" id="inputUploadEvento" onchange="setInputLabelName(event, 'labelFileNameEvento')">
+                        <label id="labelFileNameEvento">Selecione uma imagem de thumbnail</label>
+                    </div>
                     <div class="textField">
                         <label>Subtitulo</label>
                         <textarea name="sinopse" id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
