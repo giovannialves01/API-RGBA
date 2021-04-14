@@ -101,11 +101,15 @@ public class PathController {
 		return "materialAcervo";
 	}
 	
-
 	@GetMapping(value = "/upload")
 	public String uploadImagem() {
 		return "upload";
 	}
 	
+	@GetMapping(value = "/noticias")
+	public String noticia() {
+		return "noticias";
+	}
+
 }
  

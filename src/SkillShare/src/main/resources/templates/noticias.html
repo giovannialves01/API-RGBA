@@ -4,44 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Notícias</title>
+
+    <!-- CDN das depedências externas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+    <!-- Rodar no Eclipse -->
+    <link rel="stylesheet" href="css/Noticias.css">
+    <link rel="stylesheet" href="css/Menu.css">
+    <link rel="stylesheet" href="css/TopBar.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <link rel="stylesheet" href="css/GlobalComponents.css">
+
+    <script src="js/Utils/ServerRequester.js"></script>
+    <script src="js/Paginas/Noticias.js"></script>
+    <script src="js/Componentes/Menu.js"></script>
+    <script src="js/Componentes/TopBar.js"></script>
+    <script src="js/Componentes/Footer.js"></script>
+    
 </head>
 <body>
-    <div style="border: 1px solid black; width: 600px; height: 600px;">
-        <h1>Novidades</h1>
-        <div style="border: 1px solid black; border-radius: 5px; min-height: 500px; margin: 15px;">
-            <div style="float: left; border: 1px solid gray; height: 150px; width: 35%; margin: 10px;">
-                <div style="border-bottom: 1px solid black; height: 100px">
-                    fotinha do curso
-                </div>
+    <top-bar></top-bar>
+    <menu-rgba></menu-rgba>
+    <div class="paginaDisplayer">
+        <div class="maisConteudo">
+            <h3>Mais Conteúdo</h3>
+            <div class="sideMaisConteudo" id="sideNoticias">
+                <h4>Notícias</h4>
                 <div>
-                    <p>titulo do curso</p>
+                    <img>
+                    <label></label>
                 </div>
             </div>
-            <div style="float: left; border: 1px solid gray; height: 150px; width: 35%; margin: 10px;">
-                <div style="border-bottom: 1px solid black; height: 100px">
-                    fotinha do curso
-                </div>
-                <div>
-                    <p>titulo do curso</p>
-                </div>
+            <div class="sideMaisConteudo" id="sideEventos">
+                <h4>Eventos</h4>
             </div>
         </div>
-        <!-- <div>logo</div>
-        <ul>
-            <li>Cursos</li>
-            <ul>
-                <li>Opção 1</li>
-                <li>Opção 2</li>
-                <li>Opção 3</li>
-            </ul>
-            <li>Opção 2</li>
-            <li>Biblioteca</li>
-            <li>Banco de questões</li>
-            <li>Usuários</li>
-            <li>Dashboard</li>
-            <li>Minha conta</li>
-        </ul> -->
+        <div class="separadorV"></div>
+        <div class="noticiaContainer">
+
+        </div>
     </div>
+
+    <footer-rgba></footer-rgba>
 </body>
 </html>
