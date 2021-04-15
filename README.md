@@ -43,7 +43,7 @@
               <img src="https://user-images.githubusercontent.com/60778277/112249518-b2c04600-8c36-11eb-870c-dde55c0dee32.jpg" width=550px height=500px>
               <h3>:hourglass_flowing_sand: Entregas</h3>
               <h4>Primeira entrega :clock12:</h4>
-              <p align="justify">A primeira entrega foi foca no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as suas páginas iniciais, cada uma contendo o que cada um poderá realizar no sistema.</p>
+              <p align="justify">A primeira entrega foi focada no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as suas páginas iniciais, cada uma contendo o que cada um poderá realizar no sistema.</p>
               <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/1.png" width="550px" height="300px">
               <h4>Segunda entrega :clock4:</h4>
               <p align="justify">A segunda entrega conta com o início da postagem de conteúdo na plataforma, de forma que ela fique mais atraente e robusta para os estudantes. Estes já poderão visualizar o conteúdo postado. Além disso um chatbot já estará integrado ao sistema para auxílio dos usuários.</p>
