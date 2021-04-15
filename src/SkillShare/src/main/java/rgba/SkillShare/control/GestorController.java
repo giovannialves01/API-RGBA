@@ -5,9 +5,11 @@ import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.repository.GestorRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -24,6 +26,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -87,7 +90,7 @@ public class GestorController {
             );
     }
     
-	@PostMapping(value = "/update")
+/* 	@PostMapping(value = "/update")
 	public boolean updateGestor(@RequestBody String data) {
 		JSONObject parsedData = new JSONObject(data);
 		
@@ -105,7 +108,6 @@ public class GestorController {
 		}catch (Exception e) {
 			return false;
 		}
-
 	}
 	
 	@PostMapping(value = "/delete")
@@ -120,5 +122,55 @@ public class GestorController {
 		}
 		
 	}
+ */
+    /** 
+    *  Endpoint para deletar um gestor especificado pelo cpf.
+    * @param cpf-> cpf do gestor a ser deletado
+    * @author Nicholas Roque
+    */
+    @DeleteMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Deleta o gestor especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Gestor deletado com sucesso."),
+        @ApiResponse(code = 404,message = "Gestor não encontrado para o cpf informado.")
+    })
+    public void deleteGestorByCpf(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
+        gRepository
+            .findById(cpf)
+            .map(g->{
+                gRepository.delete(g);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Gestor não encontrado.")         
+            );
+    }
+
+    /** 
+    *  Endpoint para atualizar um gestor especificado pelo id.
+    * @param cpf-> cpf do gestor a ser atualizado
+    * @param gestor-> objeto do gestor a ser atualizado
+    * @author Nicholas Roque
+    */
+    @PutMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Atualiza o gestor especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Gestor atualizado com sucesso."),
+        @ApiResponse(code = 404,message = "Gestor não encontrado para o cpf informado.")
+    })
+    public void updateGestorByCpf(@PathVariable @ApiParam("Cpf do gestor") String cpf,@RequestBody @ApiParam("Gestor atualizado") Gestor gestor) {
+        gRepository
+            .findById(cpf)
+            .map(g->{
+                gestor.setSenha(g.getSenha());
+                gRepository.save(gestor);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Gestor não encontrado.")         
+            );
+    }
 	
 }

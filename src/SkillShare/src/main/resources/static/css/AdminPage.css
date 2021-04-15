@@ -487,13 +487,49 @@ input[type = text]:focus{
 }
 
 .hideChoose{
-    display: none;
+    display: none !important;
 }
 
 .showChoose{
-    display: block;
+    display: block !important;
 }
 
 .eventoForm{
     margin-top: 50px;
+}
+
+.noticiaEventoDisplayer{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fieldBox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.textFieldBox{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea.userDataFieldEnabled{
+    border: 2px solid #0aada7;
+    border-radius: 5px;
+}
+
+#pilulasToShow{
+    width: 90%;
+    margin: 0 auto;
 }

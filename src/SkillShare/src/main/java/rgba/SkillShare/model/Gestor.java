@@ -32,6 +32,10 @@ public class Gestor extends Usuario{
         super(cpf,nome,email,senha);
     }
 
+    public Gestor(String cpf,String nome,String email) { 
+        super(cpf,nome,email);
+    }
+
     @OneToMany(mappedBy = "gestor",cascade = CascadeType.ALL)
     private List<Curso> cursos;
 

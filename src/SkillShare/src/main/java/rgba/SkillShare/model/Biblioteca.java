@@ -1,10 +1,13 @@
 package rgba.SkillShare.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +20,7 @@ import lombok.ToString;
  */
 @Entity(name="biblioteca")
 @NoArgsConstructor @AllArgsConstructor @Data @ToString
-public class Biblioteca extends Arquivo{
+public class Biblioteca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +32,10 @@ public class Biblioteca extends Arquivo{
     @Column(nullable = false)
     private String titulo;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_arquivo",referencedColumnName = "id")
+    private Arquivo arquivo;
+
     /** 
     *  Cria uma instância da classe Biblioteca.
     * @param tituloArquivo -> titulo do arquivo
@@ -36,13 +43,11 @@ public class Biblioteca extends Arquivo{
     * @param tipoArquivo -> tipoArquivo
     * @author Nicholas Roque
     */
-    public Biblioteca(String tituloArquivo,byte[] conteudo,String tipoArquivo,String titulo){
-        super(tituloArquivo,conteudo,tipoArquivo);
+    public Biblioteca(String titulo){
         this.titulo = titulo;
     }
 
-    public Biblioteca(String tituloArquivo,byte[] conteudo,String tipoArquivo,String titulo,String autor){
-        super(tituloArquivo,conteudo,tipoArquivo);
+    public Biblioteca(String titulo,String autor){
         this.titulo = titulo;
         this.autor = autor;
     }

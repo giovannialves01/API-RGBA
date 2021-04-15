@@ -157,7 +157,7 @@ public class MenuOptions {
 		subOptions.put(this.criarSubOpcao("Criar novo curso", "console.log(\"Criar novo curso\");"));
 		subOptions.put(this.criarSubOpcao("Gerir cursos", "console.log(\"Gerir cursos\");"));
 		subOptions.put(this.criarSubOpcao("Criar nova pílula", "hideAllContent();showContent('adicionarPilula');"));
-		subOptions.put(this.criarSubOpcao("Gerir pílulas", "console.log(\"Gerir pílulas\");"));
+		subOptions.put(this.criarSubOpcao("Gerir pílulas", "hideAllContent();showContent('mostrarGerirPilulas');loadPilulasToShow();"));
 		subOptions.put(this.criarSubOpcao("Criar nova turma", "console.log(\"Criar nova turma\");"));
 		subOptions.put(this.criarSubOpcao("Gerir turmas", "console.log(\"Gerir turmas\");"));
 		
@@ -206,7 +206,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Postar nova notícia/evento", "hideAllContent();showContent('adicionarNoticiaEvento');"));
-		subOptions.put(this.criarSubOpcao("Gerir notícias/eventos", "console.log(\"Gerir notícias/eventos\");"));
+		subOptions.put(this.criarSubOpcao("Gerir notícias/eventos", "hideAllContent();showContent('mostrarEventosNoticias');loadNoticias();loadEventos();"));
 		
 		option = this.criarOpcao("Notícias e eventos", "calendar-day", "6", "Clique aqui para exibir o cadastro de eventos",
 				subOptions);
