@@ -4,6 +4,7 @@ import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.repository.AdmRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -87,65 +88,56 @@ public class AdmController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo adm não encontrado.")
             );
     }
-    
+
+
     /** 
-    *  Endpoint para retornar os detalhes de um administrador.
-    * @return Retorna objeto do tipo Adm com os dados do usuário.
-    * @param cpf -> cpf do administrador
-    * @param adm -> todos os dados do administrador
+    *  Endpoint para deletar um administrador especificado pelo cpf.
+    * @param cpf-> cpf do administrador a ser deletado
+    * @author Nicholas Roque
+    */
+    @DeleteMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Deleta o adm especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Adm deletado com sucesso."),
+        @ApiResponse(code = 404,message = "Adm não encontrado para o cpf informado.")
+    })
+    public void deleteAdmByCpf(@PathVariable @ApiParam("Cpf do adm") String cpf) {
+        admRepository
+            .findById(cpf)
+            .map(a->{
+                admRepository.delete(a);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Adm não encontrado.")         
+            );
+    }
+
+    /** 
+    *  Endpoint para atualizar um adm especificado pelo id.
+    * @param cpf-> cpf do administrador a ser atualizado
+    * @param adm-> objeto do administrador a ser atualizado
     * @author Nicholas Roque
     */
     @PutMapping("{cpf}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @ApiOperation("Atualiza as informações de um usuário do tipo administrador.")
+    @ApiOperation("Atualiza o administrador especificado pelo cpf.")
     @ApiResponses({
-        @ApiResponse(code = 204,message = "Usuário do tipo adm atualizado com sucesso."),
-        @ApiResponse(code = 404,message = "Usuário do tipo adm não encontrado para o cpf informado.")
+        @ApiResponse(code = 204,message = "Adm atualizado com sucesso."),
+        @ApiResponse(code = 404,message = "Adm não encontrado para o cpf informado.")
     })
-    public void updateAdm(@PathVariable @ApiParam("Cpf do administrador.") String cpf,@RequestBody Adm adm) {
+    public void updateAdmByCpf(@PathVariable @ApiParam("Cpf do adm") String cpf,@RequestBody @ApiParam("Adm atualizado") Adm adm) {
         admRepository
             .findById(cpf)
             .map(a->{
+                adm.setSenha(a.getSenha());
                 admRepository.save(adm);
                 return ResponseEntity.noContent().build();
             })
             .orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo adm não encontrado para o cpf especificado.")
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Adm não encontrado.")         
             );
     }
-
-	@PostMapping(value = "/update")
-	public boolean updateAdm(@RequestBody String data) {
-		JSONObject parsedData = new JSONObject(data);
-		
-		JSONObject admOldData = parsedData.getJSONObject("oldData");
-		JSONObject admNewData = parsedData.getJSONObject("newData");
-		
-		Adm oldUsuario = new Adm(admOldData.getString("cpf"), admOldData.getString("nome"), admOldData.getString("email"), admOldData.getString("senha"));
-		Adm newUsuario = new Adm(admNewData.getString("cpf"), admNewData.getString("nome"), admNewData.getString("email"), admNewData.getString("senha"));
-		
-		try{
-			admRepository.delete(oldUsuario);
-			admRepository.save(newUsuario);
-			
-			return true;
-		}catch (Exception e) {
-			return false;
-		}
-
-	}
-	
-	@PostMapping(value = "/delete")
-	public boolean deleteAdm(@RequestBody Adm administrador) {
-		try {
-			admRepository.deleteById(administrador.getCpf());
-			
-			return true;
-		}catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		
-	}
 	
 }

@@ -27,4 +27,7 @@ public class Adm extends Usuario{
     public Adm(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }
+    public Adm(String cpf,String nome,String email) { 
+        super(cpf,nome,email);
+    }
 }

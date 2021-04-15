@@ -1,4 +1,3 @@
-
 package rgba.SkillShare.model;
 
 import java.time.LocalDateTime;
