@@ -18,6 +18,7 @@
     <script src="js/Componentes/Menu.js"></script>
     <script src="js/Componentes/TopBar.js"></script>
     <script src="js/Componentes/Footer.js"></script>
+    <script src="js/Utils/renderIMG.js"></script>
     <script src="js/Paginas/noticiasEventos.js"></script>
     
     <title>Página do aluno | SkillShare</title>
@@ -74,33 +75,36 @@
 
                     <p id="cursosandamento">Cursos em andamento</p>
 
-                            <a id="adecoration" href="noticia aqui ó">
-                                <img id="flex" src="https://img.freepik.com/fotos-gratis/3d-rendem-de-uma-mesa-de-madeira-com-uma-imagem-defocussed-de-um-barco-em-um-lago_1048-3432.jpg?size=626&ext=jpg" alt="imagem do curso 1">
+
+						<div style="width: 80%; height: 300px; background-color: #dcdcdc">
+						
+						</div>
+                            <!-- <a id="adecoration" href="noticia aqui ó">
+                                <img id="flex" src="https://www.siembra.com.br/img/noticias/grande/e22e682a3707cf126fb9de17adf605ca.png" alt="imagem do curso 1">
                                 <div id="block">
                                     <p id="marginnomecurso">Nome do curso que vem do banco</p><br>
                                     <p>Porcentagem que vem do banco</p><br>
                                 </div>
-                            </a>
+                            </a> -->
                         
                 </div>
             </div>
-
+			<hr class="separadorNoticiasEventos">
             <div class="ultimosEventosENoticias">
                 <div class="toper-event">
-                    <p id="eventos-e-noticas">Eventos e notícias</p><br>
+                    <p id="eventos-e-noticas">Notícias</p><br>
                     <a id="adecorationvertudo" href="link ver todas as noticias">Ver tudo</a><br>
                 </div>
-                <div id="noticias">
-                    <a id="adecoration" href="noticia aqui ó">
-                        <img id="imagenoticia" src="images/Ellipse_2.png" alt="imagem da noticia">
-                        <div id="descricaonoticias">
-                            <p id="margintopnoticia">titulo da noticia que vem do banco</p>
-                            <p id="marginnoticia">breafing da noticia</p>
-                            <p id="leramaisdanoticia">Ler conteúdo completo</p> 
-                        </div>
-                    </a>
+                <div id="noticias"></div>
+            </div>
+            <hr class="separadorNoticiasEventos">
+            <div class="ultimosEventos">
+                <div class="toper-event">
+                    <p id="eventos-e-noticas">Eventos</p><br>
+                    <a id="adecorationvertudo" href="link ver todos os eventos">Ver tudo</a><br>
                 </div>
-            </div>         
+                <div class="eventos" id="eventos"></div>
+            </div>   
         </div>
     </div>
 
