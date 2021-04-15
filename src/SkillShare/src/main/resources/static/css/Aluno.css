@@ -6,7 +6,17 @@
 
 .separadorNoticiasEventos {
 	width: 90%;
-	borderr: 2px solid black;
+}
+
+.noticiasEventosHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.noticiasEventosHeader a{
+	margin-left: 20px;
+	text-decoration: none;
 }
 
 .Header{
