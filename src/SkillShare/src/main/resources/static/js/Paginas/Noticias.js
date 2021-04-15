@@ -5,12 +5,15 @@ async function loadMaisConteudo() {
     let eventosData = responseEventos["responseJson"];
     let noticiasData = responseDestaques["responseJson"];
 
-    buildContent("sideEventos", eventosData);
-    buildContent("sideNoticias", noticiasData);
+    console.log(eventosData);
+    console.log(noticiasData);
+
+    buildContent("sideEventos", eventosData, false);
+    buildContent("sideNoticias", noticiasData, true);
 
 }
 
-function buildContent(divToAppend, data) {
+function buildContent(divToAppend, data, noticiaEvento) {
     let container = document.getElementById(divToAppend);
 
     for (let i = 0; i < data.length; i++) {
@@ -18,13 +21,20 @@ function buildContent(divToAppend, data) {
 
         let div = document.createElement("div");
         div.classList.add("noticiaExtra");
-        div.onclick = function(){
-            alert("clicado na noticia: " + entity["titulo"]);
+        if(noticiaEvento){
+            div.onclick = async function(){
+                await showNoticia(entity["id"]);
+            }
+        }else{
+            div.onclick = async function(){
+                await showEvento(entity["id"]);
+            }
         }
 
+
         let img = document.createElement("img");
-        let imgTipo = entity["thumb"]["tipoArquivo"];
-        let imgArquivo = entity["thumb"]["conteudo"];
+        let imgTipo = entity["thumb"]["arquivo"]["tipoArquivo"];
+        let imgArquivo = entity["thumb"]["arquivo"]["conteudo"];
         img.setAttribute("src", `data:` + imgTipo + `;base64,` + imgArquivo);
         img.classList.add("imagemNoticiaMaisConteudo");
 
@@ -35,7 +45,65 @@ function buildContent(divToAppend, data) {
         div.appendChild(p);
         
         container.appendChild(div);
+
     }
+
+}
+
+async function showNoticia(idNoticia) {
+    let container = document.getElementById("noticiaEventoDisplayer");
+
+    let response = await serverRequester.fazerGet("/destaques", idNoticia);
+
+    let data = response["responseJson"];
+
+    let noticia = new Destaque(data);
+
+    container.innerHTML = "";
+
+    let header = document.createElement("div");
+    header.classList.add("noticiaHeader");
+
+    let headerThumbnail = document.createElement("img");
+    headerThumbnail.classList.add("imagemNoticiaHeader");
+    let imgTipo = noticia.getArquivo().arquivo.tipoArquivo;
+    let imgArquivo = noticia.getArquivo().arquivo.conteudo;
+    headerThumbnail.setAttribute("src", `data:` + imgTipo + `;base64,` + imgArquivo);
+
+    let headerTexts = document.createElement("div");
+    headerTexts.classList.add("noticiaHeaderTitulo");
+
+    let headerTitle = document.createElement("h1");
+    headerTitle.textContent = noticia.getTitulo();
+
+    let headerDescription = document.createElement("p");
+    headerDescription.textContent = noticia.getSinopse();
+
+    let bodyText = document.createElement("p");
+    bodyText.classList.add("noticiaText")
+    bodyText.textContent = noticia.getConteudo();
+
+    headerTexts.appendChild(headerTitle);
+    headerTexts.appendChild(headerDescription);
+
+    header.appendChild(headerThumbnail);
+    header.appendChild(headerTexts);
+
+    container.appendChild(header);
+    container.appendChild(bodyText);
+    
+}
+
+async function showEvento(idEvento){
+    let container = document.getElementById("noticiaEventoDisplayer");
+
+    let response = await serverRequester.fazerGet("/eventos", idEvento);
+
+    let data = response["responseJson"];
+
+    let evento = new Evento(data);
+
+    container.innerHTML = "";
 }
 
 loadMaisConteudo();

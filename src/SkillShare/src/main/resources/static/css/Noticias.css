@@ -95,3 +95,8 @@
 .eventoExtra:hover{
     background-color: #5da5e461;
 }
+
+.noticiaText{
+    text-align: justify;
+    margin-right: 10px;
+}

@@ -95,6 +95,7 @@ public class DestaqueController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Destaque não encontrado.")         
             );
     }
+    
 
 	 /** 
     *  Endpoint para deletar um destaque especificado pelo id.
