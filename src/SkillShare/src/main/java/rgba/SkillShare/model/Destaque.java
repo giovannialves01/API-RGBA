@@ -1,4 +1,3 @@
-
 package rgba.SkillShare.model;
 
 import java.time.LocalDateTime;
@@ -11,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.print.DocFlavor.STRING;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -55,10 +55,12 @@ public class Destaque {
     * @author Nicholas Roque
     */
 
-    public Destaque(String titulo,String sinopse,String conteudo) {
+    public Destaque(String titulo,String sinopse,String conteudo,String fonte) {
         this.titulo = titulo;
         this.sinopse = sinopse;
         this.conteudo = conteudo;
+        this.fonte = fonte;
+
     }
 
 }

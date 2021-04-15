@@ -5,9 +5,11 @@ import rgba.SkillShare.model.Tutor;
 import rgba.SkillShare.repository.TutorRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -24,6 +26,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -87,7 +90,7 @@ public class TutorController {
             );
     }
     
-	@PostMapping(value = "/update")
+/* 	@PostMapping(value = "/update")
 	public boolean updateTutor(@RequestBody String data) {
 		JSONObject parsedData = new JSONObject(data);
 		
@@ -105,7 +108,6 @@ public class TutorController {
 		}catch (Exception e) {
 			return false;
 		}
-
 	}
 	
 	@PostMapping(value = "/delete")
@@ -119,6 +121,56 @@ public class TutorController {
 			return false;
 		}
 		
-	}
+	} */
+
+    /** 
+    *  Endpoint para deletar um tutor especificado pelo cpf.
+    * @param cpf-> cpf do tutor a ser deletado
+    * @author Nicholas Roque
+    */
+    @DeleteMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Deleta o tutor especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Tutor deletado com sucesso."),
+        @ApiResponse(code = 404,message = "Tutor não encontrado para o cpf informado.")
+    })
+    public void deleteTutorByCpf(@PathVariable @ApiParam("Cpf do tutor") String cpf) {
+        tRepository
+            .findById(cpf)
+            .map(t->{
+                tRepository.delete(t);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Tutor não encontrado.")         
+            );
+    }
+
+    /** 
+    *  Endpoint para atualizar um tutor especificado pelo id.
+    * @param cpf-> cpf do tutor a ser atualizado
+    * @param tutor-> objeto do tutor a ser atualizado
+    * @author Nicholas Roque
+    */
+    @PutMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Atualiza o tutor especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Tutor atualizado com sucesso."),
+        @ApiResponse(code = 404,message = "Tutor não encontrado para o cpf informado.")
+    })
+    public void updateTutorByCpf(@PathVariable @ApiParam("Cpf do tutor") String cpf,@RequestBody @ApiParam("Tutor atualizado") Tutor tutor) {
+        tRepository
+            .findById(cpf)
+            .map(t->{
+                tutor.setSenha(t.getSenha());
+                tRepository.save(tutor);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Tutor não encontrado.")         
+            );
+    }
 	
 }

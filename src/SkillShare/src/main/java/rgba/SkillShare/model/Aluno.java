@@ -28,6 +28,8 @@ public class Aluno extends Usuario{
     public Aluno(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }
-
+    public Aluno(String cpf,String nome,String email) { 
+        super(cpf,nome,email);
+    }
 
 }
