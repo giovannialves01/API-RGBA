@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/Sprint%20atual-Sprint 1-blue?style=for-the-badge&logo=appveyor">
+<img src="https://img.shields.io/badge/Sprint%20atual-Sprint%202-blue?style=for-the-badge&logo=appveyor">
 </p>
 
 <h2 align="center">O que é o SkillShare? :brain::computer:</h2>
@@ -30,7 +30,7 @@ A <b><i>Fatec Prof. Jessen Vidal</i></b>, juntamente com uma empresa parceira, <
 <h2 align="center">Índices</h2>
 Para navegar rapidamente e com mais facilidade, você pode utilizar os links dos índices abaixo!
 
-- <a href="#primeiraEntrega">A primeira entrega</a>
+- <a href="#segundaEntrega">A segunda entrega</a>
   - [O que fizemos?](#o-que-fizemos)
   - [Por que entregamos isso?](#por-que-entregamos-isso)
   - [Quais foram as partes mais trabalhosas?](#quais-foram-as-partes-mais-trabalhosas)
@@ -41,31 +41,45 @@ Para navegar rapidamente e com mais facilidade, você pode utilizar os links dos
 - <a href="#burndown">Burndown da Sprint</a>
 
 
-<h2 align="center" id="primeiraEntrega">A primeira entrega</h2>
+<h2 align="center" id="primeiraEntrega">A segunda entrega</h2>
 
 #### O que fizemos?
 <p align="justify">
-Focando em uma entrega de valor ao cliente, nossa aplicação possui os seguintes elementos básicos:
+Tendo em mente que esta é a segunda entrega de valor, colocamos diversas funções relevantes para o cliente. A partir dessa sprint, a nossa aplicação possuirá os seguintes funções:
 </p>
 
-- Uma página de boas-vindas
-- Realização de log-in de contas cadastradas
-- Para contas com a permissão de acesso de Administrador e Gestor, é possível cadastrar novos alunos
-- Ao cadastrar um novo aluno, um e-mail é enviado para o novo usuário, contendo os seus dados de login na plataforma
+- Funções do administrador:
+    1. Inserção de destaques
+    2. Postagem de pílulas de conhecimento
+    3. Postagem de eventos
+    4. Adição de conteúdo na biblioteca
+    5. Armazenamento de arquivos da plataforma
+    6. Cadastro de todos os tipos de usuário
+- Funções do gestor:
+    1. Inserção de destaques
+    2. Postagem de pílulas de conhecimento
+    3. Postagem de eventos
+    4. Adição de conteúdo na biblioteca
+- Funções do aluno:
+    1. Acessar a biblioteca e baixar conteúdo
+    2. Visualizar pílulas de conhecimento
+    3. Visualizar destaques
+    4. Visualizar eventos
+- Adição do chatbot
 
 #### Por que entregamos isso?
 <p align="justify">
-Do ponto de vista das empresas que irão utilizar a plataforma, ao disponibilizarmos uma forma de registrar seus alunos no sistema, damos a oportunidade de formarem um banco de dados consistente e gerir todos os seus colaboradores que irão se aproveitar dos benefícios da nossa plataforma.
+Tendo em vista a utilidade da plataforma proposta, incluimos utilidades para os alunos, gestores e administradores para que já tenham funcionalidades.
 </p>
 
 
 #### Quais foram as partes mais trabalhosas?
 <p align="justify">
-Para esta entrega, as maiores dificuldades foram organizar toda a equipe para o trabalho em conjunto, realizar o levantamento de requisitos, saber de fato o que a plataforma precisará ter ao final do projeto e nos habituarmos com as novas tecnologias necessárias para o desenvolvimento da aplicação.
+Para esta entrega, a maior dificuldade foi a administração do tempo. A quantidade de novas funcionalidades de cada tipo de usuario e a inclusão do chatbot e as novas telas adicionadas nessa sprint foram grandes, porém acreditamos ser necessária.
 </p>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/cards_entregas/1.png" width="500px">
+<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/cards_entregas/2.png" width="500px">
 </p>
 
 <h2 align="center" id="funcionamento">Nosso sistema em funcionamento até o momento</h2>
@@ -77,7 +91,7 @@ Para esta entrega, as maiores dificuldades foram organizar toda a equipe para o 
 
 <h2 align="center" id="userStories">User stories da entrega</h2>
 <p align="justify">
-Os story cards estão com a sua estimativa de esforço a partir da sequência de Fibonacci. A estimativa foi feita através do Planning Poker e também foi utilizada para priorizar o backlog total. Cards com o valor de 0 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. Nessa entrega, os usuários deverão ser cadastrados por um administrador ou gestor para que tenham acesso à plataforma, recebendo por e-mail os dados da sua conta.
+Os story cards estão com a sua estimativa de esforço a partir de uma ferramentra scrum chamada de planning poker que baseia-se numa parte da sequência de fibonacci, entre 0 e 89. A estimativa foi feita e utilizada para priorizar o backlog total. Cards com o valor de 0 é considerada desnecessária e deve ser descartada, 1 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. Nessa entrega, os usuários deverão ser cadastrados por um administrador ou gestor para que tenham acesso à plataforma, recebendo por e-mail os dados da sua conta.
 </p>
 <p align="center">
 <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega1.png" width="500px">
