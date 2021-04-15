@@ -5,11 +5,14 @@ import java.util.List;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -98,7 +101,10 @@ public class AlunoController {
             );
     }
     
-	@PostMapping(value = "/update")
+
+	
+/* 
+    @PostMapping(value = "/update")
 	public boolean updateAluno(@RequestBody String data) {
 		JSONObject parsedData = new JSONObject(data);
 		
@@ -116,20 +122,55 @@ public class AlunoController {
 		}catch (Exception e) {
 			return false;
 		}
+	} */
+    /** 
+    *  Endpoint para deletar um aluno especificado pelo cpf.
+    * @param cpf-> cpf do aluno a ser deletado
+    * @author Nicholas Roque
+    */
+    @DeleteMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Deleta o aluno especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Aluno deletado com sucesso."),
+        @ApiResponse(code = 404,message = "Aluno não encontrado para o cpf informado.")
+    })
+    public void deleteAlunoByCpf(@PathVariable @ApiParam("Cpf do aluno") String cpf) {
+        aRepository
+            .findById(cpf)
+            .map(a->{
+                aRepository.delete(a);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado.")         
+            );
+    }
 
-	}
-	
-	@PostMapping(value = "/delete")
-	public boolean deleteAluno(@RequestBody Aluno aluno) {
-		try {
-			aRepository.deleteById(aluno.getCpf());
-			
-			return true;
-		}catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		
-	}
+    /** 
+    *  Endpoint para atualizar um aluno especificado pelo id.
+    * @param cpf-> cpf do aluno a ser atualizado
+    * @param aluno-> objeto do aluno a ser atualizado
+    * @author Nicholas Roque
+    */
+    @PutMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Atualiza o aluno especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Aluno atualizado com sucesso."),
+        @ApiResponse(code = 404,message = "Aluno não encontrado para o cpf informado.")
+    })
+    public void updateAlunoByCpf(@PathVariable @ApiParam("Cpf do aluno") String cpf,@RequestBody @ApiParam("Aluno atualizado") Aluno aluno) {
+        aRepository
+            .findById(cpf)
+            .map(a->{
+                aluno.setSenha(a.getSenha());
+                aRepository.save(aluno);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado.")         
+            );
+    }
 	
 }

@@ -50,4 +50,10 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
+    public Usuario(String cpf, String nome, String email) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+    }
+
 }

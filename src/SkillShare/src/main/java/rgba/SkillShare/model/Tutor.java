@@ -22,10 +22,11 @@ public class Tutor extends Usuario{
     * @author Nicholas Roque
     */
 
-    //NÃO RETIRAR
     public Tutor(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }
-
+    public Tutor(String cpf,String nome,String email) { 
+        super(cpf,nome,email);
+    }
 
 }

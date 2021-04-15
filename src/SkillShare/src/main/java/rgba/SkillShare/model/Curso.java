@@ -1,5 +1,6 @@
 package rgba.SkillShare.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -37,7 +38,7 @@ public class Curso {
     private String descricao;
 
     @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
-    private Set<Pilula> pilulas;
+    private List<Pilula> pilulas;
 
     @ManyToOne
     @JoinColumn(name="id_gestor")
