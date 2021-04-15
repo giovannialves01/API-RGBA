@@ -42,7 +42,7 @@ async function requestNoticias() {
 			
 			divNoticias.appendChild(aNoticia);
 
-			renderIMG(noticia.thumb.conteudo, noticia.thumb.tipoArquivo, id_img_noticia);
+			renderIMG(noticia.thumb.arquivo.conteudo, noticia.thumb.arquivo.tipoArquivo, id_img_noticia);
 			
 		})
 
@@ -94,7 +94,7 @@ async function requestEventos() {
 			
 			divEventos.appendChild(aEvento);
 
-			renderIMG(evento.thumb.conteudo, evento.thumb.tipoArquivo, id_img_evento);
+			renderIMG(evento.thumb.arquivo.conteudo, evento.thumb.arquivo.tipoArquivo, id_img_evento);
 
 		})
 
