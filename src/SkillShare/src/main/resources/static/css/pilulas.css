@@ -90,47 +90,90 @@
     width: 90%;
 }
 
-.conteudoPilula img {
+.conteudoPilula .conteudo {
+    max-width:80%;
 	margin-right: 20px;
 }
 
-/* .accordion {
-	text-decoration: none;
-}
-.active, .accordion:hover {
-  cursor: pointer; 
-}
-.active:after i {
-		transform: rotate(90deg);
-		transform-origin: bottom left;
-}
-.panel {
-  display: none;
-  overflow: hidden;
-} */
-
-.accordion {
-    background-color: white;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-    text-decoration: none;
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
   }
-
-  .active, .accordion:hover {
-    background-color: white;
-  }
-
-  .panel {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
+.tabs {
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  } 
+}
+.tab {
+    width: 100%;
+    color: black;
+    overflow: hidden;
+}
+.tab-label {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1em;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+   /* Icon */
+}
+.tab-label:hover {
+    background: white;
+}
+.tab-label::after {
+    /* content: "\276F"; */
+    width: 1em;
+    height: 1em;
+    text-align: right;
+    transition: all 0.35s;
+}
+.tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    color: black;
+    background: white;
+    transition: all 0.35s;
+}
+.tab-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: white;
+    cursor: pointer;
+}
+.tab-close:hover {
+    background: white;
+}
+input:checked + .tab-label {
+    background: white;
+}
+input:checked + .tab-label::after {
+    transform: rotate(90deg);
+}
+input:checked ~ .tab-content {
+    max-height: 100%;
+    padding: 1em;
+}
+
+.visualizeMaterial{
+    border-radius: 5px;
+    border: none;
+    background-color: #27e0d9;
+    padding: 6px 20px;
+    font-weight: bold;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
+
+.visualizeMaterial:hover{
+    background-color: #1dc0bb;
+}
+
+.visualizeMaterial:focus{
+    outline: none;
+}
+
+.visualizeMaterial:active{
+    background-color: #3ae2dd;
+}
