@@ -26,7 +26,7 @@ window.onload = function carregarConteudo () {
                 </div><hr>`
             })
             linha+=divPilulas
-            linha+=`</div></div>`
+            linha+=`</div></div><br />`
             div+=linha
         })
         listagemCursos.innerHTML = div
