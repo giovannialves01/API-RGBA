@@ -98,6 +98,9 @@ public class PathController {
 	public String noticia() {
 		return "noticias";
 	}
-
+	@GetMapping(value = "/verPilulas")
+	public String verPilulas() {
+		return "pilulas";
+	}
 }
  
