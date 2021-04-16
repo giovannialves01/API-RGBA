@@ -31,10 +31,10 @@ public class Destaque {
     @Column(nullable = false)
     private String titulo;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition="TEXT")
     private String sinopse;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition="TEXT")
     private String conteudo;
     
     @Column
