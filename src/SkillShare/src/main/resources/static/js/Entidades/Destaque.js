@@ -6,7 +6,7 @@ class Destaque{
             this.fonte;
             this.id;
             this.sinopse;
-            this.thumb = {arquivo: {conteudo: "", nomeArquivo: "", tipoArquivo: "", id: -1}};
+            this.arquivo = {arquivo: {conteudo: "", nomeArquivo: "", tipoArquivo: "", id: -1}};
             this.titulo;
             
         }else{

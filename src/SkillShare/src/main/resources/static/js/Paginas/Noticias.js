@@ -104,6 +104,37 @@ async function showEvento(idEvento){
     let evento = new Evento(data);
 
     container.innerHTML = "";
+
+    let header = document.createElement("div");
+    header.classList.add("noticiaHeader");
+
+    let headerThumbnail = document.createElement("img");
+    headerThumbnail.classList.add("imagemNoticiaHeader");
+    let imgTipo = evento.getArquivo().arquivo.tipoArquivo;
+    let imgArquivo = evento.getArquivo().arquivo.conteudo;
+    headerThumbnail.setAttribute("src", `data:` + imgTipo + `;base64,` + imgArquivo);
+
+    let headerTexts = document.createElement("div");
+    headerTexts.classList.add("noticiaHeaderTitulo");
+
+    let headerTitle = document.createElement("h1");
+    headerTitle.textContent = evento.getTitulo();
+
+    let headerDescription = document.createElement("p");
+    headerDescription.textContent = evento.getSinopse();
+
+    let bodyText = document.createElement("p");
+    bodyText.classList.add("noticiaText")
+    bodyText.textContent = evento.getConteudo();
+
+    headerTexts.appendChild(headerTitle);
+    headerTexts.appendChild(headerDescription);
+
+    header.appendChild(headerThumbnail);
+    header.appendChild(headerTexts);
+
+    container.appendChild(header);
+    container.appendChild(bodyText);
 }
 
 loadMaisConteudo();

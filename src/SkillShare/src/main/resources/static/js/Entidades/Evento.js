@@ -5,7 +5,7 @@ class Evento{
             this.data;
             this.id;
             this.sinopse;
-            this.thumb = {conteudo: "", nomeArquivo: "", tipoArquivo: "", id: -1};
+            this.arquivo = {arquivo: {conteudo: "", nomeArquivo: "", tipoArquivo: "", id: -1}};
             this.titulo;
             
         }else{
@@ -14,10 +14,12 @@ class Evento{
             this.id = eventoData["id"];
             this.sinopse = eventoData["sinopse"];  
             this.arquivo = {
-                conteudo: eventoData["conteudo"],
-                nomeArquivo: eventoData["nomeArquivo"],
-                tipoArquivo: eventoData["tipoArquivo"],
-                id: eventoData["id"],
+                arquivo:{
+                    conteudo: eventoData["thumb"]["arquivo"]["conteudo"],
+                    nomeArquivo: eventoData["thumb"]["arquivo"]["nomeArquivo"],
+                    tipoArquivo: eventoData["thumb"]["arquivo"]["tipoArquivo"],
+                    id: eventoData["thumb"]["arquivo"]["id"],
+                }
             };
             this.titulo = eventoData["titulo"];
         }
