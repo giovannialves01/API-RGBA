@@ -1,11 +1,20 @@
 class Usuario{
-    constructor() {
-        
-        this.nome;
-        this.email;
-        this.cpf;
-        this.senha;
-        this.contatos;
+    constructor(userData = {}) {
+        if(userData == {}){
+            this.nome;
+            this.email;
+            this.cpf;
+            this.senha;
+            this.contatos;
+
+        }else{
+            this.nome = userData["nome"];
+            this.email = userData["email"];
+            this.cpf = userData["cpf"];
+            this.senha = userData["senha"];
+            this.contatos = userData["contatos"];
+
+        }
 
     }
 
@@ -68,14 +77,8 @@ class Usuario{
             cpf: "CPF",
             email: "E-mail"
         };
-        tableData["extraConfigs"] = [
-            "editRowInfo",
-            "deleteRowInfo"
-        ];
 
-        tableData["rows"] = users["responseJson"];
-
-        return tableData;
+        return data;
     }
 
 }

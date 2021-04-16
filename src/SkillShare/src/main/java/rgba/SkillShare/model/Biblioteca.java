@@ -7,10 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,41 +15,41 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- *  Classe que define a pílula
+ *  Classe que define o arquivo do tipo biblioteca 
  *  @author Nicholas Roque
  */
-@Entity(name="pilula")
+@Entity(name="biblioteca")
 @NoArgsConstructor @AllArgsConstructor @Data @ToString
-public class Pilula {
+public class Biblioteca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(nullable = false)
-    private String titulo;
+    @Column
+    private String autor;
 
     @Column(nullable = false)
-    private String descricao;
+    private String titulo;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_arquivo",referencedColumnName = "id")
     private Arquivo arquivo;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="id_curso")
-    private Curso curso;
-
     /** 
-    *  Cria uma instância da classe Pilula.
-    * @param titulo -> Título da pílula
-    * @param descricao -> Descrição da pílula
+    *  Cria uma instância da classe Biblioteca.
+    * @param tituloArquivo -> titulo do arquivo
+    * @param conteudo -> arquivo
+    * @param tipoArquivo -> tipoArquivo
     * @author Nicholas Roque
     */
-    public Pilula(String titulo,String descricao){
+    public Biblioteca(String titulo){
         this.titulo = titulo;
-        this.descricao = descricao;
+    }
+
+    public Biblioteca(String titulo,String autor){
+        this.titulo = titulo;
+        this.autor = autor;
     }
 
 }

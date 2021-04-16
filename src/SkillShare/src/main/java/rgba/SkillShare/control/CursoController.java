@@ -40,6 +40,7 @@ public class CursoController {
     GestorRepository gestorRepository;
 
 
+
     /** 
     *  Endpoint para cadastro de curso.
     * @param curso
@@ -94,14 +95,14 @@ public class CursoController {
     * @param cpf -> cpf do gestor
     * @author Nicholas Roque
     */
-   @GetMapping("/gestor/{cpf}")
-   @ResponseStatus(HttpStatus.OK)
-   @ApiOperation("Retorna os cursos com um determinado gestor.")
-   @ApiResponses({
-       @ApiResponse(code = 200,message = "Cursos encontrados com sucesso para o cpf informado."),
-       @ApiResponse(code = 404,message = "Cursos não encontrados para o cpf informado.")
-   })
-   public List<Curso> getCursosByGestor(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
+    @GetMapping("/gestor/{cpf}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna os cursos com um determinado gestor.")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Cursos encontrados com sucesso para o cpf informado."),
+        @ApiResponse(code = 404,message = "Cursos não encontrados para o cpf informado.")
+    })
+    public List<Curso> getCursosByGestor(@PathVariable @ApiParam("Cpf do gestor") String cpf) {
        return gestorRepository
            .findById(cpf).map(gestor->{
                 return gestor.getCursos();
@@ -109,5 +110,5 @@ public class CursoController {
            .orElseThrow(()->
                new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum curso encontrado.")
            );
-   }
+    }
 }

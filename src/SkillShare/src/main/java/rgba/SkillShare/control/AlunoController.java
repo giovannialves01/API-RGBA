@@ -2,13 +2,17 @@ package rgba.SkillShare.control;
 
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -54,10 +58,10 @@ public class AlunoController {
     @ApiOperation("Cria um usuário do tipo aluno.")
     public Aluno createAluno(@RequestBody @ApiParam("Informações do aluno") Aluno aluno){
         
-        EmailService emails = new EmailService();
-        String corpoMSG = "Parabéns, sua conta na SkillShare foi criada com sucesso! \n "
-        + "Você pode se conectar utlizando seu CPF e a senha: " + aluno.getSenha() + "\n Seja bem vindo!";
-    	emails.enviarEmailSimples("Conta criada na SkillShare", corpoMSG, aluno.getEmail());
+        //EmailService emails = new EmailService();
+      //  String corpoMSG = "Parabéns, sua conta na SkillShare foi criada com sucesso! \n "
+      //  + "Você pode se conectar utlizando seu CPF e a senha: " + aluno.getSenha() + "\n Seja bem vindo!";
+    //	emails.enviarEmailSimples("Conta criada na SkillShare", corpoMSG, aluno.getEmail());
     	
         return aRepository.save(aluno);
     }
@@ -96,4 +100,77 @@ public class AlunoController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo aluno não encontrado.")
             );
     }
+    
+
+	
+/* 
+    @PostMapping(value = "/update")
+	public boolean updateAluno(@RequestBody String data) {
+		JSONObject parsedData = new JSONObject(data);
+		
+		JSONObject admOldData = parsedData.getJSONObject("oldData");
+		JSONObject admNewData = parsedData.getJSONObject("newData");
+		
+		Aluno oldUsuario = new Aluno(admOldData.getString("cpf"), admOldData.getString("nome"), admOldData.getString("email"), admOldData.getString("senha"));
+		Aluno newUsuario = new Aluno(admNewData.getString("cpf"), admNewData.getString("nome"), admNewData.getString("email"), admNewData.getString("senha"));
+		
+		try{
+			aRepository.delete(oldUsuario);
+			aRepository.save(newUsuario);
+			
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+	} */
+    /** 
+    *  Endpoint para deletar um aluno especificado pelo cpf.
+    * @param cpf-> cpf do aluno a ser deletado
+    * @author Nicholas Roque
+    */
+    @DeleteMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Deleta o aluno especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Aluno deletado com sucesso."),
+        @ApiResponse(code = 404,message = "Aluno não encontrado para o cpf informado.")
+    })
+    public void deleteAlunoByCpf(@PathVariable @ApiParam("Cpf do aluno") String cpf) {
+        aRepository
+            .findById(cpf)
+            .map(a->{
+                aRepository.delete(a);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado.")         
+            );
+    }
+
+    /** 
+    *  Endpoint para atualizar um aluno especificado pelo id.
+    * @param cpf-> cpf do aluno a ser atualizado
+    * @param aluno-> objeto do aluno a ser atualizado
+    * @author Nicholas Roque
+    */
+    @PutMapping("{cpf}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Atualiza o aluno especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Aluno atualizado com sucesso."),
+        @ApiResponse(code = 404,message = "Aluno não encontrado para o cpf informado.")
+    })
+    public void updateAlunoByCpf(@PathVariable @ApiParam("Cpf do aluno") String cpf,@RequestBody @ApiParam("Aluno atualizado") Aluno aluno) {
+        aRepository
+            .findById(cpf)
+            .map(a->{
+                aluno.setSenha(a.getSenha());
+                aRepository.save(aluno);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado.")         
+            );
+    }
+	
 }

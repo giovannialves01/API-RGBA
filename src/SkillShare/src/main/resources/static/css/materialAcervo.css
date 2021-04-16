@@ -1,0 +1,43 @@
+.content {
+	height: auto;
+	margin: 20px;
+}
+
+.content h1 {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.renderizar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+}
+
+.adjust-size div {
+    display: flex;
+    justify-content: center;
+}
+
+.adjust-size div button {
+	background: #0AADA7;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	font-family: 'Poppins';
+	font-size: 16px;
+	line-height: 36px;
+	cursor: pointer;
+	margin: 5px;
+}
+
+@media (max-width: 600px){
+	html, body {
+    	overflow-x: hidden;
+	}
+
+    canvas {
+    	width: 550px;
+    }
+}
