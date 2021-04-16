@@ -14,7 +14,7 @@
 .paginaDisplayer {
     margin-top: 50px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
 }
 
 .sideMaisConteudo{
@@ -99,4 +99,23 @@
 .noticiaText{
     text-align: justify;
     margin-right: 10px;
+}
+
+.eventoHeader{
+    display: flex;
+    flex-direction: row;
+}
+
+.imagemEventoHeader{
+    width: 270px;
+    height: 270px;
+    border-radius: 150px;    
+}
+
+.eventoHeaderTitulo{
+    margin-left: 15px;
+}
+
+.eventoText{
+    margin-top: 60px;
 }
