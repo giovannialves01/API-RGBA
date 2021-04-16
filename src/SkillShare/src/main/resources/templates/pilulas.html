@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pílulas de conhecimento</title>
+
+<!-- CDN das depedências externas -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Poppins">
+<!--Rodar no Eclipse -->
+<link rel="stylesheet" href="css/GlobalComponents.css">
+
+<link rel="stylesheet" href="css/Menu.css">
+<link rel="stylesheet" href="css/TopBar.css">
+<link rel="stylesheet" href="css/Footer.css">
+<link rel="stylesheet" href="css/pilulas.css">
+
+<script src="js/Utils/ServerRequester.js"></script>
+<script src="js/Componentes/Menu.js"></script>
+<script src="js/Componentes/TopBar.js"></script>
+<script src="js/Componentes/Footer.js"></script>
+<script defer src="js/Componentes/ListCurso.js"></script>
+<script defer src="js/Componentes/ListPilula.js"></script>
+
+<script defer src="js/Paginas/efeitoCollapse.js"></script>
+<script defer src="js/Paginas/pilulas.js"></script>
+
+<script src="js/Entidades/Usuario.js"></script>
+
+</head>
+<body>
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
+
+	<div>
+		<div class="header">
+			<h1>Pílulas de conhecimento</h1>
+			<p class="titleP">Pílulas de conhecimento são pequenos conteúdos
+				educativos postados pelos administradores do curso, elas exigem um
+				pequeno tempo de dedicação e são de fácil compreensão, maximizando a
+				absorção de conhecimento em menos tempo!</p>
+		</div>
+		<div class="row-cursos" id="listagem-cursos">
+			<!-- <div class="linha">
+				<div class="curso accordion">
+					<img
+						src="https://img.freepik.com/fotos-gratis/3d-rendem-de-uma-mesa-de-madeira-com-uma-imagem-defocussed-de-um-barco-em-um-lago_1048-3432.jpg?size=626&ext=jpg">
+					<div class="tituloTexto">
+						<h1>Segurança do Trabalho</h1>
+						<p>Clique aqui para expandir e visualizar todas as pílulas
+							referentes a este curso</p>
+					</div>
+					<i class="fas fa-chevron-left"></i>
+				</div>
+				<div class="pilula panel">
+					<div class="pilulaTexto accordion">
+						<i class="fas fa-capsules"></i>
+						<p>Vídeo de introdução ao curso</p>
+						<i class="fas fa-chevron-left"></i>
+					</div>
+					<div class="conteudoPilula panel">
+						<img
+							src="https://img.freepik.com/fotos-gratis/3d-rendem-de-uma-mesa-de-madeira-com-uma-imagem-defocussed-de-um-barco-em-um-lago_1048-3432.jpg?size=626&ext=jpg">
+						<p>Este vídeo tem como propósito orientaros estudantes em seus
+							primeiros passosno início deste novocurso de Segurançado
+							trabalho, ele apresenta os conceitosbásicos da disciplinae
+							indicação de materiais para estudos</p>
+					</div>
+				</div>
+			</div> -->
+			<button class="accordion">Section 1</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 2</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+		</div>
+	</div>
+	<footer-rgba></footer-rgba>
+
+</body>
+</html>

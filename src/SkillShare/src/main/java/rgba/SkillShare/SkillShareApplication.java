@@ -64,6 +64,11 @@ public class SkillShareApplication implements CommandLineRunner {
 		curso.setGestor(nicholasGestor);
 
 		cursoRepository.save(curso);
+
+		Curso curso2= new Curso("Curso Teste","Neste curso, serão apresentados os fundamentos da informática, além de como utilizar o pacote Office e como o computador funciona.");
+		curso2.setGestor(nicholasGestor);
+
+		cursoRepository.save(curso2);
 		
 		
 		if(tRepository.findAll().isEmpty()) {
