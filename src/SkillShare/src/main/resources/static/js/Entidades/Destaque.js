@@ -6,7 +6,7 @@ class Destaque{
             this.fonte;
             this.id;
             this.sinopse;
-            this.thumb = {conteudo: "", nomeArquivo: "", tipoArquivo: "", id: -1};
+            this.arquivo = {arquivo: {conteudo: "", nomeArquivo: "", tipoArquivo: "", id: -1}};
             this.titulo;
             
         }else{
@@ -16,10 +16,12 @@ class Destaque{
             this.id = destaqueData["id"];
             this.sinopse = destaqueData["sinopse"];  
             this.arquivo = {
-                conteudo: destaqueData["conteudo"],
-                nomeArquivo: destaqueData["nomeArquivo"],
-                tipoArquivo: destaqueData["tipoArquivo"],
-                id: destaqueData["id"],
+                arquivo:{
+                    conteudo: destaqueData["thumb"]["arquivo"]["conteudo"],
+                    nomeArquivo: destaqueData["thumb"]["arquivo"]["nomeArquivo"],
+                    tipoArquivo: destaqueData["thumb"]["arquivo"]["tipoArquivo"],
+                    id: destaqueData["thumb"]["arquivo"]["id"],
+                }
             };
             this.titulo = destaqueData["titulo"];
         }
