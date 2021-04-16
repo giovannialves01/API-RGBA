@@ -94,7 +94,9 @@ Para esta entrega, a maior dificuldade foi a administração do tempo. A quantid
 Os story cards estão com a sua estimativa de esforço a partir de uma ferramentra scrum chamada de planning poker que baseia-se numa parte da sequência de fibonacci, entre 0 e 89. A estimativa foi feita e utilizada para priorizar o backlog total. Cards com o valor de 0 é considerada desnecessária e deve ser descartada, 1 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. Nessa entrega, os usuários deverão ser cadastrados por um administrador ou gestor para que tenham acesso à plataforma, recebendo por e-mail os dados da sua conta.
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega1.png" width="500px">
+<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega2pt1.png" width="500px">
+<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega2pt2.png" width="500px">
+<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega2pt3.png" width="500px">
 </p>
 
 <h2 align="center" id="wireframes">Wireframes da entrega :desktop_computer:</h2>
