@@ -122,7 +122,7 @@ Você pode visualizar todos os wireframes clicando <a href="https://github.com/g
 </p>
 
 <h2 align="center" id="burndown">Burndown da Sprint</h2>
-<p align="justify">O início da nossa Sprint foi um pouco mais corrida devido ao levantamento de requisitos e mais o desenvolvimento, mas, como boa parte das funcionalidades dessa estrega já estavam priorizadas, as partes mais difíceis foram resolvidas primeiro. No final tudo ocorreu bem.</p>
+<p align="justify">Tivemos grandes imprevistos para esta sprint, por isso tivemos um gráfico de burndown bem irregular, apenas a partir do dia 21 tivemos resultados razoáveis, e começamos ter uma pequena folga em relação ao tempo estimado que rápidamente se desfez.</p>
 <p align="center">
     <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Burndown/Burndown%20Sprint1.png">
 </p>
