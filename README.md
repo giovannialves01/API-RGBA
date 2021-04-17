@@ -45,37 +45,31 @@ Para navegar rapidamente e com mais facilidade, você pode utilizar os links dos
 
 #### O que fizemos?
 <p align="justify">
-Tendo em mente que esta é a segunda entrega de valor, colocamos diversas funções relevantes para o cliente. A partir dessa sprint, a nossa aplicação possuirá os seguintes funções:
+Tendo em mente que esta é a segunda entrega de valor, colocamos diversas funções relevantes para o cliente. A partir dessa Sprint, a nossa aplicação possuirá os seguintes funções:
 </p>
 
-- Funções do administrador:
-    1. Inserção de destaques
-    2. Postagem de pílulas de conhecimento
-    3. Postagem de eventos
-    4. Adição de conteúdo na biblioteca
-    5. Armazenamento de arquivos da plataforma
-    6. Cadastro de todos os tipos de usuário
-- Funções do gestor:
-    1. Inserção de destaques
-    2. Postagem de pílulas de conhecimento
-    3. Postagem de eventos
-    4. Adição de conteúdo na biblioteca
+- Funções do administrador e do gestor:
+    1. Inserção de destaques;
+    2. Postagem de pílulas de conhecimento;
+    3. Postagem de eventos;
+    4. Adição de conteúdo na biblioteca;
+    5. Cadastro de todos os tipos de usuário.
 - Funções do aluno:
-    1. Acessar a biblioteca e baixar conteúdo
-    2. Visualizar pílulas de conhecimento
-    3. Visualizar destaques
-    4. Visualizar eventos
-- Adição do chatbot
+    1. Acessar a biblioteca e baixar conteúdo;
+    2. Visualizar pílulas de conhecimento;
+    3. Visualizar destaques;
+    4. Visualizar eventos.
+- Adição do chatbot.
 
 #### Por que entregamos isso?
 <p align="justify">
-Tendo em vista a utilidade da plataforma proposta, incluimos utilidades para os alunos, gestores e administradores para que já tenham funcionalidades.
+Tendo em vista a utilidade da plataforma proposta, incluímos a inserção do conteúdo para diferenciar a nossa plataforma das outras. O Chatbot auxilia os novos usuários a conhecerem a SkillShare e pode explicar várias funcionalidades do nosso sistema. Os estudantes podem adquirir conhecimento de outras formas, não somente através de cursos! Gestores e administradores já podem manipular o conteúdo postado para tornar a plataforma cada vez mais completa e enriquecedora.
 </p>
 
 
 #### Quais foram as partes mais trabalhosas?
 <p align="justify">
-Para esta entrega, a maior dificuldade foi a administração do tempo. A quantidade de novas funcionalidades de cada tipo de usuario e a inclusão do chatbot e as novas telas adicionadas nessa sprint foram grandes, porém acreditamos ser necessária.
+Para esta entrega, a maior dificuldade foi a administração do tempo, pois aconteceram imprevistos. Desenvolvemos várias funcionalidades para o nosso sistema em um curto período. Foi trabalhoso e demandou muita insistência e comunicação entre os integrantes da equipe, mas no final tudo ocorreu como previsto e conseguimos aproveitar ao máximo o nosso tempo para implementarmos as novas funções da aplicação.
 </p>
 
 <p align="center">
@@ -91,7 +85,7 @@ Para esta entrega, a maior dificuldade foi a administração do tempo. A quantid
 
 <h2 align="center" id="userStories">User stories da entrega</h2>
 <p align="justify">
-Os story cards estão com a sua estimativa de esforço a partir de uma ferramentra scrum chamada de planning poker que baseia-se numa parte da sequência de fibonacci, entre 0 e 89. A estimativa foi feita e utilizada para priorizar o backlog total. Cards com o valor de 0 é considerada desnecessária e deve ser descartada, 1 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. Nessa entrega, os usuários deverão ser cadastrados por um administrador ou gestor para que tenham acesso à plataforma, recebendo por e-mail os dados da sua conta.
+Os story cards estão com a sua estimativa de esforço a partir de uma ferramentra Scrum chamada de Planning Poker, que baseia-se numa parte da sequência de Fibonacci, entre 0 e 89. A estimativa foi feita e utilizada para priorizar o backlog total. Cards com o valor de 0 são considerados desnecessários e deve ser descartados, 1 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. Nessa entrega, os usuários deverão ser cadastrados por um administrador ou gestor para que tenham acesso à plataforma, recebendo por e-mail os dados da sua conta. Seguindo o fluxo da plataforma, os administradores e gestores poderão inserir conteúdo na biblioteca, poderão adicionar pílulas de conhecimento a um curso e ainda terão a possibilidade de criar postagens sobre eventos e notícias. O aluno, por sua vez, será possibilitado de visualizar essas publicações.
 </p>
 <p align="center">
 <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega2pt1.png" width="500px">
@@ -124,7 +118,7 @@ Você pode visualizar todos os wireframes clicando <a href="https://github.com/g
 </p>
 
 <h2 align="center" id="burndown">Burndown da Sprint</h2>
-<p align="justify">Tivemos grandes imprevistos para esta sprint, por isso tivemos um gráfico de burndown bem irregular, apenas a partir do dia 21 tivemos resultados razoáveis, e começamos ter uma pequena folga em relação ao tempo estimado que rápidamente se desfez.</p>
+<p align="justify">Tivemos grandes imprevistos para esta Sprint, por isso tivemos um gráfico de burndown mais incomum. Apenas a partir do dia 8 de abril tivemos resultados razoáveis, que foram combinados na nossa reunião que ocorreu no mesmo dia. Somente nos três últimos dias da Sprint estivemos menos atarefados.</p>
 <p align="center">
     <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Burndown/Burndown%20Sprint1.png">
 </p>
