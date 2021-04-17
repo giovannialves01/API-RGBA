@@ -18,25 +18,32 @@ async function requestNoticias() {
 			
 			var divDescricaoNoticia = document.createElement("div");
 			divDescricaoNoticia.id = "descricaonoticias";
+			
 			let p1 = document.createElement("p");
 			p1.id = "margintopnoticia";
 			p1.textContent = noticia.titulo;
+
 			let p2 = document.createElement("p");
 			p2.id = "marginnoticia";
 			p2.textContent = noticia.sinopse;
-			let p3 = document.createElement("a");
+
+			let p3 = document.createElement("p");
 			p3.id = "leramaisdanoticia";
-			p3.href = "/noticia/" + noticia.id;
-			p3.textContent = "Ler conteúdo completo"
+			p3.textContent = "Ler conteúdo completo";
+			p3.onclick = function(){
+				window.sessionStorage.setItem("noticia", noticia.id.toString());
+				window.sessionStorage.setItem("evento", "0");
+
+				window.location.href = "noticias";
+			}
 			
 			divDescricaoNoticia.appendChild(p1);
 			divDescricaoNoticia.appendChild(p2);
 			divDescricaoNoticia.appendChild(p3);
 			
-			let aNoticia = document.createElement("a");
+			let aNoticia = document.createElement("div");
 			aNoticia.id = "adecoration";
-			aNoticia.href = "/noticia/" + noticia.id;
-			
+
 			aNoticia.appendChild(imgNoticia);
 			aNoticia.appendChild(divDescricaoNoticia);
 			
@@ -70,16 +77,24 @@ async function requestEventos() {
 			
 			var divDescricaoEvento = document.createElement("div");
 			divDescricaoEvento.id = "descricaonoticias";
+
 			let p1 = document.createElement("p");
 			p1.id = "margintopnoticia";
 			p1.textContent = evento.titulo;
+
 			let p2 = document.createElement("p");
 			p2.id = "marginnoticia";
 			p2.textContent = evento.sinopse;
-			let p3 = document.createElement("a");
+
+			let p3 = document.createElement("p");
 			p3.id = "leramaisdanoticia";
-			p3.href = "/evento/" + evento.id;
-			p3.textContent = "Ler conteúdo completo"
+			p3.textContent = "Ler conteúdo completo";
+			p3.onclick = function(){
+				window.sessionStorage.setItem("noticia", "0");
+				window.sessionStorage.setItem("evento", evento.id.toString());
+
+				window.location.href = "noticias";
+			}
 			
 			divDescricaoEvento.appendChild(p1);
 			divDescricaoEvento.appendChild(p2);

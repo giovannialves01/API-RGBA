@@ -153,9 +153,9 @@
     font-weight: bold;
 }
 #leramaisdanoticia{
-    margin-left: 80%;
-    font-size: 15px;
-    color: #535353;
+    text-decoration: underline;
+    font-style: italic;
+    cursor: pointer;
 }
 #eventos-e-noticas{
     font-size: 32px;

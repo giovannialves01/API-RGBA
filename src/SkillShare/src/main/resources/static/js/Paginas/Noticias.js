@@ -10,6 +10,7 @@ async function loadMaisConteudo() {
 
     buildContent("sideEventos", eventosData, false);
     buildContent("sideNoticias", noticiasData, true);
+    preloadContent();
 
 }
 
@@ -135,6 +136,20 @@ async function showEvento(idEvento){
 
     container.appendChild(header);
     container.appendChild(bodyText);
+}
+
+async function preloadContent() {
+    let noticiaId = window.sessionStorage.getItem("noticia");
+    let eventoId = window.sessionStorage.getItem("evento");
+
+    if(noticiaId != 0){
+        showNoticia(noticiaId);
+
+    }else{
+        showEvento(eventoId);
+
+    }
+
 }
 
 loadMaisConteudo();
