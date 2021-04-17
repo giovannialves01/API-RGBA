@@ -49,6 +49,11 @@
     font-size: 1rem;
     font-family: Poppins;
     margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.text:hover{
+    color: white;
 }
 
 path{
