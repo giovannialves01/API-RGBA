@@ -13,11 +13,11 @@ async function logar(event) {
     	
         switch (userType) {
             case "admin":
-                window.location.href = "adminPage";
+                window.location.href = "administracao";
                 break;
     
             case "gestor":
-                window.location.href = "gestorPage";
+                window.location.href = "administracao";
                 break;
     
             case "tutor":

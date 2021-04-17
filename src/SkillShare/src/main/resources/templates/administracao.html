@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
+    <title>Administração | SkillShare</title>
 
     <!-- CDN das depedências externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
@@ -283,12 +283,12 @@
                 <div style="width: 90%; margin: 0 auto;">
                     <div style="width: 100%; display: flex; margin-bottom: 20px;">
                         <label>Título:</label>
-                        <input type="text" id="tituloNoticia" name="titulo">
+                        <input required type="text" id="tituloNoticia" name="titulo">
                     </div>
 
                     <div style="width: 100%; display: flex;">
                         <label>Fonte:</label>
-                        <input type="text" id="fonteNoticia" name="fonte">
+                        <input required type="text" id="fonteNoticia" name="fonte">
                     </div>
                     
                     <div class="inputFile">
@@ -299,12 +299,12 @@
 
                     <div class="textField">
                         <label>Subtitulo</label>
-                        <textarea name="sinopse" id="textAreaSubtituloNoticia" cols="30" rows="10"></textarea>
+                        <textarea required name="sinopse" id="textAreaSubtituloNoticia" cols="30" rows="10"></textarea>
                     </div>
 
                     <div class="textField">
                         <label>Texto do corpo</label>
-                        <textarea name="conteudo" id="textAreaCorpoNoticia" cols="30" rows="10"></textarea>
+                        <textarea required name="conteudo" id="textAreaCorpoNoticia" cols="30" rows="10"></textarea>
                     </div>
     
                     <div class="buttonContainer">
@@ -314,11 +314,11 @@
                 </div>
             </form>
 
-            <form class="eventoForm hideChoose" id="formEvento" onsubmit="registerEvento(event)">
+            <form class="eventoForm hideChoose" id="formEvento" onsubmit="registerEvento(event)"  onreset="clearFileLabel(event, 'labelFileNameEvento')">
                 <div style="width: 90%; margin: 0 auto;">
                     <div style="width: 100%; display: flex; margin-bottom: 20px;">
                         <label>Título:</label>
-                        <input name="titulo" type="text" id="tituloEvento">
+                        <input required name="titulo" type="text" id="tituloEvento">
                     </div>
                     <div class="inputFile">
                         <label for="inputUploadEvento" class="inputUploadButton">Escolher imagem...</label>
@@ -327,12 +327,12 @@
                     </div>
                     <div class="textField">
                         <label>Subtitulo</label>
-                        <textarea name="sinopse" id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
+                        <textarea required name="sinopse" id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
                     </div>
 
                     <div class="textField">
                         <label>Texto do corpo</label>
-                        <textarea name="conteudo" id="textAreaCorpoEvento" cols="30" rows="10"></textarea>
+                        <textarea required name="conteudo" id="textAreaCorpoEvento" cols="30" rows="10"></textarea>
                     </div>
     
                     <div class="buttonContainer">
@@ -352,7 +352,7 @@
             </p>
 
             <select id="selectEventoNoticia" onchange="chooseNoticiaEventoToShow()">
-                <option selected disabled>Escolha um perfil de usuário para exibir...</option>
+                <option selected disabled>Escolha um tipo de publicação para exibir...</option>
                 <option value="Noticia">Notícias</option>
                 <option value="Evento">Eventos</option>
             </select>

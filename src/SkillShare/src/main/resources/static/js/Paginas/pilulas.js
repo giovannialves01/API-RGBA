@@ -4,7 +4,7 @@ window.onload = function carregarConteudo () {
         let listagemCursos = document.getElementById("listagem-cursos")
         let div = '<hr>'
         res.responseJson.map((c)=>{
-            let imgTeste = "https://img.freepik.com/fotos-gratis/3d-rendem-de-uma-mesa-de-madeira-com-uma-imagem-defocussed-de-um-barco-em-um-lago_1048-3432.jpg?size=626&ext=jpg"
+            let imgTeste = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIDxuhK6F7JWDcXlIDhW0CzDeMrtgMs49PKg&usqp=CAU"
             let linha =`
             <div class="linha tab">
                 <input type="checkbox" id="${c.id}">

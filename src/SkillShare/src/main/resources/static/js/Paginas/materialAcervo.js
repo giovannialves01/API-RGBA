@@ -54,11 +54,11 @@ window.onload = async function carregarConteudo() {
 	div_tudo.classList.add("size");
 	conteudoMaterial.appendChild(div_tudo);
 
-	renderPDF(material.conteudo, "canvasPdf", "paginaAtual", "paginaTotal", "anterior", "proximo")
+	renderPDF(material.arquivo.conteudo, "canvasPdf", "paginaAtual", "paginaTotal", "anterior", "proximo")
 
 	var download = document.getElementById("download");
 	download.onclick = function() {
-		downloadFile(material.conteudo, material.tipoArquivo, material.nomeArquivo);
+		downloadFile(material.arquivo.conteudo, material.arquivo.tipoArquivo, material.arquivo.nomeArquivo);
 	}
 
 }

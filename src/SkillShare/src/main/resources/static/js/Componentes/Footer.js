@@ -79,6 +79,9 @@ class Footer extends HTMLElement {
         let option1 = document.createElement("p");
         option1.classList.add("text");
         option1.textContent = "Home";
+        option1.onclick = function () {
+            window.location.href = "/";
+        }
 
         container.appendChild(header);
         container.appendChild(option1);
@@ -97,6 +100,9 @@ class Footer extends HTMLElement {
         let option1 = document.createElement("p");
         option1.classList.add("text");
         option1.textContent = "GitHub";
+        option1.onclick = function (){
+            window.open("https://github.com/giovannialves01/API-RGBA", '_blank').focus();
+        }
 
         container.appendChild(header);
         container.appendChild(option1);

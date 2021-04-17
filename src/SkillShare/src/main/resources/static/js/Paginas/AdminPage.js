@@ -420,80 +420,84 @@ function undoChanges(entityIdentifier, entity){
     let entityType = entity.constructor.name;
 
     if(entityType == "Usuario"){
-        for (let i = 0; i < fields.length - 1; i++) {
-            const field = fields[i];
-    
-            switch (field.name){
-                case "nome":
-                    field.value = entity.getNome();
-                    break;
-    
-                case "cpf":
-                    field.value = entity.getCpf();
-                    break;
-    
-                case "email":
-                    field.value = entity.getEmail();
-                    break; 
-    
-            }
+            fields.map(f=>{
+                switch (f.name){
+                    case "nome":
+                        f.value = entity.getNome();
+                        break;
+        
+                    case "cpf":
+                        f.value = entity.getCpf();
+                        break;
+        
+                    case "email":
+                        f.value = entity.getEmail();
+                        break; 
+        
+                }
+            })
+           
             
-        }
 
     }else if(entityType == "Biblioteca"){
-        for (let i = 0; i < fields.length - 1; i++) {
-            const field = fields[i];
-    
-            switch (field.name){
+        fields.map((f)=>{
+            switch (f.name){
                 case "autor":
-                    field.value = entity.getAutor();
+                    f.value = entity.getAutor();
                     break;
-    
+
                 case "nomeDoLivro":
-                    field.value = entity.getTitulo();
+                    f.value = entity.getTitulo();
                     break;
-    
             }
-            
-        }
-
+        })
     }else if(entityType == "Destaque"){
-        for (let i = 0; i < fields.length - 1; i++) {
-            const field = fields[i];
-    
-            switch (field.name){
-                case "titulo":
-                    field.value = entity.getTitulo();
-                    break;
-    
-                case "sinopse":
-                    field.value = entity.getSinopse();
-                    break;
-                
-                case "conteudo":
-                    field.value = entity.getConteudo();
-                    break;
-    
-            }
-            
-        }
+            fields.map((f)=>{
+                switch (f.name){
+                    case "titulo":
+                        f.value = entity.getTitulo();
+                        break;
+        
+                    case "sinopse":
+                        f.value = entity.getSinopse();
+                        break;
+                    
+                    case "conteudo":
+                        f.value = entity.getConteudo();
+                        break;
+                }
+            })
+            }else if(entityType == "Evento"){
+                fields.map((f)=>{
 
-    }else if(entityType == "Pilula"){
-        for (let i = 0; i < fields.length - 1; i++) {
-            const field = fields[i];
-    
-            switch (field.name){
-                case "titulo":
-                    field.value = entity.getTitulo();
-                    break;
-                
-                case "conteudo":
-                    field.value = entity.getDescricao();
-                    break;
-    
-            }
+                    switch (f.name){
+                        case "conteudo":
+                            f.value = entity.getConteudo();
+                            break;
+                    
+                        case "titulo":
+                            f.value = entity.getTitulo();
+                            break;
+                        case "sinopse":
+                            f.value = entity.getSinopse();
+                            break;
+                    }
+                })
+            }else if(entityType == "Pilula"){
+            fields.map((f)=>{
+                switch (f.name){
+                    case "titulo":
+                        f.value = entity.getTitulo();
+                        break;
+                    
+                    case "conteudo":
+                        f.value = entity.getDescricao();
+                        break;
+        
+                }
+            })
+           
             
-        }
 
     }
 
@@ -623,7 +627,7 @@ async function saveChanges(entityIdentifier, entity) {
         pathToUpdate = `/biblioteca/${entity.getId()}`;
 
         newEntity = new Biblioteca();
-
+        
         newEntity.setArquivo(entity.getArquivo());
         newEntity.setAutor(data.autor);
         newEntity.setTitulo(data.titulo);
@@ -706,8 +710,24 @@ async function saveChanges(entityIdentifier, entity) {
             }
     
         }
-
-        newEntity = new Destaque(data);
+        let newNoticia = {
+            "id": entity.getId(),
+            "titulo": data.titulo,
+            "sinopse": data.sinopse,
+            "conteudo": data.conteudo,
+            "fonte": entity.getFonte(),
+            "data": entity.getData(),
+            "thumb": {
+                "id": 0,
+                "arquivo": {
+                    "id": entity.getArquivo().id,
+                    "nomeArquivo": entity.getArquivo().nomeArquivo,
+                    "conteudo":entity.getArquivo().conteudo,
+                    "tipoArquivo": entity.getArquivo().tipoArquivo
+                }
+            }
+        }
+        newEntity = new Destaque(newNoticia);
     }else if(entity.constructor.name == "Evento"){
         pathToUpdate = `/eventos/${entity.getId()}`;
         var data = {
@@ -734,8 +754,23 @@ async function saveChanges(entityIdentifier, entity) {
             }
     
         }
-
-        newEntity = new Evento(data);
+        let newEvento ={
+            "id": entity.getId(),
+            "titulo": data.titulo,
+            "sinopse": data.sinopse,
+            "conteudo": data.conteudo,
+            "data": entity.getData(),
+            "thumb": {
+                "id": 0,
+                "arquivo": {
+                    "id": entity.getArquivo().id,
+                    "nomeArquivo": entity.getArquivo().nomeArquivo,
+                    "conteudo":entity.getArquivo().conteudo,
+                    "tipoArquivo": entity.getArquivo().tipoArquivo
+                }
+            }
+        }
+        newEntity = new Evento(newEvento);
     }else if(entity.constructor.name == "Pilula"){
         pathToUpdate = `/pilulas/${entity.getId()}`;
 
@@ -912,7 +947,16 @@ async function registerBook(event) {
     let formData = new FormData(form);   
     let url=`${serverRequester.serverURL}/biblioteca/cadastrar`
 
-    sendFile(formData,url);
+    let res = sendFile(formData,url);
+    res.then((r)=>{
+        console.log(r);
+        if(r.status==201){
+            alert("Biblioteca cadastrada.")
+        }else{
+            alert("Erro no cadastro da biblioteca.")
+
+        }
+    })
 }
 
 async function registerPilula(event) {
@@ -920,7 +964,15 @@ async function registerPilula(event) {
     let form = $('#formPilula')[0];
     let formData = new FormData(form);   
     let url=`${serverRequester.serverURL}/pilulas/cadastrar`
-    sendFile(formData,url);
+    let res = sendFile(formData,url);
+    res.then((r)=>{
+        if(r.status==201){
+            alert("Pílula cadastrada.")
+        }else{
+            alert("Erro no cadastro de pílula.")
+
+        }
+    })
 }
 
 async function registerNoticia(event){
@@ -928,7 +980,15 @@ async function registerNoticia(event){
     let form = $('#formNoticia')[0];
     let formData = new FormData(form);   
     let url=`${serverRequester.serverURL}/destaques/cadastrar`
-    sendFile(formData,url);
+    let res = sendFile(formData,url);
+    res.then((r)=>{
+        if(r.status==201){
+            alert("Destaque cadastrado.")
+        }else{
+            alert("Erro no cadastro do destaque.")
+
+        }
+    })
 
 }
 
@@ -938,7 +998,15 @@ async function registerEvento(event){
     let form = $('#formEvento')[0];
     let formData = new FormData(form);   
     let url=`${serverRequester.serverURL}/eventos/cadastrar`
-    sendFile(formData,url);
+    let res = sendFile(formData,url);
+    res.then((r)=>{
+        if(r.status==201){
+            alert("Evento cadastrado.")
+        }else{
+            alert("Erro no cadastro do evento.")
+
+        }
+    })
 }
 
 function showEvento() {

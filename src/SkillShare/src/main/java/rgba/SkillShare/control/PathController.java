@@ -27,41 +27,29 @@ public class PathController {
 		
 	}
 	
-	@GetMapping(value = "/adminPage")
-	public String adminPage(HttpSession sessao) {
-		boolean permitido = SessionManager.checkPermission(sessao, "admin");
+	@GetMapping(value = "/administracao")
+	public String administracao(HttpSession sessao) {
+		boolean permitidoAdmin = SessionManager.checkPermission(sessao, "admin");
+		boolean permitidoGestor = SessionManager.checkPermission(sessao, "gestor");
 		
-		if(permitido) {
-			return "adminHomePage";
+		if(permitidoAdmin || permitidoGestor) {
+			return "administracao";
 		}else {
 			return "redirect:login";
 		}
 		
 	}
 	
-	@GetMapping(value = "/gestorPage")
-	public String gestorPage(HttpSession sessao) {
-		boolean permitido = SessionManager.checkPermission(sessao, "gestor");
-			
-			if(permitido) {
-				return "gestorHomePage";
-			}
-			else {
-				return "redirect:login";
-			}
-	
-	}
-	
 	@GetMapping(value = "/tutorPage")
 	public String tutorPage(HttpSession sessao) {
 		boolean permitido = SessionManager.checkPermission(sessao, "tutor");
 			
-			if(permitido) {
-				return "tutorHomePage";
-			}
-			else {
-				return "redirect:login";
-			}
+		if(permitido) {
+			return "tutorHomePage";
+		}
+		else {
+			return "redirect:login";
+		}
 	
 	}
 	
@@ -69,12 +57,12 @@ public class PathController {
 	public String alunoPage(HttpSession sessao) {
 		boolean permitido = SessionManager.checkPermission(sessao, "aluno");
 			
-			if(permitido) {
-				return "paginaAluno";
-			}
-			else {
-				return "redirect:login";
-			}
+		if(permitido) {
+			return "paginaAluno";
+		}
+		else {
+			return "redirect:login";
+		}
 	
 	}//
 	

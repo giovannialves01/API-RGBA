@@ -270,7 +270,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Ver acervo", "console.log('Em breve');"));
+		subOptions.put(this.criarSubOpcao("Ver acervo", "window.location.href = 'acervo';"));
 		
 		option = this.criarOpcao("Biblioteca", "book", "9", "Clique aqui para acessar o nosso acervo!", subOptions);
 		
@@ -314,7 +314,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Visualizar notícias e eventos", "console.log('Em breve');"));
+		subOptions.put(this.criarSubOpcao("Visualizar notícias e eventos", "window.location.href = 'noticias';"));
 		
 		option = this.criarOpcao("Novidades", "newspaper", "13", "Clique aqui para visualizar novidades da plataforma!", subOptions);
 		
