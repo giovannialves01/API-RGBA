@@ -118,7 +118,7 @@ Os story cards estão com a sua estimativa de esforço a partir de uma ferrament
 </p>
 
 <p align="center">
-Você pode visualizar todos os mockups clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-2/doc/Sprint%202/Wireframes"><i>aqui</i></a>
+Você pode visualizar todos os mockups clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-2/doc/Wireframes_Mockups/Entrega%202"><i>aqui</i></a>
 </p>
 
 <h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados :card_file_box:</h2>
