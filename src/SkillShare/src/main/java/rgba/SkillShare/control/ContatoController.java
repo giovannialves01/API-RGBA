@@ -7,8 +7,6 @@ import rgba.SkillShare.repository.ContatoRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,20 +37,13 @@ public class ContatoController {
     @Autowired 
     ContatoRepository cRepository;
 
-   /*
-    @PostMapping("/cadastrar")
-    @ResponseStatus(HttpStatus.CREATED)
-    @ApiOperation("Cria um usuário do tipo contato.")
-    public Contato createContato(@RequestBody @ApiParam("Informações do contato") Contato contato){
-        return cRepository.save(contato);
-    } */
-
     /** 
     *  Endpoint para listar todos os contatos.
     * @return Retorna uma lista do objeto Contato com todos os contatos. 
     * @author Nicholas Roque
     */
-    @GetMapping("/findAll")
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna uma lista com todos os contatos dos usuários")
     @ApiResponse(code = 200,message = "Contatos retornados com sucesso.")
     public List<Contato> getAllContatos(){
@@ -67,6 +58,7 @@ public class ContatoController {
     * @author Nicholas Roque
     */
     @GetMapping("{cpf}")
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Retorna os detalhes de contato de um usuário específico.")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Contatos encontrados com sucesso."),
@@ -74,7 +66,10 @@ public class ContatoController {
     })
     public Contato getContatoByCpf(@PathVariable @ApiParam("Cpf do usuário") String cpf) {
         return cRepository
-            .findByCpf(cpf);
+            .findByCpf(cpf)
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário do tipo gestor não encontrado.")
+            );
 
     }
 }

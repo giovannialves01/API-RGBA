@@ -2,20 +2,18 @@ package rgba.SkillShare.model;
 
 import javax.persistence.Entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 /**
  *   Classe que define os usuários do tipo administrador
  *  @author Nicholas Roque
  */
 @Entity(name="adm")
+@NoArgsConstructor @Data
 public class Adm extends Usuario{
-    
 
-    /** 
-    * Construtor padrão da classe Adm
-    * @author Nicholas Roque
-    */
-    public Adm(){}
 
     /** 
     *  Cria uma instância da classe Adm
@@ -25,10 +23,11 @@ public class Adm extends Usuario{
     * @param senha -> senha do administrador
     * @author Nicholas Roque
     */
+
     public Adm(String cpf,String nome,String email,String senha) { 
-        this.setNome(nome);
-        this.setCpf(cpf);
-        this.setEmail(email);
-        this.setSenha(senha);
+        super(cpf,nome,email,senha);
+    }
+    public Adm(String cpf,String nome,String email) { 
+        super(cpf,nome,email);
     }
 }

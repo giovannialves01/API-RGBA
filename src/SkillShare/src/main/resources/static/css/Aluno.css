@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* nao deixa aumentar o tamanho da caixa*/
+}
+
+.separadorNoticiasEventos {
+	width: 90%;
+}
+
+.noticiasEventosHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.noticiasEventosHeader a{
+	margin-left: 20px;
+	text-decoration: none;
+}
+
+.Header{
+    margin-bottom: 80px;
+}
+.body{
+    margin-left: 50px;
+}
+.flex{
+    display: inline-flex;
+}
+.LinksUteis{
+    display: flex;
+    margin-bottom: 50px;
+    position: relative;
+    text-decoration: none;
+}
+.ApresentacaoSkillShare{
+    width: 800px;
+}
+.foot{
+    margin-left: -50px;
+}
+.CursosAndamento{
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+}
+#adecoration{
+    display: flex;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+#textimg{
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 15px;
+    position: absolute;
+    width: 250px;
+    margin-top: 15px;
+    color: black;
+}
+
+#textimgb{
+    padding-left: 15px;
+    position: absolute;
+    width: 250px;
+    margin-top: 70px;
+    color: black;
+}
+#algu{
+    margin-bottom: 20px;
+    margin-left: 9px;
+}
+#headermenu{
+    margin-right: 500px;
+}
+#SkillShare{
+    margin-right: 500px;
+}
+#bemvindoaoskillshare{
+    font-size: 42px;
+    margin-bottom: 50px;
+}
+#aquivcpode{
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+#cursosandamento{
+    font-size: 34px;
+    margin-bottom: 25px;  
+}
+
+#algunslinks{
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+#cursosandament{
+    margin-bottom: 50px;
+}
+#flex{
+    box-sizing: content-box;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    columns: auto;
+    margin-bottom: 58px;
+}
+#marginnomecurso{
+    margin-bottom: 35px;
+    
+}
+
+.toper-event{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#descricaonoticias{
+    display: block;
+    width: 900px;
+}
+#vertodaasnoticias{
+    margin-bottom: 15px;
+}
+#noticias{
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+.eventos{
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+#marginnoticia{
+    margin-top: 20px;
+}
+.thumbNoticia {
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	margin-right: 20px;
+}
+#margintopnoticia{
+    margin-top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+#leramaisdanoticia{
+    text-decoration: underline;
+    font-style: italic;
+    cursor: pointer;
+}
+#eventos-e-noticas{
+    font-size: 32px;
+}
+#adecorationvertudo{
+    font-size: 15px;
+}
+#adecoration{
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+@media (max-width: 1024px){
+    .flex{
+        display: block;
+    }
+    .FullPage{
+        margin-left: -35px;
+        width: 500px;
+        counter-increment: unset;
+    }
+    .ApresentacaoSkillShare{
+        width: 1000px;
+        margin-right: 5%;
+    }
+    .LinksUteis{
+        width: 970px;
+    }
+    .CursosAndamento{
+        display: none;
+    }
+    #espaco-margin{
+        margin-right: 58px;
+    }
+    #a-size{
+        height: 260px;
+        width: 260px;
+        margin-right: 60px;
+    }
+}
+
+@media (max-width: 640px){
+    .flex{
+        display: block;
+    }
+    .FullPage{
+        margin-left: -35px;
+        width: 500px;
+        counter-increment: unset;
+    }
+    .ApresentacaoSkillShare{
+        width: 1000px;
+        margin-right: 5%;
+    }
+    #flex{
+        height: 135px;
+        width: 150px;
+        columns: auto;
+        margin-bottom: 58px;
+    }
+}

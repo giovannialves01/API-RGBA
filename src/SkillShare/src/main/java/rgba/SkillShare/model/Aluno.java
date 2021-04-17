@@ -1,6 +1,9 @@
 package rgba.SkillShare.model;
 import javax.persistence.Entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 
 /**
@@ -8,14 +11,9 @@ import javax.persistence.Entity;
  *  @author Nicholas Roque
  */
 @Entity(name="aluno")
-
+@NoArgsConstructor @Data
 public class Aluno extends Usuario{ 
-  
-    /** 
-    * Construtor padrão da classe Aluno
-    * @author Nicholas Roque
-    */
-    public Aluno(){}
+
 
     /** 
     *  Cria uma instância da classe Aluno
@@ -25,12 +23,13 @@ public class Aluno extends Usuario{
     * @param senha -> senha do aluno
     * @author Nicholas Roque
     */
+    
+    //NÃO RETIRAR
     public Aluno(String cpf,String nome,String email,String senha) { 
-        this.setNome(nome);
-        this.setCpf(cpf);
-        this.setEmail(email);
-        this.setSenha(senha);
+        super(cpf,nome,email,senha);
     }
-
+    public Aluno(String cpf,String nome,String email) { 
+        super(cpf,nome,email);
+    }
 
 }

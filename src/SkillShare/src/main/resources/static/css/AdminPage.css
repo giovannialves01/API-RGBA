@@ -1,16 +1,12 @@
 #optionContentDisplayer{
     display: flex;
-    position: absolute;
-
     top: 50px;
-    left: 250px;
-
     overflow: auto;
-
-    width: calc(100vw - 300px);
-    height: calc(100vh - 100px);
-
-    padding: 25px;
+    width: 100%;
+    height: fit-content;
+    min-height: 500px;
+    margin-bottom: 100px;
+    padding-top: 60px;
 }
 
 /* Seleciona todos os filhos diretos da div que mostra o conteúdo */
@@ -41,4 +37,499 @@
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 
     width: 100%;
+}
+
+.defaultContent{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cadastrarUsuario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.camposCadastro{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.camposCadastro > div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.camposCadastro > div > div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.camposCadastro > div > div > input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+}
+
+.camposCadastro > div > div > input:focus{
+    outline: none;
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.camposCadastro ~ div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.greenButton{
+    padding: 8px;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    background-color: #83CC4A;
+    font-family: 'Poppins';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.greenButton:focus{
+    outline: none;
+}
+
+.greenButton:hover{
+    background-color: #71c433;
+}
+
+.greenButton:active{
+    background-color: #8cf03f;
+    outline: none;
+}
+
+.redButton{
+    padding: 8px;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    background-color: #FF7070;
+    font-family: 'Poppins';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.redButton:focus{
+    outline: none;
+}
+
+.redButton:hover{
+    background-color: #ff4f4f;
+}
+
+.redButton:active{
+    background-color: #fd7979;;
+    outline: none;
+}
+
+select{
+    padding: 5px;
+    border-radius: 0px;
+    width: fit-content;
+}
+
+.separador{
+    height: 2px;
+    background-color: black;
+    border-radius: 25px;
+
+    width: 90%;
+    margin: 0 auto;
+    opacity: 40%;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+.yellowButton{
+    padding: 8px;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    background-color: #F8FD00;
+    font-family: 'Poppins';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.yellowButton:focus{
+    outline: none;
+}
+
+.yellowButton:hover{
+    background-color:  #d9dd00;
+}
+
+.yellowButton:active{
+    background-color: #fcff2f;
+    outline: none;
+}
+
+.contentData{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.data > div > div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 35px;
+}
+
+.data > div ~ div{
+    display: flex;
+    flex-direction: row;
+}
+
+.controlButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#usersToShow{
+    width: 100%;
+}
+
+.titleLabel{
+    font-weight: bold;
+}
+
+.userDataFieldDisabled{
+    color: black;
+    font-size: inherit;
+    border: none;
+    background-color: transparent;
+    padding-left: 0px;
+}
+
+.userDataFieldDisabled:focus{
+    outline: none;
+}
+
+.userDataFieldDisabled:hover{
+    cursor: default;
+}
+
+.userDataFieldEnabled{
+    color: black;
+    font-size: inherit;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    background-color: transparent;
+    padding-left: 0px;
+}
+
+.userDataFieldEnabled:focus{
+    outline: none;
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.adicionarConteudoBiblioteca{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adicionarConteudoBiblioteca > p, .adicionarConteudoBiblioteca > h1{
+    text-align: center;
+}
+
+.bibliotecaForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    place-self: center;
+}
+
+.bibliotecaForm > div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.bibliotecaForm > select{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#inputUploadLivro{
+    display: none;
+}
+
+#inputUploadPilula{
+    display: none;
+}
+
+.inputUploadButton{
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-color: #27e0d9;
+    font-size: 14px;
+    width: fit-content;
+}
+
+.inputFile{
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+}
+
+.inputFile > input{
+    display: none;
+}
+
+#gerirBiblioteca > div > p, #gerirBiblioteca > div > h1{
+    text-align: center;
+}
+
+.bookData{
+    display: flex;
+    flex-direction: row;
+}
+
+.bookData > div ~ div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bookData > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.visualizeMaterial{
+    border-radius: 5px;
+    border: none;
+    background-color: #27e0d9;
+    padding: 6px 20px;
+    font-weight: bold;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
+
+.visualizeMaterial:hover{
+    background-color: #1dc0bb;
+}
+
+.visualizeMaterial:focus{
+    outline: none;
+}
+
+.visualizeMaterial:active{
+    background-color: #3ae2dd;
+}
+
+.pilulaForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.pilulaForm > div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    place-items: flex-start;
+    margin-top: 50px;
+}
+
+.textField{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputFilePilula{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inputFilePilula > #labelFileName{
+    margin-left: 50px;
+}
+
+.buttonContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    place-content: space-between;
+    margin-top: 50px;
+}
+
+input[type = text]{
+    margin-left: 10px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+    outline: none;
+    width: 100%;
+}
+
+input[type = text]:focus{
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.dataField > input{
+    width: 100%;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 2px solid #0aada7;
+    font-size: 17px;
+}
+
+.dataField >input:focus{
+    outline: none;
+    background-color: rgba(119, 136, 153, 0.2);
+}
+
+.noticiaForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.inputUploadNoticia{
+    display: none;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header > p, .header > h1{
+    text-align: center;
+}
+
+.chooserEventoNoticia{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#noticia{
+    width: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#noticia > label{
+    cursor: pointer;
+}
+
+#evento{
+    width: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.281);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#evento > label{
+    cursor: pointer;
+}
+
+.choosed{
+    background-color: #0aada7;
+    width: 100%;
+    height: 10px;
+}
+
+.notChoosed{
+    background-color: transparent;
+    width: 100%;
+    height: 10px;
+}
+
+.hideChoose{
+    display: none !important;
+}
+
+.showChoose{
+    display: block !important;
+}
+
+.eventoForm{
+    margin-top: 50px;
+}
+
+.noticiaEventoDisplayer{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fieldBox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.textFieldBox{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea.userDataFieldEnabled{
+    border: 2px solid #0aada7;
+    border-radius: 5px;
+}
+
+#pilulasToShow{
+    width: 90%;
+    margin: 0 auto;
 }
