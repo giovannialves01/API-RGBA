@@ -78,9 +78,12 @@ Para esta entrega, a maior dificuldade foi a administração do tempo, pois acon
 
 <h2 align="center" id="funcionamento">Nosso sistema em funcionamento até o momento</h2>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Sprint1/GIFS/Home">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Sprint1/GIFS/Administrador">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Sprint1/GIFS/Gestor">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/chatbot%20e%20home.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/login%20e%20biblioteca.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/cadastro%20aluno.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/aluno%20biblioteca.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/cadastro%20pilulas.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/aluno%20pilulas%20e%20noticias.gif">
 </p>
 
 <h2 align="center" id="userStories">User stories da entrega</h2>
@@ -88,37 +91,44 @@ Para esta entrega, a maior dificuldade foi a administração do tempo, pois acon
 Os story cards estão com a sua estimativa de esforço a partir de uma ferramentra Scrum chamada de Planning Poker, que baseia-se numa parte da sequência de Fibonacci, entre 0 e 89. A estimativa foi feita e utilizada para priorizar o backlog total. Cards com o valor de 0 são considerados desnecessários e deve ser descartados, 1 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. Nessa entrega, os usuários deverão ser cadastrados por um administrador ou gestor para que tenham acesso à plataforma, recebendo por e-mail os dados da sua conta. Seguindo o fluxo da plataforma, os administradores e gestores poderão inserir conteúdo na biblioteca, poderão adicionar pílulas de conhecimento a um curso e ainda terão a possibilidade de criar postagens sobre eventos e notícias. O aluno, por sua vez, será possibilitado de visualizar essas publicações.
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega2pt1.png" width="500px">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega2pt2.png" width="500px">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/User%20stories/priorizacao_entregas/entrega2pt3.png" width="500px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/User%20stories/priorizacao_entregas/entrega2/User%20activities%20e%20User%20tasks.png" width="500px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/User%20stories/priorizacao_entregas/entrega2/entrega2pt1.png" width="500px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/User%20stories/priorizacao_entregas/entrega2/entrega2pt2.png" width="500px"><br>
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/User%20stories/priorizacao_entregas/entrega2/entrega2pt3.png" width="340px">
 </p>
 
 <h2 align="center" id="wireframes">Wireframes da entrega :desktop_computer:</h2>
 <p align="center">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Wireframes/Entrega%201/pagina_inicial.png" width="400px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Wireframes/Landing%20page.png">
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Wireframes/Entrega%201/login.png" width="400px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Wireframes/Administrador.jpg">
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Wireframes/Entrega%201/inicial_adm_e_gestor_ok.png" width="400px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Wireframes/P%C3%A1gina%20do%20aluno.png">
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Wireframes/Entrega%201/cadastro_aluno.png" width="400px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Wireframes/Biblioteca.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Wireframes/Not%C3%ADcias.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Wireframes/P%C3%ADlulas.jpg">
 </p>
 
 <p align="center">
-Você pode visualizar todos os wireframes clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/main/doc/Wireframes"><i>aqui</i></a>
+Você pode visualizar todos os wireframes clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-2/doc/Sprint%202/Wireframes"><i>aqui</i></a>
 </p>
 
 <h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados :card_file_box:</h2>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Banco%20de%20dados/conceitual2.jpeg" width="800px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Banco%20de%20dados/Conceitual-sprint-2.png">
 </p>
 
 <h2 align="center" id="burndown">Burndown da Sprint</h2>
 <p align="justify">Tivemos grandes imprevistos para esta Sprint, por isso tivemos um gráfico de burndown mais incomum. Apenas a partir do dia 8 de abril tivemos resultados razoáveis, que foram combinados na nossa reunião que ocorreu no mesmo dia. Somente nos três últimos dias da Sprint estivemos menos atarefados.</p>
 <p align="center">
-    <img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/main/doc/Burndown/Burndown%20Sprint1.png">
+    <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Burndown/Burndown%20Sprint2.png">
 </p>
