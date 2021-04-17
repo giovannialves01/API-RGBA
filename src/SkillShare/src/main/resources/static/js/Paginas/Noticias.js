@@ -147,7 +147,7 @@ async function preloadContent() {
 
     }else{
         showEvento(eventoId);
-
+        
     }
 
 }
