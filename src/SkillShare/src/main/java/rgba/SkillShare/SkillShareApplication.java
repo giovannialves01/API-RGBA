@@ -46,9 +46,6 @@ public class SkillShareApplication implements CommandLineRunner {
 		if(admRepository.findAll().isEmpty()) {
 			Adm adm = new Adm("1", "Bárbara Port", "barbara.port@skillshare.com", "1");
 			admRepository.save(adm);
-			
-			Adm adm2 = new Adm("2", "Bárbat", "bara.port@skillshare.com", "2");
-			admRepository.save(adm2);
 		}
 
 		if(gRepository.findAll().isEmpty()) {
@@ -65,7 +62,7 @@ public class SkillShareApplication implements CommandLineRunner {
 
 		cursoRepository.save(curso);
 
-		Curso curso2= new Curso("Curso Teste","Neste curso, serão apresentados os fundamentos da informática, além de como utilizar o pacote Office e como o computador funciona.");
+		Curso curso2= new Curso("Curso de Manutenção de Computadores","Neste curso, será apresentada uma introdução sobre o hardware dos computadores.");
 		curso2.setGestor(nicholasGestor);
 
 		cursoRepository.save(curso2);
