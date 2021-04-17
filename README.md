@@ -97,7 +97,7 @@ Os story cards estão com a sua estimativa de esforço a partir de uma ferrament
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/User%20stories/priorizacao_entregas/entrega2/entrega2pt3.png" width="340px">
 </p>
 
-<h2 align="center" id="wireframes">Wireframes da entrega :desktop_computer:</h2>
+<h2 align="center" id="wireframes">Mockups da entrega :desktop_computer:</h2>
 <p align="center">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Wireframes/Landing%20page.png">
 </p>
@@ -118,7 +118,7 @@ Os story cards estão com a sua estimativa de esforço a partir de uma ferrament
 </p>
 
 <p align="center">
-Você pode visualizar todos os wireframes clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-2/doc/Sprint%202/Wireframes"><i>aqui</i></a>
+Você pode visualizar todos os mockups clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-2/doc/Sprint%202/Wireframes"><i>aqui</i></a>
 </p>
 
 <h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados :card_file_box:</h2>
