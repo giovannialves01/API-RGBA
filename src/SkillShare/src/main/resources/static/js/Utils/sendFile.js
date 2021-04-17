@@ -14,7 +14,7 @@
         .then(function (response) {
             console.log("-------------------SUCESSO UPLOAD-------------------");
             console.log(response);
-            return response.data
+            return response
         })
         .catch(function (response) {
             console.log("-------------------ERRO UPLOAD-------------------");
