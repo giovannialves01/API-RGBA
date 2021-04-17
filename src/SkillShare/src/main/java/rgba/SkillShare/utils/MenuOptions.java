@@ -88,7 +88,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Acessar as pílulas", "console.log(\"Acessando as pílulas\");"));
+		subOptions.put(this.criarSubOpcao("Acessar as pílulas", "window.location.href='/verPilulas';"));
 		
 		option = this.criarOpcao("Pílulas de conhecimento", "capsules", "3",
 				"Clique aqui para ir para a página das pílulas de conhecimento", subOptions);
@@ -157,7 +157,7 @@ public class MenuOptions {
 		subOptions.put(this.criarSubOpcao("Criar novo curso", "console.log(\"Criar novo curso\");"));
 		subOptions.put(this.criarSubOpcao("Gerir cursos", "console.log(\"Gerir cursos\");"));
 		subOptions.put(this.criarSubOpcao("Criar nova pílula", "hideAllContent();showContent('adicionarPilula');"));
-		subOptions.put(this.criarSubOpcao("Gerir pílulas", "console.log(\"Gerir pílulas\");"));
+		subOptions.put(this.criarSubOpcao("Gerir pílulas", "hideAllContent();showContent('mostrarGerirPilulas');loadPilulasToShow();"));
 		subOptions.put(this.criarSubOpcao("Criar nova turma", "console.log(\"Criar nova turma\");"));
 		subOptions.put(this.criarSubOpcao("Gerir turmas", "console.log(\"Gerir turmas\");"));
 		
@@ -206,7 +206,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Postar nova notícia/evento", "hideAllContent();showContent('adicionarNoticiaEvento');"));
-		subOptions.put(this.criarSubOpcao("Gerir notícias/eventos", "console.log(\"Gerir notícias/eventos\");"));
+		subOptions.put(this.criarSubOpcao("Gerir notícias/eventos", "hideAllContent();showContent('mostrarEventosNoticias');loadNoticias();loadEventos();"));
 		
 		option = this.criarOpcao("Notícias e eventos", "calendar-day", "6", "Clique aqui para exibir o cadastro de eventos",
 				subOptions);
@@ -303,7 +303,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Ver pílulas", "console.log('Em breve');"));
+		subOptions.put(this.criarSubOpcao("Ver pílulas", "window.location.href='/verPilulas';"));
 		
 		option = this.criarOpcao("Pílulas de conhecimento", "capsules", "12", "Clique aqui para visualizar pílulas de conhecimento!", subOptions);
 		

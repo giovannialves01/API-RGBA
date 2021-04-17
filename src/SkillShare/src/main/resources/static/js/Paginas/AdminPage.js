@@ -4,7 +4,7 @@
  * @author Rafael Furtado
  * @returns undefined
  */
-function hideAllContent() {
+ function hideAllContent() {
     let showedContents = document.getElementsByClassName("show");
 
     for (let i = 0; i < showedContents.length; i++) {
@@ -221,10 +221,11 @@ async function loadBooksToShow() {
     let books = response["responseJson"];
 
     let booksToShow = document.getElementById("booksToShow");
-
+    booksToShow.innerHTML = ''
     for (let i = 0; i < books.length; i++) {
         const bookData = books[i];
         let book = new Biblioteca(bookData);
+        console.log(book);
         let bookIdentifier = "book" + (i + 1);
         
         let bookDiv = document.createElement("div");
@@ -247,7 +248,8 @@ async function loadBooksToShow() {
         showContentButton.textContent = "Visualizar material";
         showContentButton.classList.add("visualizeMaterial");
         showContentButton.onclick = function (){
-            let file = book.getArquivo()["conteudo"];
+            console.log(book.getArquivo());
+            let file = book.getArquivo().conteudo;
 
             let pdfWindow = window.open("");
 
@@ -288,8 +290,23 @@ async function loadBooksToShow() {
 async function enableEdit(userIdentifier, user) {
     let editableUser = document.getElementById(userIdentifier);
 
-    let fields = editableUser.getElementsByTagName("input");
+    let inputs = editableUser.getElementsByTagName("input");
+    let textAreas = editableUser.getElementsByTagName("textarea");
 
+    let fields = [];
+
+    for (let i = 0; i < textAreas.length; i++) {
+        const textArea = textAreas[i];
+        
+        fields.push(textArea);
+    }
+
+    for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        
+        fields.push(input);
+    }
+    
     let buttons = editableUser.getElementsByClassName("controlButtons")[0].getElementsByTagName("button");
 
     for (let i = 0; i < buttons.length; i++) {
@@ -315,7 +332,7 @@ async function enableEdit(userIdentifier, user) {
     for (let i = 0; i < fields.length; i++) {
         const field = fields[i];
         
-        if(field.className == ("userDataFieldDisabled")){
+        if(field.className == ("userDataFieldDisabled")&&field.name!="cpf"){
             field.className = "userDataFieldEnabled";
             field.disabled = false;
             
@@ -328,7 +345,22 @@ async function enableEdit(userIdentifier, user) {
 async function disableEdit(userIdentifier, user) {
     let editableUser = document.getElementById(userIdentifier);
 
-    let fields = editableUser.getElementsByTagName("input");
+    let inputs = editableUser.getElementsByTagName("input");
+    let textAreas = editableUser.getElementsByTagName("textarea");
+
+    let fields = [];
+
+    for (let i = 0; i < textAreas.length; i++) {
+        const textArea = textAreas[i];
+        
+        fields.push(textArea);
+    }
+
+    for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        
+        fields.push(input);
+    }
 
     let buttons = editableUser.getElementsByClassName("controlButtons")[0].getElementsByTagName("button");
 
@@ -368,7 +400,22 @@ async function disableEdit(userIdentifier, user) {
 function undoChanges(entityIdentifier, entity){
     let editableUser = document.getElementById(entityIdentifier);
 
-    let fields = editableUser.getElementsByTagName("input");
+    let inputs = editableUser.getElementsByTagName("input");
+    let textAreas = editableUser.getElementsByTagName("textarea");
+
+    let fields = [];
+
+    for (let i = 0; i < textAreas.length; i++) {
+        const textArea = textAreas[i];
+        
+        fields.push(textArea);
+    }
+
+    for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        
+        fields.push(input);
+    }
 
     let entityType = entity.constructor.name;
 
@@ -410,6 +457,44 @@ function undoChanges(entityIdentifier, entity){
             
         }
 
+    }else if(entityType == "Destaque"){
+        for (let i = 0; i < fields.length - 1; i++) {
+            const field = fields[i];
+    
+            switch (field.name){
+                case "titulo":
+                    field.value = entity.getTitulo();
+                    break;
+    
+                case "sinopse":
+                    field.value = entity.getSinopse();
+                    break;
+                
+                case "conteudo":
+                    field.value = entity.getConteudo();
+                    break;
+    
+            }
+            
+        }
+
+    }else if(entityType == "Pilula"){
+        for (let i = 0; i < fields.length - 1; i++) {
+            const field = fields[i];
+    
+            switch (field.name){
+                case "titulo":
+                    field.value = entity.getTitulo();
+                    break;
+                
+                case "conteudo":
+                    field.value = entity.getDescricao();
+                    break;
+    
+            }
+            
+        }
+
     }
 
 
@@ -430,19 +515,19 @@ async function deleteEntity(entityIdentifier, entity) {
     if(entityType == "Usuario"){
         switch (option) {
             case "Aluno":
-                pathToDelete = "/alunos/delete";
+                pathToDelete = `/alunos/${entity.getCpf()}`;
                 break;
     
             case "Administrador":
-                pathToDelete = "/adm/delete";
+                pathToDelete = `/adm/${entity.getCpf()}`;
                 break;
                 
             case "Gestor":
-                pathToDelete = "/gestor/delete";
+                pathToDelete = `/gestor/${entity.getCpf()}`;
                 break;
     
             case "Tutor":
-                pathToDelete = "/tutor/delete";
+                pathToDelete = `/tutor/${entity.getCpf()}`;
                 break;
         
             default:
@@ -450,132 +535,253 @@ async function deleteEntity(entityIdentifier, entity) {
         }
 
     }else if(entityType == "Biblioteca"){
-        pathToDelete = "/biblioteca/delete";
+        pathToDelete = `/biblioteca/${entity.getId()}`;
+
+    }else if(entityType == "Destaque"){
+        pathToDelete = `/destaques/${entity.getId()}`;
+
+    }else if(entityType == "Evento"){
+        pathToDelete = `/eventos/${entity.getId()}`;
 
     }
+    else if(entityType == "Pilula"){
+        pathToDelete = `/pilulas/${entity.getId()}`;
+        
+    }
 
-    let response = await serverRequester.fazerPost(pathToDelete, entity.toData());
-
-    if(response["responseJson"]){
-        alert("deletado");
-
-        if(editableEntity.nextSibling != null){
-            editableEntity.nextSibling.remove();
+    axios({
+        method: "delete",
+        url: pathToDelete,
+        headers: { "Content-Type": "application/json"},
+    })
+    .then(function (res) {
+        if(res.status==204){
+            alert("deletado");
+    
+            if(editableEntity.nextSibling != null){
+                editableEntity.nextSibling.remove();
+            }
+    
+            editableEntity.remove();
+    
+        }else{
+            alert("não deletado");
         }
+    })
+    .catch(function (res) {
+        console.log(res);
+    })
 
-        editableEntity.remove();
-
-    }else{
-        alert("não deletado");
-    }
+    
 
 }
 
 async function saveChanges(entityIdentifier, entity) {
     let editableUser = document.getElementById(entityIdentifier);
 
-    let fields = editableUser.getElementsByTagName("input");
+    let inputs = editableUser.getElementsByTagName("input");
+    let textAreas = editableUser.getElementsByTagName("textarea");
+
+    let fields = [];
+
+    for (let i = 0; i < textAreas.length; i++) {
+        const textArea = textAreas[i];
+        
+        fields.push(textArea);
+    }
+
+    for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        
+        fields.push(input);
+    }
 
     let pathToUpdate = "";
-
-    let data = {newData: {}, oldData: {}};
     let newEntity;
-
+    
     if(entity.constructor.name == "Biblioteca"){
+        var data = {
+            autor:entity.getAutor(),
+            titulo:entity.getTitulo()
+        }
+
         for (let i = 0; i < fields.length; i++) {
             const field = fields[i];
-            
             switch (field.name){
                 case "nomeDoLivro":
-                    data["newData"]["titulo"] = field.value;
+                    data.titulo = field.value
                     break;
     
                 case "autor":
-                    data["newData"]["autor"] = field.value;
+                    data.autor = field.value
                     break;
-
             }
     
         }
         
-        data["oldData"]["id"] = entity.getId();
-
-        pathToUpdate = "/biblioteca/update";
+        data.id = entity.getId()
+        pathToUpdate = `/biblioteca/${entity.getId()}`;
 
         newEntity = new Biblioteca();
 
         newEntity.setArquivo(entity.getArquivo());
-        newEntity.setAutor(data["newData"]["autor"]);
-        newEntity.setTitulo(data["newData"]["titulo"]);
+        newEntity.setAutor(data.autor);
+        newEntity.setTitulo(data.titulo);
         newEntity.setId(entity.getId());
-    
     }else if(entity.constructor.name == "Usuario"){
         let select = document.getElementById("userTypeEdit");
 
         let option = select.value;
 
+        var data = {
+            nome:entity.getNome(),
+            cpf:entity.getCpf(),
+            email:entity.getEmail(),
+            contato:entity.getContatos()
+        }
+
         switch (option) {
             case "Aluno":
-                pathToUpdate = "/alunos/update";
+                pathToUpdate = `/alunos/${entity.getCpf()}`;
                 break;
     
             case "Administrador":
-                pathToUpdate = "/adm/update";
+                pathToUpdate = `/adm/${entity.getCpf()}`;
                 break;
                 
             case "Gestor":
-                pathToUpdate = "/gestor/update";
+                pathToUpdate = `/gestor/${entity.getCpf()}`;
                 break;
     
             case "Tutor":
-                pathToUpdate = "/tutor/update";
+                pathToUpdate = `/tutor/${entity.getCpf()}`;
                 break;
         
             default:
                 break;
         }
     
-        data = {
-            oldData: {
-                nome: entity.getNome(),
-                email: entity.getEmail(),
-                cpf: entity.getCpf(),
-                senha: entity.getSenha()
-            }, 
-            newData: {
-                senha: entity.getSenha()
-            }
-        };
+   
     
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
+            switch (field.name){
+                case "nome":
+                    console.log("nome: "+field.value);
+                    data.nome = field.value;
+                    break;
+    
+                case "email":
+                    console.log("email: "+field.value);
+                    data.email = field.value;
+                    break; 
+            }
+    
+        }
+        newEntity = new Usuario(data);
+    }else if(entity.constructor.name == "Destaque"){
+        pathToUpdate = `/destaques/${entity.getId()}`;
+        var data = {
+            id:entity.getId(),
+            titulo:entity.getTitulo(),
+            sinopse:entity.getSinopse(),
+            conteudo:entity.getConteudo(),
+            fonte:entity.getFonte()
+        }
         for (let i = 0; i < fields.length; i++) {
             const field = fields[i];
             
             switch (field.name){
-                case "nome":
-                    data["newData"]["nome"] = field.value;
+                case "titulo":
+                    data.titulo = field.value;
                     break;
     
-                case "cpf":
-                    data["newData"]["cpf"] = field.value;
+                case "sinopse":
+                    data.sinopse = field.value;
                     break;
     
-                case "email":
-                    data["newData"]["email"] = field.value;
+                case "conteudo":
+                    data.conteudo = field.value;
                     break; 
             }
     
         }
 
-        newEntity = new Usuario(data["newData"]);
-    }
+        newEntity = new Destaque(data);
+    }else if(entity.constructor.name == "Evento"){
+        pathToUpdate = `/eventos/${entity.getId()}`;
+        var data = {
+            id:entity.getId(),
+            titulo:entity.getTitulo(),
+            sinopse:entity.getSinopse(),
+            conteudo:entity.getConteudo(),
+        }
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
+            
+            switch (field.name){
+                case "titulo":
+                    data.titulo = field.value;
+                    break;
+    
+                case "sinopse":
+                    data.sinopse = field.value;
+                    break;
+    
+                case "conteudo":
+                    data.conteudo = field.value;
+                    break; 
+            }
+    
+        }
 
-    let response = await serverRequester.fazerPost(pathToUpdate, data);
+        newEntity = new Evento(data);
+    }else if(entity.constructor.name == "Pilula"){
+        pathToUpdate = `/pilulas/${entity.getId()}`;
 
-    if(response["responseJson"]){
-        alert("Alterado");
-    }else{
-        alert("Não alterado");
+        var data = {
+            id: entity.getId(),
+            titulo: entity.getTitulo,
+            descricao: entity.getDescricao()
+        }
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
+            
+            switch (field.name){
+                case "titulo":
+                    data.titulo = field.value;
+                    break;
+    
+                case "conteudo":
+                    data.descricao = field.value;
+                    break; 
+            }
+    
+        }
+
+        newEntity = new Pilula(entity);
+        newEntity.setTitulo(data.titulo)
+        newEntity.setDescricao(data.descricao)
+
+        console.log(entity);
+
     }
+    axios({
+        method: "put",
+        url: pathToUpdate,
+        data: data,
+        headers: { "Content-Type": "application/json"},
+    }).then((res)=>{
+        if(res.status==204){
+            alert("Alterado");
+        }else{
+            alert("Não alterado");
+        }
+    }).catch((err)=>{
+        console.log(err);
+    })
+
+    
 
     disableEdit(entityIdentifier, newEntity);
 }
@@ -588,6 +794,7 @@ function setInputLabelName(event, labelName) {
 
 function createFieldBox(title, value, name) {
     let container = document.createElement("div");
+    container.classList.add("fieldBox");
 
     let titleLabel = document.createElement("label");
     titleLabel.textContent = title;
@@ -595,7 +802,7 @@ function createFieldBox(title, value, name) {
 
     let dataLabel = document.createElement("input");
     dataLabel.classList.add("userDataFieldDisabled");
-    if(title == "Perfil"){
+    if(title == "Perfil" || title == "Curso"){
         dataLabel.classList.add("notEditable");
     }
     dataLabel.value = value;
@@ -609,6 +816,9 @@ function createFieldBox(title, value, name) {
 }
 
 function createManageButtons(entityIdentifier, entity) {
+    console.log(entityIdentifier);
+    console.log(entity);
+
     let manageButtonsDiv = document.createElement("div");
     manageButtonsDiv.classList.add("controlButtons");
 
@@ -700,71 +910,35 @@ async function registerBook(event) {
     event.preventDefault();
     let form = $('#bibliotecaRegistrar')[0];
     let formData = new FormData(form);   
-    let url
-    let opt = $('#selectCursoParaLivro').val()
-    if((opt==0)||(opt==undefined)||(opt==null)){
-        url=`${serverRequester.serverURL}/biblioteca/cadastrar`
-    }
-    else{
-        url=`${serverRequester.serverURL}/cursos/biblioteca/cadastrar`
-    }
-    alert("Chamando função para cadastrar livro");
+    let url=`${serverRequester.serverURL}/biblioteca/cadastrar`
+
     sendFile(formData,url);
 }
 
 async function registerPilula(event) {
     event.preventDefault();
-
-    let fileInput = document.getElementById("inputUploadPilula");
-    let inputTitulo = document.getElementById("tituloPilula");
-    let textFieldCorpo = document.getElementById("textAreaCriarPilula");
-    let select = document.getElementById("selectCursoParaPilula");
-
-    let cursoId = select.value;
-    let file = fileInput.files[0];
-
-    console.log(file);
-
-    alert("Chamando função para cadastrar pílulas");
+    let form = $('#formPilula')[0];
+    let formData = new FormData(form);   
+    let url=`${serverRequester.serverURL}/pilulas/cadastrar`
+    sendFile(formData,url);
 }
 
 async function registerNoticia(event){
     event.preventDefault();
-
-    let form = document.getElementById("formNoticia");
-
-    let response = await fetch("/destaques/cadastrar/noticia", {
-        method: 'POST',
-        body: new FormData(form)
-      });
-
-    console.log(response);
+    let form = $('#formNoticia')[0];
+    let formData = new FormData(form);   
+    let url=`${serverRequester.serverURL}/destaques/cadastrar`
+    sendFile(formData,url);
 
 }
 
 
 async function registerEvento(event){
     event.preventDefault();
-
-    let form = document.getElementById("formEvento");
-    let titulo = document.getElementById("tituloEvento").value;
-    let sinopse = document.getElementById("textAreaSubtituloEvento").value;
-    let conteudo = document.getElementById("textAreaCorpoEvento").value;
-
-    let formData = new FormData();
-    formData.append("titulo", titulo);
-    formData.append("sinopse", sinopse);
-    formData.append("conteudo", conteudo);
-
-    let data = {
-        titulo: titulo,
-        sinopse: sinopse,
-        conteudo, conteudo
-    };
-
-    let response = await serverRequester.fazerPost("/destaques/cadastrar/evento", data);
-
-    console.log(response);
+    let form = $('#formEvento')[0];
+    let formData = new FormData(form);   
+    let url=`${serverRequester.serverURL}/eventos/cadastrar`
+    sendFile(formData,url);
 }
 
 function showEvento() {
@@ -809,6 +983,208 @@ function showNoticia() {
 function clearFileLabel(event, labelName){
     let label = document.getElementById(labelName);
     label.textContent = "Nada escolhido";
+}
+
+function chooseNoticiaEventoToShow(){
+    let select = document.getElementById("selectEventoNoticia");
+    let typeToShow = select.value;
+    
+    let containerToShow;
+    let containerToHide;
+
+    if(typeToShow == "Noticia"){
+        containerToShow = document.getElementById("noticiasToShow");
+        containerToHide = document.getElementById("eventosToShow");
+    }else{
+        containerToShow = document.getElementById("eventosToShow");
+        containerToHide = document.getElementById("noticiasToShow");
+    }
+
+    containerToHide.classList.remove("showChoose");
+    containerToHide.classList.add("hideChoose");
+    
+    containerToShow.classList.remove("hideChoose");
+    containerToShow.classList.add("showChoose");
+}
+
+async function loadNoticias() {
+    let containerNoticias = document.getElementById("noticiasToShow");
+    containerNoticias.innerHTML = "";
+
+    let response = await serverRequester.fazerGet("/destaques");
+
+    let destaques = response["responseJson"];
+
+    for (let i = 0; i < destaques.length; i++) {
+        const data = destaques[i];
+        
+        let destaque = new Destaque(data);
+
+        let entityIdentifier = "destaque" + (i + 1);
+
+        let entityContainer = document.createElement("div");
+        entityContainer.classList.add("contentBox");
+        entityContainer.id = entityIdentifier;
+
+            let fieldsContainer = document.createElement("div");
+            fieldsContainer.style.width = "60%";
+
+            let fieldTitulo = createFieldBox("Título", destaque.getTitulo(), "titulo");
+            let fieldSubtitulo = createFieldBox("Subtitulo", destaque.getSinopse(), "sinopse");
+            let fieldCorpo = createTextFieldBox("Corpo", destaque.getConteudo(), "conteudo");
+
+            let manageButtons = createManageButtons(entityIdentifier, destaque);
+
+            fieldsContainer.appendChild(fieldTitulo);
+            fieldsContainer.appendChild(fieldSubtitulo);
+            fieldsContainer.appendChild(fieldCorpo);
+
+            entityContainer.appendChild(fieldsContainer);
+            entityContainer.appendChild(manageButtons);
+
+            containerNoticias.appendChild(entityContainer);
+
+            if(i < destaques.length - 1){
+                let separador = document.createElement("div");
+                separador.classList.add("separador");
+    
+                containerNoticias.appendChild(separador);
+            }
+
+
+    }
+    
+}
+
+async function loadEventos() {
+    let containerEventos = document.getElementById("eventosToShow");
+    containerEventos.innerHTML = "";
+
+    let response = await serverRequester.fazerGet("/eventos");
+
+    let eventos = response["responseJson"];
+
+    for (let i = 0; i < eventos.length; i++) {
+        const data = eventos[i];
+        
+        let evento = new Evento(data);
+
+        let entityIdentifier = "evento" + (i + 1);
+
+        let entityContainer = document.createElement("div");
+        entityContainer.classList.add("contentBox");
+        entityContainer.id = entityIdentifier;
+            let fieldsContainer = document.createElement("div");
+            fieldsContainer.style.width = "60%";
+
+            let fieldTitulo = createFieldBox("Título", evento.getTitulo(), "titulo");
+            let fieldSubtitulo = createFieldBox("Subtitulo", evento.getSinopse(), "sinopse");
+            let fieldCorpo = createTextFieldBox("Corpo", evento.getConteudo(), "conteudo");
+
+            let manageButtons = createManageButtons(entityIdentifier, evento);
+
+            fieldsContainer.appendChild(fieldTitulo);
+            fieldsContainer.appendChild(fieldSubtitulo);
+            fieldsContainer.appendChild(fieldCorpo);
+
+            entityContainer.appendChild(fieldsContainer);
+            entityContainer.appendChild(manageButtons);
+
+            containerEventos.appendChild(entityContainer);
+
+            if(i < eventos.length - 1){
+                let separador = document.createElement("div");
+                separador.classList.add("separador");
+    
+                containerEventos.appendChild(separador);
+            }
+
+    }
+    
+}
+
+function createTextFieldBox(title, value, name) {
+    let container = document.createElement("div");
+    container.classList.add("textFieldBox");
+
+    let titleLabel = document.createElement("label");
+    titleLabel.textContent = title;
+    titleLabel.classList.add("titleLabel");
+
+    let dataLabel = document.createElement("textarea");
+    dataLabel.classList.add("userDataFieldDisabled");
+    if(title == "Perfil"){
+        dataLabel.classList.add("notEditable");
+    }
+    dataLabel.value = value;
+    dataLabel.disabled = true;
+    dataLabel.name = name;
+    dataLabel.style.height = "150px";
+    dataLabel.style.resize = "none";
+
+    container.appendChild(titleLabel);
+    container.appendChild(dataLabel);
+
+    return container;
+}
+
+async function loadPilulasToShow() {
+    let container = document.getElementById("pilulasToShow");
+    container.innerHTML = "";
+
+    let response = await serverRequester.fazerGet("/cursos");
+
+    let cursos = response["responseJson"];
+
+    for (let i = 0; i < cursos.length; i++) {
+        const data = cursos[i];
+        cursos[i].pilulas.map((p)=>{
+            let pilula = new Pilula(p);
+            pilula.setNomeCurso(cursos[i].titulo)
+
+            let entityIdentifier = "pilula" + (cursos[i].pilulas.indexOf(p) + 1);
+    
+            let entityContainer = document.createElement("div");
+            entityContainer.classList.add("contentBox");
+            entityContainer.id = entityIdentifier;
+    
+            let fieldsContainer = document.createElement("div");
+            fieldsContainer.style.width = "60%";
+    
+            let div1 = document.createElement("div");
+            div1.style.display = "flex";
+            div1.style.flexDirection = "row";
+    
+            let fieldTitulo = createFieldBox("Título", pilula.getTitulo(), "titulo");
+            let fieldCurso = createFieldBox("Curso", pilula.getNomeCurso(), "curso");
+    
+            div1.appendChild(fieldTitulo);
+            div1.appendChild(fieldCurso);
+    
+            let fieldCorpo = createTextFieldBox("Corpo", pilula.getDescricao(), "conteudo");
+            
+            let manageButtons = createManageButtons(entityIdentifier, pilula);
+    
+            fieldsContainer.appendChild(div1);
+            fieldsContainer.appendChild(fieldCorpo);
+    
+            entityContainer.appendChild(fieldsContainer);
+            entityContainer.appendChild(manageButtons);
+    
+            container.appendChild(entityContainer);
+    
+            if(i < cursos[i].pilulas.length - 1){
+                let separador = document.createElement("div");
+                separador.classList.add("separador");
+    
+                container.appendChild(separador);
+    
+            }
+        })
+
+
+    }
+
 }
 
 loadAllCursos("selectCursoParaPilula");

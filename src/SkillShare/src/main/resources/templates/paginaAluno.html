@@ -18,8 +18,10 @@
     <script src="js/Componentes/Menu.js"></script>
     <script src="js/Componentes/TopBar.js"></script>
     <script src="js/Componentes/Footer.js"></script>
+    <script src="js/Utils/renderIMG.js"></script>
+    <script src="js/Paginas/noticiasEventos.js"></script>
     
-    <title>Pagina do aluno</title>
+    <title>Página do aluno | SkillShare</title>
 </head>
 <body>
     <top-bar></top-bar>
@@ -34,24 +36,23 @@
             <div class="flex">
                 <div class="flexcol">
                     <div class="ApresentacaoSkillShare">
-                        <p id="bemvindoaoskillshare">Bem vindo a SkillShare!</p>
+                        <p id="bemvindoaoskillshare">Bem-vindo a SkillShare!</p>
                         <p id="aquivcpode">Aqui você pode conferir tudo relacionado a sua conta, gerir os cursos
                             em que foi matriculado e visualizar as últimas notícias e informações
                             inerentes à sua formação</p>
-                        <p id="algu">Alguns links que podem ser do seu interesse...</p>
+                        <p id="algu">Aqui vão alguns links que podem ser do seu interesse:</p>
                     </div>
                     <div class="LinksUteis">
 
-                        <a id="a-size" href="Tela de biblioteca aqioooo">
+                        <a id="a-size" href="/acervo">
                             <p id="textimg">Biblioteca</p>
                             <p id="textimgb">Aqui você pode conferir
                                 todo o acervo de material
                                 didatico que temos em nossa plataforma</p>
                             <img id="espaco-margin" src="images/imgmiblioteca.png" alt="">
-                            
                         </a>
 
-                        <a id="a-size" href="Tela de pulilas aqioooo">
+                        <a id="a-size" href="/verPilulas">
                             <p id="textimg">Pílulas de conhecimento</p>
                             <p id="textimgb">Acesse conteúdos de 
                                 curta duração para fixar
@@ -74,74 +75,38 @@
 
                     <p id="cursosandamento">Cursos em andamento</p>
 
-                        
-                            <a id="adecoration" href="noticia aqui ó">
-                                <img id="flex" src="images/img-1.jpg" alt="imagem do curso 1">
-                                <div id="block">
-                                    <p id="marginnomecurso">Nome do curso que vem do banco</p><br>
-                                    <p> Procentagem que vem do banco</p><br>
-                                </div>
-                            </a>
-                        
 
-                            <a id="adecoration" href="Segundocurso aqui ó">
-                                <img id="flex" src="images/img-1.jpg" alt="imagem do curso 1">
+						<div style="width: 80%; height: 300px; background-color: #dcdcdc">
+						
+						</div>
+                            <!-- <a id="adecoration" href="noticia aqui ó">
+                                <img id="flex" src="https://www.siembra.com.br/img/noticias/grande/e22e682a3707cf126fb9de17adf605ca.png" alt="imagem do curso 1">
                                 <div id="block">
                                     <p id="marginnomecurso">Nome do curso que vem do banco</p><br>
-                                    <p> Procentagem que vem do banco</p><br>
+                                    <p>Porcentagem que vem do banco</p><br>
                                 </div>
-                            </a>
+                            </a> -->
                         
-
-                            <a id="adecoration" href="terceirocurso aqui ó">
-                                <!--<img src="imagem aleatoria" alt="imagem do curso 1">-->
-                                <img id="flex" src="images/img-1.jpg" alt="imagem do curso 1">
-                                <div id="block">
-                                    <p id="marginnomecurso">Nome do curso que vem do banco</p><br>
-                                    <p> Procentagem que vem do banco</p><br>
-                                </div>
-                            </a>  
                 </div>
             </div>
-
+            <div class="noticiasEventosHeader">
+            	<h1>Notícias e eventos mais recentes</h1>
+            	<a href="/noticias">Ver tudo</a>
+            </div>
+			<hr class="separadorNoticiasEventos">
             <div class="ultimosEventosENoticias">
                 <div class="toper-event">
-                    <p id="eventos-e-noticas">Eventos e noticias</p><br>
-                    <a id="adecorationvertudo" href="link ver todas as noticias">ver tudo</a><br>
+                    <p id="eventos-e-noticas">Notícias</p><br>
                 </div>
-                <div id="noticias">
-                    <a id="adecoration" href="noticia aqui ó">
-                        <img id="imagenoticia" src="images/Ellipse 2.png" alt="imagem da noticia">
-                        <div id="descricaonoticias">
-                            <p id="margintopnoticia">titulo da noticia que vem do banco</p>
-                            <p id="marginnoticia">breafing da noticia</p>
-                            <p id="leramaisdanoticia">ler conteudo completo</p> 
-                        </div>
-                    </a>
+                <div id="noticias"></div>
+            </div>
+            <hr class="separadorNoticiasEventos">
+            <div class="ultimosEventos">
+                <div class="toper-event">
+                    <p id="eventos-e-noticas">Eventos</p><br>
                 </div>
-
-                <div id="noticias">
-                    <a id="adecoration" href="noticia aqui ó">
-                        <img id="imagenoticia" src="images/Ellipse 2.png" alt="imagem da noticia">
-                        <div id="descricaonoticias">
-                            <p id="margintopnoticia">titulo da noticia que vem do banco</p>
-                            <p id="marginnoticia">breafing da noticia</p>
-                            <p id="leramaisdanoticia">ler conteudo completo</p>
-                        </div> 
-                    </a>
-                </div>
-
-                <div id="noticias">
-                    <a id="adecoration" href="noticia aqui ó">
-                        <img id="imagenoticia" src="images/Ellipse 2.png" alt="imagem da noticia">
-                        <div id="descricaonoticias">
-                            <p id="margintopnoticia">titulo da noticia que vem do banco</p>
-                            <p id="marginnoticia">breafing da noticia</p>
-                            <p id="leramaisdanoticia">ler conteudo completo</p>
-                        </div>
-                    </a>
-                </div>
-            </div>         
+                <div class="eventos" id="eventos"></div>
+            </div>   
         </div>
     </div>
 

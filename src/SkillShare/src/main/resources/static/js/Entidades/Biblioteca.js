@@ -11,11 +11,7 @@ class Biblioteca{
             this.autor = bookData["autor"];
             this.id = bookData["id"];
 
-            this.arquivo = {};
-
-            this.arquivo["conteudo"] = bookData["conteudo"];
-            this.arquivo["nomeArquivo"] = bookData["nomeArquivo"];
-            this.arquivo["tipoArquivo"] = bookData["tipoArquivo"];
+            this.arquivo = bookData["arquivo"];
         }
 
     }
