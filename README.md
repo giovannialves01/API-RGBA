@@ -36,7 +36,7 @@ Para navegar rapidamente e com mais facilidade, você pode utilizar os links dos
   - [Quais foram as partes mais trabalhosas?](#quais-foram-as-partes-mais-trabalhosas)
 - <a href="#funcionamento">Nosso sistema em funcionamento até o momento</a>
 - <a href="#userStories">User stories da entrega</a>
-- <a href="#wireframes">Wireframes da entrega</a>
+- <a href="#mockups">Mockups da entrega</a>
 - <a href="#modeloBanco">Modelo conceitual do banco de dados</a>
 - <a href="#burndown">Burndown da Sprint</a>
 
@@ -97,7 +97,7 @@ Os story cards estão com a sua estimativa de esforço a partir de uma ferrament
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/User%20stories/priorizacao_entregas/entrega2/entrega2pt3.png" width="340px">
 </p>
 
-<h2 align="center" id="wireframes">Mockups da entrega :desktop_computer:</h2>
+<h2 align="center" id="mockups">Mockups da entrega :desktop_computer:</h2>
 <p align="center">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Wireframes/Landing%20page.png">
 </p>
