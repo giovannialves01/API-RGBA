@@ -72,7 +72,7 @@
                             <td><p align="center">Entrega 2</p></td>
                             <td><p align="justify">Administradores e Gestores poderão inserir conteúdo na biblioteca, postar pílulas de conhecimento, postar eventos e, também, destaques. O chatbot já estará disponível.</p></td>
                             <td><p align="center">18/04</p></td>
-                            <td><p align="center"><a href="">Visualizar</p></td>
+                            <td><p align="center"><a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-2">Visualizar</p></td>
                      </tr>
                      <tr>
                             <td><p align="center">Entrega 3</p></td>
