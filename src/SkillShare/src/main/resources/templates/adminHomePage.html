@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="css/BeautyButton.css">
     <link rel="stylesheet" href="css/BeautyInput.css">
     <link rel="stylesheet" href="css/BeautySelect.css">
-    <link rel="stylesheet" href="css/Biblioteca.css">
     <link rel="stylesheet" href="css/BeautyTable.css">
     <link rel="stylesheet" href="css/Footer.css">
 
@@ -39,7 +38,10 @@
 
     <script src="js/Entidades/Usuario.js"></script>
     <script src="js/Entidades/Biblioteca.js"></script>
-    <script src="js/Entidades/Noticia.js"></script>
+    <script src="js/Entidades/Destaque.js"></script>
+    <script src="js/Entidades/Pilula.js"></script>
+    <script src="js/Entidades/Evento.js"></script>
+
 
 </head>
 <body>
@@ -81,7 +83,7 @@
 
                 <div class="inputFile">
                     <label for="inputUploadLivro" class="inputUploadButton">Escolher arquivo...</label>
-                    <input type="file" required id="inputUploadLivro" name="material" onchange="setInputLabelName(event, 'labelFileNameLivro')">
+                    <input type="file" required id="inputUploadLivro" name="arq" onchange="setInputLabelName(event, 'labelFileNameLivro')">
                     <label id="labelFileNameLivro">Selecione um arquivo</label>
                 </div>
 
@@ -203,27 +205,26 @@
                 <div class="separador"></div>
             </div>
 
-            <form class="pilulaForm" onsubmit="registerPilula(event)" onreset="clearFileLabel(event, 'labelFileNamePilula')">
-                <select id="selectCursoParaPilula">
-                    <option selected disabled>Escolha um curso do tema do livro...</option>
-                    <option value="0">Não específico</option>
+            <form class="pilulaForm" id="formPilula" onsubmit="registerPilula(event)" onreset="clearFileLabel(event, 'labelFileNamePilula')">
+                <select name="idCurso" id="selectCursoParaPilula">
+                    <option selected disabled>Escolha um curso para a pílula...</option>
                 </select>
 
                 <div>
                     <div style="width: 100%; display: flex;">
                         <label>Título:</label>
-                        <input type="text" id="tituloPilula">
+                        <input name="titulo" type="text" id="tituloPilula">
                     </div>
     
                     <div class="inputFilePilula">
                         <label for="inputUploadPilula" class="inputUploadButton">Escolher arquivo...</label>
-                        <input type="file" id="inputUploadPilula" onchange="setInputLabelName(event, 'labelFileNamePilula')">
+                        <input name="arq" type="file" id="inputUploadPilula" onchange="setInputLabelName(event, 'labelFileNamePilula')">
                         <label id="labelFileNamePilula">Selecione um arquivo</label>
                     </div>
     
                     <div class="textField">
                         <label>Texto do corpo</label>
-                        <textarea id="textAreaCriarPilula" cols="30" rows="10"></textarea>
+                        <textarea name="descricao" id="textAreaCriarPilula" cols="30" rows="10"></textarea>
                     </div>
 
     
@@ -233,6 +234,21 @@
                     </div>
                 </div>
             </form>
+        </div>
+
+        <!-- Gerir Píulas -->
+        <div id="mostrarGerirPilulas" class="vBox hide">
+            <h1>Gerir pílulas de conhecimento</h1>
+            <p style="text-align: center;">
+                Escolha um curso para visualizar todas as pílulas referentes a ele, podendo excluí-las ou editar suas informações
+            </p>
+
+            <div class="separador"></div>
+
+            <div id="pilulasToShow">
+
+            </div>
+
         </div>
 
 
@@ -277,7 +293,7 @@
                     
                     <div class="inputFile">
                         <label for="inputUploadNoticia" class="inputUploadButton">Escolher imagem...</label>
-                        <input name="th" type="file" id="inputUploadNoticia" onchange="setInputLabelName(event, 'labelFileNameNoticia')">
+                        <input name="arq" type="file" id="inputUploadNoticia" onchange="setInputLabelName(event, 'labelFileNameNoticia')">
                         <label id="labelFileNameNoticia">Selecione uma imagem de thumbnail</label>
                     </div>
 
@@ -304,7 +320,11 @@
                         <label>Título:</label>
                         <input name="titulo" type="text" id="tituloEvento">
                     </div>
-
+                    <div class="inputFile">
+                        <label for="inputUploadEvento" class="inputUploadButton">Escolher imagem...</label>
+                        <input name="arq" type="file" id="inputUploadEvento" onchange="setInputLabelName(event, 'labelFileNameEvento')">
+                        <label id="labelFileNameEvento">Selecione uma imagem de thumbnail</label>
+                    </div>
                     <div class="textField">
                         <label>Subtitulo</label>
                         <textarea name="sinopse" id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
@@ -321,6 +341,31 @@
                     </div>
                 </div>
             </form>
+        </div>
+
+        <!-- Gerir Eventos-->
+        <div id="mostrarEventosNoticias" class="vBox hide">
+            <h1>Gerir notícias e eventos</h1>
+            <p style="text-align: center;">
+                Escolha entre notícias e eventos para visualizar os registros do respectivo tipo, podedendo</br>
+                ver os dados de cada um para editar ou excluir
+            </p>
+
+            <select id="selectEventoNoticia" onchange="chooseNoticiaEventoToShow()">
+                <option selected disabled>Escolha um perfil de usuário para exibir...</option>
+                <option value="Noticia">Notícias</option>
+                <option value="Evento">Eventos</option>
+            </select>
+
+            <div class="separador"></div>
+
+            <div id="noticiasToShow" class="hideChoose noticiaEventoDisplayer">
+
+            </div>
+
+            <div id="eventosToShow" class="hideChoose noticiaEventoDisplayer">
+
+            </div>
         </div>
 
     </div>

@@ -1,9 +1,11 @@
 package rgba.SkillShare.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,29 +21,21 @@ import lombok.ToString;
  */
 @Entity(name="thumb")
 @NoArgsConstructor @AllArgsConstructor @Data @ToString
-public class Thumb extends Arquivo{
+public class Thumb {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne(mappedBy = "thumb")
     @JsonIgnore
-    private Pilula pilula;
-
     @OneToOne(mappedBy = "thumb")
-    @JsonIgnore
     private Destaque destaque;
 
-    /** 
-    *  Cria uma instância da classe Thumb.
-    * @param nomeArquivo -> nome do arquivo
-    * @param conteudo -> arquivo
-    * @param tipoArquivo -> tipoArquivo
-    * @author Nicholas Roque
-    */
-    public Thumb(String nomeArquivo,byte[] conteudo,String tipoArquivo){
-        super(nomeArquivo,conteudo,tipoArquivo);
-    }
+    @JsonIgnore
+    @OneToOne(mappedBy = "thumb")
+    private Evento evento;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_arquivo",referencedColumnName = "id")
+    private Arquivo arquivo;
 }

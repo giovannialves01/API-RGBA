@@ -36,12 +36,12 @@ public class Pilula {
     private String descricao;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_thumb",referencedColumnName = "id")
-    private Thumb thumb;
+    @JoinColumn(name = "id_arquivo",referencedColumnName = "id")
+    private Arquivo arquivo;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="id_curso")
-    @JsonIgnore
     private Curso curso;
 
     /** 
