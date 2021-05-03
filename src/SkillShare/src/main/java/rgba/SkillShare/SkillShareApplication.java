@@ -19,9 +19,11 @@ import rgba.SkillShare.repository.BibliotecaRepository;
 import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.model.Gestor;
+import rgba.SkillShare.model.Log;
 import rgba.SkillShare.model.Turma;
 import rgba.SkillShare.model.Tutor;
 import rgba.SkillShare.repository.GestorRepository;
+import rgba.SkillShare.repository.LogRepository;
 import rgba.SkillShare.repository.TurmaRepository;
 import rgba.SkillShare.repository.TutorRepository;
 
@@ -41,9 +43,10 @@ public class SkillShareApplication implements CommandLineRunner {
 	BibliotecaRepository bibliotecaRepository;
 	@Autowired 
     CursoRepository cursoRepository;
-
 	@Autowired 
     TurmaRepository turmaRepository;
+    @Autowired 
+    LogRepository logRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SkillShareApplication.class, args);
@@ -52,6 +55,9 @@ public class SkillShareApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		Log log = new Log("Sistema", "Root", "Criação de um log para a inicialização do sistema");
+		logRepository.save(log);
+		
 		//coloque algum codigo que precisa ser executado quando o servidor subir aqui
 		if(admRepository.findAll().isEmpty()) {
 			Adm adm = new Adm("1", "Bárbara Port", "barbara.port@skillshare.com", "1");
