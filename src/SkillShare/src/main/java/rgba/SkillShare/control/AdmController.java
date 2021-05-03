@@ -23,7 +23,6 @@ import io.swagger.annotations.ApiResponses;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

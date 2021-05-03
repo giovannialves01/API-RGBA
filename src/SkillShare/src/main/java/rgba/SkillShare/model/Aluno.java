@@ -1,5 +1,11 @@
 package rgba.SkillShare.model;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,5 +37,8 @@ public class Aluno extends Usuario{
     public Aluno(String cpf,String nome,String email) { 
         super(cpf,nome,email);
     }
+
+    @ManyToMany(mappedBy = "alunos")
+    Set<Turma> turmas = new HashSet<Turma>();
 
 }
