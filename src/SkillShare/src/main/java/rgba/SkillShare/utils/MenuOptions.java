@@ -218,7 +218,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Em breve", "console.log(\"Em breve\");"));
+		subOptions.put(this.criarSubOpcao("Atividades da Plataforma", "hideAllContent();showContent('exibicaodelog');loadLog();"));
 		
 		option = this.criarOpcao("Dashboard", "chart-line", "7", "Clique aqui para exibir o dashboard",
 				subOptions);

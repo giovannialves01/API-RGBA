@@ -1255,4 +1255,37 @@ async function loadPilulasToShow() {
 
 }
 
+async function loadLog(){
+    let resposta = await serverRequester.fazerGet("/logs");
+    let container = document.getElementById("logs");
+    let entidades = resposta["responseJson"];
+    for (let i = 0; i < entidades.length; i++) {
+        const element = entidades[i];
+        
+        let log = new Log(element);
+
+        let tituloautor = document.createElement("label");
+        tituloautor.textContent = "Autor do Registro:";
+        let titulonivel = document.createElement("label");
+        titulonivel.textContent = "Nivel de Acesso do Usuário:";
+        let titulodata = document.createElement("label");
+        titulodata.textContent = "Data do Registro:";
+        let tituloacao = document.createElement("label");
+        tituloacao.textContent = "Ação Realizada:";
+
+        let valorautor = document.createElement("label");
+        valorautor.textContent = log.getAutor();
+        let valornivel = document.createElement("label");
+        valornivel.textContent = log.getNivelDeAcesso();
+        let valordata = document.createElement("label");
+        valordata.textContent = log.getData();
+        let valoracao = document.createElement("label");
+        valoracao.textContent = log.getAcao();
+
+        
+
+    }
+
+
+}
 loadAllCursos("selectCursoParaPilula");
