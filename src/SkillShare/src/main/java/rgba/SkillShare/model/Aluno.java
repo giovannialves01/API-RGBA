@@ -38,7 +38,17 @@ public class Aluno extends Usuario{
         super(cpf,nome,email);
     }
 
-    @ManyToMany(mappedBy = "alunos")
+    //@ManyToMany(mappedBy = "alunos")
+    @ManyToMany
+    @JoinTable(
+        name = "turma_aluno", 
+        joinColumns = @JoinColumn(name = "cpf_aluno"), 
+        inverseJoinColumns = @JoinColumn(name = "id_turma")
+    )
     Set<Turma> turmas = new HashSet<Turma>();
+
+    public void addTurma(Turma t){
+        turmas.add(t);
+    }
 
 }

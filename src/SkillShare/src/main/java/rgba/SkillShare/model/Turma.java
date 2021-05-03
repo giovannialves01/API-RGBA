@@ -45,13 +45,16 @@ public class Turma {
     @JsonIgnore //ignora o tutor no retorno do json
     private Tutor tutor;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "turmas")
+    /* @ManyToMany
     @JoinTable(
         name = "turma_aluno", 
-        joinColumns = {@JoinColumn(name = "id_turma",referencedColumnName = "id")}, 
-        inverseJoinColumns = {@JoinColumn(name = "cpf_aluno",referencedColumnName = "cpf")}
-    )
+        joinColumns = @JoinColumn(name = "id_turma"), 
+        inverseJoinColumns = @JoinColumn(name = "cpf_aluno")
+    ) */
     Set<Aluno> alunos = new HashSet<Aluno>();
-    /* @OneToMany(mappedBy = "turma",cascade = CascadeType.ALL)
-    private List<TurmaAluno> alunos; */
+
+    public void addAluno(Aluno a){
+        alunos.add(a);
+    }
 }

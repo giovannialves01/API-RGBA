@@ -1,7 +1,9 @@
 package rgba.SkillShare;
 
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,12 +70,12 @@ public class SkillShareApplication implements CommandLineRunner {
 		Curso curso = new Curso("Curso de Informática Básica","Neste curso, serão apresentados os fundamentos da informática, além de como utilizar o pacote Office e como o computador funciona.");
 		curso.setGestor(nicholasGestor);
 
-		cursoRepository.save(curso);
-
 		Curso curso2= new Curso("Curso de Manutenção de Computadores","Neste curso, será apresentada uma introdução sobre o hardware dos computadores.");
 		curso2.setGestor(nicholasGestor);
 
-		cursoRepository.save(curso2);
+		List<Curso> cursos= Arrays.asList(curso,curso2);
+
+		cursoRepository.saveAll(cursos);
 		
 		
 		if(tRepository.findAll().isEmpty()) {
@@ -82,29 +84,31 @@ public class SkillShareApplication implements CommandLineRunner {
 		}
 		
 		if(alunoRepository.findAll().isEmpty()) {
-			// Um aluno de teste, para popular a tabela que lista os alunos, apenas para não iniciar vazia
-			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
-			alunoRepository.save(rafael);
-
-			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "1234");
-			alunoRepository.save(nicholasAluno);
 
 			Tutor nicholasTutor = new Tutor("9235923592395","NicholasTutor","nicholas.tutor@rgba.com.br","12345");
 			tRepository.save(nicholasTutor);
+
 			Turma turma1 = new Turma();
 			turma1.setTutor(nicholasTutor);
 			turma1.setCurso(curso);
-			turma1.getAlunos().add(rafael);
-			turma1.getAlunos().add(nicholasAluno);
-
-			turmaRepository.save(turma1);
 
 			Turma turma2 = new Turma();
 			turma2.setTutor(nicholasTutor);
 			turma2.setCurso(curso2);
-			turma2.getAlunos().add(nicholasAluno);
-			turmaRepository.save(turma2); 
 
+			List<Turma> turmas = Arrays.asList(turma1,turma2);
+
+			turmaRepository.saveAll(turmas);
+
+			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
+			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "1234");
+			List<Aluno> alunos = Arrays.asList(rafael,nicholasAluno);
+
+			nicholasAluno.addTurma(turma1);
+			nicholasAluno.addTurma(turma2);
+			rafael.addTurma(turma1);
+
+			alunoRepository.saveAll(alunos);
 
 		}
 		
