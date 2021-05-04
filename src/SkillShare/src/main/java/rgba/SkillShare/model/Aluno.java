@@ -2,12 +2,18 @@ package rgba.SkillShare.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.JoinColumn;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 
 
@@ -17,7 +23,7 @@ import lombok.NoArgsConstructor;
  *  @author Nicholas Roque
  */
 @Entity(name="aluno")
-@NoArgsConstructor @Data
+@NoArgsConstructor @Getter @Setter @ToString
 public class Aluno extends Usuario{ 
 
 
@@ -38,13 +44,14 @@ public class Aluno extends Usuario{
         super(cpf,nome,email);
     }
 
-    //@ManyToMany(mappedBy = "alunos")
-    @ManyToMany
+    @ManyToMany(mappedBy = "alunos",cascade = CascadeType.ALL)
+    /* @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "turma_aluno", 
         joinColumns = @JoinColumn(name = "cpf_aluno"), 
         inverseJoinColumns = @JoinColumn(name = "id_turma")
-    )
+    ) */
+    @JsonIgnore
     Set<Turma> turmas = new HashSet<Turma>();
 
     public void addTurma(Turma t){

@@ -19,16 +19,17 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 /**
  *  Classe que define o curso
  *  @author Nicholas Roque
  */
 @Entity(name="turma")
-@NoArgsConstructor @AllArgsConstructor @Data @ToString
+@NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString
 public class Turma {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,22 +37,20 @@ public class Turma {
 
     @ManyToOne
     @JoinColumn(name="id_curso")
-    @JsonIgnore //ignora o curso no retorno do json
     private Curso curso;
 
 
     @ManyToOne
     @JoinColumn(name="id_tutor")
-    @JsonIgnore //ignora o tutor no retorno do json
     private Tutor tutor;
 
-    @ManyToMany(mappedBy = "turmas")
-    /* @ManyToMany
+    //@ManyToMany(mappedBy = "turmas",cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "turma_aluno", 
         joinColumns = @JoinColumn(name = "id_turma"), 
         inverseJoinColumns = @JoinColumn(name = "cpf_aluno")
-    ) */
+    )
     Set<Aluno> alunos = new HashSet<Aluno>();
 
     public void addAluno(Aluno a){

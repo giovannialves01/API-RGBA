@@ -15,16 +15,17 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 /**
  *  Classe que define o curso
  *  @author Nicholas Roque
  */
 @Entity(name="curso")
-@NoArgsConstructor @AllArgsConstructor @Data @ToString
+@NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString
 public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,9 +39,6 @@ public class Curso {
 
     @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
     private List<Pilula> pilulas;
-
-    @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
-    private List<Turma> turmas;
 
     @ManyToOne
     @JoinColumn(name="id_gestor")
@@ -58,5 +56,9 @@ public class Curso {
     public Curso(String titulo,String descricao){
         this.titulo = titulo;
         this.descricao = descricao;
+    }
+
+    public Curso(Long id){
+        this.id = id;
     }
 }

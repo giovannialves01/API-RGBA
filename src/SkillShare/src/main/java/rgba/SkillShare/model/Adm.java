@@ -2,7 +2,9 @@ package rgba.SkillShare.model;
 
 import javax.persistence.Entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 
 
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
  *  @author Nicholas Roque
  */
 @Entity(name="adm")
-@NoArgsConstructor @Data
+@NoArgsConstructor @Getter @Setter @ToString
 public class Adm extends Usuario{
 
 

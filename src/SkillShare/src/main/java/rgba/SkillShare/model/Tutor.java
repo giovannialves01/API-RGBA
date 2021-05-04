@@ -6,7 +6,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 
 
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
  *  @author Nicholas Roque
  */
 @Entity(name="tutor")
-@NoArgsConstructor @Data 
+@NoArgsConstructor @Getter @Setter @ToString 
 public class Tutor extends Usuario{
     /** 
     *  Cria uma instância da classe Tutor.
@@ -32,7 +34,7 @@ public class Tutor extends Usuario{
     public Tutor(String cpf,String nome,String email) { 
         super(cpf,nome,email);
     }
-
-    @OneToMany(mappedBy = "tutor",cascade = CascadeType.ALL)
-    private List<Turma> turmas;
+    public Tutor(String cpf) { 
+        super(cpf);
+    }
 }
