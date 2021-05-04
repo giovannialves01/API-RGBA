@@ -533,3 +533,22 @@ textarea.userDataFieldEnabled{
     width: 90%;
     margin: 0 auto;
 }
+
+.logContainer{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.infosContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.logInfo{
+    display: flex;
+    flex-direction: column;
+}

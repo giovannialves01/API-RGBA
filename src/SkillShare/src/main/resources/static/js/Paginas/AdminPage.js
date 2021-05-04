@@ -1257,35 +1257,79 @@ async function loadPilulasToShow() {
 
 async function loadLog(){
     let resposta = await serverRequester.fazerGet("/logs");
+
     let container = document.getElementById("logs");
+    
     let entidades = resposta["responseJson"];
+    
     for (let i = 0; i < entidades.length; i++) {
         const element = entidades[i];
         
         let log = new Log(element);
 
-        let tituloautor = document.createElement("label");
-        tituloautor.textContent = "Autor do Registro:";
-        let titulonivel = document.createElement("label");
-        titulonivel.textContent = "Nivel de Acesso do Usuário:";
-        let titulodata = document.createElement("label");
-        titulodata.textContent = "Data do Registro:";
-        let tituloacao = document.createElement("label");
-        tituloacao.textContent = "Ação Realizada:";
+        let logContainer = document.createElement("div");
+        logContainer.classList.add("logContainer");
 
+        let autorContainer = document.createElement("div");
+        autorContainer.classList.add("logInfo");
+        let tituloautor = document.createElement("label");
+        tituloautor.textContent = "Autor do registro:";
+        tituloautor.classList.add("titleLabel");
         let valorautor = document.createElement("label");
         valorautor.textContent = log.getAutor();
+        autorContainer.appendChild(tituloautor);
+        autorContainer.appendChild(valorautor);
+
+        let nivelContainer = document.createElement("div");
+        nivelContainer.classList.add("logInfo");
+        let titulonivel = document.createElement("label");
+        titulonivel.textContent = "Nivel de acesso do usuário:";
+        titulonivel.classList.add("titleLabel");
         let valornivel = document.createElement("label");
         valornivel.textContent = log.getNivelDeAcesso();
+        nivelContainer.appendChild(titulonivel);
+        nivelContainer.appendChild(valornivel);
+
+        let dataContainer = document.createElement("div");
+        dataContainer.classList.add("logInfo");
+        let titulodata = document.createElement("label");
+        titulodata.textContent = "Data do registro:";
+        titulodata.classList.add("titleLabel");
         let valordata = document.createElement("label");
         valordata.textContent = log.getData();
+        dataContainer.appendChild(titulodata);
+        dataContainer.appendChild(valordata);
+
+        let acaoContainer = document.createElement("div");
+        acaoContainer.classList.add("logInfo");
+        let tituloacao = document.createElement("label");
+        tituloacao.textContent = "Ação realizada:";
+        tituloacao.classList.add("titleLabel");
         let valoracao = document.createElement("label");
         valoracao.textContent = log.getAcao();
+        acaoContainer.appendChild(tituloacao);
+        acaoContainer.appendChild(valoracao);
 
+        let infosContainer = document.createElement("div");
+        infosContainer.classList.add("infosContainer");
+        infosContainer.appendChild(autorContainer);
+        infosContainer.appendChild(nivelContainer);
+        infosContainer.appendChild(dataContainer);
         
+        logContainer.appendChild(infosContainer);
+        logContainer.appendChild(acaoContainer);
 
+        container.appendChild(logContainer);
+
+        if(i < entidades.length - 1){
+            let separador = document.createElement("div");
+            separador.classList.add("separador");
+
+            container.appendChild(separador);
+
+        }
     }
 
-
 }
+
 loadAllCursos("selectCursoParaPilula");
