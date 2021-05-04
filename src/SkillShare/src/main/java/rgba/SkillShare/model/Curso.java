@@ -39,6 +39,9 @@ public class Curso {
 
     @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
     private List<Pilula> pilulas;
+    
+    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
+    private List<Questao> questoes;
 
     @ManyToOne
     @JoinColumn(name="id_gestor")
