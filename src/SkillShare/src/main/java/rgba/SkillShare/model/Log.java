@@ -1,5 +1,7 @@
 package rgba.SkillShare.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +33,20 @@ public class Log {
     @Column(columnDefinition = "text")
     String acao;
     
-    @Column(columnDefinition = "date")
+    @Column
     String data;
+    
+    
+    
+    public Log(String autor, String nivelDeAcesso, String acao) {
+    	this.setAutor(autor);
+    	this.setNivelDeAcesso(nivelDeAcesso);
+    	this.setAcao(acao);
+    	
+    	String hoje = LocalDate.now().toString();
+    	
+    	this.setData(hoje);
+    	
+    }
 
 }
