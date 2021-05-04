@@ -1331,5 +1331,39 @@ async function loadLog(){
     }
 
 }
+function carregarcursos(){
+    let resposta = serverRequester.fazerGet("/cursos");
+    let entidades = resposta["responseJson"];
+    let container = document.getElementById("cursos");
+    for (let i = 0; i < entidades.length; i++) {
+        const element = entidades[i];
+        let curso = new Curso(element);
+        let divprincipal = document.createElement("div");
+        let divdescricao = document.createElement("div");
+        let divturmas = document.createElement("div");
+        let divcolimagem = document.createElement("div");
+        let divcoldescricao = document.createElement("div");
+        let divgestor = document.createElement("div");
+
+        let imagem = document.createElement("img");
+
+        let titulonome = document.createElement("label");
+        let valornome = document.createElement("label");
+
+        let titulodescricao = document.createElement("label");
+        let valordescricao = document.createElement("label");
+
+        let titulogestor = document.createElement("label");
+        let valorgestor = document.createElement("label");
+
+        let titulotutor = document.createElement("label");
+        let valortutor = document.createElement("label");
+
+        let titulocurso = document.createElement("label");
+        let valorcurso = document.createElement("label");
+    }
+
+
+}
 
 loadAllCursos("selectCursoParaPilula");
