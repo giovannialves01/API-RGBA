@@ -20,6 +20,7 @@
 }
 .todosCursos {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 }
 .curso {
