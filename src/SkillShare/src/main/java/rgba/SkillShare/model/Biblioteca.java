@@ -10,16 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 /**
  *  Classe que define o arquivo do tipo biblioteca 
  *  @author Nicholas Roque
  */
 @Entity(name="biblioteca")
-@NoArgsConstructor @AllArgsConstructor @Data @ToString
+@NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString
 public class Biblioteca {
 
     @Id

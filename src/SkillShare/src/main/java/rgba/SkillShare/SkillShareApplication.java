@@ -90,10 +90,10 @@ public class SkillShareApplication implements CommandLineRunner {
 		}
 		
 		if(alunoRepository.findAll().isEmpty()) {
-
+			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
+			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "1234");
 			Tutor nicholasTutor = new Tutor("9235923592395","NicholasTutor","nicholas.tutor@rgba.com.br","12345");
-			tRepository.save(nicholasTutor);
-
+			
 			Turma turma1 = new Turma();
 			turma1.setTutor(nicholasTutor);
 			turma1.setCurso(curso);
@@ -102,19 +102,27 @@ public class SkillShareApplication implements CommandLineRunner {
 			turma2.setTutor(nicholasTutor);
 			turma2.setCurso(curso2);
 
-			List<Turma> turmas = Arrays.asList(turma1,turma2);
 
-			turmaRepository.saveAll(turmas);
+			tRepository.save(nicholasTutor);
+			alunoRepository.save(rafael);
+			alunoRepository.save(nicholasAluno);
 
-			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
-			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "1234");
-			List<Aluno> alunos = Arrays.asList(rafael,nicholasAluno);
 
+			//isso daqui adiciona 2 turmas e os alunos nelas ao iniciar o sistema,deixei comentado mas pode descomentar pra usar(tem que tirar o alunoRepository.save dos dois alunos acima pra isso)
+			/* //add aluno to turma
+			turma1.addAluno(rafael);
+			turma1.addAluno(nicholasAluno);
+			turma2.addAluno(nicholasAluno);
+
+			//add turma to aluno
+			rafael.addTurma(turma1);
 			nicholasAluno.addTurma(turma1);
 			nicholasAluno.addTurma(turma2);
-			rafael.addTurma(turma1);
 
-			alunoRepository.saveAll(alunos);
+			turmaRepository.save(turma1);
+			turmaRepository.save(turma2); */
+
+
 
 		}
 		

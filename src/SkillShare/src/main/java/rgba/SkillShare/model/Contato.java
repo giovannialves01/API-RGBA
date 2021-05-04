@@ -7,15 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.NoArgsConstructor;
 /**
  *  Classe que define os contatos dos usuários
  *  @author Nicholas Roque
  */
 @Entity(name = "contato")
-@NoArgsConstructor @Data @AllArgsConstructor @ToString
+@NoArgsConstructor @Getter @Setter @AllArgsConstructor @ToString
 public class Contato {
 
     @Id

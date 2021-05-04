@@ -23,6 +23,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.data.PostTurma;
 import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.model.Turma;
 import rgba.SkillShare.repository.AlunoRepository;
@@ -66,28 +67,39 @@ public class TurmaController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Cria uma turma e adiciona os alunos.")
     public Turma createTurma(
-        @RequestBody @ApiParam("Cpf dos alunos") List<String> cpfList,
-        @RequestBody @ApiParam("Id do curso") Long idCurso,
-        @RequestBody @ApiParam("Id do tutor") String idTutor
+        @RequestBody @ApiParam("Dados da turma") PostTurma postTurma
     ){
 
-        if(!cursoRepository.existsById(idCurso)){
+        if(!cursoRepository.existsById(postTurma.getIdCurso())){
             new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrado para o id informado.");
         }
-        if(!tutorRepository.existsById(idTutor)){
+        if(!tutorRepository.existsById(postTurma.getCpfTutor())){
             new ResponseStatusException(HttpStatus.NOT_FOUND,"Tutor não encontrado para o cpf informado.");
         }
 
         Turma turma = new Turma();
-        turma.setCurso(cursoRepository.findById(idCurso).get());
-        turma.setTutor(tutorRepository.findById(idTutor).get());
+        turma.setCurso(cursoRepository.findById(postTurma.getIdCurso()).get());
+        turma.setTutor(tutorRepository.findById(postTurma.getCpfTutor()).get());
 
+
+        for(String cpf : postTurma.getCpfList()){
+            alunoRepository.findById(cpf).ifPresent(a->{
+                turma.addAluno(a);
+                a.addTurma(turma);
+            });
+        }
         turmaRepository.save(turma);
+/* turma1.addAluno(rafael);
+			turma1.addAluno(nicholasAluno);
+			turma2.addAluno(nicholasAluno);
 
-        alunoRepository.findAllById(cpfList).forEach(aluno->{
-            aluno.addTurma(turma);
-            alunoRepository.save(aluno);
-        });
+			//add turma to aluno
+			rafael.addTurma(turma1);
+			nicholasAluno.addTurma(turma1);
+			nicholasAluno.addTurma(turma2);
+
+			turmaRepository.save(turma1); */
+
         return turma;
     }
 	

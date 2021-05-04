@@ -9,16 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 /**
  *  Classe que define o arquivo
  *  @author Nicholas Roque
  */
 @Entity(name="arquivo")
-@NoArgsConstructor @AllArgsConstructor @Data @ToString
+@NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString
 public class Arquivo {
 
     @Id
