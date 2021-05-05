@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Criar questão</title>
+	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="css/GlobalComponents.css">
+    <link rel="stylesheet" href="css/Menu.css">
+    <link rel="stylesheet" href="css/TopBar.css">
+    <link rel="stylesheet" href="css/AdminPage.css">
+    <link rel="stylesheet" href="css/BeautyButton.css">
+    <link rel="stylesheet" href="css/BeautyInput.css">
+    <link rel="stylesheet" href="css/BeautySelect.css">
+    <link rel="stylesheet" href="css/BeautyTable.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <link rel="stylesheet" href="css/BancoQuestoes2.css">
+
+    <script src="js/Utils/ServerRequester.js"></script>
+    <script src="js/Utils/sendFile.js"></script>
+
+    <script src="js/Componentes/BeautySelect.js"></script>
+    <script src="js/Componentes/BeautyButton.js"></script>
+    <script src="js/Componentes/BeautyInput.js"></script>
+    <script src="js/Componentes/BeautyTable.js"></script>
+    <script src="js/Componentes/Menu.js"></script>
+    <script defer src="js/Paginas/AdminPage.js"></script>
+    <script src="js/Componentes/TopBar.js"></script>
+    <script src="js/Componentes/Footer.js"></script>
+
+    <script src="js/Entidades/Usuario.js"></script>
+    <script src="js/Entidades/Biblioteca.js"></script>
+    <script src="js/Entidades/Destaque.js"></script>
+    <script src="js/Entidades/Pilula.js"></script>
+    <script src="js/Entidades/Evento.js"></script>
+
+</head>
+<body>
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
+	<div class="FullPage">
+	
+		<div class="tituloDescricaoTop">
+			<p id="titulo">Criar nova questão para o banco de questões</p>
+			<p>Para criar uma nova questão no banco de questões, escolha um curso no qual a questão irá pertencer, em seguida preencher os campos e escolha qual será a alternativa correta</p>
+		</div>
+		
+		<div class="separador"></div>	
+			
+
+	    	<div class="select">
+		    <select name="idCurso" id="userTypeEdit" onchange="chooseUserToShow()">
+				<option selected disabled>Escolha um curso para vincular a questão</option>
+	   		</select>
+           	</div>
+		<div class="enunciadoeresposta">
+			<div class="flexInputsButton">
+			<div class="esquerda">
+			<div class="enunciado">
+	           	<label id="enunc">Enunciado da Questão</label>
+	            <textarea name="enunciado" id="textAreaEnunciado" cols="30" rows="10"></textarea>
+	        </div>
+        
+        	<div class="RespostasDBlock">
+        		<div class="RespostasDflex1">
+        			<div class="questaoc1"> 
+		        		<label id="arternativas">Alternativa a)</label>
+		        		<input type="checkbox"><label>Alternativa correta</label>
+			            <textarea name="enunciado" id="textArearesp1" cols="30" rows="10"></textarea>
+			        </div>
+		            <div class="questaoc2">
+		            	<label id="arternativas">Alternativa b)</label>
+		            	<input type="checkbox"><label>Alternativa correta</label>
+			            <textarea name="enunciado" id="textArearesp2" cols="30" rows="10"></textarea>
+		            </div>
+        		</div>
+        		
+        		<div class="RespostasDflex2">
+        			<div class="questaob1"> 
+		        		<label id="arternativas">Alternativa c)</label>
+		        		<input type="checkbox" value = "newsletter"><label>Alternativa correta</label>
+			            <textarea name="enunciado" id="textArearesp3" cols="30" rows="10"></textarea>
+			        </div>
+		            <div class="questaob2">
+		            	<label id="arternativas">Alternativa d)</label>
+		            	<input type="checkbox"><label id="altercorret">Alternativa correta</label>
+			            <textarea name="enunciado" id="textArearesp4" cols="30" rows="10"></textarea>
+		            </div>
+        		</div>
+        	</div>
+			</div>
+			
+
+			<div class="buttonContainerGQ">
+            	<input type="submit" class="greenButton" value="Adicionar">
+            	<input type="reset" class="redButton" value="Limpar campos">
+            </div>
+
+            </div>       
+		</div>
+	</div>
+	
+	<footer-rgba>
+        <script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
+        <script src="js/ChatBot/chatbot.js"></script>
+    </footer-rgba>
+</body>
+</html>

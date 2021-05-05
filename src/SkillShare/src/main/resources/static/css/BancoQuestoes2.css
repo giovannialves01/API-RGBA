@@ -1,0 +1,111 @@
+.separador{
+    height: 2px;
+    background-color: black;
+    border-radius: 25px;
+
+    width: 90%;
+    margin: 0 auto;
+    opacity: 40%;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.tituloDescricaoTop{
+	margin: 75px 22% 15px 22%;
+	display: block;
+	text-align: center;
+}
+.enunciadoeresposta{
+	display: block;
+	margin: 0 10% 0 10%;
+}
+.RespostasDflex1{
+	display: flex;
+	margin-right: 30px;
+}
+.RespostasDflex2{
+	display: flex;
+	margin-right: 30px;
+}
+.greenButton{
+	padding: 8px;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    background-color: #83CC4A;
+    font-family: 'Poppins';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.redButton {
+    padding: 8px;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    background-color: #FF7070;
+    font-family: 'Poppins';
+    font-weight: bold;
+    cursor: pointer;
+}
+.select{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.enunciado{
+	text-align: center;
+}
+.questaoc1{
+	margin-right: 30px
+}
+.questaob1{
+	margin-right: 30px
+}
+.flexInputsButton{
+	display: flex;
+}
+.direitra{
+	display: block;
+	width: 100%
+}
+#textAreaEnunciado{
+	display: block;
+	width: 90%;
+}
+#textArearesp1{
+	display: block;
+	width: 400px;
+}
+#textArearesp2{
+	display: block;
+	width: 400px;
+}
+#textArearesp3{
+	display: block;
+	width: 400px;
+}
+#textArearesp4{
+	display: block;
+	width: 400px;
+}
+#userTypeEdit{
+	width: 255px;
+	width: 400px;	
+}
+#altercorret{
+	text-align: end;
+}
+#arternativas{
+	margin-right: 110px;
+}
+#titulo{
+	font-weight: 800;
+	font-size: 28px;
+}
+#enunc{
+	font-size: 18px;
+	font-weight: 600;
+}
