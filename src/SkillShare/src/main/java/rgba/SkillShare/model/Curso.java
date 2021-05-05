@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -42,16 +43,19 @@ public class Curso {
     
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
     private List<Questao> questoes;
+    
+    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Turma> turmas;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_thumb", referencedColumnName = "id")
+    private Thumb thumb;
 
     @ManyToOne
     @JoinColumn(name="id_gestor")
     @JsonIgnore //ignora o gestor no retorno do json
     private Gestor gestor;
-    
-    @ManyToOne
-    @JoinColumn(name="id_tutor")
-    @JsonIgnore //ignora o gestor no retorno do json
-    private Gestor tutor;
 
 
     /** 

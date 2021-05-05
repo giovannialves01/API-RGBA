@@ -60,7 +60,7 @@ public class TurmaController {
 
     /** 
     *  Endpoint para cadastro de turma.
-    * @param aluno
+    * @param PostTurma
     * @author Nicholas Roque
     */
     @PostMapping("/cadastrar")
@@ -89,16 +89,6 @@ public class TurmaController {
             });
         }
         turmaRepository.save(turma);
-/* turma1.addAluno(rafael);
-			turma1.addAluno(nicholasAluno);
-			turma2.addAluno(nicholasAluno);
-
-			//add turma to aluno
-			rafael.addTurma(turma1);
-			nicholasAluno.addTurma(turma1);
-			nicholasAluno.addTurma(turma2);
-
-			turmaRepository.save(turma1); */
 
         return turma;
     }

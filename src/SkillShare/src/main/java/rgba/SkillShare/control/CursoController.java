@@ -20,8 +20,10 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.model.Curso;
+import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.GestorRepository;
+import rgba.SkillShare.repository.TutorRepository;
 
 /**
  *  Classe que define os endpoints para curso
@@ -39,7 +41,8 @@ public class CursoController {
     @Autowired 
     GestorRepository gestorRepository;
 
-
+    @Autowired 
+    TutorRepository tutorRepository;
 
     /** 
     *  Endpoint para cadastro de curso.
@@ -112,5 +115,51 @@ public class CursoController {
            );
        
     }
+
+     /** 
+    *  Endpoint para retornar os detalhes de um curso.
+    * @return Retorna objeto do tipo Curso com os dados do curso especificado.
+    * @param id -> id do curso
+    * @author Nicholas Roque
+    */
+   @GetMapping("/{id}/gestor")
+   @ResponseStatus(HttpStatus.OK)
+   @ApiOperation("Retorna os detalhes de um gestor relacionado a um curso através do id do curso.")
+   @ApiResponses({
+       @ApiResponse(code = 200,message = "Gestor encontrado com sucesso."),
+       @ApiResponse(code = 404,message = "Curso não encontrado para o id informado.")
+   })
+   public Gestor getGestorByCursoId(@PathVariable @ApiParam("Id do curso") Long id) {
+       return cursoRepository
+           .findById(id).map(curso->{
+               return curso.getGestor();
+           })
+           .orElseThrow(()->
+               new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrado.")
+           );
+   }
+    /** 
+    *  Endpoint para retornar os cursos com um determinado tutor.
+    * @return Retorna uma lista de objetos do tipo Curso.
+    * @param cpf -> cpf do tutor
+    * @author Barbara Port
+    */
+    /* @GetMapping("/tutor/{cpf}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna os cursos com um determinado tutor.")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Cursos encontrados com sucesso para o cpf informado."),
+        @ApiResponse(code = 404,message = "Cursos não encontrados para o cpf informado.")
+    })
+    public List<Curso> getCursosByTutor(@PathVariable @ApiParam("Cpf do tutor") String cpf) {
+       return tutorRepository
+           .findById(cpf).map(tutor->{
+                return tutor.getCursos();
+           })
+           .orElseThrow(()->
+               new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum curso encontrado.")
+           );
+       
+    } */
     
 }
