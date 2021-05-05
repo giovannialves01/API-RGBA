@@ -1355,14 +1355,14 @@ function carregarcursos(){
         let descricao = createDataContainer("Descrição:", curso.getDescricao());
         let gestor = createDataContainer("Gestor:", curso.getGestor());
         let tutor = createDataContainer("Tutor:", curso.getTutor());
-        let curso = createDataContainer("Curso:", curso.getTitulo());
+        let curso1 = createDataContainer("Curso:", curso.getTitulo());
 
         divcolimagem.appendChild(imagem);
         divcoldescricao.appendChild(nome);
         divcoldescricao.appendChild(descricao);
         divgestor.appendChild(gestor);
         divgestor.appendChild(tutor);
-        divgestor.appendChild(curso);
+        divgestor.appendChild(curso1);
 
     }
 

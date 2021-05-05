@@ -60,6 +60,58 @@
             </div>
         </div>
 
+        <div class="hide" id="cadastroCurso">
+            <div class="adicionarConteudoBiblioteca">
+                <h1>Postagem de um curso</h1>
+                <p>
+                    Preencha todos os campos abaixo para realizar o upload de um novo curso
+                </p>
+    
+                <div class="separador"></div>
+            </div>
+            <form class="adicionarCurso" id="camposCadastroCurso">
+                <div class="campoNome">
+                    <label class="titleLabel">Nome:</label>
+                    <input type="text" id="inserirNome" name="titulo">
+                </div>
+                <div class="arquivoCurso">
+                    <label class="titleLabel">Imagem da Tumbnail:</label>
+                    <div class="inputFile">
+                        <label for="inputUploadCursoTumbnail" class="inputUploadButton">Escolher arquivo...</label>
+                        <input type="file" required id="inputUploadCursoTumbnail" name="thumb" onchange="setInputLabelName(event, 'labelFileCursoTumbnail')">
+                        <label id="labelFileCursoTumbnail">Selecione um arquivo</label>
+                    </div>
+                </div>
+                <div class="campoDescricao">
+                    <label class="titleLabel">Descrição:</label>
+                    <textarea></textarea>
+                </div>
+                <div class="arquivoCurso">
+                    <label class="titleLabel">Imagem da Tumbnail:</label>
+                    <div class="inputFile">
+                        <label for="inputUploadArquivoScorm" class="inputUploadButton">Escolher arquivo...</label>
+                        <input type="file" required id="inputUploadArquivoScorm" name="scorm" onchange="setInputLabelName(event, 'labelFileArquivoScorm')">
+                        <label id="labelFileArquivoScorm">Selecione um arquivo</label>
+                    </div>
+                </div>
+                <div class="campoEscolha">
+                    <label class="titleLabel">Escolha um gestor:</label>
+                    <select name="gestor" id="escolhaDeGestor"> 
+                        <option disabled selected>Escolha um gestor...</option>
+                    </select>
+                </div>
+                <div class="campoEscolha">
+                    <label class="titleLabel">Escolha um tutor:</label>
+                    <select name="tutor" id="escolhaDeTutor"> 
+                        <option disabled selected>Escolha um tutor...</option>
+                    </select>
+                </div>
+                <div class="buttonContainer">
+                    <input type="submit" class="greenButton" value="Adicionar">
+                    <input type="reset" class="redButton" value="Limpar campos">
+                </div>
+            </form>
+        </div>
         <!-- Logs -->
         <div class="hide" id="exibicaodelog">
             <div class="adicionarConteudoBiblioteca">

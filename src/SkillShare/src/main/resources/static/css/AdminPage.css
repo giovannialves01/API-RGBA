@@ -559,3 +559,45 @@ textarea.userDataFieldEnabled{
     margin-left: 5px;
     margin-right: 5px;
 }
+
+.adicionarCurso{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+} 
+
+.campoNome{
+    display: flex;
+    flex-direction: row; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.arquivoCurso{
+    display: flex;
+    flex-direction: row; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.campoDescricao{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.campoEscolha{
+    display:flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
