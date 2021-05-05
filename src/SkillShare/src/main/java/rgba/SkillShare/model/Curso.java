@@ -47,6 +47,11 @@ public class Curso {
     @JoinColumn(name="id_gestor")
     @JsonIgnore //ignora o gestor no retorno do json
     private Gestor gestor;
+    
+    @ManyToOne
+    @JoinColumn(name="id_tutor")
+    @JsonIgnore //ignora o gestor no retorno do json
+    private Gestor tutor;
 
 
     /** 

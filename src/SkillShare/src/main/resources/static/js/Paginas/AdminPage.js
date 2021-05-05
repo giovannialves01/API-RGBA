@@ -1337,33 +1337,50 @@ function carregarcursos(){
     let container = document.getElementById("cursos");
     for (let i = 0; i < entidades.length; i++) {
         const element = entidades[i];
+
         let curso = new Curso(element);
+
         let divprincipal = document.createElement("div");
         let divdescricao = document.createElement("div");
         let divturmas = document.createElement("div");
         let divcolimagem = document.createElement("div");
         let divcoldescricao = document.createElement("div");
+        divcoldescricao.classList.add("columnContainer");
         let divgestor = document.createElement("div");
+        divgestor.classList.add("columnContainer");
 
         let imagem = document.createElement("img");
 
-        let titulonome = document.createElement("label");
-        let valornome = document.createElement("label");
+        let nome = createDataContainer("Nome:", curso.getTitulo());
+        let descricao = createDataContainer("Descrição:", curso.getDescricao());
+        let gestor = createDataContainer("Gestor:", curso.getGestor());
+        let tutor = createDataContainer("Tutor:", curso.getTutor());
+        let curso = createDataContainer("Curso:", curso.getTitulo());
 
-        let titulodescricao = document.createElement("label");
-        let valordescricao = document.createElement("label");
+        divcoldescricao.appendChild(nome);
+        divcoldescricao.appendChild(descricao);
+        divgestor.appendChild(gestor);
+        divgestor.appendChild(tutor);
+        divgestor.appendChild(curso);
 
-        let titulogestor = document.createElement("label");
-        let valorgestor = document.createElement("label");
-
-        let titulotutor = document.createElement("label");
-        let valortutor = document.createElement("label");
-
-        let titulocurso = document.createElement("label");
-        let valorcurso = document.createElement("label");
     }
 
+}
 
+function createDataContainer(title, value){
+    let div = document.createElement("div");
+    div.classList.add("columnContainer");
+
+    let titulo = document.createElement("label");
+    titulo.textContent = title;
+    titulo.className.add("titleLabel");
+    let valor = document.createElement("label");
+    valor.textContent = value;
+
+    div.appendChild(titulo);
+    div.appendChild(valor);
+
+    return div;
 }
 
 loadAllCursos("selectCursoParaPilula");

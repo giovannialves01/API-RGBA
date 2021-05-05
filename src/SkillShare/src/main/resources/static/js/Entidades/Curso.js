@@ -7,6 +7,7 @@ class Curso {
             this.pilulas;
             this.questoes;
             this.gestor;
+            this.tutor;
             
 
         }else{
@@ -16,12 +17,9 @@ class Curso {
             this.pilulas = cursoData["pilulas"];
             this.questoes = cursoData["questoes"];
             this.gestor = cursoData["gestor"];
+            this.tutor = cursoData["tutor"];
 
         }
-
-      
-
-
 
     }
 
@@ -42,11 +40,15 @@ class Curso {
     }
 
     getQuestoes(){
-        return this.questoes
+        return this.questoes;
     }
 
     getGestor(){
-        return this.gestor
+        return this.gestor;
+    }
+
+    getTutor(){
+        return this.tutor;
     }
 
 
@@ -73,6 +75,10 @@ class Curso {
     setGestor (gestor) {
         this.gestor = gestor;
     }
+    
+    setTutor(tutor){
+        this.tutor = tutor;
+    }
 
     toData(){
         let data = {
@@ -81,9 +87,11 @@ class Curso {
             descricao: this.descricao,
             pilulas: this.pilulas,
             questoes: this.questoes,
-            gestor: this.gestor
+            gestor: this.gestor,
+            tutor: this.tutor
         }
 
         return data;
     }
+
 }

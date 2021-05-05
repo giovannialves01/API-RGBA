@@ -110,5 +110,7 @@ public class CursoController {
            .orElseThrow(()->
                new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum curso encontrado.")
            );
+       
     }
+    
 }
