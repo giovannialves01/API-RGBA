@@ -50,4 +50,5 @@ public class Questao {
 	@ManyToOne
 	@JoinColumn(name = "id_curso")
 	private Curso curso;
+	
 }

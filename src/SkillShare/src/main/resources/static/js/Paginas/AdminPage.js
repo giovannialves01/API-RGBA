@@ -1357,6 +1357,7 @@ function carregarcursos(){
         let tutor = createDataContainer("Tutor:", curso.getTutor());
         let curso = createDataContainer("Curso:", curso.getTitulo());
 
+        divcolimagem.appendChild(imagem);
         divcoldescricao.appendChild(nome);
         divcoldescricao.appendChild(descricao);
         divgestor.appendChild(gestor);

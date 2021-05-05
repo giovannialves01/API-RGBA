@@ -2,6 +2,8 @@ package rgba.SkillShare.control;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +43,7 @@ public class LogController {
      * @return Retorna true ou false em razão da operação ser sido bem suceedida ou não
      */
     @GetMapping(value = "/newLog")
-    public boolean createNewLog(Log log) {
+    public boolean createNewLog(Log log, HttpSession session) {
     	boolean sucesso = false;
     	
     	try {

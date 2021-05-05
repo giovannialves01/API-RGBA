@@ -60,5 +60,7 @@ public class QuestaoController {
 		.orElseThrow(()->
         	new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrado.")
 		);
+		
 	}
+	
 }
