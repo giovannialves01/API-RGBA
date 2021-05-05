@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import rgba.SkillShare.model.Curso;
+import rgba.SkillShare.model.Pilula;
 import rgba.SkillShare.model.Questao;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.QuestaoRepository;
@@ -98,6 +100,32 @@ public class QuestaoController {
 		}
 		return cursoRepository.findById(id).get().getQuestoes();
 	}
+	
+	/**
+	 * Endpoint para alterar uma questao
+	 * @param id -> id da questao
+	 * @param questao -> dados da questao
+	 * @autor Barbara Port
+	 */
+	@PutMapping("{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ApiOperation("Atualiza a questão através do seu ID")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Questão atualizada com sucesso."),
+        @ApiResponse(code = 404,message = "Questão não encontrada para o id informado.")
+    })
+    public void updateQuestaoById(@PathVariable @ApiParam("ID da questão") Long id,@RequestBody @ApiParam("Questão atualizada.") Questao questao) {
+        questaoRepository
+            .findById(id)
+            .map(q->{
+                questao.setCurso(q.getCurso());
+                questaoRepository.save(questao);
+                return ResponseEntity.ok().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Questão não encontrada.")         
+            );
+    }
 	
 	/**
 	 * Endpoint para deletar uma questao
