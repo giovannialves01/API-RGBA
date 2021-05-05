@@ -35,6 +35,10 @@ public class Thumb {
     @JsonIgnore
     @OneToOne(mappedBy = "thumb")
     private Evento evento;
+    
+    @JsonIgnore
+    @OneToOne(mappedBy = "thumb")
+    private Curso curso;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_arquivo",referencedColumnName = "id")

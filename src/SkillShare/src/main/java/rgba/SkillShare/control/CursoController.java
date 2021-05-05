@@ -22,6 +22,7 @@ import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.GestorRepository;
+import rgba.SkillShare.repository.TutorRepository;
 
 /**
  *  Classe que define os endpoints para curso
@@ -39,7 +40,8 @@ public class CursoController {
     @Autowired 
     GestorRepository gestorRepository;
 
-
+    @Autowired 
+    TutorRepository tutorRepository;
 
     /** 
     *  Endpoint para cadastro de curso.
@@ -106,6 +108,30 @@ public class CursoController {
        return gestorRepository
            .findById(cpf).map(gestor->{
                 return gestor.getCursos();
+           })
+           .orElseThrow(()->
+               new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum curso encontrado.")
+           );
+       
+    }
+    
+    /** 
+    *  Endpoint para retornar os cursos com um determinado tutor.
+    * @return Retorna uma lista de objetos do tipo Curso.
+    * @param cpf -> cpf do tutor
+    * @author Barbara Port
+    */
+    @GetMapping("/tutor/{cpf}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna os cursos com um determinado tutor.")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Cursos encontrados com sucesso para o cpf informado."),
+        @ApiResponse(code = 404,message = "Cursos não encontrados para o cpf informado.")
+    })
+    public List<Curso> getCursosByTutor(@PathVariable @ApiParam("Cpf do tutor") String cpf) {
+       return tutorRepository
+           .findById(cpf).map(tutor->{
+                return tutor.getCursos();
            })
            .orElseThrow(()->
                new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum curso encontrado.")
