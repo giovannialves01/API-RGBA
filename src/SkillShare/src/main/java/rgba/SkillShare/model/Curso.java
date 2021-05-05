@@ -45,6 +45,7 @@ public class Curso {
     private List<Questao> questoes;
     
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Turma> turmas;
     
     @OneToOne(cascade = CascadeType.ALL)
@@ -55,11 +56,6 @@ public class Curso {
     @JoinColumn(name="id_gestor")
     @JsonIgnore //ignora o gestor no retorno do json
     private Gestor gestor;
-    
-    @ManyToOne
-    @JoinColumn(name="id_tutor")
-    @JsonIgnore //ignora o tutor no retorno do json
-    private Tutor tutor;
 
 
     /** 

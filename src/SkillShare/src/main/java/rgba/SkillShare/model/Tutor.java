@@ -37,7 +37,5 @@ public class Tutor extends Usuario{
     public Tutor(String cpf) { 
         super(cpf);
     }
-    
-    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
-    private List<Curso> cursos;
+
 }
