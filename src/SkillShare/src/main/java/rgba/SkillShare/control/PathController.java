@@ -102,5 +102,9 @@ public class PathController {
 	public String verPilulas() {
 		return "pilulas";
 	}
+	@GetMapping(value = "/criarQuestao")
+	public String criarQuestao() {
+		return "criarQuestao";
+	}
 }
  
