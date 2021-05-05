@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import rgba.SkillShare.model.Log;
 import rgba.SkillShare.repository.LogRepository;
+import rgba.SkillShare.utils.SessionManager;
 
 
 /**
@@ -45,6 +46,11 @@ public class LogController {
     @GetMapping(value = "/newLog")
     public boolean createNewLog(Log log, HttpSession session) {
     	boolean sucesso = false;
+    	String userName = SessionManager.getUserName(session);
+    	String userAccessLevel = SessionManager.getUserAccessLevel(session);
+    	
+    	log.setAutor(userName);
+    	log.setNivelDeAcesso(userAccessLevel);
     	
     	try {
         	logRepository.save(log);

@@ -3,10 +3,8 @@ class LogRegister{
 
     }
 
-    async createNewLog(autor, nivelDeAcessoAutor, acao){
+    async createNewLog(acao){
         let logData = {
-            autor: autor, 
-            nivelDeAcesso: nivelDeAcessoAutor, 
             acao: acao
         }
 
