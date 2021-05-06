@@ -1385,3 +1385,4 @@ function createDataContainer(title, value){
 }
 
 loadAllCursos("selectCursoParaPilula");
+loadAllCursos("selectCursoQuestao");

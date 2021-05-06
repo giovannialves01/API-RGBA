@@ -182,8 +182,8 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Em breve", "console.log(\"Em breve\");"));
-		
+		subOptions.put(this.criarSubOpcao("Criar nova Questão", "hideAllContent();showContent('cadastroQuestoes');"));
+		 
 		option = this.criarOpcao("Banco de Questões", "file-alt", "4", "Clique aqui para exibir o banco de questões", subOptions);
 		
 		return option;
