@@ -199,7 +199,7 @@ public class TurmaController {
     * @param cpf-> cpf do aluno
     * @author Nicholas Roque
     */
-    @PutMapping("/{id}/{cpf}")
+    @PutMapping("/remove/{id}/{cpf}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @ApiOperation("Remove o aluno da turma especificada pelo id.")
     @ApiResponses({
@@ -228,6 +228,42 @@ public class TurmaController {
                     new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado para o cpf informado.");         
                 });
     }
+
+     /** 
+    *  Endpoint para adicionar um aluno em uma turma especificada pelo id.
+    * @param id-> id da turma
+    * @param cpf-> cpf do aluno
+    * @author Nicholas Roque
+    */
+   @PutMapping("/add/{id}/{cpf}")
+   @ResponseStatus(HttpStatus.NO_CONTENT)
+   @ApiOperation("Adiciona o aluno na turma especificada pelo id.")
+   @ApiResponses({
+       @ApiResponse(code = 204,message = "Aluno adicionado com sucesso."),
+       @ApiResponse(code = 404,message = "Turma não encontrada para o id informado."),
+       @ApiResponse(code = 404,message = "Aluno não encontrado para o cpf informado.")
+   })
+   public void addAlunoFromTurma(
+       @PathVariable @ApiParam("Id da turma") Long id,
+       @PathVariable @ApiParam("Cpf do aluno") String cpf
+   ) {
+       alunoRepository
+           .findById(cpf)
+           .ifPresentOrElse(
+               (a)->{
+                   turmaRepository.findById(id)
+                   .ifPresentOrElse(
+                       (t)->{
+                           t.addAluno(a);
+                           turmaRepository.save(t);
+                       },()->{
+                           new ResponseStatusException(HttpStatus.NOT_FOUND,"Turma não encontrada para o id informado.");   
+                       }
+                   );
+               }, ()->{
+                   new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado para o cpf informado.");         
+               });
+   }
 	
 
     /** 
