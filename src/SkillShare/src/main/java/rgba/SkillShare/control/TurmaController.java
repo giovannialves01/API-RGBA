@@ -25,6 +25,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.data.PostTurma;
+import rgba.SkillShare.data.PutTurma;
 import rgba.SkillShare.model.Turma;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.repository.CursoRepository;
@@ -226,8 +227,33 @@ public class TurmaController {
                 }, ()->{
                     new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado para o cpf informado.");         
                 });
-
-        
     }
 	
+
+    /** 
+    *  Endpoint para atualizar uma turma especificada pelo id.
+    * @param id-> id da turma a ser atualizada
+    * @param turma-> objeto da turma a ser atualizada
+    * @author Nicholas Roque
+    */
+    @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Atualiza a turma especificada pelo id.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Turma atualizada com sucesso."),
+        @ApiResponse(code = 404,message = "Turma não encontrada para o id informado.")
+    })
+    public void updateTurmaById(@PathVariable @ApiParam("Id da turma") Long id,@RequestBody @ApiParam("Turma atualizada") PutTurma turma) {
+        turmaRepository
+            .findById(id)
+            .map(t->{
+                t.setDataTermino(turma.getDataTermino());
+                t.setTutor(tutorRepository.findById(turma.getCpfTutor()).get());
+                turmaRepository.save(t);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Turma não encontrada para o id informado.")         
+            );
+    }
 }

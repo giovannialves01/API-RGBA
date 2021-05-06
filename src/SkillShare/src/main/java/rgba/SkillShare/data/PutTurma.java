@@ -12,17 +12,11 @@ import lombok.ToString;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString
-public class PostTurma {
-    private Long idCurso;
+public class PutTurma {
     private String cpfTutor;
     @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate dataTermino;
     @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate dataInicio;
-    private List<String> cpfList;
 
-    public PostTurma(LocalDate dataTermino, String cpfTutor){
-        this.dataTermino = dataTermino;
-        this.cpfTutor = cpfTutor;
-    }
 }
