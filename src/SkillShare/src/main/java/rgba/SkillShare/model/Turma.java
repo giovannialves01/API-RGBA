@@ -38,6 +38,10 @@ public class Turma {
     @JsonFormat(pattern="dd/MM/yyyy")
     LocalDate dataTermino;
 
+    @Column
+    @JsonFormat(pattern="dd/MM/yyyy")
+    LocalDate dataInicio;
+
     @ManyToOne
     @JoinColumn(name="id_curso")
     private Curso curso;

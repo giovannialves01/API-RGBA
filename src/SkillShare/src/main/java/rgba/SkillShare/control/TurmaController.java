@@ -77,6 +77,8 @@ public class TurmaController {
         turma.setCurso(cursoRepository.findById(postTurma.getIdCurso()).get());
         turma.setTutor(tutorRepository.findById(postTurma.getCpfTutor()).get());
         turma.setDataTermino(postTurma.getDataTermino());
+        turma.setDataInicio(postTurma.getDataInicio());
+
 
 
         for(String cpf : postTurma.getCpfList()){

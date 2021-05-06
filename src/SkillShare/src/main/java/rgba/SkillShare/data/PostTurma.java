@@ -17,5 +17,7 @@ public class PostTurma {
     private String cpfTutor;
     @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate dataTermino;
+    @JsonFormat(pattern="dd/MM/yyyy")
+    private LocalDate dataInicio;
     private List<String> cpfList;
 }
