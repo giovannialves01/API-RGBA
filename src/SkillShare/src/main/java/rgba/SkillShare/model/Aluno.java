@@ -4,12 +4,10 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.JoinColumn;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -36,7 +34,6 @@ public class Aluno extends Usuario{
     * @author Nicholas Roque
     */
     
-    //NÃO RETIRAR
     public Aluno(String cpf,String nome,String email,String senha) { 
         super(cpf,nome,email,senha);
     }
@@ -45,17 +42,17 @@ public class Aluno extends Usuario{
     }
 
     @ManyToMany(mappedBy = "alunos",cascade = CascadeType.ALL)
-    /* @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-        name = "turma_aluno", 
-        joinColumns = @JoinColumn(name = "cpf_aluno"), 
-        inverseJoinColumns = @JoinColumn(name = "id_turma")
-    ) */
     @JsonIgnore
     Set<Turma> turmas = new HashSet<Turma>();
 
     public void addTurma(Turma t){
-        turmas.add(t);
+        this.turmas.add(t);
+        t.getAlunos().add(this);
+    }
+
+    public void removeTurma(Turma t){
+        this.turmas.remove(t);
+        t.getAlunos().remove(this);
     }
 
 }
