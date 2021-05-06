@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Criar questão</title>
+	<title>Gerir questão</title>
 	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/BeautySelect.css">
     <link rel="stylesheet" href="css/BeautyTable.css">
     <link rel="stylesheet" href="css/Footer.css">
-    <link rel="stylesheet" href="css/BancoQuestoes2.css">
+    <link rel="stylesheet" href="css/GerirQuestao.css">
 
     <script src="js/Utils/ServerRequester.js"></script>
     <script src="js/Utils/sendFile.js"></script>
@@ -49,15 +49,15 @@
 		<div class="tituloDescricaoTop">
 			<p id="titulo">Criar nova questão para o banco de questões</p>
 			<p>Para criar uma nova questão no banco de questões, escolha um curso no qual a questão irá pertencer, em seguida preencher os campos e escolha qual será a alternativa correta</p>
-		</div>
-		
-		<div class="separador"></div>	
-			
-
-	    	<div class="select">
-		    <select name="idCurso" id="userTypeEdit" onchange="chooseUserToShow()">
+			<select name="idCurso" id="userTypeEdit" onchange="chooseUserToShow()">
 				<option selected disabled>Escolha um curso para vincular a questão</option>
 	   		</select>
+		</div>
+			
+		<div class="separador"></div>	
+			
+	    	<div class="select">
+		    
            	</div>
 		<div class="enunciadoeresposta">
 			<div class="flexInputsButton">
@@ -70,36 +70,42 @@
         	<div class="RespostasDBlock">
         		<div class="RespostasDflex1">
         			<div class="questaoc1"> 
-		        		<label id="arternativas">Alternativa a)</label>
-		        		<input type="checkbox"><label>Alternativa correta</label>
+						<label>Alternativa a)</label>
 			            <textarea name="enunciado" id="textArearesp1" cols="30" rows="10"></textarea>
 			        </div>
+			        
 		            <div class="questaoc2">
-		            	<label id="arternativas">Alternativa b)</label>
-		            	<input type="checkbox"><label>Alternativa correta</label>
+		            	<label>Alternativa b)</label>
 			            <textarea name="enunciado" id="textArearesp2" cols="30" rows="10"></textarea>
 		            </div>
+		            			<div class="alternativas">
+				<label id="alternativaCorreta">Alternativa Correta</label><br>
+				<label id="label-1">a)</label><input type="checkbox" id="button-1"/><br>
+				<label id="label-1">b)</label><input type="checkbox" id="button-1"/><br>
+				<label id="label-1">c)</label><input type="checkbox" id="button-1"/><br>
+				<label id="label-1">d)</label><input type="checkbox" id="button-1"/><br>
+			</div>
         		</div>
         		
         		<div class="RespostasDflex2">
         			<div class="questaob1"> 
-		        		<label id="arternativas">Alternativa c)</label>
-		        		<input type="checkbox" value = "newsletter"><label>Alternativa correta</label>
+        				<label>Alternativa c)</label>
 			            <textarea name="enunciado" id="textArearesp3" cols="30" rows="10"></textarea>
 			        </div>
+			        
 		            <div class="questaob2">
-		            	<label id="arternativas">Alternativa d)</label>
-		            	<input type="checkbox"><label id="altercorret">Alternativa correta</label>
+		            	<label>Alternativa d)</label>
 			            <textarea name="enunciado" id="textArearesp4" cols="30" rows="10"></textarea>
-		            </div>
+		            </div>	            
         		</div>
+        		
         	</div>
 			</div>
 			
 
 			<div class="buttonContainerGQ">
-            	<input type="submit" class="greenButton" value="Adicionar">
-            	<input type="reset" class="redButton" value="Limpar campos">
+            	<input type="submit" class="greenButton" value="Editar">
+            	<input type="reset" class="redButton" value="Excluir">
             </div>
 
             </div>       

@@ -34,13 +34,14 @@
     padding-left: 25px;
     padding-right: 25px;
     border: none;
-    background-color: #83CC4A;
+    background-color: #F4FC54;
     font-family: 'Poppins';
     font-weight: bold;
     cursor: pointer;
 }
 
 .redButton {
+	margin-top: 470px;
     padding: 8px;
     border-radius: 20px;
     padding-left: 25px;
@@ -71,25 +72,35 @@
 	display: block;
 	width: 100%
 }
+.alternativas{
+	margin-left: 15px;
+}
+.buttonContainerGQ{
+	width: 40px;
+	margin: 25px 0 0 40px;
+}
 #textAreaEnunciado{
 	display: block;
-	width: 90%;
+	width: 100%;
+	margin-bottom: 15px;
 }
 #textArearesp1{
 	display: block;
-	width: 400px;
+	width: 300px;
+	margin-bottom: 15px;
 }
 #textArearesp2{
 	display: block;
-	width: 400px;
+	width: 300px;
+	margin-bottom: 15px;
 }
 #textArearesp3{
 	display: block;
-	width: 400px;
+	width: 300px;
 }
 #textArearesp4{
 	display: block;
-	width: 400px;
+	width: 300px;
 }
 #userTypeEdit{
 	width: 255px;
@@ -99,7 +110,7 @@
 	text-align: end;
 }
 #arternativas{
-	margin-right: 110px;
+	margin-right: 53px;
 }
 #titulo{
 	font-weight: 800;
@@ -108,4 +119,7 @@
 #enunc{
 	font-size: 18px;
 	font-weight: 600;
+}
+#alternativaCorreta{
+	margin-bottom: 15px;
 }
