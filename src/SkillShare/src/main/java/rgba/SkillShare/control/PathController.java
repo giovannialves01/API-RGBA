@@ -108,5 +108,10 @@ public class PathController {
 	public String meusCursosAluno () {
 		return "meusCursosAluno";
 	}
+
+	@GetMapping(value = "/scorm")
+	public String scormTest () {
+		return "scormTest";
+	}
 }
  
