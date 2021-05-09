@@ -1,7 +1,7 @@
 package rgba.SkillShare.model;
 
+import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,9 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +24,7 @@ import lombok.ToString;
 import lombok.NoArgsConstructor;
 
 /**
- *  Classe que define o curso
+ *  Classe que define a turma
  *  @author Nicholas Roque
  */
 @Entity(name="turma")
@@ -34,6 +33,14 @@ public class Turma {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @Column
+    @JsonFormat(pattern="dd/MM/yyyy")
+    LocalDate dataTermino;
+
+    @Column
+    @JsonFormat(pattern="dd/MM/yyyy")
+    LocalDate dataInicio;
 
     @ManyToOne
     @JoinColumn(name="id_curso")
@@ -44,7 +51,6 @@ public class Turma {
     @JoinColumn(name="id_tutor")
     private Tutor tutor;
 
-    //@ManyToMany(mappedBy = "turmas",cascade = CascadeType.ALL)
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "turma_aluno", 
@@ -54,6 +60,12 @@ public class Turma {
     Set<Aluno> alunos = new HashSet<Aluno>();
 
     public void addAluno(Aluno a){
-        alunos.add(a);
+        this.alunos.add(a);
+        a.getTurmas().add(this);
+    }
+
+    public void removeAluno(Aluno a){
+        this.alunos.remove(a);
+        a.getTurmas().remove(this);
     }
 }

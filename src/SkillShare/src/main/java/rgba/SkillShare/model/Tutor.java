@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -37,5 +39,8 @@ public class Tutor extends Usuario{
     public Tutor(String cpf) { 
         super(cpf);
     }
-
+    
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Turma> turmas;
 }

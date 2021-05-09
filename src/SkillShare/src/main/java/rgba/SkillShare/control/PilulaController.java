@@ -104,7 +104,7 @@ public class PilulaController {
         return pilulaRepository.findAll();
     }
 
-       /** 
+    /** 
     *  Endpoint para deletar uma pílula especificada pelo id.
     * @param id-> id da pílula a ser deletada
     * @author Nicholas Roque
