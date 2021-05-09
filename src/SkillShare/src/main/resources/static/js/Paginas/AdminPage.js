@@ -1384,5 +1384,26 @@ function createDataContainer(title, value){
     return div;
 }
 
+async function loadGestoresSelect(idSelect){
+    let select = document.getElementById(idSelect);
+
+    let response = await serverRequester.fazerGet("/gestor");
+
+    let entitys = response["responseJson"];
+
+    entitys.forEach(gestor => {
+        let option = document.createElement("option");
+        option.value = gestor.cpf;
+        option.textContent = gestor.nome;
+        select.appendChild(option);
+    });
+}
+
+async function registerCurso(event) {
+    event.preventDefault();
+
+}
+
 loadAllCursos("selectCursoParaPilula");
 loadAllCursos("selectCursoQuestao");
+loadGestoresSelect("escolhaDeGestor");

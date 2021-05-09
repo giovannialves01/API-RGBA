@@ -130,13 +130,13 @@
     
                 <div class="separador"></div>
             </div>
-            <form class="adicionarCurso" id="camposCadastroCurso">
+            <form class="adicionarCurso" id="camposCadastroCurso" onsubmit="registerCurso(event)" onreset="clearFileLabel(event, 'labelFileCursoTumbnail'); clearFileLabel(event, 'labelFileArquivoScorm')">
                 <div class="campoNome">
                     <label class="titleLabel">Nome:</label>
                     <input type="text" id="inserirNome" name="titulo">
                 </div>
                 <div class="arquivoCurso">
-                    <label class="titleLabel">Imagem da Tumbnail:</label>
+                    <label class="titleLabel">Imagem da Thumbnail:</label>
                     <div class="inputFile">
                         <label for="inputUploadCursoTumbnail" class="inputUploadButton">Escolher arquivo...</label>
                         <input type="file" required id="inputUploadCursoTumbnail" name="thumb" onchange="setInputLabelName(event, 'labelFileCursoTumbnail')">
@@ -145,10 +145,10 @@
                 </div>
                 <div class="campoDescricao">
                     <label class="titleLabel">Descrição:</label>
-                    <textarea></textarea>
+                    <textarea name="descricao"></textarea>
                 </div>
                 <div class="arquivoCurso">
-                    <label class="titleLabel">Imagem da Tumbnail:</label>
+                    <label class="titleLabel">Arquivo SCORM do curso:</label>
                     <div class="inputFile">
                         <label for="inputUploadArquivoScorm" class="inputUploadButton">Escolher arquivo...</label>
                         <input type="file" required id="inputUploadArquivoScorm" name="scorm" onchange="setInputLabelName(event, 'labelFileArquivoScorm')">
@@ -158,13 +158,7 @@
                 <div class="campoEscolha">
                     <label class="titleLabel">Escolha um gestor:</label>
                     <select name="gestor" id="escolhaDeGestor"> 
-                        <option disabled selected>Escolha um gestor...</option>
-                    </select>
-                </div>
-                <div class="campoEscolha">
-                    <label class="titleLabel">Escolha um tutor:</label>
-                    <select name="tutor" id="escolhaDeTutor"> 
-                        <option disabled selected>Escolha um tutor...</option>
+                        <option selected disabled>Escolha um gestor...</option>
                     </select>
                 </div>
                 <div class="buttonContainer">
