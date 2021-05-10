@@ -44,7 +44,7 @@ public class Questao {
 	private String alternativaD;
 	
 	@Column(nullable = false)
-	private char alternativaCorreta;
+	private String alternativaCorreta;
 	
 	@JsonIgnore
 	@ManyToOne

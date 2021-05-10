@@ -71,9 +71,9 @@
     
                 <div class="separador"></div>
             </div>
-            <form class="upQuestao" id="uploadQuestao">
+            <form class="upQuestao" id="uploadQuestao" onsubmit="registerQuestao(event)">
                 <div class="select">
-                    <select name="idCurso" id="selectCursoQuestao">
+                    <select name="id_curso" id="selectCursoQuestao">
                         <option selected disabled>Escolha um curso para vincular a questão</option>
                     </select>
                        </div>
@@ -88,12 +88,12 @@
                         <div class="RespostasDflex1">
                             <div class="questaoc1"> 
                                 <label id="arternativas">Alternativa a)</label>
-                                <input type="checkbox"><label>Alternativa correta</label>
+                                <input type="radio" name="alternativaCorreta" id="alternativaA" value="A"><label for="alternativaA">Alternativa correta</label>
                                 <textarea name="enunciado" id="textArearesp1" cols="30" rows="10"></textarea>
                             </div>
                             <div class="questaoc2">
                                 <label id="arternativas">Alternativa b)</label>
-                                <input type="checkbox"><label>Alternativa correta</label>
+                                <input type="radio" name="alternativaCorreta" id="alternativaB" value="B"><label for="alternativaB">Alternativa correta</label>
                                 <textarea name="enunciado" id="textArearesp2" cols="30" rows="10"></textarea>
                             </div>
                         </div>
@@ -101,12 +101,12 @@
                         <div class="RespostasDflex2">
                             <div class="questaob1"> 
                                 <label id="arternativas">Alternativa c)</label>
-                                <input type="checkbox" value = "newsletter"><label>Alternativa correta</label>
+                                <input type="radio" name="alternativaCorreta" id="alternativaC" value="C"><label for="alternativaC">Alternativa correta</label>
                                 <textarea name="enunciado" id="textArearesp3" cols="30" rows="10"></textarea>
                             </div>
                             <div class="questaob2">
                                 <label id="arternativas">Alternativa d)</label>
-                                <input type="checkbox"><label id="altercorret">Alternativa correta</label>
+                                <input type="radio" name="alternativaCorreta" id="alternativaD" value="D"><label for="alternativaD">Alternativa correta</label>
                                 <textarea name="enunciado" id="textArearesp4" cols="30" rows="10"></textarea>
                             </div>
                         </div>
