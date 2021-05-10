@@ -1449,14 +1449,16 @@ async function registerQuestao(event) {
     let cursoId = document.getElementById("selectCursoQuestao").value;
 
     let formData = new FormData();
-    formData.append("enunciado", document.getElementById("textAreaEnunciado").value);
-    formData.append("alternativaA", document.getElementById("textArearesp1").value);
-    formData.append("alternativaB", document.getElementById("textArearesp2").value);
-    formData.append("alternativaC", document.getElementById("textArearesp3").value);
-    formData.append("alternativaD", document.getElementById("textArearesp4").value);
-    formData.append("alternativaCorreta", document.querySelector('input[name="alternativaCorreta"]:checked').value);
+    let data = {
+        "enunciado": document.getElementById("textAreaEnunciado").value,
+        "alternativaA": document.getElementById("textArearesp1").value,
+        "alternativaB": document.getElementById("textArearesp2").value,
+        "alternativaC": document.getElementById("textArearesp3").value,
+        "alternativaD": document.getElementById("textArearesp4").value,
+        "alternativaCorreta": document.querySelector('input[name="alternativaCorreta"]:checked').value
+    }
 
-    let response = await serverRequester.fazerPost("/questoes/cadastrar/" + cursoId, formData);
+    let response = await serverRequester.fazerPost("/questoes/cadastrar/" + cursoId, data);
 
     console.log(response);
 
