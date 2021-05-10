@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.model.Pilula;
 import rgba.SkillShare.model.Questao;
@@ -60,7 +60,7 @@ public class QuestaoController {
 	@ApiOperation("Cadastra uma nova questão no banco de questões.")
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiResponse(code = 201, message = "Questão cadastrada com sucesso.")
-	public Questao cadastrarQuestao(@PathVariable @ApiParam("Curso ao qual a questão pertence") Long idCurso, @RequestBody @ApiParam("Informações da questão") Questao questao) {
+	public Questao cadastrarQuestao( @ApiParam("Curso ao qual a questão pertence") @PathVariable Long idCurso, @ApiParam("Informações da questão") @RequestBody Questao questao) {
 		return cursoRepository.findById(idCurso)
 		.map(curso -> {
 			questao.setCurso(curso);
