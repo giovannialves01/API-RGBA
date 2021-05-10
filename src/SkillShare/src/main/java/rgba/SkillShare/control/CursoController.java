@@ -61,10 +61,15 @@ public class CursoController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiResponse(code = 201,message = "Curso criado com sucesso.")
     public Curso createCurso(@ApiParam("Informações do curso") @RequestParam MultipartFile th, Curso curso, @ApiParam("CPF do gestor") String cpf) throws IOException{
+        if(!gestorRepository.existsById(cpf)){
+            new ResponseStatusException(HttpStatus.NOT_FOUND,"Gestor não encontrado para o cpf informado.");
+
+        }
         Arquivo a = new Arquivo(th.getOriginalFilename(),th.getBytes(),th.getContentType());
         Thumb thumb = new Thumb();
         thumb.setArquivo(a);
-        
+        curso.setThumb(thumb);
+        curso.setGestor(gestorRepository.findById(cpf).get());
         return cursoRepository.save(curso);
     }
 

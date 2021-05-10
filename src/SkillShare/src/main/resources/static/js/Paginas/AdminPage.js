@@ -1403,14 +1403,41 @@ async function registerCurso(event) {
     event.preventDefault();
     let formData = new FormData();
     formData.append("titulo",document.getElementById("inserirNome").value)
-    formData.append("thumb",document.getElementById("inputUploadCursoTumbnail").value)
+    formData.append("th",document.getElementById("inputUploadCursoTumbnail").files[0])
     formData.append("descricao",document.getElementById("descricaoCursoUpload").value)
     formData.append("cpf",document.getElementById("escolhaDeGestor").value)
-    
-    
-    
-    
-    /*  let form = $('#formPilula')[0]; */
+    axios({
+        method: "post",
+        url: `${serverRequester.serverURL}/cursos/cadastrar`,
+        data: formData,
+        headers: {"Content-Type": "multipart/form-data"},
+        })
+        .then(function (response) {
+            console.log("-------------------SUCESSO UPLOAD CURSO BANCO DE DADOS-------------------");
+            console.log(response);
+            let curso = response.data
+            let formDataScorm = new FormData();
+            formDataScorm.append("file",document.getElementById("inputUploadArquivoScorm").files[0])
+
+            let token = auth()
+            token.then((t)=>{
+                uploadScorm(curso.id,t,formDataScorm).then((importJobId)=>{
+                    let status = setInterval(()=>{
+                        getImportStatus(importJobId,t).then((res)=>{
+                            console.log(res)
+                            if(res.status=="COMPLETE"){
+                                alert("Curso postado com sucesso")
+                                clearInterval(status)
+                            }
+                        })
+                    },5000)
+                })
+            }) 
+        })
+        .catch(function (err) {
+          console.log("-------------------ERRO UPLOAD CURSO BANCO DE DADOS-------------------");
+          console.log(err);
+        });
 
 }
 
