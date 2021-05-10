@@ -1441,6 +1441,27 @@ async function registerCurso(event) {
 
 }
 
+async function registerQuestao(event) {
+    event.preventDefault();
+
+    let form = document.getElementById("uploadQuestao");
+
+    let cursoId = document.getElementById("selectCursoQuestao").value;
+
+    let formData = new FormData();
+    formData.append("enunciado", document.getElementById("textAreaEnunciado").value);
+    formData.append("alternativaA", document.getElementById("textArearesp1").value);
+    formData.append("alternativaB", document.getElementById("textArearesp2").value);
+    formData.append("alternativaC", document.getElementById("textArearesp3").value);
+    formData.append("alternativaD", document.getElementById("textArearesp4").value);
+    formData.append("alternativaCorreta", document.querySelector('input[name="alternativaCorreta"]:checked').value);
+
+    let response = await serverRequester.fazerPost("/questoes/cadastrar/" + cursoId, formData);
+
+    console.log(response);
+
+}
+
 loadAllCursos("selectCursoParaPilula");
 loadAllCursos("selectCursoQuestao");
 loadGestoresSelect("escolhaDeGestor");
