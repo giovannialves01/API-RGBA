@@ -130,7 +130,7 @@
     
                 <div class="separador"></div>
             </div>
-            <form class="adicionarCurso" id="camposCadastroCurso" onsubmit="registerCurso(event)" onreset="clearFileLabel(event, 'labelFileCursoTumbnail'); clearFileLabel(event, 'labelFileArquivoScorm')">
+            <form class="adicionarCurso" id="camposCadastroCurso" enctype="multipart/form-data" onsubmit="registerCurso(event)" onreset="clearFileLabel(event, 'labelFileCursoTumbnail'); clearFileLabel(event, 'labelFileArquivoScorm')">
                 <div class="campoNome">
                     <label class="titleLabel">Nome:</label>
                     <input type="text" id="inserirNome" name="titulo">
@@ -145,7 +145,7 @@
                 </div>
                 <div class="campoDescricao">
                     <label class="titleLabel">Descrição:</label>
-                    <textarea name="descricao"></textarea>
+                    <textarea id="descricaoCursoUpload" name="descricao"></textarea>
                 </div>
                 <div class="arquivoCurso">
                     <label class="titleLabel">Arquivo SCORM do curso:</label>

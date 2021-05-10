@@ -1401,6 +1401,16 @@ async function loadGestoresSelect(idSelect){
 
 async function registerCurso(event) {
     event.preventDefault();
+    let formData = new FormData();
+    formData.append("titulo",document.getElementById("inserirNome").value)
+    formData.append("thumb",document.getElementById("inputUploadCursoTumbnail").value)
+    formData.append("descricao",document.getElementById("descricaoCursoUpload").value)
+    formData.append("cpf",document.getElementById("escolhaDeGestor").value)
+    
+    
+    
+    
+    /*  let form = $('#formPilula')[0]; */
 
 }
 

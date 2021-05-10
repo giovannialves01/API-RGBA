@@ -56,12 +56,12 @@ public class QuestaoController {
 	 * @author Barbara Port
 	 * 
 	 */
-	@PostMapping("/cadastrar")
+	@PostMapping("/cadastrar/{idCurso}")
 	@ApiOperation("Cadastra uma nova questão no banco de questões.")
 	@ResponseStatus(HttpStatus.CREATED)
 	@ApiResponse(code = 201, message = "Questão cadastrada com sucesso.")
-	public Questao cadastrarQuestao(@RequestBody @ApiParam("Curso ao qual a questão pertence") long id_curso, @RequestBody @ApiParam("Informações da questão") Questao questao) {
-		return cursoRepository.findById(id_curso)
+	public Questao cadastrarQuestao(@PathVariable @ApiParam("Curso ao qual a questão pertence") Long idCurso, @RequestBody @ApiParam("Informações da questão") Questao questao) {
+		return cursoRepository.findById(idCurso)
 		.map(curso -> {
 			questao.setCurso(curso);
 			return questaoRepository.save(questao);
