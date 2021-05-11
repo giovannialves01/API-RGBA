@@ -1464,6 +1464,154 @@ async function registerQuestao(event) {
 
 }
 
+async function chooseQuestaoToShow() {
+    let select = document.getElementById("selectQuestaoPorCurso");
+
+    let idCursoSelecionado = select.value;
+
+    await showQuestoesPorCurso(idCursoSelecionado);
+}
+
+async function showQuestoesPorCurso(idCursoSelecionado) {
+    let response = await serverRequester.fazerGet("/questoes/curso/" + idCursoSelecionado);
+    let entidades = response["responseJson"];
+
+    let container = document.getElementById("questoesToShow");
+    container.innerHTML = "";
+
+    for (let i = 0; i < entidades.length; i++) {
+        const entidade = entidades[i];
+        
+        let questao = new Questao(entidade);
+
+        let entityIdentifier = "questao" + (i + 1);
+
+        let divAlternativaECorreta = document.createElement("div");
+        divAlternativaECorreta.classList.add("questaoAlternativaECorreta");
+
+        let divAlternativas = document.createElement("div");
+        divAlternativas.classList.add("questaoAlternativas");
+        let alternativaA = generateQuestaoAlternativa("Alternativa a)", questao.getAlternativaA());
+        let alternativaB = generateQuestaoAlternativa("Alternativa b)", questao.getAlternativaB());
+        let alternativaC = generateQuestaoAlternativa("Alternativa c)", questao.getAlternativaC());
+        let alternativaD = generateQuestaoAlternativa("Alternativa d)", questao.getAlternativaD());
+
+        divAlternativas.appendChild(alternativaA);
+        divAlternativas.appendChild(alternativaB);
+        divAlternativas.appendChild(alternativaC);
+        divAlternativas.appendChild(alternativaD);
+
+        let divAlternativaCorreta = document.createElement("div");
+        let alternativaCorretaTitle = document.createElement("label");
+        alternativaCorretaTitle.textContent = "Alternativa correta";
+        alternativaCorretaTitle.classList.add("titleLabel");
+        let radioA = generateRadioAlternativaCorreta("a)", "alternativaCorreta", "A");
+        let radioB = generateRadioAlternativaCorreta("b)", "alternativaCorreta", "B");
+        let radioC = generateRadioAlternativaCorreta("c)", "alternativaCorreta", "C");
+        let radioD = generateRadioAlternativaCorreta("d)", "alternativaCorreta", "D");
+
+        switch (questao.getAlternativaCorreta()) {
+            case "A":
+                radioA.getElementsByTagName("input")[0].checked = true;
+                break;
+
+            case "B":
+                radioB.getElementsByTagName("input")[0].checked = true;
+                break;
+
+            case "C":
+                radioC.getElementsByTagName("input")[0].checked = true;
+                break;
+
+            case "D":
+                radioD.getElementsByTagName("input")[0].checked = true;
+                break;
+        }
+
+        divAlternativaCorreta.appendChild(alternativaCorretaTitle);
+        divAlternativaCorreta.appendChild(radioA);
+        divAlternativaCorreta.appendChild(radioB);
+        divAlternativaCorreta.appendChild(radioC);
+        divAlternativaCorreta.appendChild(radioD);
+
+        divAlternativaECorreta.appendChild(divAlternativas);
+        divAlternativaECorreta.appendChild(divAlternativaCorreta);
+
+        let divEnunciado = document.createElement("div");
+        divEnunciado.classList.add("containerEnunciadoQuestao");
+        let titleEnunciado = document.createElement("label");
+        titleEnunciado.textContent = "Enunciado da questão";
+        titleEnunciado.classList.add("titleLabel");
+        let textAreaEnunciado = document.createElement("textarea");
+        textAreaEnunciado.classList.add("textAreaEnunciado")
+        textAreaEnunciado.textContent = questao.getEnunciado();
+
+        divEnunciado.appendChild(titleEnunciado);
+        divEnunciado.appendChild(textAreaEnunciado);
+
+        let divQuestaoData = document.createElement("div");
+        divQuestaoData.classList.add("dataQuestao");
+        divQuestaoData.appendChild(divEnunciado);
+        divQuestaoData.appendChild(divAlternativaECorreta);
+
+        let manageButtons = createManageButtons(entityIdentifier, questao);
+
+        let mainDiv = document.createElement("div");
+        mainDiv.classList.add("questaoContainer");
+        mainDiv.appendChild(divQuestaoData);
+        mainDiv.appendChild(manageButtons);
+        mainDiv.id = entityIdentifier;
+
+        container.appendChild(mainDiv);
+
+        if(i < entidades.length - 1){
+            let separador = document.createElement("div");
+            separador.classList.add("separador");
+
+            container.appendChild(separador);
+
+        }
+
+    }
+
+}
+
+function generateQuestaoAlternativa(title, content) {
+    let container = document.createElement("div");
+    container.classList.add("questaoAlternativaContainer");
+    
+    let titleLabel = document.createElement("label");
+    titleLabel.classList.add("titleLabel");
+    titleLabel.textContent = title;
+
+    let textArea = document.createElement("textarea");
+    textArea.classList.add("questaoAlternativaTexto");
+    textArea.textContent = content;
+
+    container.appendChild(titleLabel);
+    container.appendChild(textArea);
+
+    return container;
+}
+
+function generateRadioAlternativaCorreta(title, group, value) {
+    let container = document.createElement("div");
+
+    let radio = document.createElement("input");
+    radio.type = "radio";
+    radio.value = value;
+    radio.name = group;
+
+    let radioTitle = document.createElement("label");
+    radioTitle.textContent = title;
+
+    container.appendChild(radioTitle);
+    container.appendChild(radio);
+
+    return container;
+}
+
 loadAllCursos("selectCursoParaPilula");
 loadAllCursos("selectCursoQuestao");
+loadAllCursos("selectQuestaoPorCurso");
 loadGestoresSelect("escolhaDeGestor");

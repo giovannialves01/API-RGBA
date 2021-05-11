@@ -182,7 +182,8 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Criar nova Questão", "hideAllContent();showContent('cadastroQuestoes');"));
+		subOptions.put(this.criarSubOpcao("Criar nova questão", "hideAllContent();showContent('cadastroQuestoes');"));
+		subOptions.put(this.criarSubOpcao("Gerir questões", "hideAllContent();showContent('gerirQuestoes');"));
 		 
 		option = this.criarOpcao("Banco de Questões", "file-alt", "4", "Clique aqui para exibir o banco de questões", subOptions);
 		

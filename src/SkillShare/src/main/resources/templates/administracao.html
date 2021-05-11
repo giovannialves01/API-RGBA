@@ -43,6 +43,7 @@
     <script src="js/Entidades/Pilula.js"></script>
     <script src="js/Entidades/Evento.js"></script>
     <script src="js/Entidades/Log.js"></script>
+    <script src="js/Entidades/Questao.js"></script>
 
     <script defer src="js/Scorm/auth.js"></script>
     <script defer src="js/Scorm/getImportStatus.js"></script>
@@ -249,6 +250,25 @@
                 <div class="separador"></div>
 
                 <div id="booksToShow">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="hide" id="gerirQuestoes">
+            <div class="adicionarConteudoBiblioteca">
+                <h1>Gerir questões do banco de questões</h1>
+                <p>
+                    Para visualizar as questões de um curso, editá-la ou excluí-la, selecione o respectivo curso abaixo para exibir as questões vínculadas a ele
+                </p>
+    
+                <select id="selectQuestaoPorCurso" onchange="chooseQuestaoToShow()">
+                    <option selected disabled>Escolha um curso para exibir as questões...</option>
+                </select>
+
+                <div class="separador"></div>
+
+                <div id="questoesToShow">
 
                 </div>
             </div>
