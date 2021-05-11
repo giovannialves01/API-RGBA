@@ -1,9 +1,9 @@
-function getLinkCurso(registrationId,token){
+function getLinkCurso(registrationId,token,redirectUrl){
     return axios({
             method: "post",
             url: `https://cloud.scorm.com/api/v2/registrations/${registrationId}/launchLink`,
             data: {
-                redirectOnExitUrl: "http://localhost:8080/scorm"//aqui da pra definir um link pra quando o usuario apertar o botao exit para sair do curso
+                redirectOnExitUrl: redirectUrl //aqui da pra definir um link pra quando o usuario apertar o botao exit para sair do curso
             },
             headers: { "Content-Type": "application/json","Authorization":`Bearer ${token}` },
         })

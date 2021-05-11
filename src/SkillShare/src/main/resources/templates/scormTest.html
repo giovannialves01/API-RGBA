@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>teste upload scorm</title>
+    <title>teste scorm</title>
     <script defer src="js/Scorm/auth.js"></script>
     <script defer src="js/Scorm/getImportStatus.js"></script>
     <script defer src="js/Scorm/getLinkCurso.js"></script>
     <script defer src="js/Scorm/uploadAluno.js"></script>
     <script defer src="js/Scorm/uploadScorm.js"></script>
     <script defer src="js/Scorm/deleteScorm.js"></script>
+    <script defer src="js/Scorm/deleteAlunoScorm.js"></script>
     <script defer src="js/Scorm/getProgressoAluno.js"></script>
+
+
+    
 
 
 
@@ -21,9 +25,13 @@
         <input type="file" name="file" id="file"><br /><br />
         <button id="submit" type="submit">enviar</button>
     </form>
-    <br /><br />
-    <button onclick="abrirCurso(1,token)">Abrir curso</button>
-    <button onclick="deletarCurso('golfe',token)">Deletar curso</button>
+    <br /><hr><br />
+    <center>
+        <button onclick="abrirCurso(1,token)">Abrir curso</button>
+        <button onclick="deletarCurso('golfe',token)">Deletar curso</button>
+        <button onclick="deletarAluno(1,token)">Deletar Aluno</button>
+    </center>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -50,7 +58,7 @@
                                 if(res.status=="COMPLETE"){
                                     clearInterval(status)
                                     uploadAluno(courseId,t,usuario).then((res)=>{ //aqui vai o usuario.id pq eu coloquei ele como registration id no createLeaner
-                                        getLinkCurso(usuario.id,t).then((link)=>{
+                                        getLinkCurso(usuario.id,t,"http://localhost:8080/scorm").then((link)=>{
                                             window.open(link,'_blank'); 
                                         })
                                     })
@@ -65,7 +73,7 @@
         function abrirCurso(registrationId,to){
             to = token===null?auth():token
             to.then((t)=>{
-                getLinkCurso(registrationId,t).then((link)=>{
+                getLinkCurso(registrationId,t,"http://localhost:8080/scorm").then((link)=>{
                     getProgressoAluno(registrationId,t).then((res)=>{
                         //exibe o progresso no console
                         console.log(res);
@@ -79,6 +87,14 @@
             to = token===null?auth():token
             to.then((t)=>{
                 deleteScorm(courseId,t).then((res)=>{
+                    console.log(res);
+                })
+            })
+        }
+        function deletarAluno(registrationId,to){
+            to = token===null?auth():token
+            to.then((t)=>{
+                deleteAlunoScorm(registrationId,t).then((res)=>{
                     console.log(res);
                 })
             })

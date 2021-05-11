@@ -6,7 +6,7 @@ function deleteScorm(courseId,token){
         })
         .then(function (response) {
             console.log("-------------------SUCESSO DELETE SCORM-------------------");
-            return response.data
+            return response
         })
         .catch(function (err) {
             console.log("-------------------ERRO DELETE SCORM-------------------");
