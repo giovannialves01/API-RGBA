@@ -26,6 +26,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.data.GetTurmasByAlunoSession;
 import rgba.SkillShare.data.PostTurma;
 import rgba.SkillShare.data.PutTurma;
 import rgba.SkillShare.model.Turma;
@@ -185,11 +186,15 @@ public class TurmaController {
         @ApiResponse(code = 200,message = "Turmas encontradas com sucesso para o cpf informado."),
         @ApiResponse(code = 404,message = "Turmas não encontradas para o cpf informado.")
     })
-    public Set<Turma> getTurmasByAlunoSession(@ApiParam("Dados da sessão do aluno") HttpSession session) {
+    public GetTurmasByAlunoSession getTurmasByAlunoSession(@ApiParam("Dados da sessão do aluno") HttpSession session) {
 
         return alunoRepository
         .findById(SessionManager.getUserCpf(session)).map((aluno)->{
-            return aluno.getTurmas();
+        	GetTurmasByAlunoSession turmas = new GetTurmasByAlunoSession();
+        	turmas.getTurmas().addAll(aluno.getTurmas());
+        	turmas.setCpfAluno(aluno.getCpf());
+            
+        	return turmas;
         })
         .orElseThrow(()->
             new ResponseStatusException(HttpStatus.NOT_FOUND,"Turma não encontrada para o cpf informado.")

@@ -1,8 +1,8 @@
 function auth(){
     let atual = new Date()
     let expirar = new Date(atual.getTime()+36000000).toISOString()//+10 horas
-    let appID = "FFA7M3WY3R" //isso pode ser mudado
-    let secretKey = "SUcSGTKy8MPOuKo39nFD7X0ZkruHseeTx9jUTIHi" //isso pode ser mudado
+    let appID = "S4ZBDXNNI6" //isso pode ser mudado
+    let secretKey = "56Lz5n1XVHC2KBTNJDT75d1lBzHjJUIngP4Iwbko" //isso pode ser mudado
     let credenciais = btoa(`${appID}:${secretKey}`)
     return axios({
         method: "post",

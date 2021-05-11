@@ -1657,9 +1657,36 @@ async function registerTurma(event){
         "cpfList": ["50553650807"]
     }
     
-    let response = await serverRequester.fazerPost("/turmas/cadastrar/" , data);
+    await serverRequester.fazerPost("/turmas/cadastrar/" , data).then((res) => {
+        console.log(res.responseJson);
+        let alunos = res.responseJson.alunos;
+        let curso = res.responseJson.curso;
 
-    console.log(response);
+        auth().then((token) => {
+            
+            alunos.forEach(aluno => {
+                let registrationID = curso.id + aluno.cpf;
+    
+                let nomeCompleto = aluno.nome.split(" ");
+                let primeiroNome = nomeCompleto[0];
+                let ultimoNome = nomeCompleto[-1];
+    
+                console.log(registrationID);
+    
+                let usuario = {
+                    id: registrationID,
+                    nome: primeiroNome,
+                    sobrenome: ultimoNome,
+                    email: aluno.email
+                }
+
+                uploadAluno(curso.id, token, usuario);
+            });
+
+        });
+
+    });
+
 }
 
 loadAllCursos("selectCursoParaPilula");
