@@ -565,6 +565,8 @@ async function deleteEntity(entityIdentifier, entity) {
     else if(entityType == "Pilula"){
         pathToDelete = `/pilulas/${entity.getId()}`;
         
+    }else if(entityType == "Questao"){
+        pathToDelete = "/questoes/" + entity.getId();
     }
 
     axios({
@@ -573,7 +575,7 @@ async function deleteEntity(entityIdentifier, entity) {
         headers: { "Content-Type": "application/json"},
     })
     .then(function (res) {
-        if(res.status==204){
+        if(res.status==200){
             alert("deletado");
     
             if(editableEntity.nextSibling != null){
@@ -865,9 +867,6 @@ function createFieldBox(title, value, name) {
 }
 
 function createManageButtons(entityIdentifier, entity) {
-    console.log(entityIdentifier);
-    console.log(entity);
-
     let manageButtonsDiv = document.createElement("div");
     manageButtonsDiv.classList.add("controlButtons");
 
@@ -1488,9 +1487,6 @@ async function registerQuestao(event) {
     }
 
     let response = await serverRequester.fazerPost("/questoes/cadastrar/" + cursoId, data);
-
-    console.log(response);
-
 }
 
 async function chooseQuestaoToShow() {
