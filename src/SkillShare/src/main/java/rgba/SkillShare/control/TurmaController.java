@@ -3,6 +3,8 @@ package rgba.SkillShare.control;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +34,7 @@ import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.TurmaRepository;
 import rgba.SkillShare.repository.TutorRepository;
 import rgba.SkillShare.utils.EmailService;
+import rgba.SkillShare.utils.SessionManager;
 
 /**
  *  Classe que define os endpoints para turma
@@ -161,6 +164,31 @@ public class TurmaController {
 
         return alunoRepository
         .findById(cpf).map((aluno)->{
+            return aluno.getTurmas();
+        })
+        .orElseThrow(()->
+            new ResponseStatusException(HttpStatus.NOT_FOUND,"Turma não encontrada para o cpf informado.")
+        );
+
+    }
+    
+    /** 
+    *  Endpoint para retornar uma lista de turmas que um aluno logado está inscrito (a partir da sessão).
+    * @return Retorna uma lista de objetos do tipo Turma.
+    * @param HttpSession session -> sessão do Java
+    * @author Barbara Port
+    */
+    @GetMapping("/cursos/aluno")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna uma lista de turmas do aluno que está logado.")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Turmas encontradas com sucesso para o cpf informado."),
+        @ApiResponse(code = 404,message = "Turmas não encontradas para o cpf informado.")
+    })
+    public Set<Turma> getTurmasByAlunoSession(@ApiParam("Dados da sessão do aluno") HttpSession session) {
+
+        return alunoRepository
+        .findById(SessionManager.getUserCpf(session)).map((aluno)->{
             return aluno.getTurmas();
         })
         .orElseThrow(()->

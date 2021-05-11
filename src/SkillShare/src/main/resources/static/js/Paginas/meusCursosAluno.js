@@ -3,9 +3,7 @@ window.onload = async function carregarConteudo () {
 	var divTodosCursos = document.getElementById("todosCursos");
 	divTodosCursos.innetHTML = "";
 
-	var cpfAluno = "50553650807";
-
-	let resposta = await serverRequester.fazerGet("/turmas/turma/aluno/" + cpfAluno);
+	let resposta = await serverRequester.fazerGet("/turmas/cursos/aluno/");
 	
 	let turmas = resposta.responseJson;
 	
