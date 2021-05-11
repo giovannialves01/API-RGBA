@@ -113,5 +113,9 @@ public class PathController {
 	public String scormTest () {
 		return "scormTest";
 	}
+	@GetMapping(value = "/detalhesCurso")
+	public String detalhesCurso() {
+		return "detalhesCurso";
+	}
 }
  
