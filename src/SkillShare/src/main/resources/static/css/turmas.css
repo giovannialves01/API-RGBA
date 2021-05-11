@@ -1,0 +1,14 @@
+.formAdicionarTurma {
+	width: 70%;
+	margin: 0px auto;
+}
+
+.campoCadastroTurma {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.campoCadastroTurma .titleLabel {
+	margin-right: 15px;
+}
