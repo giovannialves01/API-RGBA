@@ -1686,6 +1686,19 @@ async function registerTurma(event){
     // let form = document.getElementById("formAdicionarTurma")
 
     let cursoId = document.getElementById("selectCursoParaTurma").value;
+    
+    let checkboxesAlunos = document.getElementsByName("AlunosInserirTurma");
+
+    var cpfsAlunos = [];
+
+    checkboxesAlunos.forEach(checkboxAluno => {
+        if (checkboxAluno.checked) {
+            let cpfAluno = checkboxAluno.id;
+            cpfsAlunos.push(cpfAluno);
+        }
+    });
+    
+    console.log(cpfsAlunos);
 
     // let formData = new FormData();
     let data = {
@@ -1693,7 +1706,7 @@ async function registerTurma(event){
         "dataInicio": formatarDataDMA(document.getElementById("diaInicio").value),
         "dataTermino": formatarDataDMA(document.getElementById("diaFim").value),
         "cpfTutor": document.getElementById("escolhaDeTutor").value,
-        "cpfList": ["50553650807"]
+        "cpfList": cpfsAlunos
     }
     
     await serverRequester.fazerPost("/turmas/cadastrar/" , data).then((res) => {
