@@ -35,7 +35,7 @@ public class Curso {
     @Column(nullable = false)
     private String titulo;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition="TEXT")
     private String descricao;
 
     @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
