@@ -601,3 +601,51 @@ textarea.userDataFieldEnabled{
 }
 
 
+.textAreaEnunciado{
+    height: 130px;
+}
+
+.questaoAlternativaContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.questaoAlternativaTexto{
+    width: 100%;
+    height: 70px;
+}
+
+.questaoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#questoesToShow{
+    width: 100%;
+}
+
+.dataQuestao{
+    width: 70%;
+}
+
+.containerEnunciadoQuestao{
+    display: flex;
+    flex-direction: column;
+}
+
+.questaoAlternativaECorreta{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.questaoAlternativas{
+    width: 50%;
+}

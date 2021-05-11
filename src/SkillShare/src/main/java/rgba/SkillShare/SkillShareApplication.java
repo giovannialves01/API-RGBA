@@ -83,7 +83,6 @@ public class SkillShareApplication implements CommandLineRunner {
 
 		cursoRepository.saveAll(cursos);
 		
-		
 		if(tRepository.findAll().isEmpty()) {
 			Tutor tutor = new Tutor("22222222222", "Nícolas Rafael Pereira", "nicholas.pereira@skillshare.com", "nicolas123");
 			tRepository.save(tutor);
