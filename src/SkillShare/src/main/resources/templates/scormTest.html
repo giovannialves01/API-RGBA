@@ -10,6 +10,7 @@
     <script defer src="js/Scorm/getLinkCurso.js"></script>
     <script defer src="js/Scorm/uploadAluno.js"></script>
     <script defer src="js/Scorm/uploadScorm.js"></script>
+    <script defer src="js/Scorm/deleteScorm.js"></script>
     <script defer src="js/Scorm/getProgressoAluno.js"></script>
 
 
@@ -22,6 +23,7 @@
     </form>
     <br /><br />
     <button onclick="abrirCurso(1,token)">Abrir curso</button>
+    <button onclick="deletarCurso('golfe',token)">Deletar curso</button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -69,6 +71,15 @@
                         console.log(res);
                     })
                     window.open(link,'_blank'); 
+                })
+            })
+        }
+
+        function deletarCurso(courseId,to){
+            to = token===null?auth():token
+            to.then((t)=>{
+                deleteScorm(courseId,t).then((res)=>{
+                    console.log(res);
                 })
             })
         }
