@@ -1,4 +1,18 @@
 /**
+ * Funcao para formatar datas para o formato dd/MM/yyyy. DMA = DiaMesAno
+ * @author Barbara Port
+ * @return String com a data formatada
+ */
+function formatarDataDMA (dia) {
+  let partes = dia.split("-");
+  let diaOK = partes[2];
+  let mesOK = partes[1];
+  let anoOK = partes[0];
+  let novaData = diaOK + "/" + mesOK + "/" + anoOK;
+  return novaData
+}
+
+/**
  * Esconde qualquer janela que estiver aberta na área de exibição de conteúdo da página
  * 
  * @author Rafael Furtado
@@ -1399,6 +1413,21 @@ async function loadGestoresSelect(idSelect){
     });
 }
 
+async function loadTutoresSelect(idSelect){
+    let select = document.getElementById(idSelect);
+
+    let response = await serverRequester.fazerGet("/tutor");
+
+    let entitys = response["responseJson"];
+
+    entitys.forEach(tutor => {
+        let option = document.createElement("option");
+        option.value = tutor.cpf;
+        option.textContent = tutor.nome;
+        select.appendChild(option);
+    });
+}
+
 async function registerCurso(event) {
     event.preventDefault();
     let formData = new FormData();
@@ -1609,9 +1638,33 @@ function generateRadioAlternativaCorreta(title, group, value) {
     container.appendChild(radio);
 
     return container;
+
+}
+
+async function registerTurma(event){
+    event.preventDefault();
+    
+    // let form = document.getElementById("formAdicionarTurma")
+
+    let cursoId = document.getElementById("selectCursoParaTurma").value;
+
+    // let formData = new FormData();
+    let data = {
+    	"idCurso": cursoId,
+        "dataInicio": formatarDataDMA(document.getElementById("diaInicio").value),
+        "dataTermino": formatarDataDMA(document.getElementById("diaFim").value),
+        "cpfTutor": document.getElementById("escolhaDeTutor").value,
+        "cpfList": ["50553650807"]
+    }
+    
+    let response = await serverRequester.fazerPost("/turmas/cadastrar/" , data);
+
+    console.log(response);
 }
 
 loadAllCursos("selectCursoParaPilula");
 loadAllCursos("selectCursoQuestao");
 loadAllCursos("selectQuestaoPorCurso");
+loadAllCursos("selectCursoParaTurma");
 loadGestoresSelect("escolhaDeGestor");
+loadTutoresSelect("escolhaDeTutor");
