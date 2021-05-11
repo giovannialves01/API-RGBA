@@ -109,7 +109,7 @@ public class QuestaoController {
 	 * @autor Barbara Port
 	 */
 	@PutMapping("{id}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ResponseStatus(HttpStatus.OK)
 	@ApiOperation("Atualiza a questão através do seu ID")
     @ApiResponses({
         @ApiResponse(code = 200,message = "Questão atualizada com sucesso."),
