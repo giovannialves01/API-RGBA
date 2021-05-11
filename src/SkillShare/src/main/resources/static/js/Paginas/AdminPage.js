@@ -790,7 +790,7 @@ async function saveChanges(entityIdentifier, entity) {
     }else if(entity.constructor.name == "Pilula"){
         pathToUpdate = `/pilulas/${entity.getId()}`;
 
-        var data = {
+        let data = {
             id: entity.getId(),
             titulo: entity.getTitulo,
             descricao: entity.getDescricao()
@@ -816,14 +816,55 @@ async function saveChanges(entityIdentifier, entity) {
 
         console.log(entity);
 
+    }else if(entity.constructor.name == "Questao"){
+        pathToUpdate = "/questoes/" + entity.getId();
+        
+        var data = {};
+
+        data["alternativaCorreta"] = editableUser.querySelector('input[name="alternativaCorreta"]:checked').value;
+        data["curso"] = document.getElementById("selectQuestaoPorCurso").value;
+        data["id"] = entity.getId();
+
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
+            
+            switch (field.name){
+                case "enunciado":
+                    data["enunciado"] = field.value;
+                    break;
+    
+                case "alternativaA":
+                    data["alternativaA"] = field.value;
+                    break; 
+
+                case "alternativaB":
+                    data["alternativaB"] = field.value;
+                    break; 
+
+                case "alternativaC":
+                    data["alternativaC"] = field.value;
+                    break; 
+
+                case "alternativaD":
+                    data["alternativaD"] = field.value;
+                    break; 
+
+            }
+    
+        }
+
+        newEntity = new Questao(data);
+
     }
+
+
     axios({
         method: "put",
         url: pathToUpdate,
         data: data,
         headers: { "Content-Type": "application/json"},
     }).then((res)=>{
-        if(res.status==204){
+        if(res.status==200){
             alert("Alterado");
         }else{
             alert("Não alterado");
@@ -1516,10 +1557,10 @@ async function showQuestoesPorCurso(idCursoSelecionado) {
 
         let divAlternativas = document.createElement("div");
         divAlternativas.classList.add("questaoAlternativas");
-        let alternativaA = generateQuestaoAlternativa("Alternativa a)", questao.getAlternativaA());
-        let alternativaB = generateQuestaoAlternativa("Alternativa b)", questao.getAlternativaB());
-        let alternativaC = generateQuestaoAlternativa("Alternativa c)", questao.getAlternativaC());
-        let alternativaD = generateQuestaoAlternativa("Alternativa d)", questao.getAlternativaD());
+        let alternativaA = generateQuestaoAlternativa("Alternativa a)", questao.getAlternativaA(), "alternativaA");
+        let alternativaB = generateQuestaoAlternativa("Alternativa b)", questao.getAlternativaB(), "alternativaB");
+        let alternativaC = generateQuestaoAlternativa("Alternativa c)", questao.getAlternativaC(), "alternativaC");
+        let alternativaD = generateQuestaoAlternativa("Alternativa d)", questao.getAlternativaD(), "alternativaD");
 
         divAlternativas.appendChild(alternativaA);
         divAlternativas.appendChild(alternativaB);
@@ -1570,6 +1611,7 @@ async function showQuestoesPorCurso(idCursoSelecionado) {
         let textAreaEnunciado = document.createElement("textarea");
         textAreaEnunciado.classList.add("textAreaEnunciado")
         textAreaEnunciado.textContent = questao.getEnunciado();
+        textAreaEnunciado.name = "enunciado";
 
         divEnunciado.appendChild(titleEnunciado);
         divEnunciado.appendChild(textAreaEnunciado);
@@ -1601,7 +1643,7 @@ async function showQuestoesPorCurso(idCursoSelecionado) {
 
 }
 
-function generateQuestaoAlternativa(title, content) {
+function generateQuestaoAlternativa(title, content, name) {
     let container = document.createElement("div");
     container.classList.add("questaoAlternativaContainer");
     
@@ -1612,6 +1654,7 @@ function generateQuestaoAlternativa(title, content) {
     let textArea = document.createElement("textarea");
     textArea.classList.add("questaoAlternativaTexto");
     textArea.textContent = content;
+    textArea.name = name;
 
     container.appendChild(titleLabel);
     container.appendChild(textArea);
