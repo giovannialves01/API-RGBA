@@ -108,4 +108,18 @@ public class SessionManager {
 		return userAccessLevel;
 	}
 	
+	public static String getUserCpf(HttpSession sessao) {
+		String userCpf = "";
+		
+		try {
+			JSONObject user = (JSONObject) sessao.getAttribute("user");
+			userCpf = user.getString("cpf");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return userCpf;
+	}
+	
 }
