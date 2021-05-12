@@ -60,49 +60,49 @@ public class SkillShareApplication implements CommandLineRunner {
 		
 		//coloque algum codigo que precisa ser executado quando o servidor subir aqui
 		if(admRepository.findAll().isEmpty()) {
-			Adm adm = new Adm("1", "Bárbara Port", "barbara.port@skillshare.com", "1");
+			Adm adm = new Adm("12345678900", "Bárbara Port", "barbara.port@skillshare.com", "12345");
 			admRepository.save(adm);
 		}
 
 		if(gRepository.findAll().isEmpty()) {
 			Gestor gestor = new Gestor("11111111111", "Henrique dos Santos", "henrique.santos@skillshare.com", "henrique123");
 			gRepository.save(gestor);
+			
+			Gestor nicholasGestor = new Gestor("01234567899", "Nicholas dos Santos", "nicholas.roque@skillshare.com", "nicholas1234");
+			gRepository.save(nicholasGestor);
 		}
 
+//		Curso curso = new Curso("Curso de Informática Básica","Neste curso, serão apresentados os fundamentos da informática, além de como utilizar o pacote Office e como o computador funciona.");
+//		curso.setGestor(nicholasGestor);
+//
+//		Curso curso2= new Curso("Curso de Manutenção de Computadores","Neste curso, será apresentada uma introdução sobre o hardware dos computadores.");
+//		curso2.setGestor(nicholasGestor);
+//
+//		List<Curso> cursos= Arrays.asList(curso,curso2);
 
-		Gestor nicholasGestor = new Gestor("012345678910", "Nicholas Gabriel dos Santos Roque", "nicholas.roque@skillshare.com", "nicholas1234");
-		gRepository.save(nicholasGestor);
-
-		Curso curso = new Curso("Curso de Informática Básica","Neste curso, serão apresentados os fundamentos da informática, além de como utilizar o pacote Office e como o computador funciona.");
-		curso.setGestor(nicholasGestor);
-
-		Curso curso2= new Curso("Curso de Manutenção de Computadores","Neste curso, será apresentada uma introdução sobre o hardware dos computadores.");
-		curso2.setGestor(nicholasGestor);
-
-		List<Curso> cursos= Arrays.asList(curso,curso2);
-
-		//cursoRepository.saveAll(cursos);
+//		cursoRepository.saveAll(cursos);
 		
 		if(tRepository.findAll().isEmpty()) {
 			Tutor tutor = new Tutor("22222222222", "Nícolas Rafael Pereira", "nicholas.pereira@skillshare.com", "nicolas123");
 			tRepository.save(tutor);
+			
+			Tutor nicholasTutor = new Tutor("92359235923","Nicholas Tutor dos Santos","nicholas.tutor@rgba.com.br","12345");
+			tRepository.save(nicholasTutor);
+
 		}
 		
 		if(alunoRepository.findAll().isEmpty()) {
 			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
 			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "1234");
-			Tutor nicholasTutor = new Tutor("9235923592395","NicholasTutor","nicholas.tutor@rgba.com.br","12345");
 			
-			Turma turma1 = new Turma();
-			turma1.setTutor(nicholasTutor);
-			turma1.setCurso(curso);
+//			Turma turma1 = new Turma();
+//			turma1.setTutor(nicholasTutor);
+//			turma1.setCurso(curso);
+//
+//			Turma turma2 = new Turma();
+//			turma2.setTutor(nicholasTutor);
+//			turma2.setCurso(curso2);
 
-			Turma turma2 = new Turma();
-			turma2.setTutor(nicholasTutor);
-			turma2.setCurso(curso2);
-
-
-			tRepository.save(nicholasTutor);
 			alunoRepository.save(rafael);
 			alunoRepository.save(nicholasAluno);
 

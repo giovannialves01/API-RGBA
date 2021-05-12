@@ -41,7 +41,7 @@ public class PathController {
 		
 	}
 	
-	@GetMapping(value = "/tutorPage")
+	@GetMapping(value = "/tutoria")
 	public String tutorPage(HttpSession sessao) {
 		boolean permitido = SessionManager.checkPermission(sessao, "tutor");
 			
