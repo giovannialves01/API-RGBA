@@ -34,12 +34,12 @@ window.onload = async function carregarConteudo() {
 	    	
 				console.log(res);
 
-				let porcentagemProgressoCurso = document.getElementById("totalProgressoCurso");
-				let barraProgresso = document.getElementById("barraProgressoAluno");
+				//let porcentagemProgressoCurso = document.getElementById("totalProgressoCurso");
+				//let barraProgresso = document.getElementById("barraProgressoAluno");
 
 
 				let progressoScorm = "1";
-				if (res.registrationCompletion == "COMPLETED") {
+				/* if (res.registrationCompletion == "COMPLETED") {
 					porcentagemProgressoCurso.textContent = "100%";
 				}
 				else {
@@ -48,7 +48,7 @@ window.onload = async function carregarConteudo() {
 					porcentagemProgressoCurso.textContent = progressoPorcentagem + "%";
 
 					barraProgresso.style.width = progressoPorcentagem + "%";
-				}
+				} */
 
 				let diaInicio = document.getElementById("dataInicioCurso");
 				if (res.firstAccessDate) {
