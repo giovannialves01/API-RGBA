@@ -569,7 +569,7 @@ async function deleteEntity(entityIdentifier, entity) {
         pathToDelete = "/questoes/" + entity.getId();
     }
     else if(entityType == "Turma"){
-        pathToDelete = "/turma/" + entity.getId();
+        pathToDelete = "/turmas/" + entity.getId();
     }
 
     axios({
@@ -859,7 +859,8 @@ async function saveChanges(entityIdentifier, entity) {
         newEntity = new Questao(data);
 
     }else if(entity.constructor.name == "Turma"){
-        pathToUpdate = `/turma/${entity.getId()}`;
+        console.log(entity.toData());
+        pathToUpdate = `/turmas/${entity.getId()}`;
         var data = {
             cpfTutor: entity.getTutor().cpf,
             dataInicio: entity.getDataInicio,
@@ -867,7 +868,7 @@ async function saveChanges(entityIdentifier, entity) {
         }
         fields.forEach(field => {
             switch (field.name){
-                case "cpfTutor":
+                case "tutor":
                     data.cpfTutor = field.value
                     break;
                 case "dataTermino":
@@ -890,7 +891,7 @@ async function saveChanges(entityIdentifier, entity) {
           console.log(err);
         });
 
-
+        console.log(data);
         newEntity = new Turma(entity.toData());
 
     }
@@ -902,7 +903,7 @@ async function saveChanges(entityIdentifier, entity) {
         data: data,
         headers: { "Content-Type": "application/json"},
     }).then((res)=>{
-        if(res.status==200){
+        if(res.status==204){
             alert("Alterado");
         }else{
             alert("Não alterado");
@@ -1795,7 +1796,7 @@ async function gerirTurmasToShow() {
 
         turmaClass.setDataInicio(turma.dataInicio);
         turmaClass.setDataTermino(turma.dataTermino);
-        turmaClass.setTutor(turma.tutor.cpf);
+        turmaClass.setTutor(turma.tutor);
 
         let entityContainer = document.createElement("div");
         entityContainer.classList.add("contentBox");
@@ -1811,7 +1812,7 @@ async function gerirTurmasToShow() {
 
         let fieldDataInicio = createFieldBox("Data de início: ", turmaClass.getDataInicio(), "dataInicio");
         let fieldDataTermino = createFieldBox("Data de término: ", turmaClass.getDataTermino(), "dataTermino");
-        let fieldTutor = createFieldBox("Tutor: ", turmaClass.getTutor(), "tutor");
+        let fieldTutor = createFieldBox("Tutor: ", turmaClass.getTutor().cpf, "tutor");
 
         div1.appendChild(fieldDataInicio);
         div1.appendChild(fieldDataTermino);

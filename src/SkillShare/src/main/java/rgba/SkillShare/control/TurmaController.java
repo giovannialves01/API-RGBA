@@ -221,7 +221,7 @@ public class TurmaController {
     * @author Nicholas Roque
     */
     @DeleteMapping("{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.OK)
     @ApiOperation("Deleta a turma especificada pelo id.")
     @ApiResponses({
         @ApiResponse(code = 204,message = "Turma deletada com sucesso."),
@@ -231,6 +231,7 @@ public class TurmaController {
         turmaRepository
             .findById(id)
             .map(t->{
+                t.getAlunos().removeAll(t.getAlunos());
                 turmaRepository.delete(t);
                 return ResponseEntity.noContent().build();
             })
@@ -330,7 +331,16 @@ public class TurmaController {
             .findById(id)
             .map(t->{
                 t.setDataTermino(turma.getDataTermino());
-                t.setTutor(tutorRepository.findById(turma.getCpfTutor()).get());
+                t.setDataInicio(turma.getDataInicio());
+                if(!t.getTutor().getCpf().equals(turma.getCpfTutor())){
+                    tutorRepository.findById(turma.getCpfTutor())
+                    .ifPresentOrElse((tutor)->{
+                        t.setTutor(tutor);
+
+                    },()->{
+                        new ResponseStatusException(HttpStatus.NOT_FOUND,"Tutor não encontrado para o cpf informado.");         
+                    });
+                }
                 turmaRepository.save(t);
                 return ResponseEntity.noContent().build();
             })
