@@ -26,6 +26,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.data.GetTurmaByAlunoSession;
 import rgba.SkillShare.data.GetTurmasByAlunoSession;
 import rgba.SkillShare.data.PostTurma;
 import rgba.SkillShare.data.PutTurma;
@@ -210,11 +211,39 @@ public class TurmaController {
         	return turmas;
         })
         .orElseThrow(()->
-            new ResponseStatusException(HttpStatus.NOT_FOUND,"Turma não encontrada para o cpf informado.")
+            new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado para o cpf informado.")
         );
 
     }
+/** 
+    *  Endpoint para retornar uma turma de um curso do aluno que está logado através do id do curso e da sessão.
+    * @return Retorna um objeto do tipo Turma.
+    * @param HttpSession session -> sessão do Java
+    * @param Long id -> id do Curso
+    * @author Barbara Port
+    */
+    @GetMapping("/curso/{id}/aluno")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna uma turma de um curso do aluno que está logado através do id do curso.")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Curso encontrado com sucesso para o id informado."),
+        @ApiResponse(code = 404,message = "Curso não encontrado para o id informado.")
+    })
+    public GetTurmaByAlunoSession getTurmaByAlunoSession(@ApiParam("Dados da sessão do aluno") HttpSession session, @PathVariable Long id) {
 
+        return cursoRepository
+        .findById(id).map((curso)->{
+            Turma turma = turmaRepository.findByCurso(curso);
+        	GetTurmaByAlunoSession res = new GetTurmaByAlunoSession();
+            res.setCpfAluno(SessionManager.getUserCpf(session));
+            res.setTurma(turma);
+        	return res;
+        })
+        .orElseThrow(()->
+            new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrado para o id informado.")
+        );
+
+    }
      /** 
     *  Endpoint para deletar uma turma especificada pelo id.
     * @param id-> id da turma a ser deletada
