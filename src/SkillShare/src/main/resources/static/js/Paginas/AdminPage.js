@@ -1424,39 +1424,56 @@ async function loadLog(){
     }
 
 }
-function carregarcursos(){
-    let resposta = serverRequester.fazerGet("/cursos");
+async function carregarcursos(){
+    let resposta = await serverRequester.fazerGet("/cursos");
     let entidades = resposta["responseJson"];
     let container = document.getElementById("cursos");
+    container.innerHTML = "";
     for (let i = 0; i < entidades.length; i++) {
         const element = entidades[i];
 
         let curso = new Curso(element);
+        let containerIdentifier = "curso" + (i + 1);
 
-        let divprincipal = document.createElement("div");
-        let divdescricao = document.createElement("div");
-        let divturmas = document.createElement("div");
-        let divcolimagem = document.createElement("div");
-        let divcoldescricao = document.createElement("div");
-        divcoldescricao.classList.add("columnContainer");
-        let divgestor = document.createElement("div");
-        divgestor.classList.add("columnContainer");
+        let mainDiv = document.createElement("div");
+        mainDiv.classList.add("containerCurso");
+        mainDiv.id = containerIdentifier;
 
-        let imagem = document.createElement("img");
+        let divDetalhes = document.createElement("div");
+        divDetalhes.classList.add("detalhesCurso");
+        
+        let divThumb = document.createElement("div");
+        let thumb = document.createElement("img");
+        let imgTipo = curso.getThumb()["arquivo"]["tipoArquivo"];
+        let imgArquivo = curso.getThumb()["arquivo"]["conteudo"];
+        thumb.setAttribute("src", `data:` + imgTipo + `;base64,` + imgArquivo);
+        thumb.classList.add("thumbCurso");
+        divThumb.appendChild(thumb);
 
-        let nome = createDataContainer("Nome:", curso.getTitulo());
-        let descricao = createDataContainer("Descrição:", curso.getDescricao());
-        let gestor = createDataContainer("Gestor:", curso.getGestor());
-        let tutor = createDataContainer("Tutor:", curso.getTutor());
-        let curso1 = createDataContainer("Curso:", curso.getTitulo());
+        let divNomeDescricao = document.createElement("div");
+        let divNome = createFieldBox("Nome:", curso.getTitulo(), "titulo");
+        let divDescricao = createTextFieldBox("Descrição:", curso.getDescricao(), "descricao");
+        divNomeDescricao.appendChild(divNome);
+        divNomeDescricao.appendChild(divDescricao);
 
-        divcolimagem.appendChild(imagem);
-        divcoldescricao.appendChild(nome);
-        divcoldescricao.appendChild(descricao);
-        divgestor.appendChild(gestor);
-        divgestor.appendChild(tutor);
-        divgestor.appendChild(curso1);
+        let manageButtons = createManageButtons(containerIdentifier, curso);
 
+        divDetalhes.appendChild(divThumb);
+        divDetalhes.appendChild(divNomeDescricao);
+        divDetalhes.appendChild(manageButtons);
+
+        mainDiv.appendChild(divDetalhes);
+
+        container.appendChild(mainDiv);
+
+        if(i < entidades.length - 1){
+            let separador = document.createElement("div");
+            separador.classList.add("separador");
+
+            container.appendChild(separador);
+
+        }
+        
     }
 
 }

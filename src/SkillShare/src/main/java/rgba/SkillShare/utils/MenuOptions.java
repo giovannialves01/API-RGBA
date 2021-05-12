@@ -155,7 +155,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		 
 		subOptions.put(this.criarSubOpcao("Criar novo curso", "hideAllContent();showContent('cadastroCurso');"));
-		subOptions.put(this.criarSubOpcao("Gerir cursos", "hideAllContent();showContent('listarcursos');"));
+		subOptions.put(this.criarSubOpcao("Gerir cursos", "hideAllContent();showContent('listarcursos');carregarcursos();"));
 		subOptions.put(this.criarSubOpcao("Criar nova pílula", "hideAllContent();showContent('adicionarPilula');"));
 		subOptions.put(this.criarSubOpcao("Gerir pílulas", "hideAllContent();showContent('mostrarGerirPilulas');loadPilulasToShow();"));
 		subOptions.put(this.criarSubOpcao("Criar nova turma", "hideAllContent();showContent('turmasToShow');"));

@@ -38,10 +38,10 @@ window.onload = async function carregarConteudo () {
 	    	
 	    	let cursoScorm = getProgressoAluno(turmas[i].curso.id + res.cpfAluno, token).then((res) => {
 	    	
-	    		let progressoScorm = res.activityDetails.children[0].runtime.progressMeasure;
+	    		let progressoScorm = res.registrationCompletionAmount;
 	    		let progressoPorcentagem = progressoScorm * 100;
 	    		
-	    		divProgresso.style.width = progressoPorcentagem.toString();
+	    		divProgresso.style.width = progressoPorcentagem + "%";
 	    	});
 	    	
 	    	
@@ -50,7 +50,7 @@ window.onload = async function carregarConteudo () {
 	    	divCurso.appendChild(divBarraProgresso);
 	    	
 	    	var aLinkCurso = document.createElement("a");
-	    	aLinkCurso.href = turmas[i].curso.id;
+	    	aLinkCurso.href = "/detalhesCurso" + turmas[i].curso.id;
 	    	aLinkCurso.style.textDecoration = "none";
 	    	aLinkCurso.style.color = "black";
 	    	

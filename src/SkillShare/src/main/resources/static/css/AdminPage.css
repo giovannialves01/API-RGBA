@@ -649,3 +649,23 @@ textarea.userDataFieldEnabled{
 .questaoAlternativas{
     width: 50%;
 }
+
+.detalhesCurso{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.containerCurso{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.thumbCurso{
+    width: 270px;
+    height: 270px;
+    border-radius: 150px;
+    margin-right: 25px;
+}

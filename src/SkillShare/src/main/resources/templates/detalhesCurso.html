@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destalhes curso</title>
+    <title>Detalhes do Curso | SkillShare</title>
 
     <!-- CDN das depedências externas -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -25,6 +28,7 @@
     <link rel="stylesheet" href="css/Footer.css">
     <link rel="stylesheet" href="css/detalhesCurso.css">
 
+    <script src="js/Utils/renderIMG.js"></script>
     <script src="js/Utils/ServerRequester.js"></script>
     <script src="js/Utils/sendFile.js"></script>
 
@@ -33,7 +37,6 @@
     <script src="js/Componentes/BeautyInput.js"></script>
     <script src="js/Componentes/BeautyTable.js"></script>
     <script src="js/Componentes/Menu.js"></script>
-    <script defer src="js/Paginas/AdminPage.js"></script>
     <script src="js/Componentes/TopBar.js"></script>
     <script src="js/Componentes/Footer.js"></script>
 
@@ -45,39 +48,46 @@
     <script src="js/Entidades/Log.js"></script>
 
     <script defer src="js/Scorm/auth.js"></script>
+    <script defer src="js/Scorm/getLinkCurso.js"></script>
     <script defer src="js/Scorm/getImportStatus.js"></script>
+    <script defer src="js/Scorm/getProgressoAluno.js"></script>
     <script defer src="js/Scorm/uploadScorm.js"></script>
 
+    <script defer src="js/Paginas/detalhesCurso.js"></script>
+
 </head>
 </head>
+
 <body>
-	<top-bar></top-bar>
+    <top-bar></top-bar>
     <menu-rgba></menu-rgba>
 
-	<div id="detalhesCurso" class="">
-            <p id="title">
-                Desenvolvimento Mobile: Linguagem Swift
-            </p>
-	
-	<div class="flx">
-		<div id="imge">
-			<img id="image-1" alt="teste" src=""/>
-		</div>
-		<div id="button">
-			<div id="texto">
-				<p>então né, só tp escrvendo qualquer coisa pra ver como vai sair a endentação aqui, enquanto vejo o bronzeocre falando do bronzinzil perdendo nessa porra de msi lixo do caralho, vai toma no cu brtt e lucy, bando de debimental peso morto do caralhoo.
-			</div>	
-			<div>	
-				<input type="button" class="button" value="Entrar no Curso">
-			</div>
-		</div>
-	</div>
-	<p>Gerido por taltal e tutorado por taltal</p>
-		<div class="separador"></div>
-		<p>Voce iniciou esse curso no dia 01/01/1970 e ainda nao finalizou. Seu tempo total é de 8 horas e seu progresso é de xx%w</p>
-	</div>
-	
-	<footer-rgba></footer-rgba>
-	
+    <div id="detalhesCurso" class="">
+        <p id="titleCurso" class="titleCurso"></p>
+        <div class="flx">
+            <div class="imge">
+                <img id="image-1" alt="teste"/>
+                <div class="barraProgresso">
+                    <div class="progresso" id="barraProgressoAluno"></div>
+                </div>
+            </div>
+            <div id="button">
+                <div id="texto" class="texto">
+                    <p id="descricao"><span id="descricaoCurso"></span></p>
+                </div>
+                <div>
+                    <a href="http://" class="button" id="linkCurso">Entrar no curso</a>
+                </div>
+            </div>
+        </div>
+        <p>Gerido por <b><span id="gestorCurso"></span></b>.</p>
+        <div class="separador"></div>
+        <p><span id="dataInicioCurso"></span> e <span id="finalizacaoCurso"></span>. Seu tempo total é de <span id="totalHorasCurso"></span> e seu progresso
+            é de <span id="totalProgressoCurso"></span>.</p>
+    </div>
+
+    <footer-rgba></footer-rgba>
+
 </body>
+
 </html>
