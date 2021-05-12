@@ -1779,6 +1779,62 @@ async function registerTurma(event){
 
 }
 
+async function gerirTurmasToShow() {
+    let container = document.getElementById("gerirTurmasToShow");
+    container.innerHTML = "";
+
+    let response = await serverRequester.fazerGet("/turmas");
+
+    let turmas = response["responseJson"];
+
+    turmas.forEach(turma => {
+
+        let turmaClass = new Turma(turma);
+
+        let entityIdentifier = "turma" + (turmas.indexOf(turma) + 1);
+
+        turmaClass.setDataInicio(turma.dataInicio);
+        turmaClass.setDataTermino(turma.dataTermino);
+        turmaClass.setTutor(turma.tutor.cpf);
+
+        let entityContainer = document.createElement("div");
+        entityContainer.classList.add("contentBox");
+        entityContainer.style.width = "90%";
+        entityContainer.id = entityIdentifier;
+
+        let fieldsContainer = document.createElement("div");
+        fieldsContainer.style.width = "60%";
+
+        let div1 = document.createElement("div");
+        div1.style.display = "flex";
+        div1.style.flexDirection = "row";
+
+        let fieldDataInicio = createFieldBox("Data de início: ", turmaClass.getDataInicio(), "dataInicio");
+        let fieldDataTermino = createFieldBox("Data de término: ", turmaClass.getDataTermino(), "dataTermino");
+        let fieldTutor = createFieldBox("Tutor: ", turmaClass.getTutor(), "tutor");
+
+        div1.appendChild(fieldDataInicio);
+        div1.appendChild(fieldDataTermino);
+        div1.appendChild(fieldTutor);
+        
+        let manageButtons = createManageButtons(entityIdentifier, turmaClass);
+
+        fieldsContainer.appendChild(div1);
+
+        entityContainer.appendChild(fieldsContainer);
+        entityContainer.appendChild(manageButtons);
+
+        container.appendChild(entityContainer);
+
+        let separador = document.createElement("div");
+        separador.classList.add("separador");
+
+        container.appendChild(separador);
+
+    });
+
+}
+
 loadAllCursos("selectCursoParaPilula");
 loadAllCursos("selectCursoQuestao");
 loadAllCursos("selectQuestaoPorCurso");

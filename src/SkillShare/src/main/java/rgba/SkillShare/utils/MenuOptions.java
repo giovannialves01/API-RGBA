@@ -159,7 +159,7 @@ public class MenuOptions {
 		subOptions.put(this.criarSubOpcao("Criar nova pílula", "hideAllContent();showContent('adicionarPilula');"));
 		subOptions.put(this.criarSubOpcao("Gerir pílulas", "hideAllContent();showContent('mostrarGerirPilulas');loadPilulasToShow();"));
 		subOptions.put(this.criarSubOpcao("Criar nova turma", "hideAllContent();showContent('turmasToShow');"));
-		subOptions.put(this.criarSubOpcao("Gerir turmas", "console.log(\"Gerir turmas\");"));
+		subOptions.put(this.criarSubOpcao("Gerir turmas", "hideAllContent();showContent('mostrarGerirTurmas');gerirTurmasToShow();"));
 		
 		option = this.criarOpcao("Cursos", "chalkboard-teacher", "2", "Clique aqui para exibir a janela de cursos", subOptions);
 		
