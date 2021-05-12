@@ -14,10 +14,7 @@
     <script defer src="js/Scorm/deleteAlunoScorm.js"></script>
     <script defer src="js/Scorm/getProgressoAluno.js"></script>
 
-
-    
-
-
+	<script src="js/Entidades/Turma.js"></script>
 
 </head>
 <body>
@@ -99,6 +96,22 @@
                 })
             })
         }
+        $(document).ready(()=>{
+            axios({
+                method: "get",
+                url: `http://localhost:8080/turmas`,
+            })
+            .then(function (response) {
+              console.log("-------------------SUCESSO GET TURMAS-------------------");
+              let t = new Turma(response.data[0])
+              console.log(t.toData()); 
+            
+            })
+            .catch(function (err) {
+              console.log("-------------------ERRO GET TURMAS-------------------");
+              console.log(err);
+            });
+        })
     </script>
 </body>
 </html>

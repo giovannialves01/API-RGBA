@@ -568,6 +568,9 @@ async function deleteEntity(entityIdentifier, entity) {
     }else if(entityType == "Questao"){
         pathToDelete = "/questoes/" + entity.getId();
     }
+    else if(entityType == "Turma"){
+        pathToDelete = "/turma/" + entity.getId();
+    }
 
     axios({
         method: "delete",
@@ -854,6 +857,41 @@ async function saveChanges(entityIdentifier, entity) {
         }
 
         newEntity = new Questao(data);
+
+    }else if(entity.constructor.name == "Turma"){
+        pathToUpdate = `/turma/${entity.getId()}`;
+        var data = {
+            cpfTutor: entity.getTutor().cpf,
+            dataInicio: entity.getDataInicio,
+            dataTermino: entity.getDataTermino
+        }
+        fields.forEach(field => {
+            switch (field.name){
+                case "cpfTutor":
+                    data.cpfTutor = field.value
+                    break;
+                case "dataTermino":
+                    data.dataTermino = field.value
+                    break;
+                case "dataInicio":
+                    data.dataInicio = field.value
+            }
+        });
+        entity.setDataInicio(data.dataInicio)
+        entity.setDataTermino(data.dataTermino)
+        axios({
+            method: "get",
+            url: `http://localhost:8080/tutor/${data.cpfTutor}`,
+        })
+        .then(function (response) {
+            entity.setTutor(response.data)
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+
+
+        newEntity = new Turma(entity.toData());
 
     }
 
