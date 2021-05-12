@@ -245,7 +245,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Em breve", "console.log(\"Em breve\");"));
+		subOptions.put(this.criarSubOpcao("Em breve", "hideAllContent();showContent('meusCursos');"));
 		
 		option = this.criarOpcao("Turmas", "user-graduate", "14", "Clique aqui para visualizar todas as suas turmas!",
 				subOptions);
