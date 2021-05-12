@@ -33,13 +33,13 @@ window.onload = async function carregarConteudo() {
 			let cursoScorm = getProgressoAluno(registrationId, token).then((res) => {
 	    	
 				console.log(res);
-
-				//let porcentagemProgressoCurso = document.getElementById("totalProgressoCurso");
-				//let barraProgresso = document.getElementById("barraProgressoAluno");
+/* 
+				let porcentagemProgressoCurso = document.getElementById("totalProgressoCurso");
+				let barraProgresso = document.getElementById("barraProgressoAluno");
 
 
 				let progressoScorm = "1";
-				/* if (res.registrationCompletion == "COMPLETED") {
+				if (res.registrationCompletion == "COMPLETED") {
 					porcentagemProgressoCurso.textContent = "100%";
 				}
 				else {
@@ -59,7 +59,7 @@ window.onload = async function carregarConteudo() {
 				}
 
 				let diaTermino = document.getElementById("finalizacaoCurso");
-				if (progressoScorm != "1"){
+				if (res.registrationCompletion != "COMPLETED"){
 					diaTermino.textContent = "ainda não o finalizou";
 				}
 				else {
