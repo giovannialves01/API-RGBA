@@ -31,6 +31,7 @@
 
 	<script src="js/Utils/ServerRequester.js"></script>
 	<script src="js/Utils/sendFile.js"></script>
+	<script src="js/Utils/listAlunosCadastroTurma.js"></script>
 
 	<script src="js/Componentes/BeautySelect.js"></script>
 	<script src="js/Componentes/BeautyButton.js"></script>
@@ -589,6 +590,19 @@
 					<label class="titleLabel">Escolha um tutor:</label> <select name="tutor" id="escolhaDeTutor">
 						<option selected disabled>Escolha um tutor...</option>
 					</select>
+				</div>
+				<div>
+					<label class="titleLabel">Escolha os alunos:</label>
+					<table class="tableTurma">
+					  <thead class="theadTurma">
+					    <tr>
+					      <th align="left">Nome</th>
+					      <th align="left">CPF</th>
+					    </tr>
+					  </thead>
+					  <tbody class="tbodyTurma" id="tbodyTurma">
+					  </tbody>
+					</table>	
 				</div>
 				<div class="buttonContainer">
 					<input type="submit" class="greenButton" value="Adicionar">
