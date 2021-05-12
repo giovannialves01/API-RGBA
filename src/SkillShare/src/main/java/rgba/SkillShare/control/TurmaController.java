@@ -377,4 +377,30 @@ public class TurmaController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Turma não encontrada para o id informado.")         
             );
     }
+
+    /** 
+    *  Endpoint para retornar uma lista de  turmas através de um determinado id de um curso.
+    * @return Retorna uma lista de objetos do tipo Turma.
+    * @param id -> id do curso
+    * @author Nicholas Roque
+    */
+    @GetMapping("/turma/curso/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna uma lista de turmas de um curso com determinado id.")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Turmas encontradas com sucesso para o curso do id informado."),
+        @ApiResponse(code = 404,message = "Turmas não encontradas para o curso do id informado.")
+    })
+    public List<Turma> getTurmaByCursoId(@ApiParam("Id do curso") @PathVariable Long id) {
+
+        return cursoRepository
+        .findById(id)
+        .map(curso->{
+            return curso.getTurmas();
+        })
+        .orElseThrow(()->
+            new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrado para o id informado.")
+        );
+
+    }
 }
