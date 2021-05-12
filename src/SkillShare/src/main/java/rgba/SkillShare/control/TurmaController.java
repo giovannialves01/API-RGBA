@@ -98,7 +98,20 @@ public class TurmaController {
 
         return turma;
     }
+/** 
+    *  Endpoint para retornar uma lista de todas as turmas.
+    * @return Retorna uma lista de turmas
+    * @author Nicholas Roque
+    */
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna uma lista de todas as turmas.")
+    @ApiResponse(code = 200,message = "Turmas encontradas com sucesso.")
+    public List<Turma> getAllTurmas() {
 
+        return turmaRepository.findAll();
+
+    }
     /** 
     *  Endpoint para retornar uma turma através de um determinado id.
     * @return Retorna um objeto do tipo Turma.
