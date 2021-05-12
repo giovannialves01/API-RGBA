@@ -8,6 +8,7 @@ class Curso {
             this.questoes;
             this.gestor;
             this.tutor;
+            this.thumb;
             
 
         }else{
@@ -18,6 +19,7 @@ class Curso {
             this.questoes = cursoData["questoes"];
             this.gestor = cursoData["gestor"];
             this.tutor = cursoData["tutor"];
+            this.thumb = cursoData["thumb"];
 
         }
 
@@ -51,9 +53,17 @@ class Curso {
         return this.tutor;
     }
 
+    getThumb(){
+        return this.thumb;
+    }
+
 
     setId (id){
         this.id = id;
+    }
+
+    setThumb (thumb){
+        this.thumb = thumb;
     }
 
     setTitulo (titulo) {

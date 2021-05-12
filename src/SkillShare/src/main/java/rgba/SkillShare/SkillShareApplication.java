@@ -81,7 +81,7 @@ public class SkillShareApplication implements CommandLineRunner {
 
 		List<Curso> cursos= Arrays.asList(curso,curso2);
 
-		cursoRepository.saveAll(cursos);
+		//cursoRepository.saveAll(cursos);
 		
 		if(tRepository.findAll().isEmpty()) {
 			Tutor tutor = new Tutor("22222222222", "Nícolas Rafael Pereira", "nicholas.pereira@skillshare.com", "nicolas123");
