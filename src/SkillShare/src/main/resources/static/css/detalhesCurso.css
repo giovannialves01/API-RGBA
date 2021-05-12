@@ -1,34 +1,56 @@
-#title{
+.titleCurso {
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
 }
-#imge{
+.imge{
 	display: flex;
-	height: 350px;
-	width: 670px;
+	flex-direction: column;
+	height: 50%;
+	width: 50%;
+	margin-right: 20px;
+	margin-bottom: 0px;
+}
+.imge img {
+	border-top-left-radius: 5%;
+	border-top-right-radius: 5%;
 }
 #detalhesCurso{
 	margin: 100px 7% 0 7%;
 }
-#texto{
-
- 	width: 400px;
- 	height: 280px;
+.texto{
+ 	width: 300px;
+ 	height: auto;
 }
 .flx{
 	display: flex;
 }
 .button{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 45px;
     width: 100%;
     text-align: center;
     border: none;
     border-radius: 40px;
-    background-color: #0AADA7;	
+    background-color: #0AADA7;
+    color: white;
+    text-decoration: none;	
+    cursor: pointer;
 }
-#button{
-	display: block;
-	margin-left: 90px;
+.barraProgresso {
+	width: 100%;
+	background-color: #E5E5E5;
+	height: 17px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	margin-top: 0px;
+}
+
+.barraProgresso .progresso {
+	background-color: #0AADA7;
+	height: 17px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 }
