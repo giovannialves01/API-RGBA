@@ -1526,6 +1526,10 @@ async function carregarcursos(){
         titleManageTurmas.textContent = "Turmas desse curso";
         let botaoAdicionarTurma = document.createElement("button");
         botaoAdicionarTurma.textContent = "Adicionar turma";
+        botaoAdicionarTurma.onclick = function (){
+            console.log("Adicionando nova turma");
+            console.log(divTurmas);
+        }
 
         divManageTurmas.appendChild(manageTurmasIcone);
         divManageTurmas.appendChild(titleManageTurmas);
@@ -1538,8 +1542,10 @@ async function carregarcursos(){
             
             let turma = new Turma(turmaData);
 
+            let turmaIdentifier = containerIdentifier + "-" + turma + (x + 1);
             let turmaContainer = document.createElement("div");
             turmaContainer.classList.add("turmaContainerCurso");
+            turmaContainer.id = turmaIdentifier;
 
             let divManageTurma = document.createElement("div");
             divManageTurma.classList.add("manageTurmaCurso");
@@ -1549,6 +1555,10 @@ async function carregarcursos(){
             labelTitleTurma.textContent = "Início em " + turma.getDataInicio() + " e finalização em " + turma.getDataTermino();
             let botaoAdicionarAluno = document.createElement("button");
             botaoAdicionarAluno.textContent = "Adicionar aluno";
+            botaoAdicionarAluno.onclick = function (){
+                console.log("Adicionando aluno");
+                console.log(turmaContainer);
+            }
 
             divManageTurma.appendChild(iconeTurma);
             divManageTurma.appendChild(labelTitleTurma);
@@ -1572,6 +1582,10 @@ async function carregarcursos(){
                 alunoNome.textContent = aluno.getNome();
                 let alunoBotaoExcluir = document.createElement("span");
                 alunoBotaoExcluir.className = "fas fa-times deleteUserTurmaCurso";
+                alunoBotaoExcluir.onclick = function (){
+                    console.log("Removendo aluno");
+                    console.log(alunoContainer);
+                }
 
                 alunoContainer.appendChild(alunoIcone);
                 alunoContainer.appendChild(alunoNome);
