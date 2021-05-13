@@ -1462,6 +1462,7 @@ async function carregarcursos(){
         const element = entidades[i];
 
         let curso = new Curso(element);
+
         let containerIdentifier = "curso" + (i + 1);
 
         let mainDiv = document.createElement("div");
@@ -1489,7 +1490,7 @@ async function carregarcursos(){
         })
         .then(function (response) {
             curso.setGestor(response.data.cpf)          
-            let divGestor = createTextFieldBox("Gestor:",curso.getGestor(), "gestor");
+            let divGestor = createFieldBox("Gestor:", curso.getGestor(), "gestor");
             divNomeDescricao.appendChild(divNome);
             divNomeDescricao.appendChild(divDescricao);
             divNomeDescricao.appendChild(divGestor);
@@ -1510,6 +1511,81 @@ async function carregarcursos(){
         divDetalhes.appendChild(manageButtons);
 
         mainDiv.appendChild(divDetalhes);
+
+        let respostaTurmas = await serverRequester.fazerGet("/turmas/turma/curso/" + curso.getId());
+        let turmas = respostaTurmas["responseJson"];
+
+        let divTurmas = document.createElement("div");
+        divTurmas.classList.add("turmasCurso");
+
+        let divManageTurmas = document.createElement("div");
+        divManageTurmas.classList.add("manageTurmas");
+        let manageTurmasIcone = document.createElement("Span");
+        manageTurmasIcone.className = "fas fa-users";
+        let titleManageTurmas = document.createElement("label");
+        titleManageTurmas.textContent = "Turmas desse curso";
+        let botaoAdicionarTurma = document.createElement("button");
+        botaoAdicionarTurma.textContent = "Adicionar turma";
+
+        divManageTurmas.appendChild(manageTurmasIcone);
+        divManageTurmas.appendChild(titleManageTurmas);
+        divManageTurmas.appendChild(botaoAdicionarTurma);
+
+        divTurmas.appendChild(divManageTurmas);
+
+        for (let x = 0; x < turmas.length; x++) {
+            const turmaData = turmas[x];
+            
+            let turma = new Turma(turmaData);
+
+            let turmaContainer = document.createElement("div");
+            turmaContainer.classList.add("turmaContainerCurso");
+
+            let divManageTurma = document.createElement("div");
+            divManageTurma.classList.add("manageTurmaCurso");
+            let iconeTurma = document.createElement("span");
+            iconeTurma.className = "fas fa-graduation-cap";
+            let labelTitleTurma = document.createElement("label");
+            labelTitleTurma.textContent = "Início em " + turma.getDataInicio() + " e finalização em " + turma.getDataTermino();
+            let botaoAdicionarAluno = document.createElement("button");
+            botaoAdicionarAluno.textContent = "Adicionar aluno";
+
+            divManageTurma.appendChild(iconeTurma);
+            divManageTurma.appendChild(labelTitleTurma);
+            divManageTurma.appendChild(botaoAdicionarAluno);
+
+            turmaContainer.appendChild(divManageTurma);
+
+            let alunos = turma.getAlunos();
+
+            for (let y = 0; y < alunos.length; y++) {
+                const alunoData = alunos[y];
+                
+                let aluno = new Usuario(alunoData);
+
+                let alunoContainer = document.createElement("div");
+                alunoContainer.classList.add("alunoTurmaCurso");
+
+                let alunoIcone = document.createElement("span");
+                alunoIcone.className = "fas fa-user";
+                let alunoNome = document.createElement("label");
+                alunoNome.textContent = aluno.getNome();
+                let alunoBotaoExcluir = document.createElement("span");
+                alunoBotaoExcluir.className = "fas fa-times deleteUserTurmaCurso";
+
+                alunoContainer.appendChild(alunoIcone);
+                alunoContainer.appendChild(alunoNome);
+                alunoContainer.appendChild(alunoBotaoExcluir);
+
+                turmaContainer.appendChild(alunoContainer);
+
+            }
+
+            divTurmas.appendChild(turmaContainer);
+
+        }
+
+        mainDiv.appendChild(divTurmas);
 
         container.appendChild(mainDiv);
 

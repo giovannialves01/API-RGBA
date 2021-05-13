@@ -682,3 +682,43 @@ textarea.userDataFieldEnabled{
     border-radius: 150px;
     margin-right: 25px;
 }
+
+.turmasCurso{
+    padding: 5px;
+    margin-top: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.manageTurmas > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.turmaContainerCurso{
+    margin-left: 20px;
+}
+
+.turmaContainerCurso > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.alunoTurmaCurso{
+    margin-left: 20px;
+}
+
+.alunoTurmaCurso > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.deleteUserTurmaCurso{
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+}
+
+.manageTurmaCurso > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
