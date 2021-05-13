@@ -4,15 +4,11 @@ window.onload = async function carregarConteudo() {
 	let quaseid = url.split("tutoriaCurso");
 	let id = quaseid[1];
 
-     console.log(id);
-
 	let divTodasTurmas = document.getElementById("todasTurmas");
 
 	let resposta = await serverRequester.fazerGet("/turmas/turma/tutor");
 
 	let turmas = resposta.responseJson;
-
-	console.log(turmas);
 
      for (let i = 0; i < turmas.length; i++) {
 		if (turmas[i].curso.id == id) {

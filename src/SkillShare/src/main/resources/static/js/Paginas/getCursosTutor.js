@@ -7,34 +7,39 @@ window.onload = async function carregarConteudo() {
 
      let turmas = resposta.responseJson;
 
-     console.log(turmas);
+     let cursos = [];
 
      for (let i = 0; i < turmas.length; i++) {
 
-          // div que engloba as coisas do curso
-          var divCurso = document.createElement("div");
-          divCurso.classList.add("curso");
+          if (cursos.indexOf(turmas[i].curso.id) == -1) { // nao vai repetir curso na tela
 
-          let imgCurso = document.createElement("img");
-          imgCurso.alt = "foto do curso";
-          var id_img_curso = "imgCurso" + turmas[i].curso.id;
-          imgCurso.id = id_img_curso;
-          divCurso.appendChild(imgCurso);
+               cursos.push(turmas[i].curso.id);
 
-          let pTituloCurso = document.createElement("p");
-          pTituloCurso.innerText = turmas[i].curso.titulo;
-          divCurso.appendChild(pTituloCurso);
+               // div que engloba as coisas do curso
+               var divCurso = document.createElement("div");
+               divCurso.classList.add("curso");
 
-          var aLinkCurso = document.createElement("a");
-          aLinkCurso.href = "/tutoriaCurso" + turmas[i].curso.id;
-          aLinkCurso.style.textDecoration = "none";
-          aLinkCurso.style.color = "black";
+               let imgCurso = document.createElement("img");
+               imgCurso.alt = "foto do curso";
+               var id_img_curso = "imgCurso" + turmas[i].curso.id;
+               imgCurso.id = id_img_curso;
+               divCurso.appendChild(imgCurso);
 
-          aLinkCurso.appendChild(divCurso);
+               let pTituloCurso = document.createElement("p");
+               pTituloCurso.innerText = turmas[i].curso.titulo;
+               divCurso.appendChild(pTituloCurso);
 
-          divTodosCursos.appendChild(aLinkCurso);
+               var aLinkCurso = document.createElement("a");
+               aLinkCurso.href = "/tutoriaCurso" + turmas[i].curso.id;
+               aLinkCurso.style.textDecoration = "none";
+               aLinkCurso.style.color = "black";
 
-          renderIMG(turmas[i].curso.thumb.arquivo.conteudo, turmas[i].curso.thumb.arquivo.tipoArquivo, id_img_curso);
+               aLinkCurso.appendChild(divCurso);
+
+               divTodosCursos.appendChild(aLinkCurso);
+
+               renderIMG(turmas[i].curso.thumb.arquivo.conteudo, turmas[i].curso.thumb.arquivo.tipoArquivo, id_img_curso);
+          }
 
      }
 
