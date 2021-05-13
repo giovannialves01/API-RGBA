@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tutoria | SkillShare</title>
+
+	<!-- CDN das depedências externas -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+	<!-- Rodar no Eclipse -->
+	<link rel="stylesheet" href="css/GlobalComponents.css">
+	<link rel="stylesheet" href="css/Menu.css">
+	<link rel="stylesheet" href="css/TopBar.css">
+	<link rel="stylesheet" href="css/BeautyButton.css">
+	<link rel="stylesheet" href="css/BeautyInput.css">
+	<link rel="stylesheet" href="css/BeautySelect.css">
+	<link rel="stylesheet" href="css/BeautyTable.css">
+	<link rel="stylesheet" href="css/Footer.css">
+	<link rel="stylesheet" href="css/tutoria.css">
+	<link rel="stylesheet" href="css/turmasTutorCurso.css">
+
+	<script src="js/Utils/renderIMG.js"></script>
+
+	<script src="js/Utils/ServerRequester.js"></script>
+	<script defer src="js/Paginas/tutoria.js"></script>
+	<script defer src="js/Paginas/getTurmasCursoTutor.js"></script>
+
+	<script src="js/Componentes/BeautySelect.js"></script>
+	<script src="js/Componentes/BeautyButton.js"></script>
+	<script src="js/Componentes/BeautyInput.js"></script>
+	<script src="js/Componentes/BeautyTable.js"></script>
+	<script src="js/Componentes/Menu.js"></script>
+	<script src="js/Componentes/TopBar.js"></script>
+	<script src="js/Componentes/Footer.js"></script>
+
+</head>
+
+<body>
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
+
+	<div class="container">
+		<!--Página principal-->
+		<div class="principal" id="principal">
+			<h1 class="titulo">Todas as suas turmas</h1>
+			<p class="textoExplicativo">Aqui, são exibidas todas as turmas do curso selecionado! Clique em uma para visualizar os alunos dela.</p>
+		</div>
+
+          <div class="todasTurmas">
+               <div class="turma">
+                    <i class="fas fa-users"></i>
+                    <p>Início em: <span id="dataInicio">01/01/2001</span>. Fim em <span id="dataTermino">02/02/2002</span></p>
+               </div>
+               <div class="separador"></div>
+          </div>
+	</div>
+
+	<footer-rgba></footer-rgba>
+</body>
+
+</html>
