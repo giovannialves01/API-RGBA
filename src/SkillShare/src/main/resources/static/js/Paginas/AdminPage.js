@@ -901,7 +901,9 @@ async function saveChanges(entityIdentifier, entity) {
         pathToUpdate = `/cursos/${entity.getId()}`;
         var data = {
             nome: entity.getTitulo(),
-            descricao: entity.getDescricao()
+            descricao: entity.getDescricao(),
+            cpfGestor: entity.getGestor()
+
         }
         fields.forEach(field => {
             switch (field.name){
@@ -911,10 +913,14 @@ async function saveChanges(entityIdentifier, entity) {
                 case "descricao":
                     data.descricao = field.value
                     break;
+                case "gestor":
+                    data.cpfGestor = field.value
             }
         });
         entity.setTitulo(data.nome);
         entity.setDescricao(data.descricao);
+        entity.setGestor(data.cpfGestor);
+
         newEntity = new Curso(entity);
 
     }
@@ -1473,11 +1479,29 @@ async function carregarcursos(){
         thumb.classList.add("thumbCurso");
         divThumb.appendChild(thumb);
 
+        console.log(curso.toData());
         let divNomeDescricao = document.createElement("div");
         let divNome = createFieldBox("Nome:", curso.getTitulo(), "titulo");
         let divDescricao = createTextFieldBox("Descrição:", curso.getDescricao(), "descricao");
-        divNomeDescricao.appendChild(divNome);
-        divNomeDescricao.appendChild(divDescricao);
+        axios({
+            method: "get",
+            url: `${serverRequester.serverURL}/cursos/${curso.getId()}/gestor`
+        })
+        .then(function (response) {
+            curso.setGestor(response.data.cpf)          
+            let divGestor = createTextFieldBox("Gestor:",curso.getGestor(), "gestor");
+            divNomeDescricao.appendChild(divNome);
+            divNomeDescricao.appendChild(divDescricao);
+            divNomeDescricao.appendChild(divGestor);
+    
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+        
+
+        
+
 
         let manageButtons = createManageButtons(containerIdentifier, curso);
 

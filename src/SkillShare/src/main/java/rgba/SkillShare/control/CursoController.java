@@ -176,6 +176,15 @@ public class CursoController {
             .map(c->{
                 c.setTitulo(curso.getNome());
                 c.setDescricao(curso.getDescricao());
+                if(!c.getGestor().getCpf().equals(curso.getCpfGestor())){
+                    gestorRepository
+                    .findById(curso.getCpfGestor())
+                    .ifPresentOrElse((g)->{
+                        c.setGestor(g);
+                    }, ()->{
+                        new ResponseStatusException(HttpStatus.NOT_FOUND,"Gestor não encontrado para o cpf informado.");   
+                    });
+                }
                 cursoRepository.save(c);
                 return ResponseEntity.noContent().build();
             })

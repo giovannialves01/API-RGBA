@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 public class PutCurso {
     private String nome;
     private String descricao;
+    private String cpfGestor;
 
 }
