@@ -161,6 +161,32 @@ public class TurmaController {
        );
 
     }
+    
+    /** 
+    *  Endpoint para retornar uma lista de turmas através de um determinado tutor logado.
+    * @return Retorna uma lista de objetos do tipo Turma.
+    * @param sessao -> sessao do tutor (login)
+    * @author Barbara Port
+    */
+    @GetMapping("/turma/tutor")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Retorna uma lista de turmas de um determinado tutor logado.")
+    @ApiResponses({
+        @ApiResponse(code = 200,message = "Turmas encontradas com sucesso para o cpf informado."),
+        @ApiResponse(code = 404,message = "Turmas não encontradas para o cpf informado.")
+    })
+    public List<Turma> getTurmasByTutor(@ApiParam("Sessão do tutor") HttpSession sessao) {
+
+       return tutorRepository
+       .findById(SessionManager.getUserCpf(sessao)).map((tutor)->{
+           return tutor.getTurmas();
+       })
+       .orElseThrow(()->
+           new ResponseStatusException(HttpStatus.NOT_FOUND,"Turma não encontrada para o cpf informado.")
+       );
+
+    }
+    
 
     /** 
     *  Endpoint para retornar uma lista de turmas que um aluno está inscrito.

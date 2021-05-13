@@ -118,5 +118,9 @@ public class PathController {
 	public String detalhesCurso(@PathVariable String id) {
 		return "detalhesCurso";
 	}
+	@GetMapping(value = "/tutoriaCurso{id}")
+	public String detalhesCursoTutor(@PathVariable String id) {
+		return "turmasTutorCurso";
+	}
 }
  

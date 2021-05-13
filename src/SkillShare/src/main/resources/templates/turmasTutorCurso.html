@@ -23,12 +23,13 @@
 	<link rel="stylesheet" href="css/BeautyTable.css">
 	<link rel="stylesheet" href="css/Footer.css">
 	<link rel="stylesheet" href="css/tutoria.css">
+	<link rel="stylesheet" href="css/turmasTutorCurso.css">
 
 	<script src="js/Utils/renderIMG.js"></script>
 
 	<script src="js/Utils/ServerRequester.js"></script>
 	<script defer src="js/Paginas/tutoria.js"></script>
-	<script defer src="js/Paginas/getCursosTutor.js"></script>
+	<script defer src="js/Paginas/getTurmasCursoTutor.js"></script>
 
 	<script src="js/Componentes/BeautySelect.js"></script>
 	<script src="js/Componentes/BeautyButton.js"></script>
@@ -46,28 +47,18 @@
 
 	<div class="container">
 		<!--Página principal-->
-		<div class="principal show" id="principal">
-			<h1 class="titulo">Boas-vindas à página de tutoria!</h1>
-			<p class="textoExplicativo">Aqui, você poderá visualizar os seus cursos, turmas e alunos. Também é
-				possível dar feedback aos alunos sobre suas trilhas de aprendizado!</p>
+		<div class="principal" id="principal">
+			<h1 class="titulo">Todas as suas turmas</h1>
+			<p class="textoExplicativo">Aqui, são exibidas todas as turmas do curso selecionado! Clique em uma para visualizar os alunos dela.</p>
 		</div>
 
-		<!--Meus cursos-->
-		<div class="conteudo hide" id="meusCursos">
-			<h1 class="titulo">Todos os seus cursos</h1>
-			<p class="textoExplicativo">Aqui serão exibidos cursos que você tem algum vínculo. Clique em um para
-				visualizar mais detalhes.</p>
-
-			<div class="todosCursos" id="cursosTutorShow"></div>
-		</div>
-
-		<!--Avaliações-->
-		<div class="conteudo hide" id="minhasAvaliacoes">
-			<h1 class="titulo">Avaliações</h1>
-			<p class="textoExplicativo">Essas são as avaliações dos seus alunos na plataforma. Clique em uma para dar feedback!</p>
-
-			<div class="todasAvaliacoes" id="avaliacoesTutorShow"></div>
-		</div>
+          <div class="todasTurmas">
+               <div class="turma">
+                    <i class="fas fa-users"></i>
+                    <p>Início em: <span id="dataInicio">01/01/2001</span>. Fim em <span id="dataTermino">02/02/2002</span></p>
+               </div>
+               <div class="separador"></div>
+          </div>
 	</div>
 
 	<footer-rgba></footer-rgba>
