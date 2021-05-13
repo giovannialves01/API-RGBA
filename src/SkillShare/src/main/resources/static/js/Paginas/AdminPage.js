@@ -571,6 +571,9 @@ async function deleteEntity(entityIdentifier, entity) {
     else if(entityType == "Turma"){
         pathToDelete = "/turmas/" + entity.getId();
     }
+    else if(entityType == "Curso"){
+        pathToDelete = "/cursos/" + entity.getId();
+    }
 
     axios({
         method: "delete",
@@ -893,6 +896,26 @@ async function saveChanges(entityIdentifier, entity) {
 
         console.log(data);
         newEntity = new Turma(entity.toData());
+
+    }else if(entity.constructor.name == "Curso"){
+        pathToUpdate = `/cursos/${entity.getId()}`;
+        var data = {
+            nome: entity.getTitulo(),
+            descricao: entity.getDescricao()
+        }
+        fields.forEach(field => {
+            switch (field.name){
+                case "titulo":
+                    data.nome = field.value
+                    break;
+                case "descricao":
+                    data.descricao = field.value
+                    break;
+            }
+        });
+        entity.setTitulo(data.nome);
+        entity.setDescricao(data.descricao);
+        newEntity = new Curso(entity);
 
     }
 
