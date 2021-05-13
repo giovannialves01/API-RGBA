@@ -579,9 +579,18 @@ textarea.userDataFieldEnabled{
 .arquivoCurso{
     display: flex;
     flex-direction: row; 
+    align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
+}
+
+.arquivoCurso .inputFile {
+    margin-left: 10px;
+}
+
+.arquivoCurso .inputFile .descricao {
+    line-height: 0px;
 }
 
 .campoDescricao{
@@ -598,6 +607,10 @@ textarea.userDataFieldEnabled{
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
+}
+
+.campoEscolha .titleLabel {
+    margin-right: 10px;
 }
 
 

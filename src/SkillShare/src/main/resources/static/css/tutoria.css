@@ -16,6 +16,9 @@
      width: 80%;
      height: 300px;
 }
+.titulo, .textoExplicativo {
+     text-align: center;
+}
 .conteudo {
      flex-direction: column;
      align-items: center;
