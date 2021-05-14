@@ -1542,7 +1542,7 @@ async function carregarcursos(){
             
             let turma = new Turma(turmaData);
 
-            let turmaIdentifier = containerIdentifier + "-" + turma + (x + 1);
+            let turmaIdentifier = containerIdentifier + "-" + "turma" + (x + 1);
             let turmaContainer = document.createElement("div");
             turmaContainer.classList.add("turmaContainerCurso");
             turmaContainer.id = turmaIdentifier;
@@ -1555,9 +1555,94 @@ async function carregarcursos(){
             labelTitleTurma.textContent = "Início em " + turma.getDataInicio() + " e finalização em " + turma.getDataTermino();
             let botaoAdicionarAluno = document.createElement("button");
             botaoAdicionarAluno.textContent = "Adicionar aluno";
-            botaoAdicionarAluno.onclick = function (){
+            botaoAdicionarAluno.onclick = async function(){
                 console.log("Adicionando aluno");
                 console.log(turmaContainer);
+
+                let alunosResponse = await serverRequester.fazerGet("/alunos");
+                let alunosArray = alunosResponse["responseJson"];
+
+                let menuAddAluno = document.createElement("div");
+                menuAddAluno.classList.add("menuAddAluno");
+
+                let titleAddAluno = document.createElement("p");
+                titleAddAluno.textContent = "Adicionar novo aluno à turma";
+                titleAddAluno.style.width = "100%";
+                titleAddAluno.style.textAlign = "center";
+
+                let fecharAddAluno = document.createElement("span");
+                fecharAddAluno.className = "fas fa-times fecharAddAluno";
+                fecharAddAluno.onclick = function(){
+                    menuAddAluno.remove();
+                }
+
+                let sep = document.createElement("div");
+                sep.classList.add("separador");
+    
+                menuAddAluno.appendChild(fecharAddAluno);
+                menuAddAluno.appendChild(titleAddAluno);
+                menuAddAluno.appendChild(sep);
+
+                for (let a = 0; a < alunosArray.length; a++) {
+                    const element = alunosArray[a];
+                    
+                    let aluno = new Usuario(element);
+
+                    let divAlunoAdd = document.createElement("div");
+                    divAlunoAdd.classList.add("alunoTurmaCurso");
+
+                    let alunoIconeAdd = document.createElement("span");
+                    alunoIconeAdd.className = "fas fa-user";
+
+                    let alunoIconeAdd2 = document.createElement("span");
+                    alunoIconeAdd2.className = "fas fa-plus";
+                    alunoIconeAdd2.style.cursor = "pointer";
+                    alunoIconeAdd2.style.color = "#2aca2a";
+
+                    let alunoNomeAdd = document.createElement("label");
+                    alunoNomeAdd.textContent = aluno.getNome();
+
+                    divAlunoAdd.appendChild(alunoIconeAdd);
+                    divAlunoAdd.appendChild(alunoNomeAdd);
+                    divAlunoAdd.appendChild(alunoIconeAdd2);
+
+                    menuAddAluno.appendChild(divAlunoAdd);
+
+                    alunoIconeAdd2.onclick = async function(){
+                        await serverRequester.fazerPut("/turmas/add/" + turma.getId() + "/" + aluno.getCpf());
+        
+                        divAlunoAdd.remove();
+
+                        let alunoContainer = document.createElement("div");
+                        alunoContainer.classList.add("alunoTurmaCurso");
+        
+                        let alunoIcone = document.createElement("span");
+                        alunoIcone.className = "fas fa-user";
+                        let alunoNome = document.createElement("label");
+                        alunoNome.textContent = aluno.getNome();
+                        let alunoBotaoExcluir = document.createElement("span");
+                        alunoBotaoExcluir.className = "fas fa-times deleteUserTurmaCurso";
+                        alunoBotaoExcluir.onclick = async function (){
+                            console.log("Removendo aluno");
+                            console.log(alunoContainer);
+                            alunoContainer.remove();
+        
+                            await serverRequester.fazerPut("/turmas/remove/" + turma.getId() + "/" + aluno.getCpf());
+        
+                        }
+        
+                        alunoContainer.appendChild(alunoIcone);
+                        alunoContainer.appendChild(alunoNome);
+                        alunoContainer.appendChild(alunoBotaoExcluir);
+
+                        turmaContainer.appendChild(alunoContainer);
+                        
+
+                    }
+
+                }
+
+                document.body.appendChild(menuAddAluno);
             }
 
             divManageTurma.appendChild(iconeTurma);
@@ -1582,9 +1667,13 @@ async function carregarcursos(){
                 alunoNome.textContent = aluno.getNome();
                 let alunoBotaoExcluir = document.createElement("span");
                 alunoBotaoExcluir.className = "fas fa-times deleteUserTurmaCurso";
-                alunoBotaoExcluir.onclick = function (){
+                alunoBotaoExcluir.onclick = async function (){
                     console.log("Removendo aluno");
                     console.log(alunoContainer);
+                    alunoContainer.remove();
+
+                    await serverRequester.fazerPut("/turmas/remove/" + turma.getId() + "/" + aluno.getCpf());
+
                 }
 
                 alunoContainer.appendChild(alunoIcone);

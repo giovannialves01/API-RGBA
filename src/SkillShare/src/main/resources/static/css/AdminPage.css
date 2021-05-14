@@ -722,3 +722,23 @@ textarea.userDataFieldEnabled{
     margin-left: 5px;
     margin-right: 5px;
 }
+
+.menuAddAluno{
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    left: 20%;
+    top: 15%;
+    border: 2px solid;
+    z-index: 2;
+    background-color: white;
+}
+
+.fecharAddAluno{
+    position: relative;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    color: red;
+    cursor: pointer;
+}
