@@ -13,16 +13,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 /**
  *  Classe abstrata que define os usuários
  *  @author Nicholas Roque
  */
 @Entity(name = "usuario")
-@NoArgsConstructor @AllArgsConstructor @Data @ToString
+@NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario {
 
@@ -54,6 +55,10 @@ public abstract class Usuario {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
+    }
+
+    public Usuario(String cpf) {
+        this.cpf = cpf;
     }
 
 }

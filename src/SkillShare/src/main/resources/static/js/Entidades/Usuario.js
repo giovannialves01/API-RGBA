@@ -50,6 +50,10 @@ class Usuario{
         return this.contatos;
     }
 
+    getDeleteMessage(){
+        return this.nome;
+    }
+
     /**
      * Retorna o objeto com suas informações no formato JSON
      * 

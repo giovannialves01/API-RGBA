@@ -21,7 +21,7 @@ async function logar(event) {
                 break;
     
             case "tutor":
-                window.location.href = "tutorPage";
+                window.location.href = "tutoria";
                 break;
 
             case "aluno":

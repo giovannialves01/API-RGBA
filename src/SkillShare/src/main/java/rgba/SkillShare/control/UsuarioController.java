@@ -100,6 +100,7 @@ public class UsuarioController {
 			JSONObject infos_usuario = new JSONObject();
 			infos_usuario.put("type", nivelAcesso);
 			infos_usuario.put("userName", usuario.getNome());
+			infos_usuario.put("cpf", usuario.getCpf());
 			
 			sessao.setAttribute("user", infos_usuario);
 			

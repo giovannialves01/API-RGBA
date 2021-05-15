@@ -1,8 +1,16 @@
 package rgba.SkillShare.model;
 
-import javax.persistence.Entity;
+import java.util.List;
 
-import lombok.Data;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 
 
@@ -11,7 +19,7 @@ import lombok.NoArgsConstructor;
  *  @author Nicholas Roque
  */
 @Entity(name="tutor")
-@NoArgsConstructor @Data 
+@NoArgsConstructor @Getter @Setter @ToString 
 public class Tutor extends Usuario{
     /** 
     *  Cria uma instância da classe Tutor.
@@ -28,5 +36,11 @@ public class Tutor extends Usuario{
     public Tutor(String cpf,String nome,String email) { 
         super(cpf,nome,email);
     }
-
+    public Tutor(String cpf) { 
+        super(cpf);
+    }
+    
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Turma> turmas;
 }

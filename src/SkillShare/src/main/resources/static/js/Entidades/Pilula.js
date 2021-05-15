@@ -51,6 +51,9 @@ class Pilula{
         return this.titulo;
     }
 
+    getDeleteMessage(){
+        return this.titulo;
+    }
 
     /**
      * Retorna o objeto com suas informações no formato JSON

@@ -153,13 +153,13 @@ public class MenuOptions {
 	private JSONObject optionCurso() {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
-		
-		subOptions.put(this.criarSubOpcao("Criar novo curso", "console.log(\"Criar novo curso\");"));
-		subOptions.put(this.criarSubOpcao("Gerir cursos", "console.log(\"Gerir cursos\");"));
+		 
+		subOptions.put(this.criarSubOpcao("Criar novo curso", "hideAllContent();showContent('cadastroCurso');"));
+		subOptions.put(this.criarSubOpcao("Gerir cursos", "hideAllContent();showContent('listarcursos');carregarcursos();"));
 		subOptions.put(this.criarSubOpcao("Criar nova pílula", "hideAllContent();showContent('adicionarPilula');"));
 		subOptions.put(this.criarSubOpcao("Gerir pílulas", "hideAllContent();showContent('mostrarGerirPilulas');loadPilulasToShow();"));
-		subOptions.put(this.criarSubOpcao("Criar nova turma", "console.log(\"Criar nova turma\");"));
-		subOptions.put(this.criarSubOpcao("Gerir turmas", "console.log(\"Gerir turmas\");"));
+		subOptions.put(this.criarSubOpcao("Criar nova turma", "hideAllContent();showContent('turmasToShow');"));
+		subOptions.put(this.criarSubOpcao("Gerir turmas", "hideAllContent();showContent('mostrarGerirTurmas');gerirTurmasToShow();"));
 		
 		option = this.criarOpcao("Cursos", "chalkboard-teacher", "2", "Clique aqui para exibir a janela de cursos", subOptions);
 		
@@ -182,8 +182,9 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Em breve", "console.log(\"Em breve\");"));
-		
+		subOptions.put(this.criarSubOpcao("Criar nova questão", "hideAllContent();showContent('cadastroQuestoes');"));
+		subOptions.put(this.criarSubOpcao("Gerir questões", "hideAllContent();showContent('gerirQuestoes');"));
+		 
 		option = this.criarOpcao("Banco de Questões", "file-alt", "4", "Clique aqui para exibir o banco de questões", subOptions);
 		
 		return option;
@@ -218,7 +219,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Em breve", "console.log(\"Em breve\");"));
+		subOptions.put(this.criarSubOpcao("Atividades da Plataforma", "hideAllContent();showContent('exibicaodelog');loadLog();"));
 		
 		option = this.criarOpcao("Dashboard", "chart-line", "7", "Clique aqui para exibir o dashboard",
 				subOptions);
@@ -244,7 +245,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Em breve", "console.log(\"Em breve\");"));
+		subOptions.put(this.criarSubOpcao("Cursos que tenho turmas", "hideAllContent();showContent('meusCursos');"));
 		
 		option = this.criarOpcao("Turmas", "user-graduate", "14", "Clique aqui para visualizar todas as suas turmas!",
 				subOptions);
@@ -281,7 +282,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Visualizar Meus Cursos", "console.log('Em breve');"));
+		subOptions.put(this.criarSubOpcao("Visualizar Meus Cursos", "window.location.href = 'meusCursosAluno';"));
 		
 		option = this.criarOpcao("Meus Cursos", "chalkboard-teacher", "10", "Clique aqui para visualizar seus cursos!", subOptions);
 		

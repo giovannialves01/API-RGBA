@@ -56,6 +56,10 @@ class Noticia{
         return this.id;
     }
 
+    getDeleteMessage(){
+        return this.titulo;
+    }
+
 
     /**
      * Retorna o objeto com suas informações no formato JSON

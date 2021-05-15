@@ -58,6 +58,68 @@ public class SessionManager {
 		}catch (Exception e) {
 			return false;
 		}
+		
+	}
+	
+	public static String getUserName(HttpSession sessao) {
+		String userName = "";
+		
+		try {
+			JSONObject user = (JSONObject) sessao.getAttribute("user");
+			userName = user.getString("userName");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return userName;
+	}
+	
+	public static String getUserAccessLevel(HttpSession sessao) {
+		String userAccessLevel = "";
+		
+		try {
+			JSONObject user = (JSONObject) sessao.getAttribute("user");
+			userAccessLevel = user.getString("type");
+			
+			switch (userAccessLevel) {
+			case "admin":
+				userAccessLevel = "Administrador";
+				break;
+				
+			case "aluno":
+				userAccessLevel = "Aluno";
+				break;
+				
+			case "gestor":
+				userAccessLevel = "Gestor";
+				break;
+				
+			case "tutor":
+				userAccessLevel = "Tutor";
+				break;
+				
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return userAccessLevel;
+	}
+	
+	public static String getUserCpf(HttpSession sessao) {
+		String userCpf = "";
+		
+		try {
+			JSONObject user = (JSONObject) sessao.getAttribute("user");
+			userCpf = user.getString("cpf");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return userCpf;
 	}
 	
 }

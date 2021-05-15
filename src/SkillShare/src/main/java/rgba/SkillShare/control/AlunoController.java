@@ -2,7 +2,6 @@ package rgba.SkillShare.control;
 
 import java.util.List;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -101,28 +100,6 @@ public class AlunoController {
             );
     }
     
-
-	
-/* 
-    @PostMapping(value = "/update")
-	public boolean updateAluno(@RequestBody String data) {
-		JSONObject parsedData = new JSONObject(data);
-		
-		JSONObject admOldData = parsedData.getJSONObject("oldData");
-		JSONObject admNewData = parsedData.getJSONObject("newData");
-		
-		Aluno oldUsuario = new Aluno(admOldData.getString("cpf"), admOldData.getString("nome"), admOldData.getString("email"), admOldData.getString("senha"));
-		Aluno newUsuario = new Aluno(admNewData.getString("cpf"), admNewData.getString("nome"), admNewData.getString("email"), admNewData.getString("senha"));
-		
-		try{
-			aRepository.delete(oldUsuario);
-			aRepository.save(newUsuario);
-			
-			return true;
-		}catch (Exception e) {
-			return false;
-		}
-	} */
     /** 
     *  Endpoint para deletar um aluno especificado pelo cpf.
     * @param cpf-> cpf do aluno a ser deletado

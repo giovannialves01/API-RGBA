@@ -1,376 +1,632 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administração | SkillShare</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Administração | SkillShare</title>
 
-    <!-- CDN das depedências externas -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<!-- CDN das depedências externas -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
-    <!-- Rodar no Eclipse -->
-    <link rel="stylesheet" href="css/GlobalComponents.css">
-    <link rel="stylesheet" href="css/Menu.css">
-    <link rel="stylesheet" href="css/TopBar.css">
-    <link rel="stylesheet" href="css/AdminPage.css">
-    <link rel="stylesheet" href="css/BeautyButton.css">
-    <link rel="stylesheet" href="css/BeautyInput.css">
-    <link rel="stylesheet" href="css/BeautySelect.css">
-    <link rel="stylesheet" href="css/BeautyTable.css">
-    <link rel="stylesheet" href="css/Footer.css">
+	<!-- Rodar no Eclipse -->
+	<link rel="stylesheet" href="css/GlobalComponents.css">
+	<link rel="stylesheet" href="css/Menu.css">
+	<link rel="stylesheet" href="css/TopBar.css">
+	<link rel="stylesheet" href="css/AdminPage.css">
+	<link rel="stylesheet" href="css/BeautyButton.css">
+	<link rel="stylesheet" href="css/BeautyInput.css">
+	<link rel="stylesheet" href="css/BeautySelect.css">
+	<link rel="stylesheet" href="css/BeautyTable.css">
+	<link rel="stylesheet" href="css/Footer.css">
+	<link rel="stylesheet" href="css/BancoQuestoes.css">
+	<link rel="stylesheet" href="css/turmas.css">
 
-    <script src="js/Utils/ServerRequester.js"></script>
-    <script src="js/Utils/sendFile.js"></script>
+	<script src="js/Utils/ServerRequester.js"></script>
+	<script src="js/Utils/sendFile.js"></script>
+	<script src="js/Utils/listAlunosCadastroTurma.js"></script>
 
-    <script src="js/Componentes/BeautySelect.js"></script>
-    <script src="js/Componentes/BeautyButton.js"></script>
-    <script src="js/Componentes/BeautyInput.js"></script>
-    <script src="js/Componentes/BeautyTable.js"></script>
-    <script src="js/Componentes/Menu.js"></script>
-    <script defer src="js/Paginas/AdminPage.js"></script>
-    <script src="js/Componentes/TopBar.js"></script>
-    <script src="js/Componentes/Footer.js"></script>
+	<script src="js/Componentes/BeautySelect.js"></script>
+	<script src="js/Componentes/BeautyButton.js"></script>
+	<script src="js/Componentes/BeautyInput.js"></script>
+	<script src="js/Componentes/BeautyTable.js"></script>
+	<script src="js/Componentes/Menu.js"></script>
+	<script defer src="js/Paginas/AdminPage.js"></script>
+	<script src="js/Componentes/TopBar.js"></script>
+	<script src="js/Componentes/Footer.js"></script>
 
-    <script src="js/Entidades/Usuario.js"></script>
-    <script src="js/Entidades/Biblioteca.js"></script>
-    <script src="js/Entidades/Destaque.js"></script>
-    <script src="js/Entidades/Pilula.js"></script>
-    <script src="js/Entidades/Evento.js"></script>
+	<script src="js/Entidades/Usuario.js"></script>
+	<script src="js/Entidades/Biblioteca.js"></script>
+	<script src="js/Entidades/Destaque.js"></script>
+	<script src="js/Entidades/Pilula.js"></script>
+	<script src="js/Entidades/Evento.js"></script>
+	<script src="js/Entidades/Log.js"></script>
+	<script src="js/Entidades/Questao.js"></script>
+	<script src="js/Entidades/Turma.js"></script>
+	<script src="js/Entidades/Curso.js"></script>
 
+	<script defer src="js/Scorm/auth.js"></script>
+	<script defer src="js/Scorm/getImportStatus.js"></script>
+	<script defer src="js/Scorm/uploadScorm.js"></script>
+	<script defer src="js/Scorm/uploadAluno.js"></script>
+	<script defer src="js/Scorm/getProgressoAluno.js"></script>
 
 </head>
+
 <body>
-    <top-bar></top-bar>
-    <menu-rgba></menu-rgba>
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
 
-    <!-- Onde o conteúdo é mostrado -->
-    <div id="optionContentDisplayer">
-        <!-- Default -->
-        <div class="show" id="defaultContent">
-            <div class="defaultContent">
-                <h1>Bem-vindo a página de administração da SkillShare</h1>
-                <p>
-                    Utilize o menu na barra no topo para acessar aos diversos conteúdos
-                </p>
-            </div>
-        </div>
+	<!-- Onde o conteúdo é mostrado -->
+	<div id="optionContentDisplayer">
+		<!-- Default -->
+		<div class="show" id="defaultContent">
+			<div class="defaultContent">
+				<h1>Bem-vindo a página de administração da SkillShare</h1>
+				<p>
+					Utilize o menu na barra no topo para acessar aos diversos conteúdos
+				</p>
+			</div>
+		</div>
 
-        <!-- Biblioteca -->
-        <div class="hide" id="biblioteca">
-            <div class="adicionarConteudoBiblioteca">
-                <h1>Adicionar novo conteúdo à biblioteca</h1>
-                <p>
-                    A biblioteca da SkillShare é um local onde ficam postados arquivos PDFs no qual os alunos tem acesso a este</br>
-                    material, dessa forma podem incrementar ainda mais seus conhecimentos
-                </p>
-    
-                <div class="separador"></div>
-            </div>
-            <form onsubmit="registerBook(event)" class="bibliotecaForm" id="bibliotecaRegistrar" enctype="multipart/form-data" onreset="clearFileLabel(event, 'labelFileNameLivro')">
-                <div class="dataField">
-                    <label>Nome:</label>
-                    <input type="text" required name="titulo" id="nomeLivro">
-                </div>
-                <div class="dataField">
-                    <label>Autor:</label>
-                    <input type="text" name="autor" id="nomeAutor">
-                </div>
+		<div class="hide" id="cadastroQuestoes">
+			<div class="adicionarConteudoBiblioteca">
 
-                <div class="inputFile">
-                    <label for="inputUploadLivro" class="inputUploadButton">Escolher arquivo...</label>
-                    <input type="file" required id="inputUploadLivro" name="arq" onchange="setInputLabelName(event, 'labelFileNameLivro')">
-                    <label id="labelFileNameLivro">Selecione um arquivo</label>
-                </div>
+				<h1>Criar nova questão para o banco de questões</h1>
+				<p>
+					Para criar uma nova questão no banco de questões, escolha um curso no qual a questão irá pertencer,
+					em seguida preencher os campos e escolha qual será a alternativa correta
+				</p>
 
-                <div class="buttonContainer">
-                    <input type="submit" class="greenButton" value="Adicionar">
-                    <input type="reset" class="redButton" value="Limpar campos">
-                </div>
-            </form>
-        </div>
+				<div class="separador"></div>
+			</div>
+			<form class="upQuestao" id="uploadQuestao" onsubmit="registerQuestao(event)">
+				<div class="select">
+					<select name="id_curso" id="selectCursoQuestao">
+						<option selected disabled>Escolha um curso para vincular a questão</option>
+					</select>
+				</div>
+				<div class="enunciadoeresposta">
 
-        <div class="hide" id="gerirBiblioteca">
-            <div>
-                <h1>Gerir biblioteca</h1>
-                <p>
-                    Escolha um material para editar suas informações, visualizar o conteúdo ou excluir
-                </p>
-    
-                <div class="separador"></div>
+					<div class="enunciado">
+						<label id="enunc">Enunciado da Questão</label>
+						<textarea name="enunciado" id="textAreaEnunciado" cols="30" rows="10"></textarea>
+					</div>
 
-                <div id="booksToShow">
+					<div class="RespostasDBlock">
+						<div class="RespostasDflex1">
+							<div class="questaoc1">
+								<label id="arternativas">Alternativa a)</label>
+								<input type="radio" name="alternativaCorreta" id="alternativaA" value="A"><label
+									for="alternativaA">Alternativa correta</label>
+								<textarea name="enunciado" id="textArearesp1" cols="30" rows="10"></textarea>
+							</div>
+							<div class="questaoc2">
+								<label id="arternativas">Alternativa b)</label>
+								<input type="radio" name="alternativaCorreta" id="alternativaB" value="B"><label
+									for="alternativaB">Alternativa correta</label>
+								<textarea name="enunciado" id="textArearesp2" cols="30" rows="10"></textarea>
+							</div>
+						</div>
 
-                </div>
-            </div>
-        </div>
+						<div class="RespostasDflex2">
+							<div class="questaob1">
+								<label id="arternativas">Alternativa c)</label>
+								<input type="radio" name="alternativaCorreta" id="alternativaC" value="C"><label
+									for="alternativaC">Alternativa correta</label>
+								<textarea name="enunciado" id="textArearesp3" cols="30" rows="10"></textarea>
+							</div>
+							<div class="questaob2">
+								<label id="arternativas">Alternativa d)</label>
+								<input type="radio" name="alternativaCorreta" id="alternativaD" value="D"><label
+									for="alternativaD">Alternativa correta</label>
+								<textarea name="enunciado" id="textArearesp4" cols="30" rows="10"></textarea>
+							</div>
+						</div>
+					</div>
 
+					<div class="buttonContainer">
+						<input type="submit" class="greenButton" value="Adicionar">
+						<input type="reset" class="redButton" value="Limpar campos">
+					</div>
 
-        <!-- Usuários -->
-        <!-- Registrar usuário -->
-        <div id="cadastrarUsuario" class="vBox hide">
-            <h1>Cadastro de usuários</h1>
-            <p>
-                Escolha um tipo de usuário para visualizar seus</br>
-                campos de informações e realizar o cadastro
-            </p>
+				</div>
+			</form>
+		</div>
 
-            <select id="selectUserType">
-                <option selected disabled>Escolha um perfil de usuário para cadastrar...</option>
-                <option value="aluno">Aluno</option>
-                <option value="administrador">Administrador</option>
-                <option value="gestor">Gestor</option>
-                <option value="tutor">Tutor</option>
-            </select>
+		<div class="hide" id="cadastroCurso">
+			<div class="adicionarConteudoBiblioteca">
+				<h1>Postagem de um curso</h1>
+				<p>
+					Preencha todos os campos abaixo para realizar o upload de um novo curso
+				</p>
 
-            <form onsubmit="registerUser(event)" class="cadastrarUsuario" id="cadastrarUsuario">
-                <h2>Cadastrar usuário</h2>
-                <p>
-                    Preencha os campos para cadastrar o usuário
-                </p>
+				<div class="separador"></div>
+			</div>
+			<form class="adicionarCurso" id="camposCadastroCurso" enctype="multipart/form-data"
+				onsubmit="registerCurso(event)"
+				onreset="clearFileLabel(event, 'labelFileCursoTumbnail'); clearFileLabel(event, 'labelFileArquivoScorm')">
+				<div class="campoNome">
+					<label class="titleLabel">Nome:</label>
+					<input type="text" id="inserirNome" name="titulo">
+				</div>
+				<div class="arquivoCurso">
+					<label class="titleLabel">Imagem da Thumbnail:</label>
+					<div class="inputFile">
+						<label for="inputUploadCursoTumbnail" class="inputUploadButton">Escolher arquivo...</label>
+						<input type="file" required id="inputUploadCursoTumbnail" name="thumb"
+							onchange="setInputLabelName(event, 'labelFileCursoTumbnail')">
+						<label id="labelFileCursoTumbnail" class="descricao">Selecione um arquivo</label>
+					</div>
+				</div>
+				<div class="campoDescricao">
+					<label class="titleLabel">Descrição:</label>
+					<textarea id="descricaoCursoUpload" name="descricao"></textarea>
+				</div>
+				<div class="arquivoCurso">
+					<label class="titleLabel">Arquivo SCORM do curso:</label>
+					<div class="inputFile">
+						<label for="inputUploadArquivoScorm" class="inputUploadButton">Escolher arquivo...</label>
+						<input type="file" required id="inputUploadArquivoScorm" name="scorm"
+							onchange="setInputLabelName(event, 'labelFileArquivoScorm')">
+						<label id="labelFileArquivoScorm" class="descricao">Selecione um arquivo</label>
+					</div>
+				</div>
+				<div class="campoEscolha">
+					<label class="titleLabel">Escolha um gestor:</label>
+					<select name="gestor" id="escolhaDeGestor">
+						<option selected disabled>Escolha um gestor...</option>
+					</select>
+				</div>
+				<div class="buttonContainer">
+					<input type="submit" class="greenButton" value="Adicionar">
+					<input type="reset" class="redButton" value="Limpar campos">
+				</div>
+			</form>
+		</div>
+		<!-- Logs -->
+		<div class="hide" id="exibicaodelog">
+			<div class="adicionarConteudoBiblioteca">
+				<h1>Registro de atividades da plataforma</h1>
+				<p>
+					Nesta seção você pode visualizar todas as atividades dos usuários do sistema e saber as
+					modificações, quem modificou e quando modificou algo na plataforma
+				</p>
 
-                <div class="camposCadastro">
-                    <div>
-                        <div>
-                            <label for="nomeCadastro"><b>Nome</b></label>
-                            <input type="text" name="nome" id="nomeCadastro" required>
-                        </div>
+				<div class="separador"></div>
+			</div>
+			<div class="containerlogs" id="logs">
 
-                        <div>
-                            <label for="emailCadastro"><b>E-mail</b></label>
-                            <input type="text" name="email" id="emailCadastro" required>
-                        </div>
+			</div>
+		</div>
 
-                        <div>
-                            <label for="cpfCadastro"><b>CPF</b></label>
-                            <input type="text" name="cpf" id="cpfCadastro" required>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <label for="senhaCadastro"><b>Senha</b></label>
-                            <input type="password" name="senha" id="senhaCadastro" required>
-                        </div>
-                        <div>
-                            <label for="confirmarSenhaCadastro"><b>Confirmar senha</b></label>
-                            <input type="password" name="confirmarSenha" id="confirmarSenhaCadastro" required>
-                        </div>
-                    </div>
-                </div>
+		<div class="hide" id="listarcursos">
+			<div class="adicionarConteudoBiblioteca">
+				<h1>Listagem de cursos</h1>
+				<p>
+					Aqui estão todos os cursos da plataforma. Selecione um para realizar alterações ou excluí-lo.
+				</p>
 
-                <div>
-                    <input type="submit" class="greenButton" value="Cadastrar">
-                    <input type="reset" class="redButton" value="Limpar campos">
-                </div>
-            </form>
-        </div>
+				<div class="separador"></div>
+			</div>
+			<div class="containercursos" id="cursos">
 
-        <!-- Gerir usuários -->
-        <div id="mostrarAlunos" class="vBox hide">
-            <h1>Gerir usuários</h1>
-            <p style="text-align: center;">
-                Escolha um tipo de usuário para visualizar seus dados e gerir aqueles</br>
-                que estão em nosso banco de dados
-            </p>
-
-            <select id="userTypeEdit" onchange="chooseUserToShow()">
-                <option selected disabled>Escolha um perfil de usuário para exibir...</option>
-                <option value="Aluno">Aluno</option>
-                <option value="Administrador">Administrador</option>
-                <option value="Gestor">Gestor</option>
-                <option value="Tutor">Tutor</option>
-            </select>
-
-            <div class="separador"></div>
-
-            <div id="usersToShow">
-
-            </div>
-        </div>
-
-        <!-- Pílulas -->
-        <!-- Adicionar pílula-->
-        <div class="hide" id="adicionarPilula">
-            <div class="adicionarConteudoBiblioteca">
-                <h1>Criar nova pílula de conhecimento</h1>
-                <p>
-                    A biblioteca da SkillShare é um local onde ficam postados arquivos PDFs no qual os alunos tem acesso a este</br>
-                    material, dessa forma podem incrementar ainda mais seus conhecimentos
-                </p>
-    
-                <div class="separador"></div>
-            </div>
-
-            <form class="pilulaForm" id="formPilula" onsubmit="registerPilula(event)" onreset="clearFileLabel(event, 'labelFileNamePilula')">
-                <select name="idCurso" id="selectCursoParaPilula">
-                    <option selected disabled>Escolha um curso para a pílula...</option>
-                </select>
-
-                <div>
-                    <div style="width: 100%; display: flex;">
-                        <label>Título:</label>
-                        <input name="titulo" type="text" id="tituloPilula">
-                    </div>
-    
-                    <div class="inputFilePilula">
-                        <label for="inputUploadPilula" class="inputUploadButton">Escolher arquivo...</label>
-                        <input name="arq" type="file" id="inputUploadPilula" onchange="setInputLabelName(event, 'labelFileNamePilula')">
-                        <label id="labelFileNamePilula">Selecione um arquivo</label>
-                    </div>
-    
-                    <div class="textField">
-                        <label>Texto do corpo</label>
-                        <textarea name="descricao" id="textAreaCriarPilula" cols="30" rows="10"></textarea>
-                    </div>
-
-    
-                    <div class="buttonContainer">
-                        <input type="submit" class="greenButton" value="Adicionar">
-                        <input type="reset" class="redButton" value="Limpar campos">
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <!-- Gerir Píulas -->
-        <div id="mostrarGerirPilulas" class="vBox hide">
-            <h1>Gerir pílulas de conhecimento</h1>
-            <p style="text-align: center;">
-                Escolha um curso para visualizar todas as pílulas referentes a ele, podendo excluí-las ou editar suas informações
-            </p>
-
-            <div class="separador"></div>
-
-            <div id="pilulasToShow">
-
-            </div>
-
-        </div>
+			</div>
 
 
 
-        <!-- Notícias/Eventos -->
-        <!-- Adicionar -->
-        <div class="hide" id="adicionarNoticiaEvento">
-            <div class="header">
-                <h1>Inserir nova notícia/evento</h1>
-                <p>
-                    Notícias e eventos são conteúdos que ficam disponíveis aos alunos em suas páginas principais,</br>
-                    com o intuíto de que os gestores e administradores possam fornecer conhecimentos diversos que não se</br>
-                    relacionam necessariamente com uma disciplina e mante-los atualizados com os acontecimentos do mundo
-                </p>
-    
-                <div class="separador"></div>
-            </div>
-
-            <div class="chooserEventoNoticia">
-                <div id="noticia" onclick="showNoticia()">
-                    <label>Notícia</label>
-                    <div id="chooseBarNoticia" class="choosed"></div>
-                </div>
-                <div id="evento" onclick="showEvento()">
-                    <label>Evento</label>
-                    <div id="chooseBarEvento" class="notChoosed"></div>
-                </div>
-            </div>
+		</div>
 
 
-            <form class="noticiaForm showChoose" id="formNoticia" onsubmit="registerNoticia(event)" onreset="clearFileLabel(event, 'labelFileNameNoticia')">
-                <div style="width: 90%; margin: 0 auto;">
-                    <div style="width: 100%; display: flex; margin-bottom: 20px;">
-                        <label>Título:</label>
-                        <input required type="text" id="tituloNoticia" name="titulo">
-                    </div>
 
-                    <div style="width: 100%; display: flex;">
-                        <label>Fonte:</label>
-                        <input required type="text" id="fonteNoticia" name="fonte">
-                    </div>
-                    
-                    <div class="inputFile">
-                        <label for="inputUploadNoticia" class="inputUploadButton">Escolher imagem...</label>
-                        <input name="arq" type="file" id="inputUploadNoticia" onchange="setInputLabelName(event, 'labelFileNameNoticia')">
-                        <label id="labelFileNameNoticia">Selecione uma imagem de thumbnail</label>
-                    </div>
+		<!-- Biblioteca -->
+		<div class="hide" id="biblioteca">
+			<div class="adicionarConteudoBiblioteca">
+				<h1>Adicionar novo conteúdo à biblioteca</h1>
+				<p>
+					A biblioteca da SkillShare é um local onde ficam postados arquivos PDFs no qual os alunos tem acesso
+					a este</br>
+					material, dessa forma podem incrementar ainda mais seus conhecimentos
+				</p>
 
-                    <div class="textField">
-                        <label>Subtitulo</label>
-                        <textarea required name="sinopse" id="textAreaSubtituloNoticia" cols="30" rows="10"></textarea>
-                    </div>
+				<div class="separador"></div>
+			</div>
+			<form onsubmit="registerBook(event)" class="bibliotecaForm" id="bibliotecaRegistrar"
+				enctype="multipart/form-data" onreset="clearFileLabel(event, 'labelFileNameLivro')">
+				<div class="dataField">
+					<label>Nome:</label>
+					<input type="text" required name="titulo" id="nomeLivro">
+				</div>
+				<div class="dataField">
+					<label>Autor:</label>
+					<input type="text" name="autor" id="nomeAutor">
+				</div>
 
-                    <div class="textField">
-                        <label>Texto do corpo</label>
-                        <textarea required name="conteudo" id="textAreaCorpoNoticia" cols="30" rows="10"></textarea>
-                    </div>
-    
-                    <div class="buttonContainer">
-                        <input type="submit" class="greenButton" value="Adicionar">
-                        <input type="reset" class="redButton" value="Limpar campos">
-                    </div>
-                </div>
-            </form>
+				<div class="inputFile">
+					<label for="inputUploadLivro" class="inputUploadButton">Escolher arquivo...</label>
+					<input type="file" required id="inputUploadLivro" name="arq"
+						onchange="setInputLabelName(event, 'labelFileNameLivro')">
+					<label id="labelFileNameLivro">Selecione um arquivo</label>
+				</div>
 
-            <form class="eventoForm hideChoose" id="formEvento" onsubmit="registerEvento(event)"  onreset="clearFileLabel(event, 'labelFileNameEvento')">
-                <div style="width: 90%; margin: 0 auto;">
-                    <div style="width: 100%; display: flex; margin-bottom: 20px;">
-                        <label>Título:</label>
-                        <input required name="titulo" type="text" id="tituloEvento">
-                    </div>
-                    <div class="inputFile">
-                        <label for="inputUploadEvento" class="inputUploadButton">Escolher imagem...</label>
-                        <input name="arq" type="file" id="inputUploadEvento" onchange="setInputLabelName(event, 'labelFileNameEvento')">
-                        <label id="labelFileNameEvento">Selecione uma imagem de thumbnail</label>
-                    </div>
-                    <div class="textField">
-                        <label>Subtitulo</label>
-                        <textarea required name="sinopse" id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
-                    </div>
+				<div class="buttonContainer">
+					<input type="submit" class="greenButton" value="Adicionar">
+					<input type="reset" class="redButton" value="Limpar campos">
+				</div>
+			</form>
+		</div>
 
-                    <div class="textField">
-                        <label>Texto do corpo</label>
-                        <textarea required name="conteudo" id="textAreaCorpoEvento" cols="30" rows="10"></textarea>
-                    </div>
-    
-                    <div class="buttonContainer">
-                        <input type="submit" class="greenButton" value="Adicionar">
-                        <input type="reset" class="redButton" value="Limpar campos">
-                    </div>
-                </div>
-            </form>
-        </div>
+		<div class="hide" id="gerirBiblioteca">
+			<div>
+				<h1>Gerir biblioteca</h1>
+				<p>
+					Escolha um material para editar suas informações, visualizar o conteúdo ou excluir
+				</p>
 
-        <!-- Gerir Eventos-->
-        <div id="mostrarEventosNoticias" class="vBox hide">
-            <h1>Gerir notícias e eventos</h1>
-            <p style="text-align: center;">
-                Escolha entre notícias e eventos para visualizar os registros do respectivo tipo, podedendo</br>
-                ver os dados de cada um para editar ou excluir
-            </p>
+				<div class="separador"></div>
 
-            <select id="selectEventoNoticia" onchange="chooseNoticiaEventoToShow()">
-                <option selected disabled>Escolha um tipo de publicação para exibir...</option>
-                <option value="Noticia">Notícias</option>
-                <option value="Evento">Eventos</option>
-            </select>
+				<div id="booksToShow">
 
-            <div class="separador"></div>
+				</div>
+			</div>
+		</div>
 
-            <div id="noticiasToShow" class="hideChoose noticiaEventoDisplayer">
+		<div class="hide" id="gerirQuestoes">
+			<div class="adicionarConteudoBiblioteca">
+				<h1>Gerir questões do banco de questões</h1>
+				<p>
+					Para visualizar as questões de um curso, editá-la ou excluí-la, selecione o respectivo curso abaixo
+					para exibir as questões vínculadas a ele
+				</p>
 
-            </div>
+				<select id="selectQuestaoPorCurso" onchange="chooseQuestaoToShow()">
+					<option selected disabled>Escolha um curso para exibir as questões...</option>
+				</select>
 
-            <div id="eventosToShow" class="hideChoose noticiaEventoDisplayer">
+				<div class="separador"></div>
 
-            </div>
-        </div>
+				<div id="questoesToShow">
 
-    </div>
-    
-    <footer-rgba></footer-rgba>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Usuários -->
+		<!-- Registrar usuário -->
+		<div id="cadastrarUsuario" class="vBox hide">
+			<h1>Cadastro de usuários</h1>
+			<p>
+				Escolha um tipo de usuário para visualizar seus</br>
+				campos de informações e realizar o cadastro
+			</p>
+
+			<select id="selectUserType">
+				<option selected disabled>Escolha um perfil de usuário para cadastrar...</option>
+				<option value="aluno">Aluno</option>
+				<option value="administrador">Administrador</option>
+				<option value="gestor">Gestor</option>
+				<option value="tutor">Tutor</option>
+			</select>
+
+			<form onsubmit="registerUser(event)" class="cadastrarUsuario" id="cadastrarUsuario">
+				<h2>Cadastrar usuário</h2>
+				<p>
+					Preencha os campos para cadastrar o usuário
+				</p>
+
+				<div class="camposCadastro">
+					<div>
+						<div>
+							<label for="nomeCadastro"><b>Nome</b></label>
+							<input type="text" name="nome" id="nomeCadastro" required>
+						</div>
+
+						<div>
+							<label for="emailCadastro"><b>E-mail</b></label>
+							<input type="text" name="email" id="emailCadastro" required>
+						</div>
+
+						<div>
+							<label for="cpfCadastro"><b>CPF</b></label>
+							<input type="text" name="cpf" id="cpfCadastro" required>
+						</div>
+					</div>
+					<div>
+						<div>
+							<label for="senhaCadastro"><b>Senha</b></label>
+							<input type="password" name="senha" id="senhaCadastro" required>
+						</div>
+						<div>
+							<label for="confirmarSenhaCadastro"><b>Confirmar senha</b></label>
+							<input type="password" name="confirmarSenha" id="confirmarSenhaCadastro" required>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<input type="submit" class="greenButton" value="Cadastrar">
+					<input type="reset" class="redButton" value="Limpar campos">
+				</div>
+			</form>
+		</div>
+
+		<!-- Gerir usuários -->
+		<div id="mostrarAlunos" class="vBox hide">
+			<h1>Gerir usuários</h1>
+			<p style="text-align: center;">
+				Escolha um tipo de usuário para visualizar seus dados e gerir aqueles</br>
+				que estão em nosso banco de dados
+			</p>
+
+			<select id="userTypeEdit" onchange="chooseUserToShow()">
+				<option selected disabled>Escolha um perfil de usuário para exibir...</option>
+				<option value="Aluno">Aluno</option>
+				<option value="Administrador">Administrador</option>
+				<option value="Gestor">Gestor</option>
+				<option value="Tutor">Tutor</option>
+			</select>
+
+			<div class="separador"></div>
+
+			<div id="usersToShow">
+
+			</div>
+		</div>
+
+		<!-- Pílulas -->
+		<!-- Adicionar pílula-->
+		<div class="hide" id="adicionarPilula">
+			<div class="adicionarConteudoBiblioteca">
+				<h1>Criar nova pílula de conhecimento</h1>
+				<p>
+					A biblioteca da SkillShare é um local onde ficam postados arquivos PDFs no qual os alunos tem acesso
+					a este</br>
+					material, dessa forma podem incrementar ainda mais seus conhecimentos
+				</p>
+
+				<div class="separador"></div>
+			</div>
+
+			<form class="pilulaForm" id="formPilula" onsubmit="registerPilula(event)"
+				onreset="clearFileLabel(event, 'labelFileNamePilula')">
+				<select name="idCurso" id="selectCursoParaPilula">
+					<option selected disabled>Escolha um curso para a pílula...</option>
+				</select>
+
+				<div>
+					<div style="width: 100%; display: flex;">
+						<label>Título:</label>
+						<input name="titulo" type="text" id="tituloPilula">
+					</div>
+
+					<div class="inputFilePilula">
+						<label for="inputUploadPilula" class="inputUploadButton">Escolher arquivo...</label>
+						<input name="arq" type="file" id="inputUploadPilula"
+							onchange="setInputLabelName(event, 'labelFileNamePilula')">
+						<label id="labelFileNamePilula">Selecione um arquivo</label>
+					</div>
+
+					<div class="textField">
+						<label>Texto do corpo</label>
+						<textarea name="descricao" id="textAreaCriarPilula" cols="30" rows="10"></textarea>
+					</div>
+
+
+					<div class="buttonContainer">
+						<input type="submit" class="greenButton" value="Adicionar">
+						<input type="reset" class="redButton" value="Limpar campos">
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-- Gerir Píulas -->
+		<div id="mostrarGerirPilulas" class="vBox hide">
+			<h1>Gerir pílulas de conhecimento</h1>
+			<p style="text-align: center;">
+				Escolha um curso para visualizar todas as pílulas referentes a ele, podendo excluí-las ou editar suas
+				informações
+			</p>
+
+			<div class="separador"></div>
+
+			<div id="pilulasToShow">
+
+			</div>
+
+		</div>
+
+
+
+		<!-- Notícias/Eventos -->
+		<!-- Adicionar -->
+		<div class="hide" id="adicionarNoticiaEvento">
+			<div class="header">
+				<h1>Inserir nova notícia/evento</h1>
+				<p>
+					Notícias e eventos são conteúdos que ficam disponíveis aos alunos em suas páginas principais,</br>
+					com o intuíto de que os gestores e administradores possam fornecer conhecimentos diversos que não
+					se</br>
+					relacionam necessariamente com uma disciplina e mante-los atualizados com os acontecimentos do mundo
+				</p>
+
+				<div class="separador"></div>
+			</div>
+
+			<div class="chooserEventoNoticia">
+				<div id="noticia" onclick="showNoticia()">
+					<label>Notícia</label>
+					<div id="chooseBarNoticia" class="choosed"></div>
+				</div>
+				<div id="evento" onclick="showEvento()">
+					<label>Evento</label>
+					<div id="chooseBarEvento" class="notChoosed"></div>
+				</div>
+			</div>
+
+
+			<form class="noticiaForm showChoose" id="formNoticia" onsubmit="registerNoticia(event)"
+				onreset="clearFileLabel(event, 'labelFileNameNoticia')">
+				<div style="width: 90%; margin: 0 auto;">
+					<div style="width: 100%; display: flex; margin-bottom: 20px;">
+						<label>Título:</label>
+						<input required type="text" id="tituloNoticia" name="titulo">
+					</div>
+
+					<div style="width: 100%; display: flex;">
+						<label>Fonte:</label>
+						<input required type="text" id="fonteNoticia" name="fonte">
+					</div>
+
+					<div class="inputFile">
+						<label for="inputUploadNoticia" class="inputUploadButton">Escolher imagem...</label>
+						<input name="arq" type="file" id="inputUploadNoticia"
+							onchange="setInputLabelName(event, 'labelFileNameNoticia')">
+						<label id="labelFileNameNoticia">Selecione uma imagem de thumbnail</label>
+					</div>
+
+					<div class="textField">
+						<label>Subtitulo</label>
+						<textarea required name="sinopse" id="textAreaSubtituloNoticia" cols="30" rows="10"></textarea>
+					</div>
+
+					<div class="textField">
+						<label>Texto do corpo</label>
+						<textarea required name="conteudo" id="textAreaCorpoNoticia" cols="30" rows="10"></textarea>
+					</div>
+
+					<div class="buttonContainer">
+						<input type="submit" class="greenButton" value="Adicionar">
+						<input type="reset" class="redButton" value="Limpar campos">
+					</div>
+				</div>
+			</form>
+
+			<form class="eventoForm hideChoose" id="formEvento" onsubmit="registerEvento(event)"
+				onreset="clearFileLabel(event, 'labelFileNameEvento')">
+				<div style="width: 90%; margin: 0 auto;">
+					<div style="width: 100%; display: flex; margin-bottom: 20px;">
+						<label>Título:</label>
+						<input required name="titulo" type="text" id="tituloEvento">
+					</div>
+					<div class="inputFile">
+						<label for="inputUploadEvento" class="inputUploadButton">Escolher imagem...</label>
+						<input name="arq" type="file" id="inputUploadEvento"
+							onchange="setInputLabelName(event, 'labelFileNameEvento')">
+						<label id="labelFileNameEvento">Selecione uma imagem de thumbnail</label>
+					</div>
+					<div class="textField">
+						<label>Subtitulo</label>
+						<textarea required name="sinopse" id="textAreaSubtituloEvento" cols="30" rows="10"></textarea>
+					</div>
+
+					<div class="textField">
+						<label>Texto do corpo</label>
+						<textarea required name="conteudo" id="textAreaCorpoEvento" cols="30" rows="10"></textarea>
+					</div>
+
+					<div class="buttonContainer">
+						<input type="submit" class="greenButton" value="Adicionar">
+						<input type="reset" class="redButton" value="Limpar campos">
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-- Gerir Eventos-->
+		<div id="mostrarEventosNoticias" class="vBox hide">
+			<h1>Gerir notícias e eventos</h1>
+			<p style="text-align: center;">
+				Escolha entre notícias e eventos para visualizar os registros do respectivo tipo, podedendo</br>
+				ver os dados de cada um para editar ou excluir
+			</p>
+
+			<select id="selectEventoNoticia" onchange="chooseNoticiaEventoToShow()">
+				<option selected disabled>Escolha um tipo de publicação para exibir...</option>
+				<option value="Noticia">Notícias</option>
+				<option value="Evento">Eventos</option>
+			</select>
+
+			<div class="separador"></div>
+
+			<div id="noticiasToShow" class="hideChoose noticiaEventoDisplayer">
+
+			</div>
+
+			<div id="eventosToShow" class="hideChoose noticiaEventoDisplayer">
+
+			</div>
+		</div>
+
+		<!-- Cadastrar turma -->
+		<div id="turmasToShow" class="hide">
+			<div class="header">
+				<h1>Cadastrar nova turma</h1>
+				<p>Cadastre uma nova turma para que seus cursos possuam alunos!<br>Toda turma é atrelada a um curso,
+					possui alunos e um tutor, que ajudará no desenvolvimento dos seus alunos.</p>
+				<div class="separador"></div>
+			</div>
+			<form class="formAdicionarTurma" id="formAdicionarTurma" onsubmit="registerTurma(event)">
+				<div class="campoCadastroTurma">
+					<label class="titleLabel">Escolha um curso:</label>
+					<select name="tutor" id="selectCursoParaTurma">
+						<option selected disabled>Escolha um curso...</option>
+					</select>
+				</div>
+				<div class="campoCadastroTurma">
+					<label class="titleLabel">Data de início:</label> <input type="date" id="diaInicio"
+						name="dataInicio">
+				</div>
+				<div class="campoCadastroTurma">
+					<label class="titleLabel">Data de fim:</label> <input type="date" id="diaFim" name="dataFim">
+				</div>
+				<div class="campoCadastroTurma">
+					<label class="titleLabel">Escolha um tutor:</label> <select name="tutor" id="escolhaDeTutor">
+						<option selected disabled>Escolha um tutor...</option>
+					</select>
+				</div>
+				<div>
+					<label class="titleLabel">Escolha os alunos:</label>
+					<table class="tableTurma">
+					  <thead class="theadTurma">
+					    <tr>
+					      <th align="left">Nome</th>
+					      <th align="left">CPF</th>
+					    </tr>
+					  </thead>
+					  <tbody class="tbodyTurma" id="tbodyTurma">
+					  </tbody>
+					</table>	
+				</div>
+				<div class="buttonContainer">
+					<input type="submit" class="greenButton" value="Adicionar">
+					<input type="reset" class="redButton" value="Limpar campos">
+				</div>
+			</form>
+
+		</div>
+
+		<div class="hide" id="mostrarGerirTurmas">
+			<h1 style="text-align: center;">Gerir turmas</h1>
+			<p style="text-align: center;">
+				Escolha uma turma para alterar a data de início e de fim dela!
+				<div class="separador"></div>
+			</p>
+			<div id="gerirTurmasToShow"></div>
+		</div>
+
+	</div>
+
+	<footer-rgba></footer-rgba>
 
 </body>
+
 </html>

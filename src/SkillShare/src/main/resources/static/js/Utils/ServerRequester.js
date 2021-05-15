@@ -34,6 +34,15 @@ class ServerRequester{
         return await this.fazerRequisicao(url, configsGet);
     }
 
+    async fazerPut(caminhoRest){
+        let url = this.serverURL + caminhoRest;
+        let configsPut = {
+            method: "PUT"
+        };
+
+        return await this.fazerRequisicao(url, configsPut);
+    }
+
 
     /**
      * Faz uma requisição POST para o servidor, para o serviço REST específicado e com os dados fornecidos
@@ -71,12 +80,16 @@ class ServerRequester{
      */
     async fazerRequisicao(url, configs){
         let requisicao = await fetch(url, configs);
-        let responseJson = await requisicao.json();
+        let resposta = {};
+        try{
+            let responseJson = await requisicao.json();
 
-        let resposta = {}
-        resposta["ok"] = requisicao.ok;
-        resposta["status"] = requisicao.status;
-        resposta["responseJson"] = responseJson;
+            resposta["ok"] = requisicao.ok;
+            resposta["status"] = requisicao.status;
+            resposta["responseJson"] = responseJson;
+        }catch(e){
+            console.log("Requisição sem retorno");
+        }
 
         return resposta;
     }

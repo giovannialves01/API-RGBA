@@ -16,6 +16,8 @@ class Biblioteca{
 
     }
 
+
+
     setTitulo(nome){
         this.titulo = nome;
     }
@@ -40,6 +42,10 @@ class Biblioteca{
     }
     getId(){
         return this.id;
+    }
+
+    getDeleteMessage(){
+        return this.titulo;
     }
 
 

@@ -1,0 +1,30 @@
+.principal {
+     flex-direction: column;
+     align-items: center;
+     margin-top: 5%;
+     width: 80%;
+}
+.turma {
+     display: flex;
+     align-items: center;
+}
+.turma i {
+     font-size: xxx-large;
+     margin-right: 20px;
+}
+.linkAlunosTurma {
+     text-decoration: none;
+     color: black;
+}
+.separador {
+     height: 2px;
+     background-color: black;
+     border-radius: 25px;
+ 
+     width: 90%;
+     margin: 0 auto;
+     opacity: 40%;
+ 
+     margin-top: 30px;
+     margin-bottom: 30px;
+}

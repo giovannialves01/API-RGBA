@@ -533,3 +533,255 @@ textarea.userDataFieldEnabled{
     width: 90%;
     margin: 0 auto;
 }
+
+.logContainer{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.infosContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.logInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.columnContainer{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.adicionarCurso{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+} 
+
+.campoNome{
+    display: flex;
+    flex-direction: row; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.arquivoCurso{
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.arquivoCurso .inputFile {
+    margin-left: 10px;
+}
+
+.arquivoCurso .inputFile .descricao {
+    line-height: 0px;
+}
+
+.campoDescricao{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.campoEscolha{
+    display:flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.campoEscolha .titleLabel {
+    margin-right: 10px;
+}
+
+
+.textAreaEnunciado{
+    height: 130px;
+}
+
+.questaoAlternativaContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.questaoAlternativaTexto{
+    width: 100%;
+    height: 70px;
+}
+
+.questaoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#questoesToShow{
+    width: 100%;
+}
+
+.dataQuestao{
+    width: 70%;
+}
+
+.containerEnunciadoQuestao{
+    display: flex;
+    flex-direction: column;
+}
+
+.questaoAlternativaECorreta{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.questaoAlternativas{
+    width: 50%;
+}
+
+.detalhesCurso{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.containerCurso{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.thumbCurso{
+    width: 270px;
+    height: 270px;
+    border-radius: 150px;
+    margin-right: 25px;
+}
+
+.turmasCurso{
+    padding: 5px;
+    margin-top: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.manageTurmas > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.turmaContainerCurso{
+    margin-left: 20px;
+}
+
+.turmaContainerCurso > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.alunoTurmaCurso{
+    margin-left: 20px;
+}
+
+.alunoTurmaCurso > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.deleteUserTurmaCurso{
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+}
+
+.manageTurmaCurso > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.menuAddAluno{
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    left: 20%;
+    top: 15%;
+    z-index: 2;
+    background-color: white;
+    box-shadow: 0px 0px 25px -8px rgba(0,0,0,0.75);
+}
+
+.fecharAddAluno{
+    position: relative;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    color: red;
+    cursor: pointer;
+}
+
+.manageTurmaCursoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fa-chevron-ExpandirTurma{
+    cursor: pointer;
+}
+
+.turmaContainerCurso.hideTurma{
+    overflow: hidden;
+    height: 29px;
+}
+.turmaContainerCurso.showTurma{
+    overflow: hidden;
+    height: fit-content;
+}
+
+.buttonAddAluno{
+    border: none;
+    background-color: #5fd05f;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.buttonAddAluno:hover{
+    background-color: #47b347;
+}
+
+.buttonAddAluno:active{
+    background-color: #3cd13c;
+}
+
+
+.buttonAddAluno > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}

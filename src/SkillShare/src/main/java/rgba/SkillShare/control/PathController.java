@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import rgba.SkillShare.utils.SessionManager;
 
@@ -40,7 +41,7 @@ public class PathController {
 		
 	}
 	
-	@GetMapping(value = "/tutorPage")
+	@GetMapping(value = "/tutoria")
 	public String tutorPage(HttpSession sessao) {
 		boolean permitido = SessionManager.checkPermission(sessao, "tutor");
 			
@@ -98,9 +99,32 @@ public class PathController {
 	public String noticia() {
 		return "noticias";
 	}
+	
 	@GetMapping(value = "/verPilulas")
 	public String verPilulas() {
 		return "pilulas";
+	}
+	
+	@GetMapping(value = "/meusCursosAluno")
+	public String meusCursosAluno () {
+		return "meusCursosAluno";
+	}
+
+	@GetMapping(value = "/scorm")
+	public String scormTest () {
+		return "scormTest";
+	}
+	@GetMapping(value = "/detalhesCurso{id}")
+	public String detalhesCurso(@PathVariable String id) {
+		return "detalhesCurso";
+	}
+	@GetMapping(value = "/tutoriaCurso{id}")
+	public String detalhesCursoTutor(@PathVariable String id) {
+		return "turmasTutorCurso";
+	}
+	@GetMapping(value = "/tutoriaAluno{id}")
+	public String detalhesAlunosTutor(@PathVariable String id) {
+		return "alunosTutor";
 	}
 }
  

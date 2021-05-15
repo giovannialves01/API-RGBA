@@ -1,0 +1,55 @@
+.show {
+     display: flex;
+}
+.hide{
+     display: none;
+ }
+.container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.principal {
+     flex-direction: column;
+     align-items: center;
+     margin-top: 5%;
+     width: 80%;
+     height: 300px;
+}
+.titulo, .textoExplicativo {
+     text-align: center;
+}
+.conteudo {
+     flex-direction: column;
+     align-items: center;
+     margin-top: 5%;
+     width: 80%;
+}
+.todosCursos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.curso {
+	width: 296px;;
+	border-radius: 27px;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+     margin: 25px;
+  	box-shadow: 5px 5px 5px #888888;
+}
+.curso img {
+	width: 100%;
+	object-fit: cover;
+	border-top-left-radius: 27px;
+	border-top-right-radius: 27px;
+}
+.curso p {
+	text-align: center;
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+}

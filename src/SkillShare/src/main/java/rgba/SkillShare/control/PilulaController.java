@@ -2,7 +2,6 @@ package rgba.SkillShare.control;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -105,7 +104,7 @@ public class PilulaController {
         return pilulaRepository.findAll();
     }
 
-       /** 
+    /** 
     *  Endpoint para deletar uma pílula especificada pelo id.
     * @param id-> id da pílula a ser deletada
     * @author Nicholas Roque
