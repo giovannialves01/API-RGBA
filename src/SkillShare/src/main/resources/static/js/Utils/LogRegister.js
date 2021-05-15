@@ -8,9 +8,7 @@ class LogRegister{
             acao: acao
         }
 
-        let log = new Log(logData);
-
-        let response = await serverRequester.fazerPost("/logs/newLog", log.toData());
+        let response = await serverRequester.fazerGetWithData("/logs/newLog", logData);
 
         return response["responseJson"];
         

@@ -583,7 +583,7 @@ async function deleteEntity(entityIdentifier, entity) {
         headers: { "Content-Type": "application/json"},
     })
     .then(function (res) {
-        if(res.status==200){
+        if(res.status==204){
             alert("deletado");
     
             if(editableEntity.nextSibling != null){
@@ -941,7 +941,7 @@ async function saveChanges(entityIdentifier, entity) {
             alert("Alterado");
 
             let log = new LogRegister();
-            await log.createNewLog("Alteração de dados da entidade: " + newEntity.getDeleteMessage());
+            log.createNewLog("Alteração de dados da entidade: " + newEntity.getDeleteMessage());
         }else{
             alert("Não alterado");
         }
