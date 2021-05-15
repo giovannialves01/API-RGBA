@@ -729,9 +729,9 @@ textarea.userDataFieldEnabled{
     position: fixed;
     left: 20%;
     top: 15%;
-    border: 2px solid;
     z-index: 2;
     background-color: white;
+    box-shadow: 0px 0px 25px -8px rgba(0,0,0,0.75);
 }
 
 .fecharAddAluno{
@@ -741,4 +741,47 @@ textarea.userDataFieldEnabled{
     margin-top: 5px;
     color: red;
     cursor: pointer;
+}
+
+.manageTurmaCursoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fa-chevron-ExpandirTurma{
+    cursor: pointer;
+}
+
+.turmaContainerCurso.hideTurma{
+    overflow: hidden;
+    height: 29px;
+}
+.turmaContainerCurso.showTurma{
+    overflow: hidden;
+    height: fit-content;
+}
+
+.buttonAddAluno{
+    border: none;
+    background-color: #5fd05f;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.buttonAddAluno:hover{
+    background-color: #47b347;
+}
+
+.buttonAddAluno:active{
+    background-color: #3cd13c;
+}
+
+
+.buttonAddAluno > *{
+    margin-left: 5px;
+    margin-right: 5px;
 }

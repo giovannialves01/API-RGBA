@@ -962,7 +962,7 @@ function createFieldBox(title, value, name) {
 
     let dataLabel = document.createElement("input");
     dataLabel.classList.add("userDataFieldDisabled");
-    if(title == "Perfil" || title == "Curso"){
+    if(title == "Perfil" || title == "Curso" || title == "Gestor"){
         dataLabel.classList.add("notEditable");
     }
     dataLabel.value = value;
@@ -1489,8 +1489,8 @@ async function carregarcursos(){
             url: `${serverRequester.serverURL}/cursos/${curso.getId()}/gestor`
         })
         .then(function (response) {
-            curso.setGestor(response.data.cpf)          
-            let divGestor = createFieldBox("Gestor:", curso.getGestor(), "gestor");
+            curso.setGestor(response.data.nome)          
+            let divGestor = createFieldBox("Gestor", curso.getGestor(), "gestor");
             divNomeDescricao.appendChild(divNome);
             divNomeDescricao.appendChild(divDescricao);
             divNomeDescricao.appendChild(divGestor);
@@ -1524,16 +1524,9 @@ async function carregarcursos(){
         manageTurmasIcone.className = "fas fa-users";
         let titleManageTurmas = document.createElement("label");
         titleManageTurmas.textContent = "Turmas desse curso";
-        let botaoAdicionarTurma = document.createElement("button");
-        botaoAdicionarTurma.textContent = "Adicionar turma";
-        botaoAdicionarTurma.onclick = function (){
-            console.log("Adicionando nova turma");
-            console.log(divTurmas);
-        }
 
         divManageTurmas.appendChild(manageTurmasIcone);
         divManageTurmas.appendChild(titleManageTurmas);
-        divManageTurmas.appendChild(botaoAdicionarTurma);
 
         divTurmas.appendChild(divManageTurmas);
 
@@ -1545,20 +1538,30 @@ async function carregarcursos(){
             let turmaIdentifier = containerIdentifier + "-" + "turma" + (x + 1);
             let turmaContainer = document.createElement("div");
             turmaContainer.classList.add("turmaContainerCurso");
+            turmaContainer.classList.add("hideTurma");
             turmaContainer.id = turmaIdentifier;
 
             let divManageTurma = document.createElement("div");
-            divManageTurma.classList.add("manageTurmaCurso");
+            divManageTurma.classList.add("manageTurmaCursoContainer");
+
+            let divManageTurmaInfos = document.createElement("div");
+            divManageTurmaInfos.classList.add("manageTurmaCurso");
+            let expandirTurma = document.createElement("span");
+            expandirTurma.className = "fas fa-chevron-left fa-chevron-ExpandirTurma";
+            expandirTurma.onclick = function(){
+                colapsarTurma(turmaIdentifier);
+            }
             let iconeTurma = document.createElement("span");
             iconeTurma.className = "fas fa-graduation-cap";
             let labelTitleTurma = document.createElement("label");
             labelTitleTurma.textContent = "Início em " + turma.getDataInicio() + " e finalização em " + turma.getDataTermino();
             let botaoAdicionarAluno = document.createElement("button");
-            botaoAdicionarAluno.textContent = "Adicionar aluno";
+            botaoAdicionarAluno.classList.add("buttonAddAluno");
+            let iconeAdicionarAluno = document.createElement("span");
+            iconeAdicionarAluno.className = "fas fa-user-plus";
+            botaoAdicionarAluno.appendChild(iconeAdicionarAluno);
+            botaoAdicionarAluno.insertAdjacentText("beforeend", "Aluno");
             botaoAdicionarAluno.onclick = async function(){
-                console.log("Adicionando aluno");
-                console.log(turmaContainer);
-
                 let alunosResponse = await serverRequester.fazerGet("/alunos");
                 let alunosArray = alunosResponse["responseJson"];
 
@@ -1645,9 +1648,11 @@ async function carregarcursos(){
                 document.body.appendChild(menuAddAluno);
             }
 
-            divManageTurma.appendChild(iconeTurma);
-            divManageTurma.appendChild(labelTitleTurma);
-            divManageTurma.appendChild(botaoAdicionarAluno);
+            divManageTurmaInfos.appendChild(iconeTurma);
+            divManageTurmaInfos.appendChild(labelTitleTurma);
+            divManageTurmaInfos.appendChild(botaoAdicionarAluno);
+            divManageTurma.appendChild(divManageTurmaInfos);
+            divManageTurma.appendChild(expandirTurma);
 
             turmaContainer.appendChild(divManageTurma);
 
@@ -2077,6 +2082,25 @@ async function gerirTurmasToShow() {
 
     });
 
+}
+
+function colapsarTurma(turmaIdentifier){
+    let container = document.getElementById(turmaIdentifier);
+
+    let botaoExpandir = container.getElementsByClassName("fa-chevron-ExpandirTurma")[0];
+
+    if(botaoExpandir.className.includes("left")){
+        botaoExpandir.className = "fas fa-chevron-down fa-chevron-ExpandirTurma";
+        container.classList.remove("hideTurma");
+        container.classList.add("showTurma");
+
+    }else{
+        botaoExpandir.className = "fas fa-chevron-left fa-chevron-ExpandirTurma";
+        container.classList.remove("showTurma");
+        container.classList.add("hideTurma");
+        
+    }
+    
 }
 
 loadAllCursos("selectCursoParaPilula");
