@@ -57,6 +57,10 @@ class Curso {
         return this.thumb;
     }
 
+    getDeleteMessage(){
+        return this.titulo;
+    }
+
 
     setId (id){
         this.id = id;

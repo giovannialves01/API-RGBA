@@ -57,6 +57,10 @@ class Questao{
         return this.curso;
     }
 
+    getDeleteMessage(){
+        return this.enunciado;
+    }
+
 
 
     setId(id){

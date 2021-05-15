@@ -38,6 +38,10 @@ class Turma {
         return this.alunos ;
     }
 
+    getDeleteMessage(){
+        return "Turma do curso " + this.getCurso()["titulo"];
+    }
+
     setId(id){
         this.id = id;
     }

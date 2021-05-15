@@ -98,6 +98,8 @@ async function registerUser(event) {
     
             if(response["ok"] == true){
                 alert("Cadastrado com sucesso!");
+                let log = new LogRegister();
+                await log.createNewLog("Cadastro de novo usuário: " + user.getNome());
     
             }else{
                 alert("Ocorreu um erro ao cadastrar o cliente");
@@ -589,6 +591,9 @@ async function deleteEntity(entityIdentifier, entity) {
             }
     
             editableEntity.remove();
+
+            let log = new LogRegister();
+            log.createNewLog("Exclusão de entidade: " + entity.getDeleteMessage());
     
         }else{
             alert("não deletado");
@@ -934,14 +939,15 @@ async function saveChanges(entityIdentifier, entity) {
     }).then((res)=>{
         if(res.status==204){
             alert("Alterado");
+
+            let log = new LogRegister();
+            await log.createNewLog("Alteração de dados da entidade: " + newEntity.getDeleteMessage());
         }else{
             alert("Não alterado");
         }
     }).catch((err)=>{
         console.log(err);
     })
-
-    
 
     disableEdit(entityIdentifier, newEntity);
 }
@@ -1073,9 +1079,13 @@ async function registerBook(event) {
     res.then((r)=>{
         console.log(r);
         if(r.status==201){
-            alert("Biblioteca cadastrada.")
+            alert("Biblioteca cadastrada.");
+            formData.get("titulo");
+            let log = new LogRegister();
+            log.createNewLog("Cadastro de novo conteúdo na Biblioteca: " + formData.get("titulo"));
+
         }else{
-            alert("Erro no cadastro da biblioteca.")
+            alert("Erro no cadastro da biblioteca.");
 
         }
     })
@@ -1089,9 +1099,13 @@ async function registerPilula(event) {
     let res = sendFile(formData,url);
     res.then((r)=>{
         if(r.status==201){
-            alert("Pílula cadastrada.")
+            alert("Pílula cadastrada.");
+
+            let log = new LogRegister();
+            log.createNewLog("Cadastro de nova pílula de conhecimento: " + formData.get("titulo"));
+
         }else{
-            alert("Erro no cadastro de pílula.")
+            alert("Erro no cadastro de pílula.");
 
         }
     })
@@ -1105,9 +1119,13 @@ async function registerNoticia(event){
     let res = sendFile(formData,url);
     res.then((r)=>{
         if(r.status==201){
-            alert("Destaque cadastrado.")
+            alert("Destaque cadastrado.");
+
+            let log = new LogRegister();
+            log.createNewLog("Cadastro de nova notícia: " + formData.get("titulo"));
+
         }else{
-            alert("Erro no cadastro do destaque.")
+            alert("Erro no cadastro do destaque.");
 
         }
     })
@@ -1123,9 +1141,13 @@ async function registerEvento(event){
     let res = sendFile(formData,url);
     res.then((r)=>{
         if(r.status==201){
-            alert("Evento cadastrado.")
+            alert("Evento cadastrado.");
+
+            let log = new LogRegister();
+            log.createNewLog("Cadastro de novo evento: " + formData.get("titulo"));
+
         }else{
-            alert("Erro no cadastro do evento.")
+            alert("Erro no cadastro do evento.");
 
         }
     })
@@ -1784,6 +1806,9 @@ async function registerCurso(event) {
                             if(res.status=="COMPLETE"){
                                 alert("Curso postado com sucesso")
                                 clearInterval(status)
+
+                                let log = new LogRegister();
+                                log.createNewLog("Cadastro de novo curso: " + formData.get("titulo"));
                             }
                         })
                     },5000)
@@ -1815,6 +1840,9 @@ async function registerQuestao(event) {
     }
 
     let response = await serverRequester.fazerPost("/questoes/cadastrar/" + cursoId, data);
+
+    let log = new LogRegister();
+    log.createNewLog("Cadastro de nova questão: " + data["enunciado"]);
 }
 
 async function chooseQuestaoToShow() {
@@ -2020,6 +2048,9 @@ async function registerTurma(event){
                 }
 
                 uploadAluno(curso.id, token, usuario);
+
+                let log = new LogRegister();
+                log.createNewLog("Cadastro de nova turma no curso");
             });
 
         });
