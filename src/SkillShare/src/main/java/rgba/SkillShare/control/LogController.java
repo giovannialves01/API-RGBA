@@ -1,5 +1,6 @@
 package rgba.SkillShare.control;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,13 +46,13 @@ public class LogController {
      * @return Retorna true ou false em razão da operação ser sido bem suceedida ou não
      */
     @GetMapping(value = "/newLog")
-    public boolean createNewLog(Log log, HttpSession session) {
+    public boolean createNewLog(String acao, HttpSession session) {
     	boolean sucesso = false;
+    	
     	String userName = SessionManager.getUserName(session);
     	String userAccessLevel = SessionManager.getUserAccessLevel(session);
     	
-    	log.setAutor(userName);
-    	log.setNivelDeAcesso(userAccessLevel);
+       	Log log = new Log(userName, userAccessLevel, acao);
     	
     	try {
         	logRepository.save(log);
