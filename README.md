@@ -88,13 +88,13 @@ Para esta entrega, a maior dificuldade foi a implementação do Scorm, pois foi 
 
 <h2 align="center" id="funcionamento">Nosso sistema em funcionamento até o momento</h2>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%201%20-%20upload%20curso.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/gifs/Adm-1-upload-de-um-curso.gif">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%202%20-%20cria%C3%A7%C3%A3o%20de%20turma%20para%20o%20curso.gif">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%203%20-%20gerir%20cursos.gif">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%205%20-%20criar%20quest%C3%A3o.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/gifs/Adm-5-criar-questo.gif">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%206%20-%20gerir%20quest%C3%B5es.gif">
 
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Aluno%201%20-%20vendo%20cursos%20e%20fazendo%20um.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/gifs/Aluno-1-vendo-cursos-e-fazendo-u.gif">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Aluno%202%20-%20vendo%20o%20progresso.gif">
 
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Tutor%201%20-%20ver%20sursos%2C%20turmas%20e%20alunos.gif">
