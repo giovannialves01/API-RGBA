@@ -76,9 +76,9 @@
                      </tr>
                      <tr>
                             <td><p align="center">Entrega 3</p></td>
-                            <td><p align="justify">A definir.</p></td>
+                            <td><p align="justify"Administradores e gestores criarão cursos e turmas vinculadas a estes. Os alunos, finalmente, poderão desfrutar do conteúdo dos cursos e da principal funcionalidade da nossa plataforma!</p></td>
                             <td><p align="center">16/05</p></td>
-                            <td><p align="center"><a href="">A definir</p></td>
+                            <td><p align="center"><a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-3">Visualizar</p></td>
                      </tr>
                      <tr>
                             <td><p align="center">Entrega 4</p></td>
