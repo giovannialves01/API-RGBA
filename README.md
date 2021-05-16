@@ -102,6 +102,7 @@ Os story cards estão com a sua estimativa de esforço a partir de uma ferrament
 Nessa entrega, os administradores e gestores poderão postar cursos, além de poderem adicionar turmas a esses cursos para que eles tenham alunos. O aluno poderá visualizar os cursos em que está inscrito e poderá acessar seu conteúdo, abrangendo de vídeos a PDFs, além de poder realizar quizzes e avaliações. O tutor também poderá visualizar as turmas dos cursos em que está vinculado.
 </p>
 <p align="center">
+<img src="https://raw.githubusercontent.com/giovannialves01/API-RGBA/SPRINT-3/doc/User%20stories/priorizacao_entregas/entrega3/User%20activities%20e%20User%20tasks.png" width="500px">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega3/entrega3pt1.png" width="500px">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega3/entrega3pt2.png" width="500px">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega3/entrega3pt3.png" width="500px"><br>
@@ -112,38 +113,41 @@ Nessa entrega, os administradores e gestores poderão postar cursos, além de po
 <img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Administrador__Logs_do_sistema.png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Administra%C3%A7%C3%A3o__Listagem_de_cursos_(2).png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Administra%C3%A7%C3%A3o_%20Listagem%20de%20cursos.png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Administra%C3%A7%C3%A3o__Postagem_de_um_curso.png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Administra%C3%A7%C3%A3o_%20Postagem%20de%20um%20curso.png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Aluno__Detalhes_do_curso.png">
+    <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Administra%C3%A7%C3%A3o_%20banco%20de%20quest%C3%B5es.png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Aluno__Listagem_de_cursos.png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Aluno_%20Detalhes%20do%20curso.png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Tutor__Listagem_de_cursos.png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Aluno_%20Listagem%20de%20cursos.png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Tutor__Listagem_de_todas_as_turmas_de_um_curso.png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Tutor_%20Listagem%20de%20cursos.png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Tutor__Listagem_de_todos_os_seus_alunos.png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Tutor_%20Listagem%20de%20todas%20as%20turmas%20de%20um%20curso.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Tutor_%20Listagem%20de%20todos%20os%20seus%20alunos.png">
 </p>
 
 <p align="center">
-Você pode visualizar todos os mockups clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/sprint-3-rascunho/doc/Wireframes_Mockups"><i>aqui</i></a>
+Você pode visualizar todos os mockups clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-3/doc/Wireframes"><i>aqui</i></a>
 </p>
 
 <h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados :card_file_box:</h2>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Banco%20de%20dados/Conceitual-sprint-2.png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Banco%20de%20dados/Conceitual-sprint-3.png">
 </p>
 
 <h2 align="center" id="burndown">Burndown da Sprint</h2>
 <p align="justify">Nossa Sprint foi "corrida", devido à quantidade de funcionalidades que nós tínhamos proposto para a entrega. Além disso, nossa principal e mais trabalhosa feature foi a integração de um Scorm Player na nossa plataforma. No final deu tudo certo, mas em vários momentos fomos surpreendidos por conta do desafio de implementar algo que nunca tínhamos visto antes.</p>
 <p align="center">
-    <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Burndown/Burndown%20Sprint2.png">
+    <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Burndown/Burndown%20Sprint3.png">
 </p>
