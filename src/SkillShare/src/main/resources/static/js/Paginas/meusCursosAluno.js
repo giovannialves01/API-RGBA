@@ -29,25 +29,25 @@ window.onload = async function carregarConteudo () {
 	    	pTituloCurso.innerText = turmas[i].curso.titulo;
 	    	divCurso.appendChild(pTituloCurso);
 	    	
-	    	var divBarraProgresso = document.createElement("div");
-	    	divBarraProgresso.classList.add("barraProgresso");
-	    	
-	    	
-	    	var divProgresso = document.createElement("div");
-	    	divProgresso.classList.add("progresso");
-	    	
-	    	let cursoScorm = getProgressoAluno(turmas[i].curso.id + res.cpfAluno, token).then((res) => {
-	    	
-	    		let progressoScorm = res.registrationCompletionAmount;
-	    		let progressoPorcentagem = progressoScorm * 100;
-	    		
-	    		divProgresso.style.width = progressoPorcentagem + "%";
-	    	});
-	    	
-	    	
-	    	divBarraProgresso.appendChild(divProgresso);
-	    	
-	    	divCurso.appendChild(divBarraProgresso);
+//	    	var divBarraProgresso = document.createElement("div");
+//	    	divBarraProgresso.classList.add("barraProgresso");
+//	    	
+//	    	
+//	    	var divProgresso = document.createElement("div");
+//	    	divProgresso.classList.add("progresso");
+//	    	
+//	    	let cursoScorm = getProgressoAluno(turmas[i].curso.id + res.cpfAluno, token).then((res) => {
+//	    	
+//	    		let progressoScorm = res.registrationCompletionAmount;
+//	    		let progressoPorcentagem = progressoScorm * 100;
+//	    		
+//	    		divProgresso.style.width = progressoPorcentagem + "%";
+//	    	});
+//	    	
+//	    	
+//	    	divBarraProgresso.appendChild(divProgresso);
+//	    	
+//	    	divCurso.appendChild(divBarraProgresso);
 	    	
 	    	var aLinkCurso = document.createElement("a");
 	    	aLinkCurso.href = "/detalhesCurso" + turmas[i].curso.id;
