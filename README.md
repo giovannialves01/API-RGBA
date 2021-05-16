@@ -1,118 +1,149 @@
-<html>
-       <head></head>
-       <body>
-              <h1 align="center">SkillShare :brain::computer:</h1>
-              <p align="center">
-                     <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-                     <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-                     <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white">
-                     <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
-                     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-                     <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
-              </p>
-              <p align="center"><img src="https://img.shields.io/badge/status-em desenvolvimento-blue?style=for-the-badge&logo=appveyor"></p>
-              <p align="center"><img src="https://img.shields.io/badge/Sprint%20atual-Sprint 3-blue?style=for-the-badge&logo=appveyor"></p>
-              <h2>O que é o SkillShare? :brain::computer:</h2>
-              <p align="justify">Em uma realidade em que o ensino on-line tornou-se essencial para a manutenção do conhecimento, o SkillShare tem o intuito de proporcionar treinamentos on-line e gratuitos para funcionários aperfeiçoarem suas habilidades técnicas!</p>
-              <p align="justify"><a href="https://g1.globo.com/economia/noticia/2020/10/30/desemprego-no-brasil-sobe-para-144percent-em-agosto-diz-ibge.ghtml">Atualmente 14,4% da população brasileira encontra-se desempregada</a>. Dessa forma todos nós precisamos de mais qualificação para alcançarmos nossos objetivos profissionais. Apesar de existirem muitas plataformas de ensino on-line, elas são pagas, removendo assim o direito à educação de todos.</p>
-              <p align="justify">Nosso cliente é a empresa Ness Health. A demanda é o desenvolvimento de um LMS (<i>Learning Management System</i>) gratuito para os funcionários matriculados, pois temos o compromisso de democratizar a educação. Vídeos, PDFs, slides e quizzes farão parte dos nossos cursos e o estudante poderá contar, também, com tutores que os darão auxílio no processo de aprendizagem. Ao final do curso o estudante, gratuitamente, recebe um certificado do curso que realizou. Qualquer usuário poderá conversar com um chatbot para tirar suas dúvidas. Administradores e gestores, que são membros corporativos, terão dashboards para a análise dinâmica das informações dos seus alunos! Os usuários poderão acessar a plataforma de qualquer dispositivos, pois ela será responsiva.
-              <p align="justify">Nós, da equipe RGBA, apresentamos o SkillShare que, pelo contrário, visa democratizar o ensino on-line, de forma a distribuir o aprendizado para todos. O SkillShare é um LMS que oferece cursos gratuitos on-line para aperfeiçoamento e aprendizagem dos colaboradores de uma empresa, ajustando-se às várias formas de aprendizado do usuário, além de permitir o controle e análise pelos gestores de sua staff. Os instrutores serão capazes de adicionar cursos, atividades e pílulas de conhecimento para que qualquer funcionário de uma empresa possa adquirir habilidades técnicas.</p>
-              <h3>Índice</h3>
-              <ul>
-                     <li><a href="https://github.com/giovannialves01/API-RGBA/blob/main/README.md#o-que-%C3%A9-o-skillshare">O que é o SkillShare?</a>
-                     <ul>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA#benef%C3%ADcios-da-nossa-plataforma">Benefícios da nossa plataforma</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA#user-roles">User Roles</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA#hourglass_flowing_sand-entregas">Entregas</a>
-                            <li><a href="https://github.com/giovannialves01/API-RGBA#cronograma-de-entregas">Cronograma de Entregas</a>
-                     </ul>
-                     <li><a href="https://github.com/giovannialves01/API-RGBA#integrantes-da-equipe-girlboy">Integrantes da equipe</a>
-                     <li><a href="https://github.com/giovannialves01/API-RGBA#memobooksdart-disciplina-focal-point-engenharia-de-software-ii">Disciplina Focal Point</a>
-                     <li><a href="https://github.com/giovannialves01/API-RGBA#disciplinas-integradas-memo">Disciplinas Integradas</a>
-              </ul>
-              <h3>Benefícios da nossa plataforma</h3>
-              <p>:white_check_mark: Gratuita</p>
-              <p>:white_check_mark: Aprendizagem distribuída: vídeos, PDFs, slides</p>
-              <p>:white_check_mark: Tutoria para auxílio da aprendizagem</p>
-              <p>:white_check_mark: Dashboards para análises dinâmicas</p>
-              <p>:white_check_mark: Chatbot para dúvidas</p>
-              <p>:white_check_mark: Responsiva: acessível em vários dispositivos</p>
-              <p>:white_check_mark: Emissão de certificado</p>
-              <p>:white_check_mark: Controle corporativo</p>
-              <h3>User Roles</h3>
-              <img src="https://user-images.githubusercontent.com/60778277/112249518-b2c04600-8c36-11eb-870c-dde55c0dee32.jpg" width=550px height=500px>
-              <h3>:hourglass_flowing_sand: Entregas</h3>
-              <h4>Primeira entrega :clock12:</h4>
-              <p align="justify">A primeira entrega foi focada no cadastro de alunos por parte do administrador e do gestor, além de contar com o log-in dos usuários. O administrador e o gestor já são redirecionados para as suas páginas iniciais, cada uma contendo o que cada um poderá realizar no sistema.</p>
-              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/1.png" width="550px" height="300px">
-              <h4>Segunda entrega :clock4:</h4>
-              <p align="justify">A segunda entrega conta com o início da postagem de conteúdo na plataforma, de forma que ela fique mais atraente e robusta para os estudantes. Estes já poderão visualizar o conteúdo postado. Além disso um chatbot já estará integrado ao sistema para auxílio dos usuários.</p>
-              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/2.png" width="550px" height="300px">
-              <h4>Terceira entrega :clock8:</h4>
-              <p align="justify">Na terceira entrega os administradores e gestores já poderão enviar seus cursos à plataforma, inserir estudantes em turmas e poderão, também, montar o banco de questões. Os logs dos usuários já estarão disponíveis ao administrador. Alunos já poderão rastrear alguns dados do seu progresso no curso. E, por fim, os tutores poderão visualizar as turmas existentes nos cursos.</p>
-              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/3.png" width="550px" height="300px">
-              <h4>Quarta entrega :clock12:</h4>
-              <p align="justify">Na quarta entrega os alunos terão controle de suas notas, avaliações e certificados de conclusão. Tutores poderão realizar um feedback das avaliações dos alunos para que seu conhecimento seja potencializado. Os administradores e gestores possuirão dashboards para a análise dos dados da plataforma.</p>
-              <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/4.png" width="550px" height="300px">
-              <h3>Cronograma de Entregas</h3>
-              <table>
-                     <thead>
-                            <th width=45px>Entrega</th>
-                            <th width=400px>Descrição</th>
-                            <th width=45px>Data</th>
-                            <th width=45px>Link</th>
-                     </thead>
-                     <tr>
-                            <td><p align="center">Entrega 1</p></td>
-                            <td><p align="justify">Os usuários podem logar no sistema. Administradores e Gestores poderão cadastrar novos estudantes.</p></td>
-                            <td><p align="center">28/03</p></td>
-                            <td><p align="center"><a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-1">Visualizar</a></p></td>
-                     </tr>
-                     <tr>
-                            <td><p align="center">Entrega 2</p></td>
-                            <td><p align="justify">Administradores e Gestores poderão inserir conteúdo na biblioteca, postar pílulas de conhecimento, postar eventos e, também, destaques. O chatbot já estará disponível.</p></td>
-                            <td><p align="center">18/04</p></td>
-                            <td><p align="center"><a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-2">Visualizar</p></td>
-                     </tr>
-                     <tr>
-                            <td><p align="center">Entrega 3</p></td>
-                            <td><p align="justify">A definir.</p></td>
-                            <td><p align="center">16/05</p></td>
-                            <td><p align="center"><a href="">A definir</p></td>
-                     </tr>
-                     <tr>
-                            <td><p align="center">Entrega 4</p></td>
-                            <td><p align="justify">A definir.</p></td>
-                            <td><p align="center">05/06</p></td>
-                            <td><p align="center"><a href="">A definir</p></td>
-                     </tr>
-              </table>
-              <p>Para visualizar o burndown de todas as sprints, clique <a href="https://fatecspgov-my.sharepoint.com/:x:/g/personal/anna_yamada_fatec_sp_gov_br/EcgCxB5c3bJMsqK93aJKCDwBOej3TZYlw_uJlNaY1icawA?rtime=uyeFkyDx2Eg">aqui</a>
-              <h2>Integrantes da equipe :girl::boy:</h2>
-              <ul>
-                     <li><a href="https://www.linkedin.com/in/giovanni-santos-546412154/">Giovanni dos Santos Alves</a> (<i>Scrum Master</i>)
-                     <li><a href="https://www.linkedin.com/in/b%C3%A1rbara-port-402158198/">Bárbara dos Santos Port</a> (<i>Product Owner</i>)
-                     <li><a href="https://www.linkedin.com/in/ana-carolina-lima-099955136/">Ana Carolina da Silva Lima</a> (<i>Development Team</i>)
-                     <li><a href="https://www.linkedin.com/in/ana-clara-godoy-2973381b2/">Ana Clara Ferreira de Godoy</a> (<i>Development Team</i>)
-                     <li><a href="https://www.linkedin.com/in/anna-yukimi-yamada-6ba23b149/">Anna Yukimi Yamada</a> (<i>Development Team</i>)
-                     <li><a href="https://www.linkedin.com/in/barbara-bidetti-bb910a1b3/">Bárbara Bidoia Bidetti</a> (<i>Development Team</i>)
-                     <li><a href="https://www.linkedin.com/in/felipe-silva-13b3b61a0/">Felipe Silva</a> (<i>Development Team</i>)
-                     <li><a href="https://www.linkedin.com/in/nicholas-gabriel-dos-santos-roque-9113511b2/">Nicholas Gabriel dos Santos Roque</a> (<i>Development Team</i>)
-                     <li><a href="https://www.linkedin.com/in/rafael-furtado-613a9712a/">Rafael Furtado Rodrigues dos Santos</a> (<i>Development Team</i>)
-              </ul>
-              <h2>:memo::books::dart: Disciplina Focal Point: Engenharia de Software II</h2>
-              <ul>
-                     <li>M2 (Master dos Masters): Prof. José Walmir Gonçalves Duque
-                     <li>P2 (PO dos PO's): Prof. Cláudio Etelvino de Lima
-              </ul>
-              <h2>Disciplinas Integradas :memo:</h2>
-              <ul>
-                     <li>Economia e Finanças (Ministrada por: Prof. Cícero Soares da Silva)
-                     <li>Estruturas de Dados (Ministrada por: Prof. Fernando Masanori Ashikaga)
-                     <li>Interação Humano Computador (Ministrada por: Prof. Giuliano Araujo Bertoti)
-                     <li>Programação Orientada a Objetos (Ministrada por: Prof. Gerson da Penha Neto)
-                     <li>Sistemas Operacionais I (Ministrada por: Prof. Eduardo Sakaue)
-                     <li>Sociedade e Tecnologia (Ministrada por: Prof. Geraldo José Lombardi de Souza)
-              </ul>
-       </body>
-</html>
+<h1 align="center">SkillShare :brain::computer:</h1>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white">
+    <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
+</p>
+
+<p align="center">
+<img src="https://img.shields.io/badge/status-em desenvolvimento-blue?style=for-the-badge&logo=appveyor">
+</p>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Sprint%20atual-Sprint%202-blue?style=for-the-badge&logo=appveyor">
+</p>
+
+<h2 align="center">O que é o SkillShare? :brain::computer:</h2>
+
+<p align="justify">É uma plataforma de ensino a distância (<b>EAD</b>) nos padrões <b>LMS</b>, que tem como objetivo disponibilizar a funcionários de empresas suporte em seu aprendizado de novas competências, utilizando para tal propósito materiais em vídeos, imagens, arquivos PDFs, slides e quizzes, tudo de forma gratuita e de fácil acesso, democratizando assim o acesso a uma formação de qualidade em novas habilidades.</p>
+
+<h2 align="center">Nosso desafio</h2>
+
+<p align="justify">
+A <b><i>Fatec Prof. Jessen Vidal</i></b>, juntamente com uma empresa parceira, <b><i>NESS Health</i></b>, propôs aos alunos o seguinte tema para o API <i>(Aprendizagem por Projetos Integrados)</i>: o desenvolvimento de uma plataforma LMS gratuita e de fácil acesso, na qual empresas possam disponibilizar conteúdos educacionais para o aprimoramento das habilidades de seus colaboradores. O sistema deverá ter quatro níveis de acesso. São eles: aluno, tutor, gestor e administrador. Devemos fornecer as mais variadas opções de postagem de conteúdo comumente utilizadas no mercado e ser de fácil acesso para os alunos e proporcionar uma UX de qualidade superior ao se comparar com aplicações no formato Moodle, por exemplo.
+</p>
+
+<h2 align="center">Índices</h2>
+Para navegar rapidamente e com mais facilidade, você pode utilizar os links dos índices abaixo!
+
+- <a href="#terceiraEntrega">A terceira entrega</a>
+  - [O que fizemos?](#o-que-fizemos)
+  - [Por que entregamos isso?](#por-que-entregamos-isso)
+  - [Quais foram as partes mais trabalhosas?](#quais-foram-as-partes-mais-trabalhosas)
+- <a href="#funcionamento">Nosso sistema em funcionamento até o momento</a>
+- <a href="#userStories">User stories da entrega</a>
+- <a href="#mockups">Mockups da entrega</a>
+- <a href="#modeloBanco">Modelo conceitual do banco de dados</a>
+- <a href="#burndown">Burndown da Sprint</a>
+
+
+<h2 align="center" id="terceiraEntrega">A terceira entrega</h2>
+
+#### O que fizemos?
+<p align="justify">
+Tendo em mente que esta é a terceira entrega de valor, colocamos diversas funções relevantes para o cliente e aluno. A partir dessa Sprint, a nossa aplicação possuirá os seguintes funções:
+</p>
+
+- Funções do administrador:
+    1. Postar cursos na plataforma;
+    2. Gerenciar os cursos;
+    3. Adicionar um aluno a uma turma;
+    4. Visualizar o registro de atividades do sistema;
+    5. Criar banco de questões.
+
+- Funções do gestor:
+    1. Postar cursos na plataforma;
+    2. Utilizar banco de questões para estruturar futuras avaliações.
+    
+- Funções do tutor:
+    1. Visualizar cursos em que possui vínculo, as turmas desses cursos e os alunos também.
+
+- Funções do aluno:
+    1. Ser incluído em turmas para iniciar cursos;
+    2. Visualizar todos os vídeos do curso que está inscrito;
+    3. Realizar as atividades do curso;
+    4. Responder quizzes do curso;
+    5. Ler textos do curso;
+    6. Visualizar aulas e atividades realizadas.
+
+
+#### Por que entregamos isso?
+<p align="justify">
+A disponibilização de cursos e também o acesso a eles é a principal funcionalidade da nossa plataforma, tal que nosso projeto é um Learning Management System. Dessa forma, os alunos já podem realizar seus cursos para adquirir conhecimento nos assuntos que desejarem!
+</p>
+
+
+#### Quais foram as partes mais trabalhosas?
+<p align="justify">
+Para esta entrega, a maior dificuldade foi a implementação do Scorm, pois foi necessário uma pesquisa extensa para adquirir informações e orientações sobre o mesmo, além de uma curva de aprendizagem relevante para compreender suas funcionalidades e como integrá-las à SkillShare.
+</p>
+
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/cards_entregas/3.png" width="500px">
+</p>
+
+<h2 align="center" id="funcionamento">Nosso sistema em funcionamento até o momento</h2>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/chatbot%20e%20home.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/login%20e%20biblioteca.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/cadastro%20aluno.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/aluno%20biblioteca.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/cadastro%20pilulas.gif">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Sprint%202/Gifs/aluno%20pilulas%20e%20noticias.gif">
+</p>
+
+<h2 align="center" id="userStories">User stories da entrega</h2>
+<p align="justify">
+Os story cards estão com a sua estimativa de esforço a partir de uma ferramentra Scrum chamada de Planning Poker, que baseia-se numa parte da sequência de Fibonacci, entre 0 e 89. A estimativa foi feita e utilizada para priorizar o backlog total. Cards com o valor de 0 são considerados desnecessários e deve ser descartados, 1 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. 
+Nessa entrega, os administradores e gestores poderão postar cursos, além de poderem adicionar turmas a esses cursos para que eles tenham alunos. O aluno poderá visualizar os cursos em que está inscrito e poderá acessar seu conteúdo, abrangendo de vídeos a PDFs, além de poder realizar quizzes e avaliações. O tutor também poderá visualizar as turmas dos cursos em que está vinculado.
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega3/entrega3pt1.png" width="500px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega3/entrega3pt2.png" width="500px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega3/entrega3pt3.png" width="500px"><br>
+</p>
+
+<h2 align="center" id="mockups">Mockups da entrega :desktop_computer:</h2>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Administrador__Logs_do_sistema.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Administra%C3%A7%C3%A3o__Listagem_de_cursos_(2).png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Administra%C3%A7%C3%A3o__Postagem_de_um_curso.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Aluno__Detalhes_do_curso.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Aluno__Listagem_de_cursos.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Tutor__Listagem_de_cursos.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Tutor__Listagem_de_todas_as_turmas_de_um_curso.png">
+</p>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Tutor__Listagem_de_todos_os_seus_alunos.png">
+</p>
+
+<p align="center">
+Você pode visualizar todos os mockups clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/sprint-3-rascunho/doc/Wireframes_Mockups"><i>aqui</i></a>
+</p>
+
+<h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados :card_file_box:</h2>
+<p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Banco%20de%20dados/Conceitual-sprint-2.png">
+</p>
+
+<h2 align="center" id="burndown">Burndown da Sprint</h2>
+<p align="justify">Nossa Sprint foi "corrida", devido à quantidade de funcionalidades que nós tínhamos proposto para a entrega. Além disso, nossa principal e mais trabalhosa feature foi a integração de um Scorm Player na nossa plataforma. No final deu tudo certo, mas em vários momentos fomos surpreendidos por conta do desafio de implementar algo que nunca tínhamos visto antes.</p>
+<p align="center">
+    <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-2/doc/Burndown/Burndown%20Sprint2.png">
+</p>
