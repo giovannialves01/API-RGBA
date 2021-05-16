@@ -116,7 +116,7 @@ Nessa entrega, os administradores e gestores poderão postar cursos, além de po
 
 <h2 align="center" id="mockups">Mockups da entrega :desktop_computer:</h2>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/sprint-3-rascunho/doc/Wireframes_Mockups/Entrega%203/Administrador__Logs_do_sistema.png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%203/Administrador__Logs_do_sistema.png">
 </p>
 <p align="center">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Wireframes/Entrega%203/Administra%C3%A7%C3%A3o_%20Listagem%20de%20cursos.png">
