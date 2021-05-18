@@ -27,6 +27,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.data.PutCurso;
 import rgba.SkillShare.model.Arquivo;
+import rgba.SkillShare.model.Certificado;
 import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.model.Thumb;
@@ -69,11 +70,18 @@ public class CursoController {
             new ResponseStatusException(HttpStatus.NOT_FOUND,"Gestor não encontrado para o cpf informado.");
 
         }
+        
         Arquivo a = new Arquivo(th.getOriginalFilename(),th.getBytes(),th.getContentType());
         Thumb thumb = new Thumb();
         thumb.setArquivo(a);
         curso.setThumb(thumb);
         curso.setGestor(gestorRepository.findById(cpf).get());
+        
+        Certificado certificado = new Certificado();
+        //certificado.setImagemDeFundo(imagemDeFundoCertificado);
+        
+        curso.setCertificado(certificado);
+        
         return cursoRepository.save(curso);
     }
 
