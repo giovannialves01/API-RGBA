@@ -35,6 +35,7 @@ import rgba.SkillShare.model.Thumb;
 import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.GestorRepository;
+import rgba.SkillShare.repository.ProvaRepository;
 import rgba.SkillShare.repository.TutorRepository;
 
 /**
@@ -55,6 +56,9 @@ public class CursoController {
 
     @Autowired 
     TutorRepository tutorRepository;
+    
+    @Autowired 
+    ProvaRepository provaRepository;
 
     /** 
     *  Endpoint para cadastro de curso.
@@ -251,6 +255,22 @@ public class CursoController {
     		return false;
     	}
 
+    }
+    
+    @GetMapping(value = "/getProva")
+    public ResponseEntity<Prova> getProva(Long idCurso) {
+    	try {
+    		Curso curso = cursoRepository.findById(idCurso).get();
+    		
+    		Prova prova = curso.getProva();
+    		
+    		return new ResponseEntity<Prova>(prova, HttpStatus.OK);
+    	}catch (Exception e) {
+    		e.printStackTrace();
+    		
+    		return ResponseEntity.noContent().build();
+    	}
+    	
     }
     
 }
