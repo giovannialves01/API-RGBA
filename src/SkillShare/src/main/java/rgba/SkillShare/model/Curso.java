@@ -61,7 +61,7 @@ public class Curso {
     @OneToOne(cascade = CascadeType.PERSIST)
     private Certificado certificado;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Prova prova;
 
 

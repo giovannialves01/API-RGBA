@@ -30,6 +30,7 @@ import rgba.SkillShare.model.Arquivo;
 import rgba.SkillShare.model.Certificado;
 import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.model.Gestor;
+import rgba.SkillShare.model.Prova;
 import rgba.SkillShare.model.Thumb;
 import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.repository.CursoRepository;
@@ -226,4 +227,30 @@ public class CursoController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrada para o id informado.")
             );
     }
+    
+    /**
+     * Método usado para adicionar uma prova ou atualizar por uma nova
+     * 
+     * @param idCurso
+     * @param prova
+     * @return
+     */
+    @PostMapping(value = "/setProva")
+    public boolean setProva(Long idCurso, @RequestBody Prova prova) {
+    	try {
+        	Curso curso = cursoRepository.findById(idCurso).get();
+        	
+        	curso.setProva(prova);
+        	
+        	cursoRepository.save(curso);
+        	
+        	return true;
+    	}catch (Exception e) {
+    		e.printStackTrace();
+    		
+    		return false;
+    	}
+
+    }
+    
 }
