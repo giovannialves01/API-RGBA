@@ -1,6 +1,5 @@
 package rgba.SkillShare;
 
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +25,6 @@ import rgba.SkillShare.repository.GestorRepository;
 import rgba.SkillShare.repository.LogRepository;
 import rgba.SkillShare.repository.TurmaRepository;
 import rgba.SkillShare.repository.TutorRepository;
-
 
 @SpringBootApplication
 public class SkillShareApplication implements CommandLineRunner {

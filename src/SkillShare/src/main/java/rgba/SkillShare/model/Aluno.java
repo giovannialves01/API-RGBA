@@ -1,10 +1,13 @@
 package rgba.SkillShare.model;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,6 +27,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor @Getter @Setter @ToString
 public class Aluno extends Usuario{ 
 
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Certificado> certificados;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Feedback> feedbacks;
 
     /** 
     *  Cria uma instância da classe Aluno

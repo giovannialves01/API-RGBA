@@ -24,6 +24,8 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.model.Certificado;
+import rgba.SkillShare.model.Feedback;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.utils.EmailService;
 
@@ -148,6 +150,24 @@ public class AlunoController {
             .orElseThrow(()->
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado.")         
             );
+    }
+    
+    @GetMapping(value = "/certificados")
+    public List<Certificado> certificadosAluno(String cpfAluno){
+    	Aluno aluno = aRepository.findById(cpfAluno).get();
+    	
+    	List<Certificado> certificados = aluno.getCertificados();
+    	
+    	return certificados;
+    }
+    
+    @GetMapping(value = "/feedbacks")
+    public List<Feedback> feedbacksAluno(String cpfAluno){
+    	Aluno aluno = aRepository.findById(cpfAluno).get();
+    	
+    	List<Feedback> certificados = aluno.getFeedbacks();
+    	
+    	return certificados;
     }
 	
 }

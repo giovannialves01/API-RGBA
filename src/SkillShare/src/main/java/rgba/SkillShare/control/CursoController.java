@@ -27,12 +27,15 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.data.PutCurso;
 import rgba.SkillShare.model.Arquivo;
+import rgba.SkillShare.model.Certificado;
 import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.model.Gestor;
+import rgba.SkillShare.model.Prova;
 import rgba.SkillShare.model.Thumb;
 import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.GestorRepository;
+import rgba.SkillShare.repository.ProvaRepository;
 import rgba.SkillShare.repository.TutorRepository;
 
 /**
@@ -53,6 +56,9 @@ public class CursoController {
 
     @Autowired 
     TutorRepository tutorRepository;
+    
+    @Autowired 
+    ProvaRepository provaRepository;
 
     /** 
     *  Endpoint para cadastro de curso.
@@ -69,11 +75,18 @@ public class CursoController {
             new ResponseStatusException(HttpStatus.NOT_FOUND,"Gestor não encontrado para o cpf informado.");
 
         }
+        
         Arquivo a = new Arquivo(th.getOriginalFilename(),th.getBytes(),th.getContentType());
         Thumb thumb = new Thumb();
         thumb.setArquivo(a);
         curso.setThumb(thumb);
         curso.setGestor(gestorRepository.findById(cpf).get());
+        
+        Certificado certificado = new Certificado();
+        //certificado.setImagemDeFundo(imagemDeFundoCertificado);
+        
+        curso.setCertificado(certificado);
+        
         return cursoRepository.save(curso);
     }
 
@@ -218,4 +231,46 @@ public class CursoController {
                 new ResponseStatusException(HttpStatus.NOT_FOUND,"Curso não encontrada para o id informado.")
             );
     }
+    
+    /**
+     * Método usado para adicionar uma prova ou atualizar por uma nova
+     * 
+     * @param idCurso
+     * @param prova
+     * @return
+     */
+    @PostMapping(value = "/setProva")
+    public boolean setProva(Long idCurso, @RequestBody Prova prova) {
+    	try {
+        	Curso curso = cursoRepository.findById(idCurso).get();
+        	
+        	curso.setProva(prova);
+        	
+        	cursoRepository.save(curso);
+        	
+        	return true;
+    	}catch (Exception e) {
+    		e.printStackTrace();
+    		
+    		return false;
+    	}
+
+    }
+    
+    @GetMapping(value = "/getProva")
+    public ResponseEntity<Prova> getProva(Long idCurso) {
+    	try {
+    		Curso curso = cursoRepository.findById(idCurso).get();
+    		
+    		Prova prova = curso.getProva();
+    		
+    		return new ResponseEntity<Prova>(prova, HttpStatus.OK);
+    	}catch (Exception e) {
+    		e.printStackTrace();
+    		
+    		return ResponseEntity.noContent().build();
+    	}
+    	
+    }
+    
 }

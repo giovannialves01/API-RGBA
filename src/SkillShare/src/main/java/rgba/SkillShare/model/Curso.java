@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -56,6 +57,12 @@ public class Curso {
     @JoinColumn(name="id_gestor")
     @JsonIgnore //ignora o gestor no retorno do json
     private Gestor gestor;
+    
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Certificado certificado;
+    
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Prova prova;
 
 
     /** 
