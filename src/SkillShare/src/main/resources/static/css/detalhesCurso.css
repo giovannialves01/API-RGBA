@@ -12,7 +12,7 @@
 	margin-bottom: 0px;
 }
 .imge img {
-	border-radius: 5%;
+	border-radius: 20px;
 }
 #detalhesCurso{
 	margin: 100px 7% 0 7%;
@@ -23,6 +23,8 @@
 }
 .flx{
 	display: flex;
+	align-items: center;
+    justify-content: center;
 }
 .button{
     display: flex;
@@ -52,4 +54,31 @@
 	height: 17px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
+}
+
+.destacar {
+	font-weight: bold;
+}
+
+.atividadesEProvas {
+	display: flex;
+    justify-content: center;
+}
+
+.itemAvaliativo {
+	margin-bottom: 10px;
+}
+
+.quizzes, .avaliacoes {
+	width: 300px;
+}
+
+.atividadesEProvas p {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.itemAvaliativo i {
+	font-size: 36px;
+	margin-right: 10px;
 }
