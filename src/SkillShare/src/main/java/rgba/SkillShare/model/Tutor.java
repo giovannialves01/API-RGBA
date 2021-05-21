@@ -21,6 +21,11 @@ import lombok.NoArgsConstructor;
 @Entity(name="tutor")
 @NoArgsConstructor @Getter @Setter @ToString 
 public class Tutor extends Usuario{
+	
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Turma> turmas;
+    
     /** 
     *  Cria uma instância da classe Tutor.
     * @param cpf -> cpf do tutor
@@ -40,7 +45,4 @@ public class Tutor extends Usuario{
         super(cpf);
     }
     
-    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Turma> turmas;
 }

@@ -32,6 +32,10 @@ public class Aluno extends Usuario{
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Feedback> feedbacks;
+	
+    @ManyToMany(mappedBy = "alunos",cascade = CascadeType.ALL)
+    @JsonIgnore
+    Set<Turma> turmas = new HashSet<Turma>();
 
     /** 
     *  Cria uma instância da classe Aluno
@@ -48,10 +52,6 @@ public class Aluno extends Usuario{
     public Aluno(String cpf,String nome,String email) { 
         super(cpf,nome,email);
     }
-
-    @ManyToMany(mappedBy = "alunos",cascade = CascadeType.ALL)
-    @JsonIgnore
-    Set<Turma> turmas = new HashSet<Turma>();
 
     public void addTurma(Turma t){
         this.turmas.add(t);
