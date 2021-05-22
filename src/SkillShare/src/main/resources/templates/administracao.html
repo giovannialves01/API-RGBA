@@ -68,7 +68,7 @@
 	<!-- Onde o conteúdo é mostrado -->
 	<div id="optionContentDisplayer">
 		<!-- Default -->
-		<div class="show" id="defaultContent">
+		<div class="hide" id="defaultContent">
 			<div class="defaultContent">
 				<h1>Bem-vindo a página de administração da SkillShare</h1>
 				<p>
@@ -624,14 +624,43 @@
 			<div id="gerirTurmasToShow"></div>
 		</div>
 		
-		<div class="hide" id="dashboard">
+		<div class="show" id="dashboard">
 			<h1 style="text-align: center;">Dashboard</h1>
-			
+			<div class="graficosEstatisticasGerais">
+				<div class="centerDash">
+					<div class="todosCardzinhos">
+						<div class="cardzinhoInfos">
+							<p>Quantidade de usuários</p>
+							<p class="dadoCard" id="qtdUsuariosDash">157</p>
+						</div>
+						<div class="cardzinhoInfos">
+							<p>Quantidade de cursos</p>
+							<p class="dadoCard" id="qtdCursosDash">21</p>
+						</div>
+					</div>
+					<div class="graficosDash">
+						<div id="piechart"></div>
+						<div id="donutchart"></div>
+					</div>
+				</div>
+				<hr class="separador">
+				<div class="centerDash">
+					<div class="escolhaDoCursoDash">
+					<label for="idCursoDash">Análise do curso: </label>
+					<select>
+						<option>Teste</option>
+					</select>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</div>
 
 	<footer-rgba></footer-rgba>
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="js/Paginas/dashboardGraficos.js"></script>
 
 </body>
 
