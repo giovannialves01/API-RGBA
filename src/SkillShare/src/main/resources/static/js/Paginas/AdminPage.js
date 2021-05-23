@@ -2134,9 +2134,135 @@ function colapsarTurma(turmaIdentifier){
     
 }
 
+async function showQuestoesProva() {
+    let select = document.getElementById("selectCursoProva");
+    let idCurso = select.value;
+
+    let response = await serverRequester.fazerGet("/cursos/" + idCurso);
+
+    let questoes = response["responseJson"]["questoes"];
+
+    let container = document.getElementById("questoesNaoSelecionadasProva");
+    let containerSelecionadas = document.getElementById("questoesSelecionadasProva");
+    containerSelecionadas.innerHTML = "";
+    container.innerHTML = "";
+
+    for (let i = 0; i < questoes.length; i++) {
+        const questaoData = questoes[i];
+        
+        let questao = new Questao(questaoData);
+
+        let questaoProvaId = "questaoProva-" + questao.getId();
+
+        let containerQuestao = document.createElement("div");
+        containerQuestao.classList.add("containerQuestaoProva");
+        containerQuestao.id = questaoProvaId;
+
+        let divEnunciadoResposta = document.createElement("div");
+        divEnunciadoResposta.classList.add("divEnunciadoRespostaProva");
+
+        let labelEnunciado = document.createElement("label");
+        labelEnunciado.textContent = questao.getEnunciado();
+        let labelResposta = document.createElement("label");
+        labelResposta.textContent = "Resposta correta: ";
+
+        switch (questao.getAlternativaCorreta()) {
+            case "A":
+                labelResposta.textContent += questao.getAlternativaA();
+                break;
+        
+            case "B":
+                labelResposta.textContent += questao.getAlternativaB();
+                break;
+            
+            case "C":
+                labelResposta.textContent += questao.getAlternativaC();
+                break;
+
+            case "D":
+                labelResposta.textContent += questao.getAlternativaD();
+                break;
+
+            default:
+                break;
+
+        }
+
+        divEnunciadoResposta.appendChild(labelEnunciado);
+        divEnunciadoResposta.appendChild(labelResposta);
+
+        let botaoAdicionarQuestao = document.createElement("span");
+        botaoAdicionarQuestao.className = "fas fa-plus fa-buttonAddQuestaoProva";
+        botaoAdicionarQuestao.onclick = function(){
+            colocarQuestaoListaProva(containerQuestao);
+        }
+
+        containerQuestao.appendChild(divEnunciadoResposta);
+        containerQuestao.appendChild(botaoAdicionarQuestao);
+        containerQuestao.getElementsByClassName("fa-buttonAddQuestaoProva");
+
+        container.appendChild(containerQuestao);
+
+    }
+
+}
+
+async function registerProva() {
+    let containerListaQuestoesAdicionadas = document.getElementById("questoesSelecionadasProva");
+    let select = document.getElementById("selectCursoProva");
+    let idCurso = select.value;
+
+    let data = {"questoes": []};
+
+    let questoes = containerListaQuestoesAdicionadas.getElementsByClassName("containerQuestaoProva");
+
+    for (let i = 0; i < questoes.length; i++) {
+        const questao = questoes[i];
+        
+        let idQuestao = questao.id.split("-")[1];
+
+        data["questoes"].push({"id": idQuestao});
+        
+    }
+
+    await serverRequester.fazerPost("/cursos/setProva?idCurso=" + idCurso, data);
+
+}
+
+function colocarQuestaoListaProva(containerQuestao) {
+    let listaQuestoesAdicionadas = document.getElementById("questoesSelecionadasProva");
+
+    containerQuestao.remove();
+
+    listaQuestoesAdicionadas.appendChild(containerQuestao);
+    let botaoRemoverQuestao = containerQuestao.getElementsByClassName("fa-buttonAddQuestaoProva")[0];
+    botaoRemoverQuestao.className = "fas fa-minus fa-buttonRemoveQuestaoProva";
+    botaoRemoverQuestao.onclick = function () {
+        tirarQuestaoListaProva(containerQuestao);
+
+    }
+
+}
+
+function tirarQuestaoListaProva(containerQuestao) {
+    let listaQuestoesCurso = document.getElementById("questoesNaoSelecionadasProva");
+
+    containerQuestao.remove();
+
+    listaQuestoesCurso.appendChild(containerQuestao);
+    let botaoAdicionarQuestao = containerQuestao.getElementsByClassName("fa-buttonRemoveQuestaoProva")[0];
+    botaoAdicionarQuestao.className = "fas fa-plus fa-buttonAddQuestaoProva";
+    botaoAdicionarQuestao.onclick = function () {
+        colocarQuestaoListaProva(containerQuestao);
+
+    }
+
+}
+
 loadAllCursos("selectCursoParaPilula");
 loadAllCursos("selectCursoQuestao");
 loadAllCursos("selectQuestaoPorCurso");
 loadAllCursos("selectCursoParaTurma");
+loadAllCursos("selectCursoProva");
 loadGestoresSelect("escolhaDeGestor");
 loadTutoresSelect("escolhaDeTutor");
