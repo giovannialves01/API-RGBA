@@ -68,7 +68,7 @@
 	<!-- Onde o conteúdo é mostrado -->
 	<div id="optionContentDisplayer">
 		<!-- Default -->
-		<div class="hide" id="defaultContent">
+		<div class="show" id="defaultContent">
 			<div class="defaultContent">
 				<h1>Bem-vindo a página de administração da SkillShare</h1>
 				<p>
@@ -624,7 +624,7 @@
 			<div id="gerirTurmasToShow"></div>
 		</div>
 		
-		<div class="show" id="dashboard">
+		<div class="hide" id="dashboard">
 			<h1 style="text-align: center;">Dashboard</h1>
 			<div class="graficosEstatisticasGerais">
 				<div class="centerDash">
@@ -646,10 +646,31 @@
 				<hr class="separador">
 				<div class="centerDash">
 					<div class="escolhaDoCursoDash">
-					<label for="idCursoDash">Análise do curso: </label>
-					<select>
-						<option>Teste</option>
-					</select>
+						<label for="idCursoDash">Análise do curso: </label>
+						<select>
+							<option>Teste</option>
+						</select>
+					</div>
+				</div>
+				<div class="centerDash">
+					<div class="graficosDash">
+						<div id="columnchart"></div>
+						<div class="cardzinhoInfos">
+							<p>Certificados emitidos</p>
+							<p class="dadoCard" id="qtdCursosDash">35</p>
+						</div>
+					</div>
+				</div>
+				<div class="centerDash">
+					<div class="graficosDash">
+						<div class="cardzinhoInfos">
+							<p align="center">Alunos estudam, em<br>média,</p>
+							<p class="dadoCard"><span id="qtdCursosDash">50</span> h</p>
+							<p>nesse curso</p>
+						</div>
+						<div id="piechart2"></div>
+						<div id="donutchart2"></div>
+						<div id="columnchart2"></div>
 					</div>
 				</div>
 			</div>
