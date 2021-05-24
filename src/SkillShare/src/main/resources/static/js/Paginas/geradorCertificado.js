@@ -16,6 +16,8 @@ async function loadCertificados() {
         let entityContainer = document.createElement("div");
         entityContainer.classList.add("contentBox");
         entityContainer.id = 'certificado ' + (i + 1);
+        let containerCadaCertificados = document.getElementById('certificado ' + (i + 1));
+        
         
         let showContentLabel = document.createElement("label");
 		showContentLabel.textContent = "aqui vai o nome do curso";
@@ -23,7 +25,7 @@ async function loadCertificados() {
 		
 		let showContentButton = document.createElement("button");
 		showContentButton.textContent = "Baixar Certificado";
-        showContentButton.classList.add("Certificados");
+        showContentButton.classList.add("greenButton");
         showContentButton.onclick = function (){
                 now = new Date
     			monName = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro");
@@ -55,8 +57,8 @@ async function loadCertificados() {
         }
 		
 		containerCertificados.appendChild(entityContainer);
-		containerCertificados.appendChild(showContentLabel);
-		containerCertificados.appendChild(showContentButton);	
+		entityContainer.appendChild(showContentLabel);
+		entityContainer.appendChild(showContentButton);	
 		
         let fieldsContainer = document.createElement("div");
         fieldsContainer.style.width = "60%";

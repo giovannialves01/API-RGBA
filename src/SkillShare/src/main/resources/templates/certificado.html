@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
-    
-    
-    	<!-- CDN das depedências externas -->
+<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Administração | SkillShare</title>
+
+	<!-- CDN das depedências externas -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
 		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
 		crossorigin="anonymous" />
@@ -29,15 +27,19 @@
 	<link rel="stylesheet" href="css/Footer.css">
 	<link rel="stylesheet" href="css/BancoQuestoes.css">
 	<link rel="stylesheet" href="css/turmas.css">
-
+	<link rel="stylesheet" href="css/certificado.css">
+	
 	<script src="js/Utils/ServerRequester.js"></script>
 	<script src="js/Utils/sendFile.js"></script>
+	<script src="js/Utils/listAlunosCadastroTurma.js"></script>
+	<script src="js/Utils/LogRegister.js"></script>
 
 	<script src="js/Componentes/BeautySelect.js"></script>
 	<script src="js/Componentes/BeautyButton.js"></script>
 	<script src="js/Componentes/BeautyInput.js"></script>
 	<script src="js/Componentes/BeautyTable.js"></script>
 	<script src="js/Componentes/Menu.js"></script>
+	<script defer src="js/Paginas/AdminPage.js"></script>
 	<script src="js/Componentes/TopBar.js"></script>
 	<script src="js/Componentes/Footer.js"></script>
 
@@ -50,17 +52,33 @@
 	<script src="js/Entidades/Questao.js"></script>
 	<script src="js/Entidades/Turma.js"></script>
 	<script src="js/Entidades/Curso.js"></script>
+	<script src="js/Entidades/geradorCertificado.js"></script>
+	
+	<script defer src="js/Scorm/auth.js"></script>
+	<script defer src="js/Scorm/getImportStatus.js"></script>
+	<script defer src="js/Scorm/uploadScorm.js"></script>
+	<script defer src="js/Scorm/uploadAluno.js"></script>
+	<script defer src="js/Scorm/getProgressoAluno.js"></script>
 
-
-    
     <title>Document</title>
 </head>
 
 <body>
-    <div id="certificadosToShow">
-        
+	
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
+	
+	<div id="certificadosTitle">
+        <h2>Meus Certificados</h2>
         
     </div>
+	
+    <div id="certificadosToShow">
+        
+    </div>
+    
     <script type="text/javascript" src="js/Paginas/geradorCertificado.js"></script>
+    
+    <footer-rgba></footer-rgba>
 </body>
 </html>
