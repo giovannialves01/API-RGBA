@@ -285,6 +285,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Visualizar Meus Cursos", "window.location.href = 'meusCursosAluno';"));
+		subOptions.put(this.criarSubOpcao("Prova", "setProva();window.location.href = 'prova';"));
 		
 		option = this.criarOpcao("Meus Cursos", "chalkboard-teacher", "10", "Clique aqui para visualizar seus cursos!", subOptions);
 		
