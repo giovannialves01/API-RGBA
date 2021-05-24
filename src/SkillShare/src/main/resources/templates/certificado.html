@@ -6,13 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
-    <script type="text/javascript" src="../static/js/Utils/geradorCertificado.js"></script>
+    
+    
+    	<!-- CDN das depedências externas -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+	<!-- Rodar no Eclipse -->
+	<link rel="stylesheet" href="css/GlobalComponents.css">
+	<link rel="stylesheet" href="css/Menu.css">
+	<link rel="stylesheet" href="css/TopBar.css">
+	<link rel="stylesheet" href="css/AdminPage.css">
+	<link rel="stylesheet" href="css/BeautyButton.css">
+	<link rel="stylesheet" href="css/BeautyInput.css">
+	<link rel="stylesheet" href="css/BeautySelect.css">
+	<link rel="stylesheet" href="css/BeautyTable.css">
+	<link rel="stylesheet" href="css/Footer.css">
+	<link rel="stylesheet" href="css/BancoQuestoes.css">
+	<link rel="stylesheet" href="css/turmas.css">
+
+	<script src="js/Utils/ServerRequester.js"></script>
+	<script src="js/Utils/sendFile.js"></script>
+
+	<script src="js/Componentes/BeautySelect.js"></script>
+	<script src="js/Componentes/BeautyButton.js"></script>
+	<script src="js/Componentes/BeautyInput.js"></script>
+	<script src="js/Componentes/BeautyTable.js"></script>
+	<script src="js/Componentes/Menu.js"></script>
+	<script src="js/Componentes/TopBar.js"></script>
+	<script src="js/Componentes/Footer.js"></script>
+
+	<script src="js/Entidades/Usuario.js"></script>
+	<script src="js/Entidades/Biblioteca.js"></script>
+	<script src="js/Entidades/Destaque.js"></script>
+	<script src="js/Entidades/Pilula.js"></script>
+	<script src="js/Entidades/Evento.js"></script>
+	<script src="js/Entidades/Log.js"></script>
+	<script src="js/Entidades/Questao.js"></script>
+	<script src="js/Entidades/Turma.js"></script>
+	<script src="js/Entidades/Curso.js"></script>
+
+
+    
     <title>Document</title>
 </head>
+
 <body>
-    <div class="col-md-6  m-2">
-        <img id="certificado" src="../static/images/certificado.png" alt="" style="display: none;">
-        <button id="btnDownload" onclick="genPDF()"> Download PDF </button>
+    <div id="certificadosToShow">
+        
+        
     </div>
+    <script type="text/javascript" src="js/Paginas/geradorCertificado.js"></script>
 </body>
 </html>

@@ -126,5 +126,9 @@ public class PathController {
 	public String detalhesAlunosTutor(@PathVariable String id) {
 		return "alunosTutor";
 	}
+	@GetMapping(value = "/certificado")
+	public String certificado() {
+		return "certificado";
+	}
 }
  
