@@ -1,9 +1,13 @@
 package rgba.SkillShare.control;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -83,7 +87,13 @@ public class CursoController {
         curso.setGestor(gestorRepository.findById(cpf).get());
         
         Certificado certificado = new Certificado();
-        //certificado.setImagemDeFundo(imagemDeFundoCertificado);
+		File file = new ClassPathResource("\\static\\images\\certificado.png").getFile();
+		
+	    byte[] content = Files.readAllBytes(Paths.get(file.toURI()));
+	    
+	    Arquivo certificadoImagem = new Arquivo("certificado.png", content, "image/png");
+	    
+        certificado.setImagemDeFundo(certificadoImagem);
         
         curso.setCertificado(certificado);
         

@@ -12,7 +12,7 @@
 	margin-bottom: 0px;
 }
 .imge img {
-	border-radius: 5%;
+	border-radius: 20px;
 }
 #detalhesCurso{
 	margin: 100px 7% 0 7%;
@@ -23,6 +23,8 @@
 }
 .flx{
 	display: flex;
+	align-items: center;
+    justify-content: center;
 }
 .button{
     display: flex;
@@ -38,6 +40,21 @@
     text-decoration: none;	
     cursor: pointer;
 }
+.buttonAvaliacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 35px;
+    border: none;
+    width: 100px;
+    border-radius: 40px;
+    background-color: #0AADA7;
+    color: white;
+    text-decoration: none;	
+    cursor: pointer;
+    margin-left: 10px;
+}
 .barraProgresso {
 	width: 100%;
 	background-color: #E5E5E5;
@@ -52,4 +69,39 @@
 	height: 17px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
+}
+
+.destacar {
+	font-weight: bold;
+}
+
+.atividadesEProvas {
+	display: flex;
+    justify-content: center;
+}
+
+.itemAvaliativo {
+	margin-bottom: 10px;
+}
+
+.quizzes, .avaliacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	width: 300px;
+}
+
+.atividadesEProvas p {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.itemAvaliativo i {
+	font-size: 36px;
+	margin-right: 10px;
+}
+
+.avaliacao {
+	display: flex;
+	align-items: center;
 }

@@ -184,6 +184,8 @@ public class MenuOptions {
 		
 		subOptions.put(this.criarSubOpcao("Criar nova questão", "hideAllContent();showContent('cadastroQuestoes');"));
 		subOptions.put(this.criarSubOpcao("Gerir questões", "hideAllContent();showContent('gerirQuestoes');"));
+		
+		subOptions.put(this.criarSubOpcao("Criar/Alterar prova final", "hideAllContent();showContent('exibicaoCadastroProva');"));
 		 
 		option = this.criarOpcao("Banco de Questões", "file-alt", "4", "Clique aqui para exibir o banco de questões", subOptions);
 		

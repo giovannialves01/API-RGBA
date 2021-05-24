@@ -19,7 +19,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor @Getter @Setter @ToString
 
 public class Gestor extends Usuario{
-
+	
+    @OneToMany(mappedBy = "gestor",cascade = CascadeType.ALL)
+    private List<Curso> cursos;
 
     /** 
     *  Cria uma instância da classe Gestor.
@@ -37,9 +39,6 @@ public class Gestor extends Usuario{
     public Gestor(String cpf,String nome,String email) { 
         super(cpf,nome,email);
     }
-
-    @OneToMany(mappedBy = "gestor",cascade = CascadeType.ALL)
-    private List<Curso> cursos;
 
 
 }
