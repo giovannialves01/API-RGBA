@@ -208,6 +208,41 @@
 			</div>
 		</div>
 
+		<div class="hide" id="exibicaoCadastroProva">
+			<div class="adicionarConteudoBiblioteca">
+				<h1>Criar prova final para um curso</h1>
+				<p>
+					Selecione um curso para ver questões relacionadas com ele e adicione questões na lista de selecionadas</br>
+					para elaborar uma prova final para o curso. Caso o curso já tenha uma prova final, a antiga será</br>
+					substituida pela nova
+				</p>
+
+				<select id="selectCursoProva" onchange="showQuestoesProva()">
+					<option selected disabled>Escolha um curso para criar uma prova...</option>
+				</select>
+
+				<div class="separador"></div>
+			</div>
+			<div class="containerCriarProva" id="questoesParaProva">
+				<div>
+					<div class="exibicaoQuestoesProva" id="questoesNaoSelecionadasProva">
+						<label>Questões relacionadas com o curso</label>
+	
+					</div>
+	
+					<div class="separadorVertical"></div>
+	
+					<div class="exibicaoQuestoesProva" id="questoesSelecionadasProva">
+						<label>Questões selecionadas para a prova</label>
+	
+					</div>
+				</div>
+
+				<button class="greenButton" onclick="registerProva()">Criar prova</button>
+
+			</div>
+		</div>
+
 		<div class="hide" id="listarcursos">
 			<div class="adicionarConteudoBiblioteca">
 				<h1>Listagem de cursos</h1>
