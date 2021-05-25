@@ -1,51 +1,102 @@
-window.onload = async function carregarConteudo() {
+document.addEventListener("DOMContentLoaded", function(event) { // pelo que entendi não pode usar mais de um window.onload na mesma página
+																// que no nosso caso é a "administracao". estava dando conflito das coisas das turmas
+  async function qtdDeUsuarios() {
+
+		let respostaDash = await serverRequester.fazerGet("/usuario/all");
+
+		let usuarios = respostaDash.responseJson;
+
+		let pUsuarios = document.getElementById("qtdUsuariosDash");
+		pUsuarios.innerText = usuarios.length;
+
+	}
+	
+	async function qtdDeAlunosDash(){
+		let respostaDash = await serverRequester.fazerGet("/alunos");
+
+		let alunos = respostaDash.responseJson;
+		return alunos;
+	}
+	
+	async function qtdDeTutores(){
+		let respostaDash = await serverRequester.fazerGet("/tutor");
+
+		let tutores = respostaDash.responseJson;
+		return tutores.length;
+	}
+	
+	async function qtdDeGestores(){
+		let respostaDash = await serverRequester.fazerGet("/gestor");
+
+		let gestores = respostaDash.responseJson;
+		return gestores.length;
+	}
+	
+	async function qtdDeAdms(){
+		let respostaDash = await serverRequester.fazerGet("/adm");
+
+		let administradores = respostaDash.responseJson;
+		return administradores.length;
+	}
+
+	async function qtdDeCursos() {
+
+		let respostaDash = await serverRequester.fazerGet("/cursos");
+
+		let cursos = respostaDash.responseJson;
+
+		let pCursos = document.getElementById("qtdCursosDash");
+		pCursos.innerText = cursos.length;
+	}
 
 	google.charts.load('current', { 'packages': ['corechart'] });
-	google.charts.setOnLoadCallback(drawChart1);
+	google.charts.setOnLoadCallback(graficoUsuariosPorTipo);
 
-	function drawChart1() {
+	async function graficoUsuariosPorTipo() {
+		
+		let adms = await qtdDeAdms();
+		let gests = await qtdDeGestores();
+		let tuts = await qtdDeTutores();
+		let alns = await qtdDeAlunosDash();
+		console.log(alns);
 
 		var data = google.visualization.arrayToDataTable([
-			['Task', 'Hours per Day'],
-			['Work', 11],
-			['Eat', 2],
-			['Commute', 2],
-			['Watch TV', 2],
-			['Sleep', 7]
+			['Nível de acesso', 'Quantidade'],
+			['Administrador', adms],
+			['Gestor', gests],
+			['Tutor', tuts],
+			['Aluno', alns.length]
 		]);
 
 		var options = {
-			title: 'My Daily Activities',
-			width: 300,
-			height: 300
+			title: 'Usuários por tipo',
+			width: 400,
+			height: 400
 		};
 
-		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+		var chart = new google.visualization.PieChart(document.getElementById('graficoUsuariosPorTipo'));
 
 		chart.draw(data, options);
 	}
 
 	google.charts.load("current", { packages: ["corechart"] });
-	google.charts.setOnLoadCallback(drawChart2);
+	google.charts.setOnLoadCallback(graficoAlunosRealizandoCursos);
 
-	function drawChart2() {
+	async function graficoAlunosRealizandoCursos() {
 		var data = google.visualization.arrayToDataTable([
-			['Task', 'Hours per Day'],
-			['Work', 11],
-			['Eat', 2],
-			['Commute', 2],
-			['Watch TV', 2],
-			['Sleep', 7]
+			['Alunos', 'Quantidade'],
+			['Em curso', 11],
+			['Nenhum', 2]
 		]);
 
 		var options = {
-			title: 'My Daily Activities',
+			title: 'Alunos realizando cursos',
 			pieHole: 0.4,
-			width: 300,
-			height: 300
+			width: 400,
+			height: 400
 		};
 
-		var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+		var chart = new google.visualization.PieChart(document.getElementById('graficoAlunosRealizandoCursos'));
 		chart.draw(data, options);
 	}
 
@@ -170,11 +221,14 @@ window.onload = async function carregarConteudo() {
 	}
 
 	$(window).resize(function() {
-		drawChart1();
-		drawChart2();
+		graficoUsuariosPorTipo();
+		graficoAlunosRealizandoCursos();
 		drawChart3();
 		drawChart4();
 		drawBasic();
 		drawBasic2();
 	});
-}
+
+	qtdDeUsuarios();
+	qtdDeCursos();
+});
