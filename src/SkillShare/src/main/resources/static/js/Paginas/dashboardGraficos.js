@@ -83,21 +83,40 @@ document.addEventListener("DOMContentLoaded", function(event) { // pelo que ente
 	google.charts.setOnLoadCallback(graficoAlunosRealizandoCursos);
 
 	async function graficoAlunosRealizandoCursos() {
-		var data = google.visualization.arrayToDataTable([
-			['Alunos', 'Quantidade'],
-			['Em curso', 11],
-			['Nenhum', 2]
-		]);
+		let nenhum = 0;
+		let algum = 0;
+		let alunos = await qtdDeAlunosDash();
+		
+		alunos.forEach(async aluno => {
+			let resposta = serverRequester.fazerGet("/turmas/turma/aluno/" + aluno.cpf);
 
-		var options = {
-			title: 'Alunos realizando cursos',
-			pieHole: 0.4,
-			width: 400,
-			height: 400
-		};
+			resposta.then((res)=>{
+				if (res.responseJson.length == 0) {
+					nenhum++;
+				}
+				else {
+					algum++;
+				}
 
-		var chart = new google.visualization.PieChart(document.getElementById('graficoAlunosRealizandoCursos'));
-		chart.draw(data, options);
+
+				var data = google.visualization.arrayToDataTable([
+					['Alunos', 'Quantidade'],
+					['Em curso', algum],
+					['Nenhum', nenhum]
+				]);
+		
+				var options = {
+					title: 'Alunos realizando cursos',
+					pieHole: 0.4,
+					width: 400,
+					height: 400
+				};
+		
+				var chart = new google.visualization.PieChart(document.getElementById('graficoAlunosRealizandoCursos'));
+				chart.draw(data, options);
+			});
+		});
+		
 	}
 
 	google.charts.load('current', { 'packages': ['corechart'] });
