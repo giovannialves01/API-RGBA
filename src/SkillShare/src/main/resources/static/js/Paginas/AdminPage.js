@@ -2138,5 +2138,6 @@ loadAllCursos("selectCursoParaPilula");
 loadAllCursos("selectCursoQuestao");
 loadAllCursos("selectQuestaoPorCurso");
 loadAllCursos("selectCursoParaTurma");
+loadAllCursos("selectCursoDashboard");
 loadGestoresSelect("escolhaDeGestor");
 loadTutoresSelect("escolhaDeTutor");

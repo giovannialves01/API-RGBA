@@ -119,6 +119,15 @@ document.addEventListener("DOMContentLoaded", function(event) { // pelo que ente
 		
 	}
 
+	function dadosDoCursoSelecionadoDash(select) {
+		alert(select.value);
+	}
+
+	let filter = document.getElementById('selectCursoDashboard');
+	filter.onchange = function() {
+	  dadosDoCursoSelecionadoDash(filter);
+	} 
+
 	google.charts.load('current', { 'packages': ['corechart'] });
 	google.charts.setOnLoadCallback(drawChart3);
 
