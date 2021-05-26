@@ -162,7 +162,7 @@ async function finalizarProva() {
     let response = await serverRequester.fazerPost("/alunos/novoFeedback?cpfAluno=" + cpfAluno +
     "&idCurso=" + idCurso, feedback);
 
-    if(response["responseJson"]){
+    if(response["ok"]){
         alert("Prova finalizada com sucesso!\n\nAguarde o tutor enviar seu feedback");
 
     }else{
