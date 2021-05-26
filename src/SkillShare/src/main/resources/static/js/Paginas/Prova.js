@@ -121,7 +121,8 @@ function getAlternativaProva(idQuestao, group, value, text, idRadio) {
 }
 
 async function finalizarProva() {
-    console.log(acertosErrosProva);
+    let idCurso = localStorage.getItem("idCurso");
+    let cpfAluno = localStorage.getItem("cpfAluno");
 
     let keys = Object.keys(acertosErrosProva);
 
@@ -131,7 +132,7 @@ async function finalizarProva() {
     for (let i = 0; i < keys.length; i++) {
         const element = keys[i];
         
-        if(element["alternativaEscolhida"] == element["alternativaCorreta"]){
+        if(acertosErrosProva[element]["alternativaEscolhida"] == acertosErrosProva[element]["alternativaCorreta"]){
             notaFinal += notaAcerto;
 
         }
@@ -150,7 +151,8 @@ async function finalizarProva() {
         "notaFinal": notaFinal
     };
 
-    let response = await serverRequester.fazerPost("/alunos/novoFeedback?cpfAluno=2&idCurso=2", feedback);
+    let response = await serverRequester.fazerPost("/alunos/novoFeedback?cpfAluno=" + cpfAluno +
+    "&idCurso=" + idCurso, feedback);
 
     if(response["responseJson"]){
         alert("Prova finalizada com sucesso!\n\nAguarde o tutor enviar seu feedback");
