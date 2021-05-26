@@ -49,6 +49,7 @@ async function buildProva() {
 
         let tituloQuestao = document.createElement("label");
         tituloQuestao.textContent = "Questão " + (i + 1);
+        tituloQuestao.classList.add("tituloQuestaoProva");
 
         let divEnunciadoQuestao = document.createElement("div");
         let enunciado = document.createElement("p");
@@ -75,6 +76,9 @@ async function buildProva() {
             "D", 
             questaoData["alternativaD"], 
             questaoIdentifier + "-radioD");
+
+        let separador = document.createElement("hr");
+        separador.classList.add("separadorQuestoes");
         
         divAlternativasQuestao.appendChild(alternativaA);
         divAlternativasQuestao.appendChild(alternativaB);
@@ -86,11 +90,13 @@ async function buildProva() {
 
         container.appendChild(tituloQuestao);
         container.appendChild(containerQuestao);
+        container.appendChild(separador);
         
     }
 
     let botaoFinalizar = document.createElement("button");
     botaoFinalizar.textContent = "Finalizar prova";
+    botaoFinalizar.classList.add("btnFinalizarProva");
     botaoFinalizar.onclick = function (){
         finalizarProva();
 
