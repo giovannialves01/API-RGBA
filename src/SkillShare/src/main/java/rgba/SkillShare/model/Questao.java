@@ -28,19 +28,19 @@ public class Questao {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "text")
 	private String enunciado;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "text")
 	private String alternativaA;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "text")
 	private String alternativaB;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "text")
 	private String alternativaC;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "text")
 	private String alternativaD;
 	
 	@Column(nullable = false)

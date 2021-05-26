@@ -1,5 +1,6 @@
 package rgba.SkillShare.control;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,11 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.model.Aluno;
 import rgba.SkillShare.model.Certificado;
+import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.model.Feedback;
 import rgba.SkillShare.repository.AlunoRepository;
+import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.utils.EmailService;
-
-
-
-
 
 /**
  *  Classe que define os endpoints para aluno
@@ -45,6 +44,9 @@ public class AlunoController {
 
     @Autowired 
     AlunoRepository aRepository;
+    
+    @Autowired 
+    CursoRepository cursoRepository;
     
     @Autowired
 	JavaMailSender javaMailSender;
@@ -165,9 +167,36 @@ public class AlunoController {
     public List<Feedback> feedbacksAluno(String cpfAluno){
     	Aluno aluno = aRepository.findById(cpfAluno).get();
     	
-    	List<Feedback> certificados = aluno.getFeedbacks();
+    	List<Feedback> feedbacks = aluno.getFeedbacks();
     	
-    	return certificados;
+    	return feedbacks;
+    }
+    
+    @PostMapping(value = "/novoFeedback")
+    public boolean adicionarFeedback(String cpfAluno, long idCurso, @RequestBody Feedback feedback) {
+    	try {
+        	Aluno aluno = aRepository.findById(cpfAluno).get();
+        	Curso curso = cursoRepository.findById(idCurso).get();
+        	
+        	Certificado certificado = curso.getCertificado();
+        	
+        	String data = LocalDate.now().getDayOfMonth() + "/0" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
+        	
+        	certificado.setMensagem("Certificado de comprovamento de que o aluno " + aluno.getNome() + " concluiu o curso "
+        	+ curso.getTitulo() + " em " + data);
+        	
+        	aluno.getFeedbacks().add(feedback);
+        	aluno.getCertificados().add(certificado);
+        	
+        	aRepository.save(aluno);
+        	
+        	return true;
+    	}catch (Exception e) {
+    		e.printStackTrace();
+    		
+    		return false;
+    	}
+
     }
 	
 }

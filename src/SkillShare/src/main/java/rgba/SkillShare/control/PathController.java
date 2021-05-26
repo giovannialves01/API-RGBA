@@ -80,6 +80,11 @@ public class PathController {
 		return "login";
 	}
 	
+	@GetMapping(value = "/prova")
+	public String fazerProva(HttpSession sessao) {
+		return "prova";
+	}
+	
 	@GetMapping(value = "/acervo")
 	public String paginaBiblioteca(HttpSession sessao) {
 		return "paginaBiblioteca";

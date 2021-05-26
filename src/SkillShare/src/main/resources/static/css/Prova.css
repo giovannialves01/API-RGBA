@@ -1,0 +1,29 @@
+.exibicaoQuestoesProva{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.enunciadoQuestao{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.alternativasContainer{
+    margin-left: 50px;
+}
+
+.questaoProva{
+    margin-bottom: 70px;
+    width: 100%;
+}
+
+.tituloProva{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
