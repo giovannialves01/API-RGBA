@@ -167,9 +167,9 @@ public class AlunoController {
     public List<Feedback> feedbacksAluno(String cpfAluno){
     	Aluno aluno = aRepository.findById(cpfAluno).get();
     	
-    	List<Feedback> certificados = aluno.getFeedbacks();
+    	List<Feedback> feedbacks = aluno.getFeedbacks();
     	
-    	return certificados;
+    	return feedbacks;
     }
     
     @PostMapping(value = "/novoFeedback")
