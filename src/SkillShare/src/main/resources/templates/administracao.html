@@ -58,6 +58,8 @@
 	<script defer src="js/Scorm/uploadScorm.js"></script>
 	<script defer src="js/Scorm/uploadAluno.js"></script>
 	<script defer src="js/Scorm/getProgressoAluno.js"></script>
+	<script defer src="js/Scorm/getCourseInfo.js"></script>
+	<script defer src="js/Scorm/getRegistrations.js"></script>
 
 </head>
 
@@ -647,28 +649,30 @@
 				<div class="centerDash">
 					<div class="escolhaDoCursoDash">
 						<label for="idCursoDash">Análise do curso: </label>
-						<select id="selectCursoDashboard"></select>
+						<select id="selectCursoDashboard">
+							<option selected disabled>Selecione um curso...</option>
+						</select>
 					</div>
 				</div>
-				<div class="centerDash">
+				<div class="centerDashEscondida" id="infosDoCursoDivDash">
 					<div class="graficosDash">
-						<div id="columnchart"></div>
+						<div id="graficoNotaDosAlunosCurso"></div>
 						<div class="cardzinhoInfos">
 							<p>Certificados emitidos</p>
-							<p class="dadoCard" id="qtdCursosDash">35</p>
+							<p class="dadoCard" id="qtdCursosFinalizadosDash"></p>
 						</div>
 					</div>
 				</div>
-				<div class="centerDash">
+				<div class="centerDashEscondida" id="infosDoCursoDivDash2">
 					<div class="graficosDash">
 						<div class="cardzinhoInfos">
 							<p align="center">Alunos estudam, em<br>média,</p>
-							<p class="dadoCard"><span id="qtdCursosDash">50</span> h</p>
+							<p class="dadoCard"><span id="qtdHorasCursoDash"></span> h</p>
 							<p>nesse curso</p>
 						</div>
-						<div id="piechart2"></div>
-						<div id="donutchart2"></div>
-						<div id="columnchart2"></div>
+						<div id="tempoFinalizacaoCurso"></div>
+						<div id="alunosCursoXalunosPlataforma"></div>
+						<div id="engajamentoAlunosCurso"></div>
 					</div>
 				</div>
 			</div>

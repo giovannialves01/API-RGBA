@@ -791,6 +791,10 @@ textarea.userDataFieldEnabled{
     justify-content: center;
 }
 
+.centerDashEscondida {
+	display: none;
+}
+
 .cardzinhoInfos {
 	display: flex;
 	flex-direction: column;
