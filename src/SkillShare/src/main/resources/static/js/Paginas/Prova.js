@@ -6,6 +6,8 @@ async function getProva() {
 
     let response = await serverRequester.fazerGetWithData("/cursos/getProva", {"idCurso": idCurso});
 
+    console.log(response);
+
     let provaCrua = [];
     Object.assign(provaCrua, response["responseJson"]["questoes"]);
 
@@ -29,7 +31,7 @@ async function buildProva() {
     let container = document.getElementById("questoesProva");
 
     let title = document.createElement("label");
-    title.textContent = "Prova de geografia";
+    title.textContent = "Avaliação Final";
     title.classList.add("tituloProva");
 
     container.appendChild(title);

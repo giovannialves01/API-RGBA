@@ -127,7 +127,7 @@ window.onload = async function carregarConteudo() {
 
 	});
 
-	ajustarBotaoProva(idCurso, resp.cpfAluno);
+	ajustarBotaoProva(id, resp.cpfAluno);
 }
 
 function setProva(idCurso, cpfAluno) {
