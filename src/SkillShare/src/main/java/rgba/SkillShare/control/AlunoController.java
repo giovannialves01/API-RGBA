@@ -1,6 +1,9 @@
 package rgba.SkillShare.control;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -164,12 +167,28 @@ public class AlunoController {
     }
     
     @GetMapping(value = "/feedbacks")
-    public List<Feedback> feedbacksAluno(String cpfAluno){
+    public ArrayList<HashMap<String, String>> feedbacksAluno(String cpfAluno){
     	Aluno aluno = aRepository.findById(cpfAluno).get();
     	
     	List<Feedback> feedbacks = aluno.getFeedbacks();
+    	ArrayList<HashMap<String, String>> pseudoJson = new ArrayList<HashMap<String,String>>();
     	
-    	return feedbacks;
+    	for (int i = 0; i < feedbacks.size(); i++) {
+			Feedback feedback = feedbacks.get(i);
+			
+			HashMap<String, String> data = new HashMap<String, String>();
+			
+			data.put("acertosErrosProva", feedback.getAcertosErrosProva().toString());
+			data.put("comentarioTutor", feedback.getComentarioTutor());
+			data.put("compreendimento", String.valueOf(feedback.getCompreendimento()));
+			data.put("id", String.valueOf(feedback.getId()));
+			data.put("notaFinal", feedback.getNotaFinal());
+			data.put("prova", String.valueOf(feedback.getProva().getId()));
+			
+			pseudoJson.add(data);
+		}
+    	
+    	return pseudoJson;
     }
     
     @PostMapping(value = "/novoFeedback")

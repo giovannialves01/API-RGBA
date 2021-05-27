@@ -10,7 +10,10 @@ window.onload = async function carregarConteudo() {
      let respostaAluno = await serverRequester.fazerGet("/alunos/" + cpfAluno);
      let infosAluno = respostaAluno.responseJson;
 
-     let nomeDoAlunoSpan = document.getElementById("nomeDoAlunoTutoria");
+    let responseFeedback = await serverRequester.fazerGetWithData("/alunos/feedbacks", {"cpfAluno": cpfAluno});
+    let feedback = responseFeedback["responseJson"];
+
+    let nomeDoAlunoSpan = document.getElementById("nomeDoAlunoTutoria");
      nomeDoAlunoSpan.innerText = infosAluno.nome;
 
      var prova = {};
