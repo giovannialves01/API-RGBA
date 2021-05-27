@@ -33,6 +33,7 @@ import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.model.Feedback;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.repository.CursoRepository;
+import rgba.SkillShare.repository.FeedbackRepository;
 import rgba.SkillShare.utils.EmailService;
 
 /**
@@ -50,6 +51,9 @@ public class AlunoController {
     
     @Autowired 
     CursoRepository cursoRepository;
+    
+    @Autowired
+    FeedbackRepository feedbackRepository;
     
     @Autowired
 	JavaMailSender javaMailSender;
@@ -219,28 +223,11 @@ public class AlunoController {
     }
     
     @PostMapping(value = "/updateFeedback")
-    public boolean updateFeedback(String cpfAluno, @RequestBody Feedback feedback) {
+    public boolean updateFeedback(@RequestBody Feedback feedback) {
     	try {
-    		Aluno aluno = aRepository.findById(cpfAluno).get();
-    		
-    		List<Feedback> feedbacksAluno = aluno.getFeedbacks();
-    		
-    		for (int i = 0; i < feedbacksAluno.size(); i++) {
-				Feedback feedbackAluno = feedbacksAluno.get(i);
-				
-				if(feedbackAluno.getId() == feedback.getId()) {
-					feedbacksAluno.set(i, feedbackAluno);
-					
-					aluno.setFeedbacks(feedbacksAluno);
-					
-					aRepository.save(aluno);
-					
-					return true;
-				}
-				
-			}
-    		
-    		return false;
+    		feedbackRepository.save(feedback);
+
+    		return true;
     	}catch (Exception e) {
     		return false;
     	}
