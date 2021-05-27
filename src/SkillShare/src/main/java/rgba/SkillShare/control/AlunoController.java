@@ -183,7 +183,7 @@ public class AlunoController {
 			data.put("compreendimento", String.valueOf(feedback.getCompreendimento()));
 			data.put("id", String.valueOf(feedback.getId()));
 			data.put("notaFinal", feedback.getNotaFinal());
-			data.put("prova", String.valueOf(feedback.getProva().getId()));
+			data.put("prova", "{\"id\":" + String.valueOf(feedback.getProva().getId() + "}"));
 			
 			pseudoJson.add(data);
 		}
@@ -216,6 +216,36 @@ public class AlunoController {
     		return false;
     	}
 
+    }
+    
+    @PostMapping(value = "/updateFeedback")
+    public boolean updateFeedback(String cpfAluno, @RequestBody Feedback feedback) {
+    	try {
+    		Aluno aluno = aRepository.findById(cpfAluno).get();
+    		
+    		List<Feedback> feedbacksAluno = aluno.getFeedbacks();
+    		
+    		for (int i = 0; i < feedbacksAluno.size(); i++) {
+				Feedback feedbackAluno = feedbacksAluno.get(i);
+				
+				if(feedbackAluno.getId() == feedback.getId()) {
+					feedbacksAluno.set(i, feedbackAluno);
+					
+					aluno.setFeedbacks(feedbacksAluno);
+					
+					aRepository.save(aluno);
+					
+					return true;
+				}
+				
+			}
+    		
+    		return false;
+    	}catch (Exception e) {
+    		return false;
+    	}
+    	
+    	
     }
 	
 }
