@@ -131,5 +131,9 @@ public class PathController {
 	public String detalhesAlunosTutor(@PathVariable String id) {
 		return "alunosTutor";
 	}
+	@GetMapping(value = "/feedback{id}")
+	public String feedbackAluno(@PathVariable String id) {
+		return "avaliacaoAluno";
+	}
 }
  

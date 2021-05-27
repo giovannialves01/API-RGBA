@@ -35,7 +35,7 @@ window.onload = async function carregarConteudo() {
 
           let aLinkAlunos = document.createElement("a");
           aLinkAlunos.classList.add("linkAlunosTurma");
-          aLinkAlunos.href = "tutoriaAluno" + alunos[i].cpf;
+          aLinkAlunos.href = "feedback" + alunos[i].cpf;
 
           aLinkAlunos.appendChild(divTurma);
 

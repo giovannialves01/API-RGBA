@@ -1,0 +1,52 @@
+.compreensaoDiv {
+     display: flex;
+     flex-direction: column;
+     margin-top: 30px;
+     align-items: center;
+}
+
+.compreensaoDiv .left {
+     align-self: flex-start;
+}
+
+textarea {
+     resize: vertical;
+}
+
+.buttonContainer{
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+     place-content: space-between;
+     margin-top: 50px;
+ }
+
+ .greenButton{
+     padding: 8px;
+     border-radius: 20px;
+     padding-left: 25px;
+     padding-right: 25px;
+     border: none;
+     background-color: #83CC4A;
+     font-family: 'Poppins';
+     font-weight: bold;
+     cursor: pointer;
+ }
+
+ .redButton{
+     padding: 8px;
+     border-radius: 20px;
+     padding-left: 25px;
+     padding-right: 25px;
+     border: none;
+     background-color: #FF7070;
+     font-family: 'Poppins';
+     font-weight: bold;
+     cursor: pointer;
+ }
+
+ .separador {
+     border-color: #FFFAFA;
+     height: 1px;
+     width: 60%;
+ }
