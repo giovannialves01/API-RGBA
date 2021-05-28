@@ -94,7 +94,7 @@ public class SkillShareApplication implements CommandLineRunner {
 		}
 		
 		if(alunoRepository.findAll().isEmpty()) {
-			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
+			Aluno rafael = new Aluno("2", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "2");
 			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "1234");
 			
 //			Turma turma1 = new Turma();

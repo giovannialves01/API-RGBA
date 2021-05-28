@@ -127,4 +127,20 @@ window.onload = async function carregarConteudo() {
 
 	});
 
+	ajustarBotaoProva(id, resp.cpfAluno);
+}
+
+function setProva(idCurso, cpfAluno) {
+    localStorage.setItem("idCurso", idCurso);
+    localStorage.setItem("cpfAluno", cpfAluno);
+}
+
+function ajustarBotaoProva(idCurso, cpfAluno) {
+	let buttonLink = document.getElementById("linkProva");
+	buttonLink.onclick = function () {
+		setProva(idCurso, cpfAluno);
+
+		window.location.href = "prova";
+	}
+
 }
