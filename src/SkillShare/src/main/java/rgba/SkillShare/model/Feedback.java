@@ -49,51 +49,10 @@ public class Feedback {
 
 	@Column(columnDefinition = "text")
 	@Convert(converter = JSONObjectConverter.class)
-	@JsonIgnore
 	private JSONObject acertosErrosProva;
 
 	@OneToOne
 	private Prova prova;
 
-	@JsonProperty("acertosErrosProva")
-	public Map<String, Object> getAsJsonString() throws IOException, JSONException {
-		return toMap(acertosErrosProva);
-	}
-
-	public Map<String, Object> toMap(JSONObject object) throws JSONException {
-		Map<String, Object> map = new HashMap<String, Object>();
-
-		Iterator<String> keysItr = object.keys();
-		while(keysItr.hasNext()) {
-			String key = keysItr.next();
-			Object value = object.get(key);
-
-			if(value instanceof JSONArray) {
-				value = toList((JSONArray) value);
-			}
-
-			else if(value instanceof JSONObject) {
-				value = toMap((JSONObject) value);
-			}
-			map.put(key, value);
-		}
-		return map;
-	}
-
-	public List<Object> toList(JSONArray array) throws JSONException {
-		List<Object> list = new ArrayList<Object>();
-		for(int i = 0; i < array.length(); i++) {
-			Object value = array.get(i);
-			if(value instanceof JSONArray) {
-				value = toList((JSONArray) value);
-			}
-
-			else if(value instanceof JSONObject) {
-				value = toMap((JSONObject) value);
-			}
-			list.add(value);
-		}
-		return list;
-	}
 }
 

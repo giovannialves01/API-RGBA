@@ -27,3 +27,27 @@
     font-size: 30px;
     margin-bottom: 30px;
 }
+
+.centro {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tituloQuestaoProva {
+    font-weight: bold;
+}
+
+.btnFinalizarProva {
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Poppins';
+    align-self: flex-end;
+}
+
+.separadorQuestoes {
+    border-color: #FFFAFA;
+    height: 1px;
+    width: 90%;
+}

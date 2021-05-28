@@ -6,6 +6,8 @@ async function getProva() {
 
     let response = await serverRequester.fazerGetWithData("/cursos/getProva", {"idCurso": idCurso});
 
+    console.log(response);
+
     let provaCrua = [];
     Object.assign(provaCrua, response["responseJson"]["questoes"]);
 
@@ -29,7 +31,7 @@ async function buildProva() {
     let container = document.getElementById("questoesProva");
 
     let title = document.createElement("label");
-    title.textContent = "Prova de geografia";
+    title.textContent = "Avaliação Final";
     title.classList.add("tituloProva");
 
     container.appendChild(title);
@@ -47,6 +49,7 @@ async function buildProva() {
 
         let tituloQuestao = document.createElement("label");
         tituloQuestao.textContent = "Questão " + (i + 1);
+        tituloQuestao.classList.add("tituloQuestaoProva");
 
         let divEnunciadoQuestao = document.createElement("div");
         let enunciado = document.createElement("p");
@@ -73,6 +76,9 @@ async function buildProva() {
             "D", 
             questaoData["alternativaD"], 
             questaoIdentifier + "-radioD");
+
+        let separador = document.createElement("hr");
+        separador.classList.add("separadorQuestoes");
         
         divAlternativasQuestao.appendChild(alternativaA);
         divAlternativasQuestao.appendChild(alternativaB);
@@ -84,11 +90,13 @@ async function buildProva() {
 
         container.appendChild(tituloQuestao);
         container.appendChild(containerQuestao);
+        container.appendChild(separador);
         
     }
 
     let botaoFinalizar = document.createElement("button");
     botaoFinalizar.textContent = "Finalizar prova";
+    botaoFinalizar.classList.add("btnFinalizarProva");
     botaoFinalizar.onclick = function (){
         finalizarProva();
 
@@ -121,7 +129,8 @@ function getAlternativaProva(idQuestao, group, value, text, idRadio) {
 }
 
 async function finalizarProva() {
-    console.log(acertosErrosProva);
+    let idCurso = localStorage.getItem("idCurso");
+    let cpfAluno = localStorage.getItem("cpfAluno");
 
     let keys = Object.keys(acertosErrosProva);
 
@@ -131,7 +140,7 @@ async function finalizarProva() {
     for (let i = 0; i < keys.length; i++) {
         const element = keys[i];
         
-        if(element["alternativaEscolhida"] == element["alternativaCorreta"]){
+        if(acertosErrosProva[element]["alternativaEscolhida"] == acertosErrosProva[element]["alternativaCorreta"]){
             notaFinal += notaAcerto;
 
         }
@@ -150,9 +159,10 @@ async function finalizarProva() {
         "notaFinal": notaFinal
     };
 
-    let response = await serverRequester.fazerPost("/alunos/novoFeedback?cpfAluno=2&idCurso=2", feedback);
+    let response = await serverRequester.fazerPost("/alunos/novoFeedback?cpfAluno=" + cpfAluno +
+    "&idCurso=" + idCurso, feedback);
 
-    if(response["responseJson"]){
+    if(response["ok"]){
         alert("Prova finalizada com sucesso!\n\nAguarde o tutor enviar seu feedback");
 
     }else{

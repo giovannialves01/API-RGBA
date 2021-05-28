@@ -1,6 +1,9 @@
 package rgba.SkillShare.control;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +33,7 @@ import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.model.Feedback;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.repository.CursoRepository;
+import rgba.SkillShare.repository.FeedbackRepository;
 import rgba.SkillShare.utils.EmailService;
 
 /**
@@ -47,6 +51,9 @@ public class AlunoController {
     
     @Autowired 
     CursoRepository cursoRepository;
+    
+    @Autowired
+    FeedbackRepository feedbackRepository;
     
     @Autowired
 	JavaMailSender javaMailSender;
@@ -164,12 +171,28 @@ public class AlunoController {
     }
     
     @GetMapping(value = "/feedbacks")
-    public List<Feedback> feedbacksAluno(String cpfAluno){
+    public ArrayList<HashMap<String, String>> feedbacksAluno(String cpfAluno){
     	Aluno aluno = aRepository.findById(cpfAluno).get();
     	
     	List<Feedback> feedbacks = aluno.getFeedbacks();
+    	ArrayList<HashMap<String, String>> pseudoJson = new ArrayList<HashMap<String,String>>();
     	
-    	return feedbacks;
+    	for (int i = 0; i < feedbacks.size(); i++) {
+			Feedback feedback = feedbacks.get(i);
+			
+			HashMap<String, String> data = new HashMap<String, String>();
+			
+			data.put("acertosErrosProva", feedback.getAcertosErrosProva().toString());
+			data.put("comentarioTutor", feedback.getComentarioTutor());
+			data.put("compreendimento", String.valueOf(feedback.getCompreendimento()));
+			data.put("id", String.valueOf(feedback.getId()));
+			data.put("notaFinal", feedback.getNotaFinal());
+			data.put("prova", "{\"id\":" + String.valueOf(feedback.getProva().getId() + "}"));
+			
+			pseudoJson.add(data);
+		}
+    	
+    	return pseudoJson;
     }
     
     @PostMapping(value = "/novoFeedback")
@@ -178,15 +201,18 @@ public class AlunoController {
         	Aluno aluno = aRepository.findById(cpfAluno).get();
         	Curso curso = cursoRepository.findById(idCurso).get();
         	
-        	Certificado certificado = curso.getCertificado();
+        	Certificado certificadoCurso = curso.getCertificado();
+        	
+        	Certificado novoCertificado = new Certificado();
+        	novoCertificado.setImagemDeFundo(certificadoCurso.getImagemDeFundo());
         	
         	String data = LocalDate.now().getDayOfMonth() + "/0" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         	
-        	certificado.setMensagem("Certificado de comprovamento de que o aluno " + aluno.getNome() + " concluiu o curso "
+        	novoCertificado.setMensagem("Certificado para a comprovação de que o aluno " + aluno.getNome() + " concluiu o curso "
         	+ curso.getTitulo() + " em " + data);
         	
         	aluno.getFeedbacks().add(feedback);
-        	aluno.getCertificados().add(certificado);
+        	aluno.getCertificados().add(novoCertificado);
         	
         	aRepository.save(aluno);
         	
@@ -197,6 +223,19 @@ public class AlunoController {
     		return false;
     	}
 
+    }
+    
+    @PostMapping(value = "/updateFeedback")
+    public boolean updateFeedback(@RequestBody Feedback feedback) {
+    	try {
+    		feedbackRepository.save(feedback);
+
+    		return true;
+    	}catch (Exception e) {
+    		return false;
+    	}
+    	
+    	
     }
 	
 }
