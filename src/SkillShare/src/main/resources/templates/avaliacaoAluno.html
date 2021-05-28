@@ -56,24 +56,24 @@
           </div>
 		<hr class="separador">
 		<div class="feedbackDoTutor" id="feedbackDoTutor">
-			<form id="formFeedbackTutor">
+			<form onsubmit="enviarFeedback(event)" id="formFeedbackTutor">
 
 					<div class="compreensaoDiv">
 						<label for="compreensao">Compreensão do conteúdo</label>
 						<div>
 							<span>Ruim</span>
-							<input type="radio" id="1" name="compreensao" value="1">
-							<input type="radio" id="2" name="compreensao" value="2">
-							<input type="radio" id="3" name="compreensao" value="3">
-							<input type="radio" id="4" name="compreensao" value="4">
-							<input type="radio" id="5" name="compreensao" value="5">
+							<input type="radio" id="compreendimento-1" name="compreendimento" value="1">
+							<input type="radio" id="compreendimento-2" name="compreendimento" value="2">
+							<input type="radio" id="compreendimento-3" name="compreendimento" value="3">
+							<input type="radio" id="compreendimento-4" name="compreendimento" value="4">
+							<input type="radio" id="compreendimento-5" name="compreendimento" value="5">
 							<span>Boa</span>
 						</div>
 					</div>
 	
 					<div class="compreensaoDiv">
 						<label for="explicacao" class="left">Digite aqui algo que você queira acrescentar para o aluno:</label>
-						<textarea name="explicacao" id="explicacao" cols="100" rows="10"></textarea>
+						<textarea name="comentarioTutor" id="explicacao" cols="100" rows="10"></textarea>
 					</div>
 
 					<div class="buttonContainer">

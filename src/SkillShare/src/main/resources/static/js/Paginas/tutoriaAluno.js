@@ -1,3 +1,7 @@
+var feedbacks;
+var provaData;
+var feedbackProva;
+
 window.onload = async function carregarConteudo() {
 
     let url = window.location.href;
@@ -12,6 +16,9 @@ window.onload = async function carregarConteudo() {
 
     let nomeDoAlunoSpan = document.getElementById("nomeDoAlunoTutoria");
     nomeDoAlunoSpan.innerText = infosAluno.nome;
+
+    let response = await serverRequester.fazerGetWithData("/alunos/feedbacks", {"cpfAluno": cpfAluno});
+    feedbacks = response["responseJson"];
 
     var prova = {};
     var idProva;
@@ -59,9 +66,11 @@ window.onload = async function carregarConteudo() {
     }
 
     async function buildProva() {
-        let provaData = await getProva();
+        provaData = await getProva();
 
         let questoesData = provaData["questoes"];
+
+        feedbackProva = getFeedbackProva(provaData["id"]);
 
         let container = document.getElementById("avaliacaoAlunoFeedback");
 
@@ -123,44 +132,45 @@ window.onload = async function carregarConteudo() {
 
     buildProva();
 
-    // let formFeedback = document.getElementById("formFeedbackTutor");
-    // formFeedback.addEventListener("submit", alert("enviado"));
-    // function enviarFeedback() {
+}
 
-    //     let explicacao = document.getElementById("explicacao").value;
-    //     let radios = document.getElementsByName("compreensao");
-    //     let compreensao = "";
+async function enviarFeedback(event){
+    event.preventDefault();
 
-    //     radios.forEach(radio => {
-    //         if (radio.checked) {
-    //             compreensao = radio.value;
-    //         }
-    //     });
+    let compreendimento = document.querySelector('input[name="compreendimento"]:checked').value;
+    let comentarioTutor = document.getElementById("explicacao").value;
 
-    //     // tive que fazer com then porque tava dando um mesmo problema que deu outro dia com o await.....
-    //     let responseFeedback = serverRequester.fazerGetWithData("/alunos/feedbacks", { "cpfAluno": cpfAluno }).then((resposta) => {
+    feedbackProva["compreendimento"] = compreendimento;
+    feedbackProva["comentarioTutor"] = comentarioTutor;
+    feedbackProva["acertosErrosProva"] = JSON.stringify(feedbackProva["acertosErrosProva"]);
 
-    //         let feedback = resposta["responseJson"];
-    //         console.log("Feedback:");
-    //         console.log(feedback);
+    let response = await serverRequester.fazerPost("/alunos/updateFeedback", feedbackProva);
 
-    //         let json = {
-    //             "acertosErrosProva": JSON.stringify("n sei"), // preciso fazer ou já tá feita a correção?
-    //             "comentarioTutor": explicacao,
-    //             "compreendimento": compreensao,
-    //             "id": feedback[0].id,
-    //             "notaFinal": feedback[0].notaFinal,
-    //             "prova": { "id": feedback[0].prova }
-    //         }
+    if(response["ok"]){
+        alert("Feedback enviado para o aluno com sucesso!");
 
-    //         console.log(json);
+    }else{
+        alert("Não foi possível enviar o feedback ao aluno, tente novamente.\n\nCaso o erro persista,"
+        + " contate um administrador");
 
-    //         let response = serverRequester.fazerPost("/alunos/updateFeedback", feedback).then((response) => {
-    //             console.log("update:");
-    //             console.log(response);
-    //         });
-    //     });
+    }
 
-    // }
+}
+
+function getFeedbackProva(idProva) {
+    for (let i = 0; i < feedbacks.length; i++) {
+        let feedback = feedbacks[i];
+
+        let provaFeedback = JSON.parse(feedback["prova"]);
+        let provaFeedbackId = provaFeedback["id"];
+
+        if(provaFeedbackId == idProva){
+            feedback["prova"] = provaData;
+            feedback["acertosErrosProva"] = JSON.parse(feedback["acertosErrosProva"]);
+
+            return feedback;
+        }
+
+    }
 
 }
