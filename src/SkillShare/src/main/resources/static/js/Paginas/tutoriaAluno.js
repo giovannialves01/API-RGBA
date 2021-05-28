@@ -43,28 +43,6 @@ window.onload = async function carregarConteudo() {
         return response["responseJson"];
     }
 
-    function getAlternativaProva(idQuestao, group, value, text, idRadio) {
-        let divAlternativa = document.createElement("div");
-
-        let radioAlternativa = document.createElement("input");
-        radioAlternativa.type = "radio";
-        radioAlternativa.name = group;
-        radioAlternativa.value = value;
-        radioAlternativa.id = idRadio;
-        radioAlternativa.onchange = function () {
-            validarQuestao(idQuestao, this.value);
-        }
-
-        let textoAlternativa = document.createElement("label");
-        textoAlternativa.textContent = text;
-        textoAlternativa.htmlFor = idRadio;
-
-        divAlternativa.appendChild(radioAlternativa);
-        divAlternativa.appendChild(textoAlternativa);
-
-        return divAlternativa;
-    }
-
     async function buildProva() {
         provaData = await getProva();
 
@@ -78,6 +56,7 @@ window.onload = async function carregarConteudo() {
             const questaoData = questoesData[i];
 
             let idQuestao = questaoData["id"];
+            let respondidoAluno = feedbackProva["acertosErrosProva"][idQuestao];
 
             let questaoIdentifier = "questaoProva" + (i + 1);
 
@@ -98,22 +77,23 @@ window.onload = async function carregarConteudo() {
 
             let divAlternativasQuestao = document.createElement("div");
             divAlternativasQuestao.classList.add("alternativasContainer");
+
             let alternativaA = getAlternativaProva(idQuestao, questaoIdentifier,
                 "A",
                 questaoData["alternativaA"],
-                questaoIdentifier + "-radioA");
+                questaoIdentifier + "-radioA", respondidoAluno);
             let alternativaB = getAlternativaProva(idQuestao, questaoIdentifier,
                 "B",
                 questaoData["alternativaB"],
-                questaoIdentifier + "-radioB");
+                questaoIdentifier + "-radioB", respondidoAluno);
             let alternativaC = getAlternativaProva(idQuestao, questaoIdentifier,
                 "C",
                 questaoData["alternativaC"],
-                questaoIdentifier + "-radioC");
+                questaoIdentifier + "-radioC", respondidoAluno);
             let alternativaD = getAlternativaProva(idQuestao, questaoIdentifier,
                 "D",
                 questaoData["alternativaD"],
-                questaoIdentifier + "-radioD");
+                questaoIdentifier + "-radioD", respondidoAluno);
 
             divAlternativasQuestao.appendChild(alternativaA);
             divAlternativasQuestao.appendChild(alternativaB);
@@ -173,4 +153,38 @@ function getFeedbackProva(idProva) {
 
     }
 
+}
+
+function getAlternativaProva(idQuestao, group, value, text, idRadio, respondidoAluno) {
+    let divAlternativa = document.createElement("div");
+
+    let radioAlternativa = document.createElement("input");
+    radioAlternativa.type = "radio";
+    radioAlternativa.name = group;
+    radioAlternativa.value = value;
+    radioAlternativa.id = idRadio;
+
+    if(respondidoAluno["alternativaEscolhida"] == value){
+        radioAlternativa.checked = true;
+    }
+
+    radioAlternativa.disabled = true;
+
+    let textoAlternativa = document.createElement("label");
+    textoAlternativa.textContent = text;
+    textoAlternativa.htmlFor = idRadio;
+
+    if(respondidoAluno["alternativaCorreta"] == value){
+        textoAlternativa.classList.add("alternativaCorreta");
+
+    }else if(respondidoAluno["alternativaEscolhida"] == value
+            && respondidoAluno["alternativaEscolhida"] != respondidoAluno["alternativaCorreta"]){
+        textoAlternativa.classList.add("alternativaErrada");
+
+    }
+
+    divAlternativa.appendChild(radioAlternativa);
+    divAlternativa.appendChild(textoAlternativa);
+
+    return divAlternativa;
 }

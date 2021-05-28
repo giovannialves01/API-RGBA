@@ -114,3 +114,11 @@ textarea {
     height: 1px;
     width: 90%;
 }
+
+.alternativaCorreta{
+    color: #83CC4A;
+}
+
+.alternativaErrada{
+    color: red;
+}
