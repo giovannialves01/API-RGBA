@@ -201,15 +201,18 @@ public class AlunoController {
         	Aluno aluno = aRepository.findById(cpfAluno).get();
         	Curso curso = cursoRepository.findById(idCurso).get();
         	
-        	Certificado certificado = curso.getCertificado();
+        	Certificado certificadoCurso = curso.getCertificado();
+        	
+        	Certificado novoCertificado = new Certificado();
+        	novoCertificado.setImagemDeFundo(certificadoCurso.getImagemDeFundo());
         	
         	String data = LocalDate.now().getDayOfMonth() + "/0" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         	
-        	certificado.setMensagem("Certificado para a comprovação de que o aluno " + aluno.getNome() + " concluiu o curso "
+        	novoCertificado.setMensagem("Certificado para a comprovação de que o aluno " + aluno.getNome() + " concluiu o curso "
         	+ curso.getTitulo() + " em " + data);
         	
         	aluno.getFeedbacks().add(feedback);
-        	aluno.getCertificados().add(certificado);
+        	aluno.getCertificados().add(novoCertificado);
         	
         	aRepository.save(aluno);
         	
