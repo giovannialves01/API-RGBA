@@ -205,7 +205,7 @@ public class AlunoController {
         	
         	String data = LocalDate.now().getDayOfMonth() + "/0" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         	
-        	certificado.setMensagem("Certificado de comprovamento de que o aluno " + aluno.getNome() + " concluiu o curso "
+        	certificado.setMensagem("Certificado para a comprovação de que o aluno " + aluno.getNome() + " concluiu o curso "
         	+ curso.getTitulo() + " em " + data);
         	
         	aluno.getFeedbacks().add(feedback);
