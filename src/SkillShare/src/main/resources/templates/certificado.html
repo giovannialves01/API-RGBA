@@ -11,8 +11,8 @@
 		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
 		crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+
 
 
 	<!-- Rodar no Eclipse -->
@@ -31,7 +31,6 @@
 	
 	<script src="js/Utils/ServerRequester.js"></script>
 	<script src="js/Utils/sendFile.js"></script>
-	<script src="js/Utils/listAlunosCadastroTurma.js"></script>
 	<script src="js/Utils/LogRegister.js"></script>
 
 	<script src="js/Componentes/BeautySelect.js"></script>
@@ -39,32 +38,19 @@
 	<script src="js/Componentes/BeautyInput.js"></script>
 	<script src="js/Componentes/BeautyTable.js"></script>
 	<script src="js/Componentes/Menu.js"></script>
-	<script defer src="js/Paginas/AdminPage.js"></script>
 	<script src="js/Componentes/TopBar.js"></script>
 	<script src="js/Componentes/Footer.js"></script>
 
-	<script src="js/Entidades/Usuario.js"></script>
-	<script src="js/Entidades/Biblioteca.js"></script>
-	<script src="js/Entidades/Destaque.js"></script>
-	<script src="js/Entidades/Pilula.js"></script>
-	<script src="js/Entidades/Evento.js"></script>
 	<script src="js/Entidades/Log.js"></script>
-	<script src="js/Entidades/Questao.js"></script>
-	<script src="js/Entidades/Turma.js"></script>
-	<script src="js/Entidades/Curso.js"></script>
-	<script src="js/Entidades/geradorCertificado.js"></script>
-	
-	<script defer src="js/Scorm/auth.js"></script>
-	<script defer src="js/Scorm/getImportStatus.js"></script>
-	<script defer src="js/Scorm/uploadScorm.js"></script>
-	<script defer src="js/Scorm/uploadAluno.js"></script>
-	<script defer src="js/Scorm/getProgressoAluno.js"></script>
+	<script defer src="js/Paginas/geradorCertificado.js"></script>
 
-    <title>Document</title>
+    <title>Certificados | SkillShare</title>
 </head>
 
 <body>
-	
+	<script>
+		window.jsPDF = window.jspdf.jsPDF;
+	</script>
 	<top-bar></top-bar>
 	<menu-rgba></menu-rgba>
 	
@@ -76,8 +62,6 @@
     <div id="certificadosToShow">
         
     </div>
-    
-    <script type="text/javascript" src="js/Paginas/geradorCertificado.js"></script>
     
     <footer-rgba></footer-rgba>
 </body>
