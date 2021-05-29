@@ -205,10 +205,11 @@ public class AlunoController {
         	
         	Certificado novoCertificado = new Certificado();
         	novoCertificado.setImagemDeFundo(certificadoCurso.getImagemDeFundo());
+        	novoCertificado.setNomeCurso(curso.getTitulo());
         	
         	String data = LocalDate.now().getDayOfMonth() + "/0" + LocalDate.now().getMonthValue() + "/" + LocalDate.now().getYear();
         	
-        	novoCertificado.setMensagem("Certificado para a comprovação de que o aluno " + aluno.getNome() + " concluiu o curso "
+        	novoCertificado.setMensagem("Certificado para a comprovação de que o aluno\n" + aluno.getNome() + "\nconcluiu o curso "
         	+ curso.getTitulo() + " em " + data);
         	
         	aluno.getFeedbacks().add(feedback);

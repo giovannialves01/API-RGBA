@@ -28,6 +28,9 @@ public class Certificado {
     @Column
     private String mensagem;
     
+    @Column
+    private String nomeCurso;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_arquivo", referencedColumnName = "id")
     private Arquivo imagemDeFundo;

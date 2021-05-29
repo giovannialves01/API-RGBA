@@ -119,18 +119,27 @@ public class PathController {
 	public String scormTest () {
 		return "scormTest";
 	}
+
 	@GetMapping(value = "/detalhesCurso{id}")
 	public String detalhesCurso(@PathVariable String id) {
 		return "detalhesCurso";
 	}
+	
 	@GetMapping(value = "/tutoriaCurso{id}")
 	public String detalhesCursoTutor(@PathVariable String id) {
 		return "turmasTutorCurso";
 	}
+
 	@GetMapping(value = "/tutoriaAluno{id}")
 	public String detalhesAlunosTutor(@PathVariable String id) {
 		return "alunosTutor";
 	}
+
+	@GetMapping(value = "/certificado")
+	public String certificado() {
+		return "certificado";
+	}
+	
 	@GetMapping(value = "/feedback{id}")
 	public String feedbackAluno(@PathVariable String id) {
 		return "avaliacaoAluno";
