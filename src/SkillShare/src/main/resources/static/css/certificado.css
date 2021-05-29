@@ -1,0 +1,14 @@
+.contentBox{
+	margin-left: 90px;
+	width: 450px;
+}
+
+#certificadosTitle{
+	margin: 90px 15% 0 15%;
+	text-align: center;
+}
+
+#certificadosToShow{
+	margin: 60px 25% 0 25%;
+}
+

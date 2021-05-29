@@ -184,6 +184,8 @@ public class MenuOptions {
 		
 		subOptions.put(this.criarSubOpcao("Criar nova questão", "hideAllContent();showContent('cadastroQuestoes');"));
 		subOptions.put(this.criarSubOpcao("Gerir questões", "hideAllContent();showContent('gerirQuestoes');"));
+		
+		subOptions.put(this.criarSubOpcao("Criar/Alterar prova final", "hideAllContent();showContent('exibicaoCadastroProva');"));
 		 
 		option = this.criarOpcao("Banco de Questões", "file-alt", "4", "Clique aqui para exibir o banco de questões", subOptions);
 		
@@ -284,6 +286,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Visualizar Meus Cursos", "window.location.href = 'meusCursosAluno';"));
+		subOptions.put(this.criarSubOpcao("Meus certificados", "window.location.href = 'certificado';"));
 		
 		option = this.criarOpcao("Meus Cursos", "chalkboard-teacher", "10", "Clique aqui para visualizar seus cursos!", subOptions);
 		

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Administração | SkillShare</title>
+
+	<!-- CDN das depedências externas -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+
+
+
+	<!-- Rodar no Eclipse -->
+	<link rel="stylesheet" href="css/GlobalComponents.css">
+	<link rel="stylesheet" href="css/Menu.css">
+	<link rel="stylesheet" href="css/TopBar.css">
+	<link rel="stylesheet" href="css/AdminPage.css">
+	<link rel="stylesheet" href="css/BeautyButton.css">
+	<link rel="stylesheet" href="css/BeautyInput.css">
+	<link rel="stylesheet" href="css/BeautySelect.css">
+	<link rel="stylesheet" href="css/BeautyTable.css">
+	<link rel="stylesheet" href="css/Footer.css">
+	<link rel="stylesheet" href="css/BancoQuestoes.css">
+	<link rel="stylesheet" href="css/turmas.css">
+	<link rel="stylesheet" href="css/certificado.css">
+	
+	<script src="js/Utils/ServerRequester.js"></script>
+	<script src="js/Utils/sendFile.js"></script>
+	<script src="js/Utils/LogRegister.js"></script>
+
+	<script src="js/Componentes/BeautySelect.js"></script>
+	<script src="js/Componentes/BeautyButton.js"></script>
+	<script src="js/Componentes/BeautyInput.js"></script>
+	<script src="js/Componentes/BeautyTable.js"></script>
+	<script src="js/Componentes/Menu.js"></script>
+	<script src="js/Componentes/TopBar.js"></script>
+	<script src="js/Componentes/Footer.js"></script>
+
+	<script src="js/Entidades/Log.js"></script>
+	<script defer src="js/Paginas/geradorCertificado.js"></script>
+
+    <title>Certificados | SkillShare</title>
+</head>
+
+<body>
+	<script>
+		window.jsPDF = window.jspdf.jsPDF;
+	</script>
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
+	
+	<div id="certificadosTitle">
+        <h2>Meus Certificados</h2>
+        
+    </div>
+	
+    <div id="certificadosToShow">
+        
+    </div>
+    
+    <footer-rgba></footer-rgba>
+</body>
+</html>

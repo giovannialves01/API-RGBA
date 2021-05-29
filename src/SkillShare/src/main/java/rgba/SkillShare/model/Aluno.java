@@ -1,10 +1,13 @@
 package rgba.SkillShare.model;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,6 +27,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor @Getter @Setter @ToString
 public class Aluno extends Usuario{ 
 
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Certificado> certificados;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Feedback> feedbacks;
+	
+    @ManyToMany(mappedBy = "alunos",cascade = CascadeType.ALL)
+    @JsonIgnore
+    Set<Turma> turmas = new HashSet<Turma>();
 
     /** 
     *  Cria uma instância da classe Aluno
@@ -40,10 +52,6 @@ public class Aluno extends Usuario{
     public Aluno(String cpf,String nome,String email) { 
         super(cpf,nome,email);
     }
-
-    @ManyToMany(mappedBy = "alunos",cascade = CascadeType.ALL)
-    @JsonIgnore
-    Set<Turma> turmas = new HashSet<Turma>();
 
     public void addTurma(Turma t){
         this.turmas.add(t);

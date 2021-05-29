@@ -1,6 +1,8 @@
 package rgba.SkillShare;
 
-
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.io.ClassPathResource;
 
 import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Aluno;
@@ -26,7 +29,6 @@ import rgba.SkillShare.repository.GestorRepository;
 import rgba.SkillShare.repository.LogRepository;
 import rgba.SkillShare.repository.TurmaRepository;
 import rgba.SkillShare.repository.TutorRepository;
-
 
 @SpringBootApplication
 public class SkillShareApplication implements CommandLineRunner {
@@ -92,7 +94,7 @@ public class SkillShareApplication implements CommandLineRunner {
 		}
 		
 		if(alunoRepository.findAll().isEmpty()) {
-			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "rafael123");
+			Aluno rafael = new Aluno("2", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "2");
 			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "1234");
 			
 //			Turma turma1 = new Turma();

@@ -830,3 +830,71 @@ textarea.userDataFieldEnabled{
 	width: 300px;
 	margin-left: 10px;
 }
+.containerCriarProva{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.containerCriarProva > div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.separadorVertical{
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 90%;
+    width: 2px;
+    background-color: black;
+    opacity: 40%;
+    border-radius: 25px;
+    margin-bottom: 50px;
+}
+
+.containerQuestaoProva{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.containerQuestaoProva:hover{
+    background-color: rgba(0, 60, 255, 0.1);
+}
+
+.divEnunciadoRespostaProva{
+    display: flex;
+    flex-direction: column;
+}
+
+.exibicaoQuestoesProva{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.exibicaoQuestoesProva > label{
+    margin-bottom: 50px;
+}
+
+.fa-buttonAddQuestaoProva{
+    cursor: pointer;
+    color: rgb(29, 209, 0);
+}
+
+.fa-buttonRemoveQuestaoProva{
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}
