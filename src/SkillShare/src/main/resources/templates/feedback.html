@@ -1,43 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | SkillShare</title>
+	<meta charset="UTF-8">
+	<title>Tutoria | SkillShare</title>
 
-    <!-- CDN das depedências externas -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+	<!-- CDN das depedências externas -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <link rel="stylesheet" href="css/GlobalComponents.css">
-    <link rel="stylesheet" href="css/Menu.css">
-    <link rel="stylesheet" href="css/TopBar.css">
-    <link rel="stylesheet" href="css/Footer.css">
-    <link rel="stylesheet" href="css/Home.css">
+	<!-- Rodar no Eclipse -->
+	<link rel="stylesheet" href="css/GlobalComponents.css">
+	<link rel="stylesheet" href="css/Menu.css">
+	<link rel="stylesheet" href="css/TopBar.css">
+	<link rel="stylesheet" href="css/BeautyButton.css">
+	<link rel="stylesheet" href="css/BeautyInput.css">
+	<link rel="stylesheet" href="css/BeautySelect.css">
+	<link rel="stylesheet" href="css/BeautyTable.css">
+	<link rel="stylesheet" href="css/Footer.css">
+	<link rel="stylesheet" href="css/tutoria.css">
+	<link rel="stylesheet" href="css/entendimentoAluno.css">
+	<link rel="stylesheet" href="css/feedback.css">
 
-    <script src="js/Utils/ServerRequester.js"></script>
+	<script src="js/Utils/renderIMG.js"></script>
 
-    <script src="js/Componentes/Menu.js"></script>
-    <script src="js/Componentes/TopBar.js"></script>
-    <script src="js/Componentes/Footer.js"></script>
+	<script src="js/Utils/ServerRequester.js"></script>
+	<script defer src="js/Paginas/tutoria.js"></script>
+	<script defer src="js/Paginas/tutoriaAluno.js"></script>
 
-    <script defer src="js/Paginas/Home.js"></script>
-
+	<script src="js/Componentes/BeautySelect.js"></script>
+	<script src="js/Componentes/BeautyButton.js"></script>
+	<script src="js/Componentes/BeautyInput.js"></script>
+	<script src="js/Componentes/BeautyTable.js"></script>
+	<script src="js/Componentes/Menu.js"></script>
+	<script src="js/Componentes/TopBar.js"></script>
+	<script src="js/Componentes/Footer.js"></script>
 
 </head>
 <body>
     <top-bar></top-bar>
     <menu-rgba></menu-rgba>
 
-    <div class="feedBack">
-        <h1>FeedBack</h1>
+    <div class="feedBack"> 
+        <h1>FeedBack Aluno</h1>
         <p>
-			Nos dê sua opinião sobre a compreensão do conteúdo e pontos a melhorar
+			Veja aqui o FeedBack do Tutor para saber mais sobre seu aprendizado
         </p>
 
-        <div class="separador"></div>
+        <hr class="separador">
     </div>
+    
+    <form>
+    	<div class="entendimentoAluno">
+			<label for="entendimento">Compreensão do conteúdo</label>
+			<div>
+							<span>Ruim</span>
+							<input type="radio" id="entendimento-1" name="entendimentoAluno" value="1">
+							<input type="radio" id="entendimento-2" name="entendimentoAluno" value="2">
+							<input type="radio" id="entendimento-3" name="entendimentoAluno" value="3">
+							<input type="radio" id="entendimento-4" name="entendimentoAluno" value="4">
+							<input type="radio" id="entendimento-5" name="entendimentoAluno" value="5">
+							<span>Boa</span>
+						</div>
+			</div>
+		<div class="entendimentoAluno">
+						<label for="comentario"; style="margin-right: 540px;">Comentários do Tutor:</label>
+						<textarea name="comentarioTutor" id="comentario" cols="100" rows="10"></textarea>
+					</div>
+			</form>
 
 <footer-rgba>
 </footer-rgba>
