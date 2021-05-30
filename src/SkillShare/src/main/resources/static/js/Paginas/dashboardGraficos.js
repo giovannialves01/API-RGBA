@@ -119,16 +119,38 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 
 	}
 
-	function dadosDoCursoSelecionadoDash(select) {
+	async function dadosDoCursoSelecionadoDash(select) {
+		// variaveis do gráfico tempoFinalizacaoCurso()
+		let ate2horas = 0;
+		let de2a3horas = 0;
+		let de3a6horas = 0;
+		let maisde6horas = 0;
+		// -------------------------------------------
 
 		let idCurso = select.value;
+
+		let respostaInfosCurso = await serverRequester.fazerGet("/cursos/" + idCurso);
+		console.log("Infos do curso no nosso banco:");
+		console.log(respostaInfosCurso);
+		console.log("-------------------");
+
+		let provaCurso = respostaInfosCurso.responseJson.prova.id;
+		let respostaFeedbacks = await serverRequester.fazerGet("/alunos/getAllFeedbacks/" + provaCurso);		
+		console.log("Feedbacks desse curso:");
+		console.log(respostaFeedbacks);
+		console.log("-------------------");
+		let qtdFinalizados = respostaFeedbacks.responseJson.length;
+		let qtdCertificados = document.getElementById("qtdCursosFinalizadosDash");
+		qtdCertificados.innerText = qtdFinalizados;
+
 		auth().then((token) => {
 			let infosCurso = getCourseInfo(idCurso, token).then((infos) => {
 				console.log(infos);
 			});
 
-			let qtdFinalizados = 0;
+			// let qtdFinalizados = 0;
 			let segundosTotalCurso = 0;
+			let segundosTotalCursoFinalizado = 0;
 			let qtdAlunos = 0;
 			let alunosDoCurso = getRegistrations(idCurso, token)
 				.then((alunos) => {
@@ -137,12 +159,38 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 						qtdAlunos++;
 						segundosTotalCurso = segundosTotalCurso + aluno.totalSecondsTracked;
 						if (aluno.registrationCompletion == "COMPLETED") {
-							qtdFinalizados++;
+
+							let horasTotalCursoFinalizado = 0;
+							segundosTotalCursoFinalizado = segundosTotalCursoFinalizado + aluno.totalSecondsTracked;
+							horasTotalCursoFinalizado = parseFloat(segundosTotalCurso / 3600);
+							if (horasTotalCursoFinalizado < 2) {
+								ate2horas++;
+							}
+							else if (horasTotalCursoFinalizado >= 2 && horasTotalCursoFinalizado < 3) {
+								de2a3horas++
+							}
+							else if (horasTotalCursoFinalizado >= 3 && horasTotalCursoFinalizado < 6) {
+								de3a6horas++
+							}
+							else {
+								maisde6horas++
+							}
+
 						}
+						
 					});
 
-					let qtdCertificados = document.getElementById("qtdCursosFinalizadosDash");
-					qtdCertificados.innerText = qtdFinalizados; // está só exibindo o total que terminou o curso!!!!
+					// variaveis do gráfico tempoFinalizacaoCurso()
+					console.log(ate2horas);
+					console.log(de2a3horas);
+					console.log(de3a6horas);
+					console.log(maisde6horas);
+					tempoFinalizacaoCurso()
+					// -------------------------------------------
+
+
+					// let qtdCertificados = document.getElementById("qtdCursosFinalizadosDash");
+					// qtdCertificados.innerText = qtdFinalizados; // está só exibindo o total que terminou o curso!!!!
 
 					let qtdHoras = document.getElementById("qtdHorasCursoDash");
 					qtdHoras.innerText = parseFloat(segundosTotalCurso / 3600).toFixed(2);
@@ -152,15 +200,15 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 		google.charts.load('current', { 'packages': ['corechart'] });
 		google.charts.setOnLoadCallback(tempoFinalizacaoCurso);
 
-		function tempoFinalizacaoCurso() {
+		async function tempoFinalizacaoCurso() {
 
 			var data = google.visualization.arrayToDataTable([
 
 				['Tempo', 'Quantidade'],
-				['1 a 2 horas', 11],
-				['2 a 3 horas', 2],
-				['3 a 6 horas', 2],
-				['mais de 6 horas', 2]
+				['Até 2 horas', ate2horas],
+				['2 a 3 horas', de2a3horas],
+				['3 a 6 horas', de3a6horas],
+				['mais de 6 horas', maisde6horas]
 			]);
 
 			var options = {
@@ -200,23 +248,74 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 
 		function graficoNotaDosAlunosCurso() {
 
+			let qtd0 = 0;
+			let qtd1 = 0;
+			let qtd2 = 0;
+			let qtd3 = 0;
+			let qtd4 = 0;
+			let qtd5 = 0;
+			let qtd6 = 0;
+			let qtd7 = 0;
+			let qtd8 = 0;
+			let qtd9 = 0;
+			let qtd10 = 0;
+			let todosOsFeedbacks = respostaFeedbacks.responseJson;
+			console.log("todos feedbacks:");
+			console.log(todosOsFeedbacks);
+			console.log("--------------");
+			todosOsFeedbacks.forEach(feedback => {
+				if (feedback.notaFinal == "0") {
+					qtd0++;
+				}
+				else if (feedback.notaFinal == "1.00") {
+					qtd1++;
+				}
+				else if (feedback.notaFinal == "2.00") {
+					qtd2++;
+				}
+				else if (feedback.notaFinal == "3.00") {
+					qtd3++;
+				}
+				else if (feedback.notaFinal == "4.00") {
+					qtd4++;
+				}
+				else if (feedback.notaFinal == "5.00") {
+					qtd5++;
+				}
+				else if (feedback.notaFinal == "6.00") {
+					qtd6++;
+				}
+				else if (feedback.notaFinal == "7.00") {
+					qtd8++;
+				}
+				else if (feedback.notaFinal == "8.00") {
+					qtd8++;
+				}
+				else if (feedback.notaFinal == "9.00") {
+					qtd9++;
+				}
+				else {
+					qtd10++;
+				}
+			});
+
 			var data = new google.visualization.DataTable();
 			data.addColumn('string', 'Alunos');
 			data.addColumn('number', 'Notas');
 
 			data.addRows(
 				[
-					['0', 1],
-					['1', 2],
-					['2', 3],
-					['3', 4],
-					['4', 5],
-					['5', 6],
-					['6', 7],
-					['7', 8],
-					['8', 9],
-					['9', 10],
-					['10', 11]
+					['0', qtd0],
+					['1', qtd1],
+					['2', qtd2],
+					['3', qtd3],
+					['4', qtd4],
+					['5', qtd5],
+					['6', qtd6],
+					['7', qtd7],
+					['8', qtd8],
+					['9', qtd9],
+					['10', qtd10]
 				]
 			);
 

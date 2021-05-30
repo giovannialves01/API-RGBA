@@ -239,4 +239,8 @@ public class AlunoController {
     	
     }
 	
+    @GetMapping(value = "/getAllFeedbacks/{idProva}")
+    public List<Feedback> getAllFeedbacks (@PathVariable long idProva) {
+    	return feedbackRepository.findByProva(idProva);
+    }
 }

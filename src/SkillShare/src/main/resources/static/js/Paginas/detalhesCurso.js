@@ -77,14 +77,18 @@ window.onload = async function carregarConteudo() {
 
 				let diaTermino = document.getElementById("finalizacaoCurso");
 				
+				let buttonLink = document.getElementById("linkProva");
 				if (res.registrationCompletion != "COMPLETED"){
 					diaTermino.textContent = "ainda não o finalizou";
+
 				}
 				else {
 					let diaSemFormatar = res.completedDate;
 					let valores = diaSemFormatar.split('T');
 					let dataFormatada = formatarDataDMA(valores[0]);
 					diaTermino.textContent = "o finalizou no dia " + dataFormatada + " (parabéns!)";
+
+					buttonLink.style.display = "flex";
 				}
 
 				let totalHorasCurso = document.getElementById("totalHorasCurso");
