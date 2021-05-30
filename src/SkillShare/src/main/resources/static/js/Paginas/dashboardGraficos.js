@@ -126,6 +126,15 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 		let de3a6horas = 0;
 		let maisde6horas = 0;
 		// -------------------------------------------
+		// variaveis do gráfico de qtd de aluno dentro e fora do curso alunosCursoXalunosPlataforma()
+		let alunosGrafico = 0;
+		let qtdAlunosCurso = 0;
+		// -------------------------------------------
+		// variaveis do grafico de alunos engajados engajamentoAlunosCurso()
+		let alunosEngajados = 0
+		let alunosPausados = 0;
+		let alunosFinalizados = 0;
+		// -------------------------------------------
 
 		let idCurso = select.value;
 
@@ -152,14 +161,14 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 			let segundosTotalCurso = 0;
 			let segundosTotalCursoFinalizado = 0;
 			let qtdAlunos = 0;
-			let alunosDoCurso = getRegistrations(idCurso, token)
+			alunosDoCurso = getRegistrations(idCurso, token)
 				.then((alunos) => {
 					console.log(alunos);
 					alunos.registrations.forEach((aluno) => {
 						qtdAlunos++;
 						segundosTotalCurso = segundosTotalCurso + aluno.totalSecondsTracked;
 						if (aluno.registrationCompletion == "COMPLETED") {
-
+							alunosFinalizados++;
 							let horasTotalCursoFinalizado = 0;
 							segundosTotalCursoFinalizado = segundosTotalCursoFinalizado + aluno.totalSecondsTracked;
 							horasTotalCursoFinalizado = parseFloat(segundosTotalCurso / 3600);
@@ -177,7 +186,24 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 							}
 
 						}
-						
+
+						// grafico engajamentoAlunosCurso()
+						if (aluno.registrationCompletion == "UNKNOWN" || aluno.registrationCompletion ==  "INCOMPLETE") {
+							let ultimoAcessoAluno = moment(aluno.lastAccessDate);
+							console.log("DIA DO ALUNO AQUI");
+							console.log(ultimoAcessoAluno);
+							// let ultimoAcessoAluno = moment("2021-05-01T19:13:24Z"); linha só para teste
+							let hoje = moment();
+
+							let diffTempo = hoje.diff(ultimoAcessoAluno, 'days')
+							
+							if (diffTempo >= 7) {
+								alunosPausados++;
+							}
+							else {
+								alunosEngajados++;
+							}
+						}
 					});
 
 					// variaveis do gráfico tempoFinalizacaoCurso()
@@ -194,6 +220,23 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 
 					let qtdHoras = document.getElementById("qtdHorasCursoDash");
 					qtdHoras.innerText = parseFloat(segundosTotalCurso / 3600).toFixed(2);
+
+					let respostaAlunosPlataforma = serverRequester.fazerGet("/alunos").then((alunosDoCursoGrafico) => {
+
+						alunosGrafico = alunosDoCursoGrafico.responseJson;
+			
+						alunosGrafico.forEach(aluno => {
+							alunos.registrations.forEach(alunoDoCurso => {
+								if (idCurso + aluno.cpf == alunoDoCurso.id) {	
+									qtdAlunosCurso++;
+								}
+							});
+						});
+			
+						console.log("Quantidade de alunos desse curso: " + qtdAlunosCurso);
+						alunosCursoXalunosPlataforma();
+					});
+					engajamentoAlunosCurso()
 				});
 		});
 
@@ -225,11 +268,12 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 		google.charts.load("current", { packages: ["corechart"] });
 		google.charts.setOnLoadCallback(alunosCursoXalunosPlataforma);
 
-		function alunosCursoXalunosPlataforma() {
+		async function alunosCursoXalunosPlataforma() {
+
 			var data = google.visualization.arrayToDataTable([
 				['Inserção no curso', 'Quantidade'],
-				['Estão no curso', 11],
-				['Não estão no curso', 2]
+				['Estão no curso', qtdAlunosCurso],
+				['Não estão no curso', alunosGrafico.length - qtdAlunosCurso]
 			]);
 
 			var options = {
@@ -342,8 +386,9 @@ document.addEventListener("DOMContentLoaded", function (event) { // pelo que ent
 
 			data.addRows(
 				[
-					['Em curso', 78],
-					['Pausado', 178],
+					['Em curso', alunosEngajados],
+					['Pausado', alunosPausados],
+					['Finalizado', alunosFinalizados]
 				]
 			);
 
