@@ -2263,6 +2263,7 @@ loadAllCursos("selectCursoParaPilula");
 loadAllCursos("selectCursoQuestao");
 loadAllCursos("selectQuestaoPorCurso");
 loadAllCursos("selectCursoParaTurma");
+loadAllCursos("selectCursoDashboard");
 loadAllCursos("selectCursoProva");
 loadGestoresSelect("escolhaDeGestor");
 loadTutoresSelect("escolhaDeTutor");

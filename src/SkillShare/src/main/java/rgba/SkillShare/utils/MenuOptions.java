@@ -222,6 +222,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Atividades da Plataforma", "hideAllContent();showContent('exibicaodelog');loadLog();"));
+		subOptions.put(this.criarSubOpcao("Relatórios da Plataforma", "hideAllContent();showContent('dashboard');"));
 		
 		option = this.criarOpcao("Dashboard", "chart-line", "7", "Clique aqui para exibir o dashboard",
 				subOptions);
