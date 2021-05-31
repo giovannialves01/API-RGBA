@@ -26,9 +26,12 @@ async function logar(event) {
 
             case "aluno":
                 window.location.href = "alunoPage";
+                
                 break;
 
         }
+
+        localStorage.setItem("cpfUser", cpf);
 
     }else {
     	alert("Dados incorretos ou usuário inexistente");

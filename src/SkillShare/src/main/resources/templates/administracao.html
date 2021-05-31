@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 	<!-- Rodar no Eclipse -->
@@ -58,6 +59,8 @@
 	<script defer src="js/Scorm/uploadScorm.js"></script>
 	<script defer src="js/Scorm/uploadAluno.js"></script>
 	<script defer src="js/Scorm/getProgressoAluno.js"></script>
+	<script defer src="js/Scorm/getCourseInfo.js"></script>
+	<script defer src="js/Scorm/getRegistrations.js"></script>
 
 </head>
 
@@ -658,10 +661,65 @@
 			</p>
 			<div id="gerirTurmasToShow"></div>
 		</div>
+		
+		<div class="hide" id="dashboard">
+			<h1 style="text-align: center;">Dashboard</h1>
+			<div class="graficosEstatisticasGerais">
+				<div class="centerDash">
+					<div class="todosCardzinhos">
+						<div class="cardzinhoInfos">
+							<p>Quantidade de usuários</p>
+							<p class="dadoCard" id="qtdUsuariosDash"></p>
+						</div>
+						<div class="cardzinhoInfos">
+							<p>Quantidade de cursos</p>
+							<p class="dadoCard" id="qtdCursosDash"></p>
+						</div>
+					</div>
+					<div class="graficosDash">
+						<div id="graficoUsuariosPorTipo"></div>
+						<div id="graficoAlunosRealizandoCursos"></div>
+					</div>
+				</div>
+				<hr class="separador">
+				<div class="centerDash">
+					<div class="escolhaDoCursoDash">
+						<label for="idCursoDash">Análise do curso: </label>
+						<select id="selectCursoDashboard">
+							<option selected disabled>Selecione um curso...</option>
+						</select>
+					</div>
+				</div>
+				<div class="centerDashEscondida" id="infosDoCursoDivDash">
+					<div class="graficosDash">
+						<div id="graficoNotaDosAlunosCurso"></div>
+						<div class="cardzinhoInfos">
+							<p>Certificados emitidos</p>
+							<p class="dadoCard" id="qtdCursosFinalizadosDash"></p>
+						</div>
+					</div>
+				</div>
+				<div class="centerDashEscondida" id="infosDoCursoDivDash2">
+					<div class="graficosDash">
+						<div class="cardzinhoInfos">
+							<p align="center">Alunos estudam, em<br>média,</p>
+							<p class="dadoCard"><span id="qtdHorasCursoDash"></span> h</p>
+							<p>nesse curso</p>
+						</div>
+						<div id="tempoFinalizacaoCurso"></div>
+						<div id="alunosCursoXalunosPlataforma"></div>
+						<div id="engajamentoAlunosCurso"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</div>
 
 	<footer-rgba></footer-rgba>
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="js/Paginas/dashboardGraficos.js"></script>
 
 </body>
 

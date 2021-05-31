@@ -222,6 +222,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Atividades da Plataforma", "hideAllContent();showContent('exibicaodelog');loadLog();"));
+		subOptions.put(this.criarSubOpcao("Relatórios da Plataforma", "hideAllContent();showContent('dashboard');"));
 		
 		option = this.criarOpcao("Dashboard", "chart-line", "7", "Clique aqui para exibir o dashboard",
 				subOptions);
@@ -285,6 +286,7 @@ public class MenuOptions {
 		JSONArray subOptions = new JSONArray();
 		
 		subOptions.put(this.criarSubOpcao("Visualizar Meus Cursos", "window.location.href = 'meusCursosAluno';"));
+		subOptions.put(this.criarSubOpcao("Meus certificados", "window.location.href = 'certificado';"));
 		
 		option = this.criarOpcao("Meus Cursos", "chalkboard-teacher", "10", "Clique aqui para visualizar seus cursos!", subOptions);
 		

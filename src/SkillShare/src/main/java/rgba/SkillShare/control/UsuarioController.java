@@ -1,5 +1,6 @@
 package rgba.SkillShare.control;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import javax.servlet.http.HttpSession;
@@ -141,6 +142,19 @@ public class UsuarioController {
 	@ApiOperation("Realiza o logout do usuário no sistema")
 	public void logout(HttpSession sessao) {
 		sessao.invalidate();
+	}
+	
+	/**
+	 * Retorna todos os usuários da plataforma
+	 * 
+	 * @author Barbara Port
+	 * @return 
+	 * @return List<Usuario> com todos os usuarios cadastrados no sistema
+	 */
+	@GetMapping(value = "/all")
+	@ApiOperation("Retorna todos os usuários do sistema")
+	public List<Usuario> todosUsuarios() {
+		return usuarioRepository.findAll();
 	}
 	
 }

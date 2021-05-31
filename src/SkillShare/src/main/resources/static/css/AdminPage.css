@@ -786,6 +786,50 @@ textarea.userDataFieldEnabled{
     margin-right: 5px;
 }
 
+.centerDash {
+	display: flex;
+    justify-content: center;
+}
+
+.centerDashEscondida {
+	display: none;
+}
+
+.cardzinhoInfos {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 20px;
+	margin: 10px;
+	height: min-content;
+}
+
+.cardzinhoInfos p {
+	font-size: 14px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.cardzinhoInfos .dadoCard {
+	font-size: 48px;
+	line-height: 0px;
+}
+
+.graficosDash {
+	display: flex;
+	flex-direction: row;
+}
+
+.graficosEstatisticasGerais {
+	overflow: hidden;
+}
+
+.escolhaDoCursoDash select {
+	width: 300px;
+	margin-left: 10px;
+}
 .containerCriarProva{
     display: flex;
     flex-direction: column;
