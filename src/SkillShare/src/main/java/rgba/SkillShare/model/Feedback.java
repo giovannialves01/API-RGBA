@@ -46,6 +46,9 @@ public class Feedback {
 
 	@Column
 	private int compreendimento;
+	
+	@Column
+	private String nomeCurso;
 
 	@Column(columnDefinition = "text")
 	@Convert(converter = JSONObjectConverter.class)

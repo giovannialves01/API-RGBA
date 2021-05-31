@@ -148,6 +148,12 @@ public class PathController {
 	@GetMapping(value = "/feedbackAluno{id}")
 	public String exibicaofeedbackAluno(@PathVariable String id) {
 		return "feedback";
-}
+	}
+	
+	@GetMapping(value = "/meusFeedbacks")
+	public String meusFeedbacks() {
+		return "meusFeedbacks";
+	}
+	
 }
  

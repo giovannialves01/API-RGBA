@@ -297,9 +297,9 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Minhas notas", "console.log('Em breve');"));
+		subOptions.put(this.criarSubOpcao("Minhas notas e feedbacks", "window.location.href = \"meusFeedbacks\";"));
 		
-		option = this.criarOpcao("Avaliações", "book", "11", "Clique aqui para acessar o nosso acervo!", subOptions);
+		option = this.criarOpcao("Avaliações", "book", "11", "Clique aqui para visualizar suas notas e feedbacks", subOptions);
 		
 		return option;
 	}
