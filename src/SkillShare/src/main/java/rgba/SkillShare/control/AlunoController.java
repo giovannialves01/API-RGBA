@@ -188,6 +188,7 @@ public class AlunoController {
 			data.put("id", String.valueOf(feedback.getId()));
 			data.put("notaFinal", feedback.getNotaFinal());
 			data.put("prova", "{\"id\":" + String.valueOf(feedback.getProva().getId() + "}"));
+			data.put("nomeCurso", feedback.getNomeCurso());
 			
 			pseudoJson.add(data);
 		}
@@ -211,6 +212,8 @@ public class AlunoController {
         	
         	novoCertificado.setMensagem("Certificado para a comprovação de que o aluno\n" + aluno.getNome() + "\nconcluiu o curso "
         	+ curso.getTitulo() + " em " + data);
+        	
+        	feedback.setNomeCurso(curso.getTitulo());
         	
         	aluno.getFeedbacks().add(feedback);
         	aluno.getCertificados().add(novoCertificado);
