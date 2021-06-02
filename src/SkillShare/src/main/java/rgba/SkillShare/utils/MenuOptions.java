@@ -117,7 +117,7 @@ public class MenuOptions {
 		
 //		menuOptions.put(this.optionTutorVerAvaliacoes());
 		menuOptions.put(this.optionTutorVerTurmas());
-//		menuOptions.put(this.optionMinhaConta());
+		menuOptions.put(this.optionMinhaConta());
 		
 		return menuOptions;
 	}
@@ -131,7 +131,7 @@ public class MenuOptions {
 		menuOptions.put(this.optionUsuarios());
 		menuOptions.put(this.optionNoticiasEEventos());
 		menuOptions.put(this.optionDashboard());
-//		menuOptions.put(this.optionMinhaConta());
+		menuOptions.put(this.optionMinhaConta());
 		
 		return menuOptions;
 	}
@@ -144,7 +144,7 @@ public class MenuOptions {
 		menuOptions.put(this.optionAlunoBiblioteca());
 		menuOptions.put(this.optionAlunoPilulas());
 		menuOptions.put(this.optionAlunoNovidades());
-//		menuOptions.put(this.optionMinhaConta());
+		menuOptions.put(this.optionMinhaContaAluno());
 		
 		return menuOptions;
 	}
@@ -234,7 +234,7 @@ public class MenuOptions {
 		JSONObject option;
 		JSONArray subOptions = new JSONArray();
 		
-		subOptions.put(this.criarSubOpcao("Em breve", "hideAllContent();showContent('minhaConta');loadDadosUsuario();"));
+		subOptions.put(this.criarSubOpcao("Alterar dados da minha conta", "hideAllContent();showContent('minhaConta');loadDadosUsuario();"));
 		
 		option = this.criarOpcao("Minha conta", "user-circle", "8", "Clique aqui para exibir informações da sua conta",
 				subOptions);
@@ -251,6 +251,18 @@ public class MenuOptions {
 		subOptions.put(this.criarSubOpcao("Cursos que tenho turmas", "hideAllContent();showContent('meusCursos');"));
 		
 		option = this.criarOpcao("Turmas", "user-graduate", "14", "Clique aqui para visualizar todas as suas turmas!",
+				subOptions);
+		
+		return option;
+	}
+	
+	private JSONObject optionMinhaContaAluno() {
+		JSONObject option;
+		JSONArray subOptions = new JSONArray();
+		
+		subOptions.put(this.criarSubOpcao("Alterar dados da minha conta", "window.location.href='minhaConta'"));
+		
+		option = this.criarOpcao("Minha conta", "user-circle", "8", "Clique aqui para exibir informações da sua conta",
 				subOptions);
 		
 		return option;

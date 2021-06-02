@@ -25,6 +25,9 @@
 	<link rel="stylesheet" href="css/tutoria.css">
 
 	<script src="js/Utils/renderIMG.js"></script>
+	
+	<script src="js/Entidades/Log.js"></script>
+	<script src="js/Utils/LogRegister.js"></script>
 
 	<script src="js/Utils/ServerRequester.js"></script>
 	<script defer src="js/Paginas/tutoria.js"></script>
@@ -68,9 +71,40 @@
 
 			<div class="todasAvaliacoes" id="avaliacoesTutorShow"></div>
 		</div>
+		
+		<!--Minha conta-->
+		<div class="conteudo hide" id="minhaConta">
+			<h1 style="text-align: center;">Minha conta</h1>
+			<div style="width: 70%;display: flex;align-self: center;">
+				<form class="adicionarCurso" id="dadosUsuario" enctype="multipart/form-data"
+					onsubmit="atualizarUsuario(event)">
+					<div class="campoNome">
+						<label class="titleLabel">CPF:</label>
+						<input type="text" id="cpfUsuario" name="cpfUsuario" disabled>
+					</div>
+					<div class="campoNome">
+						<label class="titleLabel">Nome:</label>
+						<input type="text" id="nomeUsuario" name="nomeUsuario">
+					</div>
+					<div class="campoNome">
+						<label class="titleLabel">Email:</label>
+						<input type="text" id="emailUsuario" name="emailUsuario">
+					</div>
+					<div class="campoNome">
+						<label class="titleLabel">Senha:</label>
+						<input type="password" id="senhaUsuario" name="senhaUsuario" style="margin-left: 10px;border: none;border-bottom: 2px solid #0aada7;font-size: 17px;outline: none;width: 100%;">
+					</div>
+					<div class="buttonContainer" style="justify-content: center;">
+						<input type="submit" class="greenButton" value="Atualizar">
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 
 	<footer-rgba></footer-rgba>
+	<script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
+	<script src="js/ChatBot/chatbot.js"></script>
 </body>
 
 </html>
