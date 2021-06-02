@@ -1,118 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    
-    <link rel="stylesheet" href="css/Menu.css">
-    <link rel="stylesheet" href="css/TopBar.css">
-    <link rel="stylesheet" href="css/Footer.css">
-    <link rel="stylesheet" href="css/GlobalComponents.css">
-    <link rel="stylesheet" href="css/Aluno.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+	integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+	crossorigin="anonymous" />
 
-    <script src="js/Utils/ServerRequester.js"></script>
-    <script src="js/Componentes/Menu.js"></script>
-    <script src="js/Componentes/TopBar.js"></script>
-    <script src="js/Componentes/Footer.js"></script>
-    <script src="js/Utils/renderIMG.js"></script>
-    <script src="js/Paginas/noticiasEventos.js"></script>
-    <script src="js/Utils/setProva.js"></script>
-    
-    <title>Página do aluno | SkillShare</title>
+<link rel="stylesheet" href="css/Menu.css">
+<link rel="stylesheet" href="css/TopBar.css">
+<link rel="stylesheet" href="css/Footer.css">
+<link rel="stylesheet" href="css/GlobalComponents.css">
+<link rel="stylesheet" href="css/Aluno.css">
+
+<script src="js/Utils/ServerRequester.js"></script>
+<script src="js/Componentes/Menu.js"></script>
+<script src="js/Componentes/TopBar.js"></script>
+<script src="js/Componentes/Footer.js"></script>
+<script src="js/Utils/renderIMG.js"></script>
+<script src="js/Paginas/noticiasEventos.js"></script>
+<script src="js/Utils/setProva.js"></script>
+
+<title>Página do aluno | SkillShare</title>
 </head>
 <body>
-    <top-bar></top-bar>
-    <menu-rgba></menu-rgba>
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
 
-    <div class="FullPage">
-        <div class="Header">
+	<div class="FullPage">
+		<div class="Header"></div>
+		<div class="body">
+			<div class="flex">
+				<div class="flexcol">
+					<div class="ApresentacaoSkillShare">
+						<p id="bemvindoaoskillshare">Bem-vindo a SkillShare!</p>
+						<p id="aquivcpode">Aqui você pode conferir tudo relacionado a
+							sua conta, gerir os cursos em que foi matriculado e visualizar as
+							últimas notícias e informações inerentes à sua formação.</p>
+						<p id="algu">Aqui vão alguns links que podem ser do seu
+							interesse:</p>
+					</div>
+					<div class="LinksUteis">
 
-            
-        </div>
-        <div class="body">
-            <div class="flex">
-                <div class="flexcol">
-                    <div class="ApresentacaoSkillShare">
-                        <p id="bemvindoaoskillshare">Bem-vindo a SkillShare!</p>
-                        <p id="aquivcpode">Aqui você pode conferir tudo relacionado a sua conta, gerir os cursos
-                            em que foi matriculado e visualizar as últimas notícias e informações
-                            inerentes à sua formação.</p>
-                        <p id="algu">Aqui vão alguns links que podem ser do seu interesse:</p>
-                    </div>
-                    <div class="LinksUteis">
+						<a id="a-size" href="/acervo">
+							<p id="textimg">Biblioteca</p>
+							<p id="textimgb">Aqui você pode conferir todo o acervo de
+								material didático que temos em nossa plataforma.</p> <img
+							id="espaco-margin" src="images/imgmiblioteca.png" alt="">
+						</a> <a id="a-size" href="/verPilulas">
+							<p id="textimg">Pílulas de conhecimento</p>
+							<p id="textimgb">Acesse conteúdos de curta duração para fixar
+								seus conhecimentos.</p> <img id="espaco-margin"
+							src="images/imgpilulas.png" alt="">
+						</a> <a id="a-size" href="/meusCursosAluno">
+							<p id="textimg">Meus cursos</p>
+							<p id="textimgb">Veja todos os cursos em que você foi
+								matriculado e acompanhe seu histórico.</p> <img
+							src="images/imgcursos.png" alt="">
+						</a>
+					</div>
+				</div>
+				<div class="CursosAndamento">
 
-                        <a id="a-size" href="/acervo">
-                            <p id="textimg">Biblioteca</p>
-                            <p id="textimgb">Aqui você pode conferir
-                                todo o acervo de material
-                                didático que temos em nossa plataforma.</p>
-                            <img id="espaco-margin" src="images/imgmiblioteca.png" alt="">
-                        </a>
+					<p id="cursosandamento">Cursos em andamento</p>
+					<div id="algunsCursosEmAndamento"></div>
 
-                        <a id="a-size" href="/verPilulas">
-                            <p id="textimg">Pílulas de conhecimento</p>
-                            <p id="textimgb">Acesse conteúdos de 
-                                curta duração para fixar
-                                seus conhecimentos.</p>
-                            <img id="espaco-margin" src="images/imgpilulas.png" alt="">
-                        </a>
-
-                        <a id="a-size" href="/meusCursosAluno">
-                            <p id="textimg">Meus cursos</p>
-                            <p id="textimgb">Veja todos os cursos
-                                em que você foi matriculado
-                                e acompanhe seu 
-                                histórico.
-                                </p>
-                            <img src="images/imgcursos.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="CursosAndamento">
-
-                    <p id="cursosandamento">Cursos em andamento</p>
-
-
-						<div style="width: 80%; height: 300px; background-color: #dcdcdc">
-						
-						</div>
-                            <!-- <a id="adecoration" href="noticia aqui ó">
-                                <img id="flex" src="https://www.siembra.com.br/img/noticias/grande/e22e682a3707cf126fb9de17adf605ca.png" alt="imagem do curso 1">
-                                <div id="block">
-                                    <p id="marginnomecurso">Nome do curso que vem do banco</p><br>
-                                    <p>Porcentagem que vem do banco</p><br>
-                                </div>
-                            </a> -->
-                        
-                </div>
-            </div>
-            <div class="noticiasEventosHeader">
-            	<h1>Notícias e eventos mais recentes</h1>
-            	<a href="/noticias">Ver tudo</a>
-            </div>
+				</div>
+			</div>
+			<div class="noticiasEventosHeader">
+				<h1>Notícias e eventos mais recentes</h1>
+				<a href="/noticias">Ver tudo</a>
+			</div>
 			<hr class="separadorNoticiasEventos">
-            <div class="ultimosEventosENoticias">
-                <div class="toper-event">
-                    <p id="eventos-e-noticas">Notícias</p><br>
-                </div>
-                <div id="noticias"></div>
-            </div>
-            <hr class="separadorNoticiasEventos">
-            <div class="ultimosEventos">
-                <div class="toper-event">
-                    <p id="eventos-e-noticas">Eventos</p><br>
-                </div>
-                <div class="eventos" id="eventos"></div>
-            </div>   
-        </div>
-    </div>
+			<div class="ultimosEventosENoticias">
+				<div class="toper-event">
+					<p id="eventos-e-noticas">Notícias</p>
+					<br>
+				</div>
+				<div id="noticias"></div>
+			</div>
+			<hr class="separadorNoticiasEventos">
+			<div class="ultimosEventos">
+				<div class="toper-event">
+					<p id="eventos-e-noticas">Eventos</p>
+					<br>
+				</div>
+				<div class="eventos" id="eventos"></div>
+			</div>
+		</div>
+	</div>
 
-    <footer-rgba></footer-rgba>
-    <script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
-    <script src="js/ChatBot/chatbot.js"></script>
+	<footer-rgba></footer-rgba>
+	<script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
+	<script src="js/ChatBot/chatbot.js"></script>
+
+	<script>
+		async function carregarCursos() {
+			var divTodosCursos = document
+					.getElementById("algunsCursosEmAndamento");
+			divTodosCursos.innetHTML = "";
+
+			let resposta = await
+			serverRequester.fazerGet("/turmas/cursos/aluno/");
+			
+			console.log(resposta);
+
+			let res = resposta.responseJson;
+			let turmas = res.turmas;
+						
+			var size = 0;
+			
+			if (turmas.length <= 3) {
+				size = turmas.length;
+			}
+			else {
+				size = 4;
+			}
+
+			for (let i = 0; i < size; i++) {
+
+				//	     	          <a id="adecoration" href="noticia aqui ó">
+				//	                   <img id="flex" src="https://www.siembra.com.br/img/noticias/grande/e22e682a3707cf126fb9de17adf605ca.png" alt="imagem do curso 1">
+				//	                   <div class="block">
+				//	                       <p id="marginnomecurso">Nome do curso que vem do banco</p><br>
+				//	                   </div>
+				//	               </a>
+
+				// a que engloba as coisas do curso
+				var aCurso = document.createElement("a");
+				aCurso.classList.add("adecoration");
+				aCurso.href = "/detalhesCurso" + turmas[i].curso.id;
+
+				let imgCurso = document.createElement("img");
+				imgCurso.classList.add("imgCursoAluno");
+				imgCurso.alt = "foto do curso";
+				var id_img_curso = "imgCurso" + turmas[i].curso.id;
+				imgCurso.id = id_img_curso;
+				aCurso.appendChild(imgCurso);
+
+				// div que engloba o nome do curso
+				var divCurso = document.createElement("div");
+				divCurso.classList.add("block");
+
+				var pCurso = document.createElement("p");
+				pCurso.innerText = turmas[i].curso.titulo;
+				divCurso.appendChild(pCurso);
+				aCurso.appendChild(divCurso);
+
+				divTodosCursos.appendChild(aCurso);
+
+				renderIMG(turmas[i].curso.thumb.arquivo.conteudo,
+						turmas[i].curso.thumb.arquivo.tipoArquivo, id_img_curso);
+
+			}
+
+		}
+		carregarCursos();
+	</script>
 </body>
 </html>
