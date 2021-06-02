@@ -23,8 +23,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import rgba.SkillShare.model.Curso;
-import rgba.SkillShare.model.Pilula;
 import rgba.SkillShare.model.Questao;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.QuestaoRepository;

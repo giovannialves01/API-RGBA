@@ -1,30 +1,19 @@
 package rgba.SkillShare;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.io.ClassPathResource;
 
 import rgba.SkillShare.model.Adm;
 import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.model.Gestor;
+import rgba.SkillShare.model.Log;
+import rgba.SkillShare.model.Tutor;
 import rgba.SkillShare.repository.AdmRepository;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.repository.BibliotecaRepository;
-import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.repository.CursoRepository;
-import rgba.SkillShare.model.Gestor;
-import rgba.SkillShare.model.Log;
-import rgba.SkillShare.model.Turma;
-import rgba.SkillShare.model.Tutor;
 import rgba.SkillShare.repository.GestorRepository;
 import rgba.SkillShare.repository.LogRepository;
 import rgba.SkillShare.repository.TurmaRepository;

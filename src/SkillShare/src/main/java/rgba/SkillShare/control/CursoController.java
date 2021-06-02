@@ -36,7 +36,6 @@ import rgba.SkillShare.model.Curso;
 import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.model.Prova;
 import rgba.SkillShare.model.Thumb;
-import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.GestorRepository;
 import rgba.SkillShare.repository.ProvaRepository;

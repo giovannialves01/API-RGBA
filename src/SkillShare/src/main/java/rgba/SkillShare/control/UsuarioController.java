@@ -8,16 +8,21 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import rgba.SkillShare.model.Login;
@@ -157,4 +162,51 @@ public class UsuarioController {
 		return usuarioRepository.findAll();
 	}
 	
+	/** 
+	    *  Endpoint para retornar os dados de um usuário através de uma sessão
+	    * @return Retorna um usuário
+	    * @param sessao -> sessao do usuário (login)
+	    * @author Barbara Port
+	    */
+	    @GetMapping("/getData")
+	    @ResponseStatus(HttpStatus.OK)
+	    @ApiOperation("Retorna os dados de um usuário logado.")
+	    @ApiResponses({
+	        @ApiResponse(code = 200,message = "Usuário encontrado com sucesso para o cpf informado."),
+	        @ApiResponse(code = 404,message = "Usuário não encontrado para o cpf informado.")
+	    })
+	    public Usuario getDadosUsuario(@ApiParam("Sessão do usuário") HttpSession sessao) {
+
+	       return usuarioRepository
+	       .findById(SessionManager.getUserCpf(sessao))
+	       .orElseThrow(()->
+	           new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário não encontrado para o cpf informado.")
+	       );
+
+	    }
+	
+    /** 
+    *  Endpoint para atualizar um usuário através do cpf
+    * @param cpf -> cpf do usuário a ser atualizado
+    * @param usuario -> objeto do usuário que será utilizado na alteração
+    * @author Bárbara Port
+    */
+    @PutMapping("/atualizar")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Atualiza o usuário especificado pelo cpf.")
+    @ApiResponses({
+        @ApiResponse(code = 204,message = "Usuário atualizado com sucesso."),
+        @ApiResponse(code = 404,message = "Usuário não encontrado para o cpf informado.")
+    })
+    public void updateUsuarioByCpf(@RequestBody @ApiParam("Usuário atualizado") Usuario usuario) {
+        usuarioRepository
+            .findById(usuario.getCpf())
+            .map(a->{
+                usuarioRepository.save(usuario);
+                return ResponseEntity.noContent().build();
+            })
+            .orElseThrow(()->
+                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário não encontrado.")         
+            );
+    }
 }
