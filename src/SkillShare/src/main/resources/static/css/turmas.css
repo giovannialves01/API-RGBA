@@ -39,9 +39,9 @@ td.titleTurma {
   font-style: italic;
 }
 
-input[type="checkbox"]:checked + label {
-  text-decoration: line-through;
-}
+/* input[type="checkbox"]:checked + label { */
+/*   text-decoration: line-through; */
+/* } */
 
 .published {
   display: flex;

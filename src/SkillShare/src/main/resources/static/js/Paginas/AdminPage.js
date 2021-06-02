@@ -584,7 +584,7 @@ async function deleteEntity(entityIdentifier, entity) {
     })
         .then(function (res) {
             if (res.status == 204) {
-                alert("deletado");
+                alert("Deletado");
 
                 if (editableEntity.nextSibling != null) {
                     editableEntity.nextSibling.remove();
@@ -596,7 +596,7 @@ async function deleteEntity(entityIdentifier, entity) {
                 log.createNewLog("Exclusão de entidade: " + entity.getDeleteMessage());
 
             } else {
-                alert("não deletado");
+                alert("Não deletado");
             }
         })
         .catch(function (res) {
@@ -1840,9 +1840,18 @@ async function registerQuestao(event) {
     }
 
     let response = await serverRequester.fazerPost("/questoes/cadastrar/" + cursoId, data);
+    console.log(response);
+
+    if (response.ok) {
+        alert("Questão criada com sucesso!");
+    }
+    else {
+        alert("Questão não criada. Verifique os campos.");
+    }
 
     let log = new LogRegister();
     log.createNewLog("Cadastro de nova questão: " + data["enunciado"]);
+
 }
 
 async function chooseQuestaoToShow() {
