@@ -25,7 +25,11 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.model.Adm;
+import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.model.Login;
+import rgba.SkillShare.model.Tutor;
 import rgba.SkillShare.model.Usuario;
 import rgba.SkillShare.repository.AdmRepository;
 import rgba.SkillShare.repository.AlunoRepository;
@@ -191,22 +195,49 @@ public class UsuarioController {
     * @param usuario -> objeto do usuário que será utilizado na alteração
     * @author Bárbara Port
     */
-    @PutMapping("/atualizar")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @ApiOperation("Atualiza o usuário especificado pelo cpf.")
-    @ApiResponses({
-        @ApiResponse(code = 204,message = "Usuário atualizado com sucesso."),
-        @ApiResponse(code = 404,message = "Usuário não encontrado para o cpf informado.")
-    })
-    public void updateUsuarioByCpf(@RequestBody @ApiParam("Usuário atualizado") Usuario usuario) {
-        usuarioRepository
-            .findById(usuario.getCpf())
-            .map(a->{
-                usuarioRepository.save(usuario);
-                return ResponseEntity.noContent().build();
-            })
-            .orElseThrow(()->
-                new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário não encontrado.")         
-            );
+    @PostMapping("/atualizar")
+    public boolean updateUsuarioByCpf(@RequestBody Usuario usuario) {
+    	try{
+    		Usuario rawUser = usuarioRepository.findById(usuario.getCpf()).get();
+
+    		String userClassName = rawUser.getClass().getSimpleName();
+
+    		Usuario user;
+
+    		switch (userClassName) {
+	    		case "Adm":
+	    			user = (Adm) rawUser;
+	    			break;
+	
+	    		case "Aluno":
+	    			user = (Aluno) rawUser;
+	    			break;
+	
+	    		case "Gestor":
+	    			user = (Gestor) rawUser;
+	    			break;
+	
+	    		case "Tutor":
+	    			user = (Tutor) rawUser;
+	    			break;
+	
+	    		default:
+	    			user = null;
+	    			break;
+
+    		}
+
+    		user.setEmail(usuario.getEmail());
+    		user.setSenha(usuario.getSenha());
+    		user.setNome(usuario.getNome());
+    		
+    		usuarioRepository.save(user);
+    		
+    		return true;
+    	}catch (Exception e) {
+    		return false;
+    	}
+    	
     }
+    
 }

@@ -2283,23 +2283,18 @@ async function atualizarUsuario(event) {
         senha: document.getElementById("senhaUsuario").value
     }
 
-    axios({
-        method: "put",
-        url: "/usuario/atualizar",
-        data: ?,
-        headers: { "Content-Type": "application/json" },
-    }).then((res) => {
-        if (res.status == 204) {
-            alert("Alterado");
+    let response = await serverRequester.fazerPost("/usuario/atualizar", data);
 
-            let log = new LogRegister();
-            log.createNewLog("Alteração de dados do usuário: " + data.cpf);
-        } else {
-            alert("Não alterado");
-        }
-    }).catch((err) => {
-        console.log(err);
-    })
+    if(response["ok"]){
+        alert("Dados alterados");
+
+        let log = new LogRegister();
+        log.createNewLog("Alteração de dados do usuário: " + data.cpf);
+
+    }else{
+        alert("Não foi possível alterar os dados");
+
+    }
 
 }
 
