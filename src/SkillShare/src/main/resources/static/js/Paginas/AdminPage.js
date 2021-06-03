@@ -583,7 +583,8 @@ async function deleteEntity(entityIdentifier, entity) {
         headers: { "Content-Type": "application/json" },
     })
         .then(function (res) {
-            if (res.status == 204) {
+            console.log(res);
+            if (res.status == 200 || res.status == 204) {
                 alert("Deletado");
 
                 if (editableEntity.nextSibling != null) {
@@ -801,7 +802,7 @@ async function saveChanges(entityIdentifier, entity) {
     } else if (entity.constructor.name == "Pilula") {
         pathToUpdate = `/pilulas/${entity.getId()}`;
 
-        let data = {
+        var data = {
             id: entity.getId(),
             titulo: entity.getTitulo,
             descricao: entity.getDescricao()
