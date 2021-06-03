@@ -38,7 +38,7 @@ import java.util.List;
 public class AdmController {
 
     @Autowired 
-    AdmRepository admRepository;
+    AdmRepository admRepository;//
 
     /** 
     *  Endpoint para cadastro de administrador.

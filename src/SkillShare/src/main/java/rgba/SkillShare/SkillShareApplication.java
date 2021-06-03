@@ -93,7 +93,7 @@ public class SkillShareApplication implements CommandLineRunner {
 //			Turma turma2 = new Turma();
 //			turma2.setTutor(nicholasTutor);
 //			turma2.setCurso(curso2);
-
+//
 			alunoRepository.save(rafael);
 			alunoRepository.save(nicholasAluno);
 
