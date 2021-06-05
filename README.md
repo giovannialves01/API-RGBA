@@ -135,5 +135,5 @@ Você pode visualizar todos os mockups clicando <a href="https://github.com/giov
 <h2 align="center" id="burndown">Burndown da Sprint</h2>
 <p align="justify">Nossa Sprint foi tranquila. Começamos a fazer os mock-ups dessa Sprint no final da Sprint 3, o que agilizou a validação. Não tivemos imprevistos e até terminamos alguns dias antes do que planejávamos. A funcionalidade mais trabalhosa, o dashboard, começou a ser desenvolvida com antecedência e não tivemos problemas.</p>
 <p align="center">
-    <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Burndown/Burndown%20Sprint3.png">
+    <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Burndown/Burndown%20Sprint4.png">
 </p>
