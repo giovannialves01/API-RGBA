@@ -91,7 +91,7 @@ Os story cards estão com a sua estimativa de esforço a partir de uma ferrament
 Nessa entrega, os administradores e gestores podem visualizar relatórios para analisar o engajamento na plataforma. Os alunos podem realizar e visualizar as notas das avaliações e o feedback dado pelo tutor.
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega4/User%20activities%20e%20User%20tasks.png" width="500px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega4/User%20activities%20e%20User%20tasks.png" width="500px"><br>
 <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega4/entrega4.png" width="500px">
 </p>
 
