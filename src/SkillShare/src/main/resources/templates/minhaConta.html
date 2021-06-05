@@ -4,57 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillShare - Informações do Usuário</title>
+    <title>Minha conta | SkillShare</title>
     
     <!-- CDN das depedências externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
-    <!-- Rodar no Eclipse 
-    <link rel="stylesheet" href="css/GlobalComponents.css">
-    <link rel="stylesheet" href="css/Modal.css">
-    <link rel="stylesheet" href="css/BeautySelect.css">
-    <link rel="stylesheet" href="css/BeautyInput.css">
-    <link rel="stylesheet" href="css/BeautyButton.css">
-    <link rel="stylesheet" href="css/MinhaConta.css">
-
-    <script src="js/Componentes/BeautyInput.js"></script>
-    <script src="js/Componentes/BeautyButton.js"></script>
-    <script src="js/Componentes/BeautySelect.js"></script>
-    <script src="js/Componentes/UsageTerms.js"></script>
-    <script src="js/Componentes/Modal.js"></script>
+<!-- Rodar no Eclipse -->
+	<link rel="stylesheet" href="css/GlobalComponents.css">
+	<link rel="stylesheet" href="css/Menu.css">
+	<link rel="stylesheet" href="css/TopBar.css">
+	<link rel="stylesheet" href="css/AdminPage.css">
+	<link rel="stylesheet" href="css/BeautyButton.css">
+	<link rel="stylesheet" href="css/BeautyInput.css">
+	<link rel="stylesheet" href="css/BeautySelect.css">
+	<link rel="stylesheet" href="css/BeautyTable.css">
+	<link rel="stylesheet" href="css/Footer.css">
+	
+	<script src="js/Utils/ServerRequester.js"></script>
+	<script src="js/Utils/LogRegister.js"></script>
+	<script src="js/Componentes/BeautySelect.js"></script>
+	<script src="js/Componentes/BeautyButton.js"></script>
+	<script src="js/Componentes/BeautyInput.js"></script>
+	<script src="js/Componentes/BeautyTable.js"></script>
+	<script src="js/Componentes/Menu.js"></script>
+	<script src="js/Componentes/TopBar.js"></script>
+	<script src="js/Componentes/Footer.js"></script>
+	
+	<script src="js/Entidades/Usuario.js"></script>
+   	<script src="js/Entidades/Log.js"></script>
+   	
     <script src="js/Paginas/MinhaConta.js"></script>
-    -->
-
-    <!-- Rodar no VSCode -->
-    <link rel="stylesheet" href="../static/css/GlobalComponents.css">
-    <link rel="stylesheet" href="../static/css/Modal.css">
-    <link rel="stylesheet" href="../static/css/BeautySelect.css">
-    <link rel="stylesheet" href="../static/css/BeautyInput.css">
-    <link rel="stylesheet" href="../static/css/BeautyButton.css">
-    <link rel="stylesheet" href="../static/css/Login.css">
-
-    <script src="../static/js/Componentes/BeautyInput.js"></script>
-    <script src="../static/js/Componentes/BeautyButton.js"></script>
-    <script src="../static/js/Componentes/BeautySelect.js"></script>
-    <script src="../static/js/Componentes/UsageTerms.js"></script>
-    <script src="../static/js/Componentes/Modal.js"></script>
-
-    <script src="../static/js/Paginas/InfoUsuario.js"></script>
-    
 
 </head>
 <body>
-    <div class="vbox vBoxBorder">
-        <h1 class="title">Minha Conta</h1>
-        <div class="hBox">
-            <img src="..\static\images\user.png" sizes="(max-width 150px) 50px"></img>
-            <div class="vBox">
-                <beauty-input type="Nome" placeholder="Nome"></beauty-input>
-                <beauty-input type="Idade" placeholder="Idade"></beauty-input>
-                <beauty-input type="class" placeholder="Função"></beauty-input>
-            </div>
-        </div>
-        <beauty-button text="Editar"></beauty-button>
-    </div>
+	<top-bar></top-bar>
+	<menu-rgba></menu-rgba>
+	
+		<div id="minhaConta" style="display: flex; flex-direction: column; align-items: center;">
+			<h1 style="margin-top: 5%">Minha conta</h1>
+			<div style="width: 70%;display: flex;align-self: center;">
+				<form class="adicionarCurso" id="dadosUsuario" enctype="multipart/form-data"
+					onsubmit="atualizarUsuario(event)">
+					<div class="campoNome">
+						<label class="titleLabel">CPF:</label>
+						<input type="text" id="cpfUsuario" name="cpfUsuario" disabled>
+					</div>
+					<div class="campoNome">
+						<label class="titleLabel">Nome:</label>
+						<input type="text" id="nomeUsuario" name="nomeUsuario">
+					</div>
+					<div class="campoNome">
+						<label class="titleLabel">Email:</label>
+						<input type="text" id="emailUsuario" name="emailUsuario">
+					</div>
+					<div class="campoNome">
+						<label class="titleLabel">Senha:</label>
+						<input type="password" id="senhaUsuario" name="senhaUsuario" style="margin-left: 10px;border: none;border-bottom: 2px solid #0aada7;font-size: 17px;outline: none;width: 100%;">
+					</div>
+					<div class="buttonContainer" style="justify-content: center;">
+						<input type="submit" class="greenButton" value="Atualizar">
+					</div>
+				</form>
+			</div>
+		</div>
+		
+    <footer-rgba>
+	    <script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
+	    <script src="js/ChatBot/chatbot.js"></script>
+    </footer-rgba>
 </body>

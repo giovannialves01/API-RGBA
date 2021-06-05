@@ -15,12 +15,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import rgba.SkillShare.model.Adm;
+import rgba.SkillShare.model.Aluno;
+import rgba.SkillShare.model.Gestor;
 import rgba.SkillShare.model.Login;
+import rgba.SkillShare.model.Tutor;
 import rgba.SkillShare.model.Usuario;
 import rgba.SkillShare.repository.AdmRepository;
 import rgba.SkillShare.repository.AlunoRepository;
@@ -157,4 +163,78 @@ public class UsuarioController {
 		return usuarioRepository.findAll();
 	}
 	
+	/** 
+	    *  Endpoint para retornar os dados de um usuário através de uma sessão
+	    * @return Retorna um usuário
+	    * @param sessao -> sessao do usuário (login)
+	    * @author Barbara Port
+	    */
+	    @GetMapping("/getData")
+	    @ResponseStatus(HttpStatus.OK)
+	    @ApiOperation("Retorna os dados de um usuário logado.")
+	    @ApiResponses({
+	        @ApiResponse(code = 200,message = "Usuário encontrado com sucesso para o cpf informado."),
+	        @ApiResponse(code = 404,message = "Usuário não encontrado para o cpf informado.")
+	    })
+	    public Usuario getDadosUsuario(@ApiParam("Sessão do usuário") HttpSession sessao) {
+
+	       return usuarioRepository
+	       .findById(SessionManager.getUserCpf(sessao))
+	       .orElseThrow(()->
+	           new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuário não encontrado para o cpf informado.")
+	       );
+
+	    }
+	
+    /** 
+    *  Endpoint para atualizar um usuário através do cpf
+    * @param cpf -> cpf do usuário a ser atualizado
+    * @param usuario -> objeto do usuário que será utilizado na alteração
+    * @author Bárbara Port
+    */
+    @PostMapping("/atualizar")
+    public boolean updateUsuarioByCpf(@RequestBody Usuario usuario) {
+    	try{
+    		Usuario rawUser = usuarioRepository.findById(usuario.getCpf()).get();
+
+    		String userClassName = rawUser.getClass().getSimpleName();
+
+    		Usuario user;
+
+    		switch (userClassName) {
+	    		case "Adm":
+	    			user = (Adm) rawUser;
+	    			break;
+	
+	    		case "Aluno":
+	    			user = (Aluno) rawUser;
+	    			break;
+	
+	    		case "Gestor":
+	    			user = (Gestor) rawUser;
+	    			break;
+	
+	    		case "Tutor":
+	    			user = (Tutor) rawUser;
+	    			break;
+	
+	    		default:
+	    			user = null;
+	    			break;
+
+    		}
+
+    		user.setEmail(usuario.getEmail());
+    		user.setSenha(usuario.getSenha());
+    		user.setNome(usuario.getNome());
+    		
+    		usuarioRepository.save(user);
+    		
+    		return true;
+    	}catch (Exception e) {
+    		return false;
+    	}
+    	
+    }
+    
 }

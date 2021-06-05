@@ -1,4 +1,4 @@
-window.onload = async function carregarConteudo () {
+document.addEventListener("DOMContentLoaded", async function (event) {
 	
 	let resposta = await serverRequester.fazerGet("/alunos");
 	
@@ -39,4 +39,4 @@ window.onload = async function carregarConteudo () {
 		tabelaAlunos.appendChild(tr);
 
 	});
-}
+});

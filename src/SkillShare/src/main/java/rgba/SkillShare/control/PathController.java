@@ -155,5 +155,9 @@ public class PathController {
 		return "meusFeedbacks";
 	}
 	
+	@GetMapping(value = "/minhaConta")
+	public String minhaConta() {
+		return "minhaConta";
+	}
 }
  

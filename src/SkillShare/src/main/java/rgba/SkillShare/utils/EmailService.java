@@ -30,8 +30,8 @@ public class EmailService {
         // configurando as mesmas coisas do application.properties (não pode apagar o que tem lá)
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("rgba.fatec@gmail.com");
-        mailSender.setPassword("nossa senha");
+        mailSender.setUsername("nosso-email");
+        mailSender.setPassword("nossa-senha");
         
         Properties props = new Properties();
         props.put("mail.smtp.auth", true);

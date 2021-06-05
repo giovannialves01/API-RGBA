@@ -3,7 +3,6 @@ package rgba.SkillShare.control;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,6 @@ import rgba.SkillShare.model.Feedback;
 import rgba.SkillShare.repository.AlunoRepository;
 import rgba.SkillShare.repository.CursoRepository;
 import rgba.SkillShare.repository.FeedbackRepository;
-import rgba.SkillShare.utils.EmailService;
 
 /**
  *  Classe que define os endpoints para aluno

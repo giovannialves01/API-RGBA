@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Entity(name = "usuario")
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter @ToString
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Usuario {
+public class Usuario {
 
     @Id
     private String cpf;
