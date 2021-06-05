@@ -83,13 +83,6 @@ Para esta entrega, a maior dificuldade foi a implementação dos gráficos para 
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-4/doc/Sprint%204/GIFs/criar%20questao%20e%20gerir%20usuarios.gif" width="600px">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-4/doc/Sprint%204/GIFs/realiza%C3%A7%C3%A3o%20curso.gif" width="600px">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-4/doc/Sprint%204/GIFs/dashboard.gif" width="600px">
-
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/gifs/Aluno-1-vendo-cursos-e-fazendo-u.gif" width="600px">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Aluno%202%20-%20vendo%20o%20progresso.gif" width="600px">
-
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Tutor%201%20-%20ver%20sursos%2C%20turmas%20e%20alunos.gif" width="600px">
-
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%207%20-%20logs.gif">
 </p>
 
 <h2 align="center" id="userStories">User stories da entrega</h2>
