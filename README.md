@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/status-em desenvolvimento-blue?style=for-the-badge&logo=appveyor">
+<img src="https://img.shields.io/badge/status-Concluído-blue?style=for-the-badge&logo=appveyor">
 </p>
 
 <p align="center">
@@ -45,34 +45,31 @@ Para navegar rapidamente e com mais facilidade, você pode utilizar os links dos
 
 #### O que fizemos?
 <p align="justify">
-Finalizando a construção da plataforma, esta entrega têm as funcionalidades abaixo de forma disponibilizar uma plataforma lms completa:
+Finalizamos a construção da plataforma. Nesta entrega as funcionalidades desenvolvidas são:
 </p>
+
+- Realização de avaliações finais:
+    * O aluno, quando finalizar o curso, poderá visualizar uma opção para realizar a avaliação final do curso, que posteriormente será analisada por um tutor. Este, por sua vez, dará um feedback, que também poderá ser visto pelo aluno.
+    * Quando o aluno receber o feedback da avaliação, será possível visualizar a nota dela e as considerações do tutor do curso.
 
 - Dashboard:
-   * Visualização de relatórios gráficos para permitir análise do engajamento na plataforma
+   * Visualização de gráficos da plataforma em geral e, também, de um curso específico selecionado. É possível visualizar a quantidade de usuários da plataforma, a quantidade de alunos, a quantidade de cursos. Para um curso em específico é possível visualizar gráficos envolvendo as notas das avaliações finais, o engajamento dos alunos, tempo médio para finalizar o curso, por exemplo!
 
 - Certificado:
-    * Emissão de certificado da conclusão do curso
+    * Emissão de certificado a partir da conclusão de um curso
+    * O aluno poderá realizar o <i>download</i> de um PDF do certificado!
 
-    
 - Feedback:
-    * Envio, resolução e feedback de avaliações
-    * Cálculo de notas
+    * O tutor poderá visualizar a resolução de alguma avaliação de um aluno. A partir disso, será possível o tutor realizar o feedback da avaliação, de forma a dar sugestões e parabenizar o aluno.
     
-
-
-
-
 #### Por que entregamos isso?
 <p align="justify">
-O feedback e as notas permitem finalizar o curso com o reconhecimento e uma visão geral do aproveitamento do curso.
-As análises de relatórios por gráficos cria insights e visualização de pontos a serem focados na plataforma.
+O feedback e as notas permitem finalizar o curso de forma a visualizarmos o aproveitamento do conteúdo aprendido. As análises de relatórios por gráficos cria <i>insights</i> e a aparição de pontos a serem melhorados na plataforma ou em um curso em específico. 
 </p>
-
 
 #### Quais foram as partes mais trabalhosas?
 <p align="justify">
-Para esta entrega, a maior dificuldade foi a implementação do certificado que precisa se ajustar ao nome do curso e do aluno. Também houve o desafio de integrar os dados do scorm aos relatórios para uma análise completa.
+Para esta entrega, a maior dificuldade foi a implementação dos gráficos para a análise dos dados da plataforma, pois é necessário que os dados estejam agrupados de forma coerente para que tenham algum sentido e para que realmente sejam úteis para o usuário.
 </p>
 
 <p align="center">
@@ -98,7 +95,7 @@ Para esta entrega, a maior dificuldade foi a implementação do certificado que 
 <h2 align="center" id="userStories">User stories da entrega</h2>
 <p align="justify">
 Os story cards estão com a sua estimativa de esforço a partir de uma ferramentra Scrum chamada de Planning Poker, que baseia-se numa parte da sequência de Fibonacci, entre 0 e 89. A estimativa foi feita e utilizada para priorizar o backlog total. Cards com o valor de 0 são considerados desnecessários e deve ser descartados, 1 a 8 são considerados fáceis, já os de 13 a 89 (valor máximo) são de médio para difícil. 
-Nessa entrega, os administradores e gestores podem visualizar relatórios para analisar o engajamento na plataforma. Os alunos podem realizar e visualizar as notas das avaliações e atividades, que serão emitidas  pelo tutor.
+Nessa entrega, os administradores e gestores podem visualizar relatórios para analisar o engajamento na plataforma. Os alunos podem realizar e visualizar as notas das avaliações e o feedback dado pelo tutor.
 </p>
 <p align="center">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega4/User%20activities%20e%20User%20tasks.png" width="500px">
@@ -136,7 +133,7 @@ Você pode visualizar todos os mockups clicando <a href="https://github.com/giov
 </p>
 
 <h2 align="center" id="burndown">Burndown da Sprint</h2>
-<p align="justify">Nossa Sprint foi "corrida", devido à quantidade de funcionalidades que nós tínhamos proposto para a entrega. Além disso, nossa principal e mais trabalhosa feature foi a integração de um Scorm Player na nossa plataforma. No final deu tudo certo, mas em vários momentos fomos surpreendidos por conta do desafio de implementar algo que nunca tínhamos visto antes.</p>
+<p align="justify">Nossa Sprint foi tranquila. Começamos a fazer os mock-ups dessa Sprint no final da Sprint 3, o que agilizou a validação. Não tivemos imprevistos e até terminamos alguns dias antes do que planejávamos. A funcionalidade mais trabalhosa, o dashboard, começou a ser desenvolvida com antecedência e não tivemos problemas.</p>
 <p align="center">
     <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Burndown/Burndown%20Sprint3.png">
 </p>
