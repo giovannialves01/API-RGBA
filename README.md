@@ -101,52 +101,38 @@ Os story cards estão com a sua estimativa de esforço a partir de uma ferrament
 Nessa entrega, os administradores e gestores podem visualizar relatórios para analisar o engajamento na plataforma. Os alunos podem realizar e visualizar as notas das avaliações e atividades, que serão emitidas  pelo tutor.
 </p>
 <p align="center">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega4/User%20activities%20e%20User%20tasks.png" width="500px">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/User%20stories/priorizacao_entregas/entrega4/entrega4.png" width="500px">
 </p>
 
 <h2 align="center" id="mockups">Mockups da entrega :desktop_computer:</h2>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Avalia%C3%A7%C3%A3o.jpg">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Adm_%20dashboard%20(2).png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Avalia%C3%A7%C3%A3o_curso.jpg">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Administra%C3%A7%C3%A3o_%20criar%20prova%20final%20do%20curso%20(1).png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Question%C3%A1rio.jpg">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Tutor_%20dar%20feedback%20ao%20aluno%20(1).png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Envio_feedback_09.jpg">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Aluno_%20Detalhes%20do%20curso%20(2).png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Feedback.jpg">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Aluno_%20avalia%C3%A7%C3%A3o%20final%20de%20um%20curso%20(1).png">
 </p>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Quiz_avalia%C3%A7%C3%A3o_curso.jpg">
-</p>
-<p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Vis%C3%A3o_Avalia%C3%A7%C3%B5es.jpg">
-</p>
-<p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Certificado.jpg">
-</p>
-<p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Gerar_relat%C3%B3rios.jpg">
-</p>
-<p align="center">
-    <img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Dashboard.jpg">
-</p>
-<p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Relat%C3%B3rio.jpg">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Wireframes/Entrega%204/Aluno_%20certificados%20(1).png">
 </p>
 
 
 <p align="center">
-Você pode visualizar todos os mockups clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-3/doc/Wireframes"><i>aqui</i></a>
+Você pode visualizar todos os mockups clicando <a href="https://github.com/giovannialves01/API-RGBA/tree/main/doc/Wireframes"><i>aqui</i></a>
 </p>
 
 <h2 align="center" id="modeloBanco">Modelo conceitual do banco de dados :card_file_box:</h2>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Banco%20de%20dados/Conceitual-sprint-3.png">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/main/doc/Banco%20de%20dados/Conceitual-sprint-4.png">
 </p>
 
 <h2 align="center" id="burndown">Burndown da Sprint</h2>
