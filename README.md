@@ -78,11 +78,11 @@ Para esta entrega, a maior dificuldade foi a implementação dos gráficos para 
 
 <h2 align="center" id="funcionamento">Nosso sistema em funcionamento até o momento</h2>
 <p align="center">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/gifs/Adm-1-upload-de-um-curso.gif" width="600px">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%202%20-%20cria%C3%A7%C3%A3o%20de%20turma%20para%20o%20curso.gif" width="600px">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%203%20-%20gerir%20cursos.gif" width="600px">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/gifs/Adm-5-criar-questo.gif" width="600px">
-<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Adm%206%20-%20gerir%20quest%C3%B5es.gif" width="600px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-4/doc/Sprint%204/GIFs/bot%20e%20perfil%20adm.gif" width="600px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-4/doc/Sprint%204/GIFs/cadastro%20noticias%20e%20livro.gif" width="600px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-4/doc/Sprint%204/GIFs/criar%20questao%20e%20gerir%20usuarios.gif" width="600px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-4/doc/Sprint%204/GIFs/realiza%C3%A7%C3%A3o%20curso.gif" width="600px">
+<img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-4/doc/Sprint%204/GIFs/dashboard.gif" width="600px">
 
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/gifs/Aluno-1-vendo-cursos-e-fazendo-u.gif" width="600px">
 <img src="https://github.com/giovannialves01/API-RGBA/blob/SPRINT-3/doc/Sprint%203/GIFs/Aluno%202%20-%20vendo%20o%20progresso.gif" width="600px">
