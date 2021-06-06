@@ -57,8 +57,8 @@
               <h3>Cronograma de Entregas</h3>
               <table>
                      <thead>
-                            <th width=45px>Entrega</th>
-                            <th width=400px>Descrição</th>
+                            <th width=100px>Entrega</th>
+                            <th width=500px>Descrição</th>
                             <th width=45px>Data</th>
                             <th width=45px>Link</th>
                      </thead>
@@ -82,9 +82,9 @@
                      </tr>
                      <tr>
                             <td><p align="center">Entrega 4</p></td>
-                            <td><p align="justify">A definir.</p></td>
-                            <td><p align="center">05/06</p></td>
-                            <td><p align="center"><a href="">A definir</p></td>
+                            <td><p align="justify">Alunos poderão realizar avaliações. A partir disso os tutores darão o feedback da avaliação final do aluno. Após o envio do feedback, o aluno poderá ver a nota da prova e as considerações do tutor. Administradores e gestores poderão acessar o dashboard.</p></td>
+                            <td><p align="center">06/06</p></td>
+                            <td><p align="center"><a href="https://github.com/giovannialves01/API-RGBA/tree/SPRINT-4">Visualizar</p></td>
                      </tr>
               </table>
               <p>Para visualizar o burndown de todas as sprints, clique <a href="https://fatecspgov-my.sharepoint.com/:x:/g/personal/anna_yamada_fatec_sp_gov_br/EcgCxB5c3bJMsqK93aJKCDwBOej3TZYlw_uJlNaY1icawA?rtime=uyeFkyDx2Eg">aqui</a>
