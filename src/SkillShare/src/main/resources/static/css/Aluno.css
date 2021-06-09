@@ -166,6 +166,8 @@
 #adecoration{
     font-size: 14px;
     margin-bottom: 30px;
+text-decoration: none;
+    color: black;
 }
 .block {
 	display: flex;
