@@ -1,4 +1,6 @@
-window.onload = async function carregarConteudo() {
+async function carregarConteudo() {
+
+console.log("oi");
 
 	let conteudoMaterial = document.getElementById("renderizar");
 	conteudoMaterial.innerHTML = "";
@@ -62,3 +64,5 @@ window.onload = async function carregarConteudo() {
 	}
 
 }
+
+carregarConteudo();

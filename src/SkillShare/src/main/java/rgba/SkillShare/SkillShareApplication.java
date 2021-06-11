@@ -51,15 +51,15 @@ public class SkillShareApplication implements CommandLineRunner {
 		
 		//coloque algum codigo que precisa ser executado quando o servidor subir aqui
 		if(admRepository.findAll().isEmpty()) {
-			Adm adm = new Adm("1", "Bárbara Port", "barbara.port@skillshare.com", "1");
+			Adm adm = new Adm("12345678900", "Bárbara Port", "barbara.port@skillshare.com", "12345");
 			admRepository.save(adm);
 		}
 
 		if(gRepository.findAll().isEmpty()) {
-			Gestor gestor = new Gestor("11111111111", "Henrique dos Santos", "henrique.santos@skillshare.com", "henrique123");
+			Gestor gestor = new Gestor("11111111111", "Henrique dos Santos", "henrique.santos@skillshare.com", "12345");
 			gRepository.save(gestor);
 			
-			Gestor nicholasGestor = new Gestor("01234567899", "Nicholas dos Santos", "nicholas.roque@skillshare.com", "nicholas1234");
+			Gestor nicholasGestor = new Gestor("01234567899", "Nicholas dos Santos", "nicholas.roque@skillshare.com", "12345");
 			gRepository.save(nicholasGestor);
 		}
 
@@ -74,7 +74,7 @@ public class SkillShareApplication implements CommandLineRunner {
 //		cursoRepository.saveAll(cursos);
 		
 		if(tRepository.findAll().isEmpty()) {
-			Tutor tutor = new Tutor("22222222222", "Nícolas Rafael Pereira", "nicholas.pereira@skillshare.com", "nicolas123");
+			Tutor tutor = new Tutor("22222222222", "Nícolas Rafael Pereira", "nicholas.pereira@skillshare.com", "12345");
 			tRepository.save(tutor);
 			
 			Tutor nicholasTutor = new Tutor("92359235923","Nicholas Tutor dos Santos","nicholas.tutor@rgba.com.br","12345");
@@ -83,8 +83,8 @@ public class SkillShareApplication implements CommandLineRunner {
 		}
 		
 		if(alunoRepository.findAll().isEmpty()) {
-			Aluno rafael = new Aluno("2", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "2");
-			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "1234");
+			Aluno rafael = new Aluno("98765432100", "Rafael Furtado Rodrigues dos Santos", "rafael.furtado@rgba.com.br", "12345");
+			Aluno nicholasAluno = new Aluno("50553650807", "Nicholas Gabriel dos Santos Roque", "nicholas.aluno@rgba.com.br", "12345");
 			
 //			Turma turma1 = new Turma();
 //			turma1.setTutor(nicholasTutor);

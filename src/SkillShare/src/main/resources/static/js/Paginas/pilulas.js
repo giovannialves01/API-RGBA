@@ -4,7 +4,7 @@ window.onload = function carregarConteudo () {
         let listagemCursos = document.getElementById("listagem-cursos")
         let div = '<hr>'
         res.responseJson.map((c)=>{
-            let imgTeste = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIDxuhK6F7JWDcXlIDhW0CzDeMrtgMs49PKg&usqp=CAU"
+            let imgTeste = `data:${c["thumb"]["arquivo"]["tipoArquivo"]};base64,${c["thumb"]["arquivo"]["conteudo"]}`;
             let linha =`
             <div class="linha tab">
                 <input type="checkbox" id="${c.id}">
