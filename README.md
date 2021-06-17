@@ -10,8 +10,8 @@
                      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
                      <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
               </p>
-              <p align="center"><img src="https://img.shields.io/badge/status-em desenvolvimento-blue?style=for-the-badge&logo=appveyor"></p>
-              <p align="center"><img src="https://img.shields.io/badge/Sprint%20atual-Sprint 4-blue?style=for-the-badge&logo=appveyor"></p>
+              <p align="center"><img src="https://img.shields.io/badge/status-finalizado-blue?style=for-the-badge&logo=appveyor"></p>
+              <p align="center"><img src="https://img.shields.io/badge/Sprint%20atual-Projeto concluído-blue?style=for-the-badge&logo=appveyor"></p>
               <h2>O que é o SkillShare? :brain::computer:</h2>
               <p align="justify">Em uma realidade em que o ensino on-line tornou-se essencial para a manutenção do conhecimento, o SkillShare tem o intuito de proporcionar treinamentos on-line e gratuitos para funcionários aperfeiçoarem suas habilidades técnicas!</p>
               <p align="justify"><a href="https://g1.globo.com/economia/noticia/2020/10/30/desemprego-no-brasil-sobe-para-144percent-em-agosto-diz-ibge.ghtml">Atualmente 14,4% da população brasileira encontra-se desempregada</a>. Dessa forma todos nós precisamos de mais qualificação para alcançarmos nossos objetivos profissionais. Apesar de existirem muitas plataformas de ensino on-line, elas são pagas, removendo assim o direito à educação de todos.</p>
